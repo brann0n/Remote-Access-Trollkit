@@ -24,5 +24,10 @@ namespace Trollkit
 		{
 			InitializeComponent();
 		}
+
+		private void Rectangle_MouseDown(object sender, MouseButtonEventArgs e)
+		{
+			this.DragMove();
+		}
 	}
 }
