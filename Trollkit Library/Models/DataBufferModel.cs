@@ -12,7 +12,6 @@ namespace Trollkit_Library.Models
 		public int SeriesLength { get; set; }
 		public int LatestSeries { get; set; }
 
-
 		public Dictionary<int, byte[]> BufferedData { get; set; }
 
 		public DataBufferModel()
