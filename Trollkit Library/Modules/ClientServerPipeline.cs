@@ -8,7 +8,7 @@ using Trollkit_Library.Models;
 
 namespace Trollkit_Library.Modules
 {
-	public class ClientServerPipeline
+	public static class ClientServerPipeline
 	{
 		public static DataBufferModel BufferSerialize(TransferCommandObject ObjectToSerialize)
 		{
