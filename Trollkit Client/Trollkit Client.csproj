@@ -50,5 +50,11 @@
     <None Include="App.config" />
     <None Include="ClassDiagram1.cd" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Trollkit Library\Trollkit Library.csproj">
+      <Project>{D8A33FFD-15E7-48C0-8241-32452941D208}</Project>
+      <Name>Trollkit Library</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
