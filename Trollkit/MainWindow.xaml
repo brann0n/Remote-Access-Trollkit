@@ -50,5 +50,6 @@
         
         <Button Content="X" FontWeight="DemiBold" Foreground="White" FontStyle="Italic" Background="Transparent" BorderThickness="0" Canvas.Left="655" Canvas.Top="18" />
         <Button Content="-" FontWeight="Bold" Foreground="White"  FontSize="15" FontStyle="Italic" Background="Transparent" BorderThickness="0" Canvas.Left="636" Canvas.Top="15" Height="20" />
+        
     </Canvas>
 </Window>

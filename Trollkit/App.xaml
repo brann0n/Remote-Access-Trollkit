@@ -4,6 +4,8 @@
              xmlns:local="clr-namespace:Trollkit"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <Style TargetType = "{x:Type local:HeadMenuBtn}"
+            BasedOn = "{StaticResource {x:Type Button}}">
+        </Style>
     </Application.Resources>
 </Application>
