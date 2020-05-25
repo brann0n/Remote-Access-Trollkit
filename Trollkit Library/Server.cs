@@ -104,6 +104,7 @@ namespace Trollkit_Library
 
 				//TODO: send data to client for verification
 
+
 				serverSocket.BeginAccept(new AsyncCallback(HandleIncomingConnection), serverSocket);
 			}
 			catch (Exception e)
