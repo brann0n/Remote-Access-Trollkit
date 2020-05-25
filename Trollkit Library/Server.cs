@@ -162,7 +162,7 @@ namespace Trollkit_Library
 				}
 
 			}
-			catch (SocketException e)
+			catch (SocketException)
 			{
 				Socket clientSocket = (Socket)result.AsyncState;
 				Client client = GetClientBySocket(clientSocket);
