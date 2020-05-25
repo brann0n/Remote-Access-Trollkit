@@ -97,5 +97,11 @@
   <ItemGroup>
     <Folder Include="Images\" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Beeld-Apollo-Hoofd-Nieuw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Recourses\Images\Beeld-Apollo-Hoofd-Nieuw.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
