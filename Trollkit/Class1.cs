@@ -13,8 +13,6 @@ namespace Trollkit
 {
     public class HeadMenuBtn : Button
     {
-        Boolean isActive = false;
-
         static HeadMenuBtn()
         {
             DefaultStyleKeyProperty.OverrideMetadata(typeof(HeadMenuBtn), new
@@ -58,5 +56,23 @@ namespace Trollkit
             }
             Canvas.SetLeft(active, 75);
         }
+
+        
     }
+
+
+    public class CloseBtn : Button
+    {
+        static CloseBtn()
+        {
+            DefaultStyleKeyProperty.OverrideMetadata(typeof(CloseBtn), new
+            FrameworkPropertyMetadata(typeof(CloseBtn)));
+        }
+
+        protected override void OnClick()
+        {
+            System.Windows.Application.Current.Shutdown();
+        }
+    }
+
 }
