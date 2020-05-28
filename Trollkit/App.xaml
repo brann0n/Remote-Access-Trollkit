@@ -6,10 +6,19 @@
     <Application.Resources>
         <Style TargetType = "{x:Type local:HeadMenuBtn}"
             BasedOn = "{StaticResource {x:Type Button}}">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
             <Style.Triggers>
-                <Trigger Property="IsFocused" Value="False">
-                    <Setter Property="Background" Value="White"/>
-                    <Setter Property="Foreground" Value="Black"/>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="white"/>
                 </Trigger>
             </Style.Triggers>
         </Style>
