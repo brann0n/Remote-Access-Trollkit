@@ -60,5 +60,10 @@ namespace Trollkit
 		{
 			this.DragMove();
 		}
-	}
+
+        private void HeadMenuBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+    }
 }
