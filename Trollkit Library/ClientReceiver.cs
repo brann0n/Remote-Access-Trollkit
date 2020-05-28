@@ -33,7 +33,15 @@ namespace Trollkit_Library
 			{
 				//receive data from server.
 				byte[] array = new byte[2048];
-				remoteSocket.Receive(array);
+				try
+				{
+					remoteSocket.Receive(array);
+				}
+				catch
+				{
+					Console.WriteLine("Crashed");
+					break;
+				}
 				int length = array[1];
 				int series = array[2];
 				byte[] guidBytes = Extensions.SubArray(array, 3, 16);
