@@ -13,8 +13,6 @@ namespace Trollkit
 {
     public class HeadMenuBtn : Button
     {
-        Boolean isActive = false;
-
         static HeadMenuBtn()
         {
             DefaultStyleKeyProperty.OverrideMetadata(typeof(HeadMenuBtn), new
@@ -23,21 +21,20 @@ namespace Trollkit
 
         protected override void OnClick()
         {
-            Console.WriteLine("moi");
-            HeadMenu Main = (HeadMenu)Parent;
-            Main.setIsActiveToFalse();
+            HeadMenu parent = (HeadMenu)Parent;
+            parent.setActive(this);
         }
 
         protected override void OnMouseEnter(MouseEventArgs e)
         {
             base.OnMouseEnter(e);
-            Canvas.SetLeft(this, 75);
+            //Canvas.SetLeft(this, 75);
         }
 
         protected override void OnMouseLeave(MouseEventArgs e)
         {
             base.OnMouseLeave(e);
-            Canvas.SetLeft(this, 30);
+            //Canvas.SetLeft(this, 30);
         }
     }
 
@@ -49,12 +46,33 @@ namespace Trollkit
             FrameworkPropertyMetadata(typeof(HeadMenu)));
         }
 
-        public void setIsActiveToFalse()
+        public void setActive(HeadMenuBtn active)
         {
-            HeadMenuBtn List = List<HeadMenuBtn>;
+            UIElementCollection menuChildren = Children;
+
+            foreach( UIElement child in menuChildren)
+            {
+                Canvas.SetLeft(child, 30);
+            }
+            Canvas.SetLeft(active, 75);
         }
 
-
-
+        
     }
+
+
+    public class CloseBtn : Button
+    {
+        static CloseBtn()
+        {
+            DefaultStyleKeyProperty.OverrideMetadata(typeof(CloseBtn), new
+            FrameworkPropertyMetadata(typeof(CloseBtn)));
+        }
+
+        protected override void OnClick()
+        {
+            System.Windows.Application.Current.Shutdown();
+        }
+    }
+
 }
