@@ -22,5 +22,8 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
+        <Style TargetType = "{x:Type local:CloseBtn}"
+              BasedOn = "{StaticResource {x:Type Button}}">
+        </Style>
     </Application.Resources>
 </Application>

@@ -56,8 +56,6 @@ namespace Trollkit
             }
             Canvas.SetLeft(active, 75);
         }
-
-        
     }
 
 
