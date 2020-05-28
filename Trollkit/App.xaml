@@ -6,6 +6,12 @@
     <Application.Resources>
         <Style TargetType = "{x:Type local:HeadMenuBtn}"
             BasedOn = "{StaticResource {x:Type Button}}">
+            <Style.Triggers>
+                <Trigger Property="IsFocused" Value="False">
+                    <Setter Property="Background" Value="White"/>
+                    <Setter Property="Foreground" Value="Black"/>
+                </Trigger>
+            </Style.Triggers>
         </Style>
     </Application.Resources>
 </Application>
