@@ -6,24 +6,25 @@
     <Application.Resources>
         <Style TargetType = "{x:Type local:HeadMenuBtn}"
             BasedOn = "{StaticResource {x:Type Button}}">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type Button}">
-                        <Border BorderThickness="{TemplateBinding BorderThickness}">
-                            <ContentPresenter VerticalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="BorderBrush" Value="Black"/>
-                    <Setter Property="BorderThickness" Value="1"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Background="{TemplateBinding Background}" BorderBrush="Gray" BorderThickness="1">
+                                    <ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
                 </Trigger>
             </Style.Triggers>
         </Style>
         <Style TargetType = "{x:Type local:CloseBtn}"
-              BasedOn = "{StaticResource {x:Type Button}}">
+            BasedOn = "{StaticResource {x:Type Button}}">
+        </Style>
+        <Style TargetType = "{x:Type local:MinimizeBtn}"
+            BasedOn = "{StaticResource {x:Type Button}}">
         </Style>
     </Application.Resources>
 </Application>

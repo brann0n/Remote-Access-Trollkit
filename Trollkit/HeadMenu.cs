@@ -73,4 +73,23 @@ namespace Trollkit
         }
     }
 
+    public class MinimizeBtn : Button
+    {
+        static MinimizeBtn()
+        {
+            DefaultStyleKeyProperty.OverrideMetadata(typeof(MinimizeBtn), new
+            FrameworkPropertyMetadata(typeof(MinimizeBtn)));
+        }
+
+        protected override void OnClick()
+        {
+            WindowCollection windows = Application.Current.Windows;
+            
+            foreach(Window window in windows)
+            {
+                window.WindowState = WindowState.Minimized;
+            }
+        }
+    }
+
 }
