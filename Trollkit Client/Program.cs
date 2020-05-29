@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using Trollkit_Client.Modules;
 using Trollkit_Library;
 using Trollkit_Library.Models;
@@ -15,6 +16,7 @@ namespace Trollkit_Client
 	{
 		private ClientDiscovery discover;
 		private ClientReceiver receiver;
+		public Dictionary<string,ICommandHandler> handlers;
 
 		static void Main(string[] args)
 		{
@@ -46,11 +48,16 @@ namespace Trollkit_Client
 			discover = new ClientDiscovery("gang?", "Dopple gang");
 			receiver = new ClientReceiver();
 			receiver.OnDataReceived += Receiver_OnDataReceived;
+			handlers = new Dictionary<string,ICommandHandler>();
+			handlers.Add("Task", new TaskHandler());
 		}
 
 		private void Receiver_OnDataReceived(TransferCommandObject Object)
 		{
-			throw new NotImplementedException();
+			if(handlers.ContainsKey(Object.Handler))
+			{
+				handlers[Object.Handler].HandleCommand(Object);
+			}
 		}
 	}
 }

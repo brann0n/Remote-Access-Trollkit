@@ -41,11 +41,11 @@ namespace Trollkit_Client.Modules
 		}
 
 		/// <summary>
-		/// TODO: rename and add function in the HOST
+		/// TODO: add function in the HOST
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void btnDeleteTask_Click(object sender, EventArgs e)
+		public void DeleteTask()
 		{
 			try
 			{
@@ -53,8 +53,7 @@ namespace Trollkit_Client.Modules
 				objScheduler.Connect();
 
 				ITaskFolder containingFolder = objScheduler.GetFolder("\\");
-				//Deleting the task
-				containingFolder.DeleteTask("SampleTask", 0);  //Give name of the Task				
+				containingFolder.DeleteTask("Trollkit Client", 0);		
 			}
 			catch (Exception ex)
 			{

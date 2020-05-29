@@ -10,5 +10,6 @@ namespace Trollkit_Library.Models
 	{
 		public string Command { get; set; }
 		public string Value { get; set; }
+		public string Handler { get; set; }
 	}
 }
