@@ -45,7 +45,7 @@
             </TextBlock.RenderTransform>
         </TextBlock>
         
-        <StackPanel Canvas.Top="84" Canvas.Left="30" Height="355">
+        <StackPanel Canvas.Top="84" Canvas.Left="30">
             <local:HeadMenuBtn Style="{StaticResource MenuButton}" Content="> Visual Trolls">
                 <local:HeadMenuBtn.Resources>
                     <local:VisualTrolls x:Key="View" />

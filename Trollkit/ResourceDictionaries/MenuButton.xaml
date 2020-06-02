@@ -34,6 +34,7 @@
         </Setter>
     </Style>
 
+
     <Style TargetType = "{x:Type local:CloseBtn}" x:Key="CloseBtn"
             BasedOn = "{StaticResource {x:Type Button}}">
     </Style>
