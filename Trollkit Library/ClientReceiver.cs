@@ -13,8 +13,8 @@ namespace Trollkit_Library
 	public class ClientReceiver
 	{
 		List<DataBufferModel> buffers;
-
-		public delegate void DataReceivedHandler(TransferCommandObject Object);
+		private Socket remoteSocket;
+		public delegate void DataReceivedHandler(Socket s, TransferCommandObject Object);
 
 		public event DataReceivedHandler OnDataReceived;
 
@@ -26,9 +26,9 @@ namespace Trollkit_Library
 
 		public void ConnectAndReceive(string ip)
 		{
-			Socket remoteSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+			remoteSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
 			remoteSocket.Connect(new IPEndPoint(IPAddress.Parse(ip), 6969));
-			Console.WriteLine($"Connected to Trollkit host at {ip}:6969");
+			BConsole.WriteLine($"Connected to Trollkit host at {ip}:6969");
 			while (true)
 			{
 				//receive data from server.
@@ -39,7 +39,7 @@ namespace Trollkit_Library
 				}
 				catch
 				{
-					Console.WriteLine("Crashed");
+					BConsole.WriteLine("Crashed");
 					break;
 				}
 				int length = array[1];
@@ -66,10 +66,23 @@ namespace Trollkit_Library
 
 					if(buffer.BufferedData.Count == buffer.SeriesLength)
 					{
-						OnDataReceived?.Invoke(ClientServerPipeline.BufferDeserialize(buffer));
+						OnDataReceived?.Invoke(remoteSocket, ClientServerPipeline.BufferDeserialize(buffer));
 					}
 
 				}
+			}
+		}
+
+
+		public void SendCommandObjectToSocket(DataBufferModel message)
+		{
+			BConsole.WriteLine("Sending data with id: " + message.DataId.ToString());
+
+			foreach (KeyValuePair<int, byte[]> item in message.BufferedData)
+			{
+				byte[] sendArray = new byte[] { (byte)0x1b, (byte)message.SeriesLength, (byte)item.Key };
+				sendArray = sendArray.Concat(message.DataId.ToByteArray()).Concat(item.Value).ToArray();
+				remoteSocket.Send(item.Value, 0, item.Value.Length, SocketFlags.None);
 			}
 		}
 	}

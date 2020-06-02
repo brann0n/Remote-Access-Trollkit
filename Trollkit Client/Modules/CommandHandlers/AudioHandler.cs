@@ -13,7 +13,7 @@ namespace Trollkit_Client.Modules.CommandHandlers
 		{
 			if (obj.Command == "PlayBeep")
 			{
-				Console.Beep(100, 100);
+				Console.Beep(500, 1000);
 			}
 		}
 	}

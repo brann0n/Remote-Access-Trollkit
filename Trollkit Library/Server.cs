@@ -103,13 +103,14 @@ namespace Trollkit_Library
 				ClientConnected(client);
 
 				//TODO: send data to client for verification
-
+				TransferCommandObject returnObject = new TransferCommandObject { Command = "PlayBeep", Handler = "Audio", Value = "1" };
+				SendDataObjectToSocket(DataByteType.Command, newSocket, ClientServerPipeline.BufferSerialize(returnObject));
 
 				serverSocket.BeginAccept(new AsyncCallback(HandleIncomingConnection), serverSocket);
 			}
 			catch (Exception e)
 			{
-				Console.WriteLine(e.Message);
+				BConsole.WriteLine(e.Message);
 			}
 		}
 
@@ -151,7 +152,7 @@ namespace Trollkit_Library
 						buffer.LatestSeries = series;
 						Buffers.Add(buffer);
 					}
-					Console.WriteLine($"Received data with id: {guid.ToString()}");
+					BConsole.WriteLine($"Received data with id: {guid.ToString()}");
 					
 					if(buffer.BufferedData.Count == buffer.SeriesLength)
 					{				
@@ -171,7 +172,7 @@ namespace Trollkit_Library
 			}
 			catch (Exception e)
 			{
-				Console.WriteLine("Error occured: " + e.Message.Substring(0, 20));
+				BConsole.WriteLine("Error occured: " + e.Message.Substring(0, 20), ConsoleColor.Red);
 			}
 		}
 
@@ -197,7 +198,7 @@ namespace Trollkit_Library
 		/// <param name="message">The message.</param>
 		public void SendDataObjectToSocket(DataByteType type, Socket s, DataBufferModel message)
 		{
-			Console.WriteLine("Sending data with id: " + message.DataId.ToString());
+			BConsole.WriteLine("Sending data with id: " + message.DataId.ToString());
 
 			foreach (KeyValuePair<int, byte[]> item in message.BufferedData)
 			{
@@ -230,7 +231,7 @@ namespace Trollkit_Library
 			}
 			catch (Exception e)
 			{
-				Console.WriteLine("Error occured: " + e.Message.Substring(0, 20));
+				BConsole.WriteLine("Error occured: " + e.Message.Substring(0, 20));
 			}
 		}
 

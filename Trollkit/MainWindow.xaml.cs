@@ -14,6 +14,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Trollkit_Library;
+using Trollkit_Library.Models;
+using Trollkit_Library.Modules;
 
 namespace Trollkit
 {
@@ -36,9 +38,16 @@ namespace Trollkit
 			Task.Run(() => new ServerDiscovery("gang?", "Dopple gang").Discover());
 		}
 
-		private void Server_MessageReceived(Client c, Trollkit_Library.Models.TransferCommandObject model, Server.DataByteType type)
+		private void Server_MessageReceived(Client c, TransferCommandObject model, Server.DataByteType type)
 		{
-			throw new NotImplementedException();
+			BConsole.WriteLine($"Client {c.GetName()} sent a message", ConsoleColor.DarkGray);
+
+			if(model.Command == "Debug")
+			{
+				TransferCommandObject returnObject = new TransferCommandObject { Command = "PlayBeep", Handler = "Audio", Value = "1" };
+
+				server.SendDataObjectToSocket(Server.DataByteType.Command, server.GetSocketByClient(c), ClientServerPipeline.BufferSerialize(returnObject));
+			}
 		}
 
 		private void Server_ConnectionBlocked(IPEndPoint endPoint)
@@ -48,12 +57,13 @@ namespace Trollkit
 
 		private void Server_ClientDisconnected(Client c)
 		{
-			throw new NotImplementedException();
+			BConsole.WriteLine($"Client {c.GetName()} has disconnected!", ConsoleColor.Yellow);
 		}
 
 		private void Server_ClientConnected(Client c)
 		{
-			throw new NotImplementedException();
+			BConsole.WriteLine($"Client {c.GetName()} has connected!", ConsoleColor.Yellow);
+			//throw new NotImplementedException();
 		}
 
         private void Drag(object sender, MouseButtonEventArgs e)

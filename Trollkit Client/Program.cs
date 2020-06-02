@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net.Sockets;
+using System.Threading.Tasks;
 using Trollkit_Client.Modules;
 using Trollkit_Client.Modules.CommandHandlers;
 using Trollkit_Library;
 using Trollkit_Library.Models;
+using Trollkit_Library.Modules;
 
 namespace Trollkit_Client
 {
@@ -23,7 +26,16 @@ namespace Trollkit_Client
 					var program = new Program();
 					var addresses = program.discover.GetIpAddresses();
 					string ip = program.discover.GetRemoteServerIp(addresses);
-					program.receiver.ConnectAndReceive(ip);
+
+					Task.Run(() => {
+						program.receiver.ConnectAndReceive(ip);
+					});
+
+					Console.ReadLine();
+					TransferCommandObject returnObject = new TransferCommandObject
+					{ Command = "Debug" };
+					program.receiver.SendCommandObjectToSocket(ClientServerPipeline.BufferSerialize(returnObject));
+
 					Console.Read();
 					return;
 				}
@@ -45,10 +57,10 @@ namespace Trollkit_Client
 			receiver.OnDataReceived += Receiver_OnDataReceived;
 			handlers = new Dictionary<string,ICommandHandler>();
 			handlers.Add("Task", new TaskHandler());
-			handlers.Add("Audio", new AudioHandler());
+			handlers.Add("Audio", new AudioHandler());			
 		}
 
-		private void Receiver_OnDataReceived(TransferCommandObject Object)
+		private void Receiver_OnDataReceived(Socket s, TransferCommandObject Object)
 		{
 			if(handlers.ContainsKey(Object.Handler))
 			{

@@ -56,7 +56,7 @@ namespace Trollkit_Library
 				//loop through each unicast address and send a request to them
 				foreach (UnicastIPAddressInformation info in addresses)
 				{
-					Console.WriteLine($"Found Unicast address: {info.Address}");
+					BConsole.WriteLine($"Found Unicast address: {info.Address}");
 					if (info.Address.AddressFamily == AddressFamily.InterNetwork)
 					{
 						IPEndPoint local = new IPEndPoint(info.Address, 0);
@@ -75,20 +75,20 @@ namespace Trollkit_Library
 					//throws an exception after 5 seconds if no response is received.
 					ServerResponseData = Client.Receive(ref ServerEp);
 					response = Encoding.ASCII.GetString(ServerResponseData);
-					Console.WriteLine($"Received {response} from {ServerEp.Address.ToString()}");
+					BConsole.WriteLine($"Received {response} from {ServerEp.Address.ToString()}");
 					ip = ServerEp.Address.ToString();
 				}
 				catch (SocketException e)
 				{
 					if (e.SocketErrorCode == SocketError.TimedOut)
 					{
-						Console.WriteLine("Awaiting broadcast response timed out...");
+						BConsole.WriteLine("Awaiting broadcast response timed out...");
 					}
 					else if (e.SocketErrorCode == SocketError.AddressAlreadyInUse)
 					{
 						//this error happens when the local port is in use, this either means the server is using it, or another program.
 						//attempt to connect to localhost anyway.
-						Console.WriteLine("Address was already in use, attempting to connect to localhost");
+						BConsole.WriteLine("Address was already in use, attempting to connect to localhost");
 						response = ExpectedReturnMessage;
 						ip = "127.0.0.1";
 					}
