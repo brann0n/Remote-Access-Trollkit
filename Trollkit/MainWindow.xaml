@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:Trollkit"
         mc:Ignorable="d"
         MouseDown="Drag" 
-        Title="MainWindow" Height="550" Width="800" WindowStyle="None" Background="Transparent" AllowsTransparency="True">
-    <Canvas Margin="10,0,0,0">
+        Title="MainWindow" Height="563" Width="906" WindowStyle="None" Background="Transparent" AllowsTransparency="True">
+    <Canvas Margin="10,0,0,10">
         <Rectangle HorizontalAlignment="Left" Height="350" VerticalAlignment="Top" Width="607" Canvas.Left="52" Canvas.Top="52">
             <Rectangle.Fill>
                 <LinearGradientBrush StartPoint="1,0" EndPoint="1,1">
@@ -44,14 +44,14 @@
                 </TransformGroup>
             </TextBlock.RenderTransform>
         </TextBlock>
-        
+
         <StackPanel Canvas.Top="84" Canvas.Left="30">
             <local:HeadMenuBtn Style="{StaticResource MenuButton}" Content="> Visual Trolls">
                 <local:HeadMenuBtn.Resources>
                     <local:VisualTrolls x:Key="View" />
                 </local:HeadMenuBtn.Resources>
             </local:HeadMenuBtn>
-            
+
             <local:HeadMenuBtn Style="{StaticResource MenuButton}" Content="> Audio Trolls">
                 <local:HeadMenuBtn.Resources>
                     <local:AudioTrolls x:Key="View" />
@@ -63,7 +63,7 @@
                     <local:WindowsTrolls2 x:Key="View" />
                 </local:HeadMenuBtn.Resources>
             </local:HeadMenuBtn>
-            
+
             <local:HeadMenuBtn Style="{StaticResource MenuButton}" Content="> System Info">
                 <local:HeadMenuBtn.Resources>
                     <local:SystemInfo x:Key="View" />
@@ -82,8 +82,8 @@
 
         <local:CloseBtn Style="{StaticResource CloseBtn}" Content="X" FontWeight="DemiBold" Foreground="White" FontStyle="Italic" Background="Transparent" BorderThickness="0" Canvas.Left="655" Canvas.Top="18" />
         <local:MinimizeBtn Style="{StaticResource MinimizeBtn}" Content="-" FontWeight="Bold" Foreground="White"  FontSize="15" FontStyle="Italic" Background="Transparent" BorderThickness="0" Canvas.Left="636" Canvas.Top="15" Height="20" />
-        
 
-        <ContentControl x:Name="trollView" Canvas.Left="226" Canvas.Top="97" Height="355" Width="503"/>
+
+        <ContentControl x:Name="trollView" Canvas.Left="195" Canvas.Top="105" Height="410" Width="639"/>
     </Canvas>
 </Window>

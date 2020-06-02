@@ -145,5 +145,11 @@
       <Name>Trollkit Library</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Recourses\Images\System_Info_PC.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Recourses\Images\System_Info_background.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
