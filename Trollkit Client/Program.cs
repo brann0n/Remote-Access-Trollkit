@@ -1,12 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
 using Trollkit_Client.Modules;
+using Trollkit_Client.Modules.CommandHandlers;
 using Trollkit_Library;
 using Trollkit_Library.Models;
 
