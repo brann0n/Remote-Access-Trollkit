@@ -56,10 +56,10 @@ namespace Trollkit
 			throw new NotImplementedException();
 		}
 
-		private void Rectangle_MouseDown(object sender, MouseButtonEventArgs e)
-		{
-			this.DragMove();
-		}
+        private void Drag(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }
 
         private void HeadMenuBtn_Click(object sender, RoutedEventArgs e)
         {
