@@ -23,6 +23,9 @@ namespace Trollkit
         {
             HeadMenu parent = (HeadMenu)Parent;
             parent.setActive(this);
+
+            ContentControl trollView = (ContentControl)this.FindName("trollView");  
+            trollView.Content = new UserControl1();
         }
 
         protected override void OnMouseEnter(MouseEventArgs e)
