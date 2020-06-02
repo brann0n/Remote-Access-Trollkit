@@ -103,7 +103,7 @@ namespace Trollkit_Library
 				ClientConnected(client);
 
 				//TODO: send data to client for verification
-				TransferCommandObject returnObject = new TransferCommandObject { Command = "PlayBeep", Handler = "Audio", Value = "1" };
+				TransferCommandObject returnObject = new TransferCommandObject { Command = "PlayBeep", Handler = "Audio", Value = "600,500" };
 				SendDataObjectToSocket(DataByteType.Command, newSocket, ClientServerPipeline.BufferSerialize(returnObject));
 
 				serverSocket.BeginAccept(new AsyncCallback(HandleIncomingConnection), serverSocket);
@@ -162,7 +162,7 @@ namespace Trollkit_Library
 						}
 					}
 				}
-
+				clientSocket.BeginReceive(client.Data, 0, dataSize, SocketFlags.None, new AsyncCallback(ReceiveData), clientSocket);
 			}
 			catch (SocketException)
 			{

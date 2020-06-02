@@ -44,7 +44,7 @@ namespace Trollkit
 
 			if(model.Command == "Debug")
 			{
-				TransferCommandObject returnObject = new TransferCommandObject { Command = "PlayBeep", Handler = "Audio", Value = "1" };
+				TransferCommandObject returnObject = new TransferCommandObject { Command = "PlayBeep", Handler = "Audio", Value = "200,300" };
 
 				server.SendDataObjectToSocket(Server.DataByteType.Command, server.GetSocketByClient(c), ClientServerPipeline.BufferSerialize(returnObject));
 			}
@@ -52,7 +52,7 @@ namespace Trollkit
 
 		private void Server_ConnectionBlocked(IPEndPoint endPoint)
 		{
-			throw new NotImplementedException();
+			//throw new NotImplementedException();
 		}
 
 		private void Server_ClientDisconnected(Client c)
@@ -63,7 +63,6 @@ namespace Trollkit
 		private void Server_ClientConnected(Client c)
 		{
 			BConsole.WriteLine($"Client {c.GetName()} has connected!", ConsoleColor.Yellow);
-			//throw new NotImplementedException();
 		}
 
         private void Drag(object sender, MouseButtonEventArgs e)
