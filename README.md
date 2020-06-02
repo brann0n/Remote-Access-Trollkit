@@ -21,14 +21,14 @@ private void Receiver_OnDataReceived(TransferCommandObject Object)
 ### Pipeline handler Commands
 
 #### TaskHandler (client)
-Command | Description
-------- | -----------
-DeleteTask | Removes the task from the local task scheduler in Windows.
+Command | Value | Description
+------- | ----- | -----------
+DeleteTask | (none) | Removes the task from the local task scheduler in Windows.
 
 #### AudioHandler (client)
-Command | Description
-------- | -----------
-PlayBeep | Makes a beep on the client
+Command | Value | Description
+------- | ----- | -----------
+PlayBeep | "frequency,duration" | Makes a beep on the client, the values decide how the beep sounds
 
 ### Data headers
 guidelines for the received data:
