@@ -4,31 +4,6 @@
              xmlns:local="clr-namespace:Trollkit"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-<<<<<<< Updated upstream
-        <Style x:Key="HeadMenuBtnStyle" TargetType = "{x:Type local:HeadMenuBtn}" BasedOn = "{StaticResource {x:Type Button}}">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type local:HeadMenuBtn}">
-                        <Border Background="White" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
-                            <ContentPresenter/>
-                        </Border>
-                        <ControlTemplate.Triggers>
-                            <Trigger  Property="IsMouseOver" Value="True">
-                                <Setter Property="Foreground" Value="red"/>
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-        <Style TargetType = "{x:Type local:CloseBtn}"
-            BasedOn = "{StaticResource {x:Type Button}}">
-        </Style>
-        <Style TargetType = "{x:Type local:MinimizeBtn}"
-            BasedOn = "{StaticResource {x:Type Button}}">
-        </Style>
-=======
         <ResourceDictionary Source="ResourceDictionaries\MenuButton.xaml"/>
->>>>>>> Stashed changes
     </Application.Resources>
 </Application>

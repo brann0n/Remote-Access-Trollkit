@@ -22,7 +22,7 @@ namespace Trollkit
     {
         public WindowsTrolls()
         {
-            InitializeComponent();
+            //InitializeComponent();
         }
     }
 }

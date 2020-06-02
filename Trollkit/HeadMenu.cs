@@ -25,7 +25,7 @@ namespace Trollkit
             parent.setActive(this);
 
             ContentControl trollView = (ContentControl)this.FindName("trollView");  
-            trollView.Content = new UserControl1();
+            trollView.Content = new WindowsTrolls();
         }
 
         protected override void OnMouseEnter(MouseEventArgs e)
