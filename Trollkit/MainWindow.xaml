@@ -16,6 +16,14 @@
                 </LinearGradientBrush>
             </Rectangle.Fill>
         </Rectangle>
+        <Polygon Points="0, 0, 20, 60, 120, 0" Opacity="0.8" Canvas.Left="609" Canvas.Top="10">
+            <Polygon.Fill>
+                <LinearGradientBrush StartPoint="0,1" EndPoint="1,1">
+                    <GradientStop Color="#FC6DFF" Offset="0" />
+                    <GradientStop Color="#49D4BB" Offset="1" />
+                </LinearGradientBrush>
+            </Polygon.Fill>
+        </Polygon>
         <Image Source="Recourses\Images\Beeld-Apollo-Hoofd-Nieuw.png" Canvas.Top="222" Width="212" Height="242" RenderTransformOrigin="0.5,0.5">
             <Image.RenderTransform>
                 <TransformGroup>
@@ -54,7 +62,7 @@
 
         <local:CloseBtn Content="X" FontWeight="DemiBold" Foreground="White" FontStyle="Italic" Background="Transparent" BorderThickness="0" Canvas.Left="655" Canvas.Top="18" />
         <local:MinimizeBtn Content="-" FontWeight="Bold" Foreground="White"  FontSize="15" FontStyle="Italic" Background="Transparent" BorderThickness="0" Canvas.Left="636" Canvas.Top="15" Height="20" />
-
+        
 
         <ContentControl x:Name="trollView" Canvas.Left="226" Canvas.Top="97" Height="355" Width="503"/>
     </Canvas>

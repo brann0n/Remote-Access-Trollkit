@@ -1,0 +1,38 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Trollkit">
+
+    <Style TargetType = "{x:Type local:HeadMenuBtn}" x:Key="MenuButton" >
+        <Setter Property="FontSize" Value="15"/>
+        <Setter Property="Canvas.Left" Value="30"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:HeadMenuBtn}">
+                    <Border x:Name="MyBackgroundElement" BorderBrush="Gray" BorderThickness="1" Padding="4,0,2,2" Width="125" Height="28" HorizontalAlignment="Left">
+                        <Border.Background>
+                            <SolidColorBrush Color="white" />
+                        </Border.Background>
+                        <ContentPresenter x:Name="ButtonContentPresenter" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="MyBackgroundElement" Property="Background">
+                                <Setter.Value>
+                                    <SolidColorBrush Color="#FFE6E6E6" />
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Property="Cursor" Value="Hand" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType = "{x:Type local:CloseBtn}" x:Key="CloseBtn"
+            BasedOn = "{StaticResource {x:Type Button}}">
+    </Style>
+    <Style TargetType = "{x:Type local:MinimizeBtn}" x:Key="MinimizeBtn"
+            BasedOn = "{StaticResource {x:Type Button}}">
+    </Style>
+</ResourceDictionary>
