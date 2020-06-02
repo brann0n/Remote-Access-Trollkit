@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Trollkit_Library.Models;
 
-namespace Trollkit_Client.Modules
+namespace Trollkit_Client.Modules.CommandHandlers
 {
     public class TaskHandler : ICommandHandler
     {

