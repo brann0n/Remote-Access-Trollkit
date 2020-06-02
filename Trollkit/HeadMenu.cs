@@ -25,20 +25,12 @@ namespace Trollkit
             parent.setActive(this);
 
             ContentControl trollView = (ContentControl)this.FindName("trollView");  
-            trollView.Content = new WindowsTrolls();
+            trollView.Content = this.Resources["View"];
+
+            //Object res1 = this.Resources["view"];
         }
 
-        protected override void OnMouseEnter(MouseEventArgs e)
-        {
-            base.OnMouseEnter(e);
-            //Canvas.SetLeft(this, 75);
-        }
-
-        protected override void OnMouseLeave(MouseEventArgs e)
-        {
-            base.OnMouseLeave(e);
-            //Canvas.SetLeft(this, 30);
-        }
+        //public MyParameterType MyParameter { get; set; }
     }
 
     public class HeadMenu : Canvas

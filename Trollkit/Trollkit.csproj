@@ -58,9 +58,22 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="WindowsTrolls.xaml.cs">
-      <DependentUpon>WindowsTrolls.xaml</DependentUpon>
+    <Compile Include="AudioTrolls.xaml.cs">
+      <DependentUpon>AudioTrolls.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SystemInfo.xaml.cs">
+      <DependentUpon>SystemInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VisualTrolls.xaml.cs">
+      <DependentUpon>VisualTrolls.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowsTrolls2.xaml.cs">
+      <DependentUpon>WindowsTrolls2.xaml</DependentUpon>
+    </Compile>
+    <Page Include="AudioTrolls.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -75,6 +88,18 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="ResourceDictionaries\MenuButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SystemInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VisualTrolls.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowsTrolls2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

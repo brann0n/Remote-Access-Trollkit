@@ -16,13 +16,13 @@ using System.Windows.Shapes;
 namespace Trollkit
 {
     /// <summary>
-    /// Interaction logic for WindowsTrolls.xaml
+    /// Interaction logic for VisualTrolls.xaml
     /// </summary>
-    public partial class WindowsTrolls : UserControl
+    public partial class VisualTrolls : UserControl
     {
-        public WindowsTrolls()
+        public VisualTrolls()
         {
-            //InitializeComponent();
+            InitializeComponent();
         }
     }
 }
