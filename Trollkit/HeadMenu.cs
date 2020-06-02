@@ -21,35 +21,8 @@ namespace Trollkit
 
         protected override void OnClick()
         {
-            HeadMenu parent = (HeadMenu)Parent;
-            parent.setActive(this);
-
             ContentControl trollView = (ContentControl)this.FindName("trollView");  
             trollView.Content = this.Resources["View"];
-
-            //Object res1 = this.Resources["view"];
-        }
-
-        //public MyParameterType MyParameter { get; set; }
-    }
-
-    public class HeadMenu : Canvas
-    {
-        static HeadMenu()
-        {
-            DefaultStyleKeyProperty.OverrideMetadata(typeof(HeadMenu), new
-            FrameworkPropertyMetadata(typeof(HeadMenu)));
-        }
-
-        public void setActive(HeadMenuBtn active)
-        {
-            UIElementCollection menuChildren = Children;
-
-            foreach( UIElement child in menuChildren)
-            {
-                Canvas.SetLeft(child, 30);
-            }
-            Canvas.SetLeft(active, 75);
         }
     }
 

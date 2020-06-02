@@ -44,31 +44,32 @@
                 </TransformGroup>
             </TextBlock.RenderTransform>
         </TextBlock>
-        <local:HeadMenu>
-            <local:HeadMenuBtn Style="{StaticResource MenuButton}" Content="> Visual Trolls" Canvas.Top="113">
+        
+        <StackPanel Canvas.Top="84" Canvas.Left="30" Height="355">
+            <local:HeadMenuBtn Style="{StaticResource MenuButton}" Content="> Visual Trolls">
                 <local:HeadMenuBtn.Resources>
                     <local:VisualTrolls x:Key="View" />
                 </local:HeadMenuBtn.Resources>
             </local:HeadMenuBtn>
             
-            <local:HeadMenuBtn Style="{StaticResource MenuButton}" Content="> Audio Trolls" Canvas.Top="80">
+            <local:HeadMenuBtn Style="{StaticResource MenuButton}" Content="> Audio Trolls">
                 <local:HeadMenuBtn.Resources>
                     <local:AudioTrolls x:Key="View" />
                 </local:HeadMenuBtn.Resources>
             </local:HeadMenuBtn>
 
-            <local:HeadMenuBtn Style="{StaticResource MenuButton}" Content="> Windows Trolls" Canvas.Top="146">
+            <local:HeadMenuBtn Style="{StaticResource MenuButton}" Content="> Windows Trolls">
                 <local:HeadMenuBtn.Resources>
                     <local:WindowsTrolls2 x:Key="View" />
                 </local:HeadMenuBtn.Resources>
             </local:HeadMenuBtn>
             
-            <local:HeadMenuBtn Style="{StaticResource MenuButton}" Content="> System Info" Canvas.Top="179">
+            <local:HeadMenuBtn Style="{StaticResource MenuButton}" Content="> System Info">
                 <local:HeadMenuBtn.Resources>
                     <local:SystemInfo x:Key="View" />
                 </local:HeadMenuBtn.Resources>
             </local:HeadMenuBtn>
-        </local:HeadMenu>
+        </StackPanel>
 
         <Polygon Points="0, 0, 20, 60, 120, 0" Opacity="0.8" Canvas.Left="609" Canvas.Top="10">
             <Polygon.Fill>
