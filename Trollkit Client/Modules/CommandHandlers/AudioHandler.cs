@@ -11,7 +11,10 @@ namespace Trollkit_Client.Modules.CommandHandlers
 	{
 		public void HandleCommand(TransferCommandObject obj)
 		{
-			throw new NotImplementedException();
+			if (obj.Command == "PlayBeep")
+			{
+				Console.Beep(100, 100);
+			}
 		}
 	}
 }
