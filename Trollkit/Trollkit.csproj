@@ -151,5 +151,14 @@
   <ItemGroup>
     <Resource Include="Recourses\Images\System_Info_background.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Recourses\Images\Visual_Trolls_background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Recourses\Images\Flowers.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Recourses\Images\Sirenhead.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

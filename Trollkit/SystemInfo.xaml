@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Trollkit"
-             mc:Ignorable="d" Height="391" Width="618">
+             mc:Ignorable="d" Height="361" Width="599">
     <Canvas Margin="10,0,99,71">
         <Rectangle HorizontalAlignment="Left" Height="310" VerticalAlignment="Top" Width="510" Canvas.Top="10">
             <Rectangle.Fill>

@@ -4,9 +4,20 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Trollkit"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800" Background="Aqua">
-    <StackPanel Orientation="Vertical">
-        <Label Content="Dit worden de prachtige visual trolls"/>
-    </StackPanel>
+             mc:Ignorable="d" Height="389.313" Width="633.969">
+    <Canvas Margin="10,0,29,10">
+        <Ellipse HorizontalAlignment="Left" Height="327" VerticalAlignment="Top" Width="330" Canvas.Left="98" Canvas.Top="10">
+            <Ellipse.Fill>
+                <ImageBrush ImageSource="Recourses\Images\Visual_Trolls_background.png"></ImageBrush>
+            </Ellipse.Fill>
+        </Ellipse>
+        <Image Source="Recourses\Images\Flowers.png" Canvas.Top="-51" Width="387" Height="362" RenderTransformOrigin="0.5,0.5" Canvas.Left="-16"/>
+        <Button Content="Display Image" Canvas.Left="211" Canvas.Top="121" Width="117" Height="28" IsCancel="True" FontWeight="Bold" FontFamily="IBM Plex Sans" Click="Button_Click"/>
+        <TextBox Height="59" Canvas.Left="211" TextWrapping="Wrap" Text="TextBox" Canvas.Top="154" Width="203"/>
+        <Button Content="Display Text" Canvas.Left="419" Canvas.Top="187" Width="107" Height="26" FontWeight="Bold"/>
+        <Button Content="Turn Off Screen" Canvas.Left="211" Canvas.Top="224" Width="133" Height="24" FontWeight="Bold"/>
+        <TextBox Height="22" Canvas.Left="211" TextWrapping="Wrap" Text="TextBox" Canvas.Top="258" Width="203"/>
+        <Button Content="Open Site" Canvas.Left="419" Canvas.Top="255" Width="100" Height="24" FontWeight="Bold"/>
+        <Button Content="Pick Backgroundimage" Canvas.Left="211" Canvas.Top="289" Width="177" Height="22" FontWeight="Bold"/>
+    </Canvas>
 </UserControl>
