@@ -7,7 +7,9 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Forms;
 using Trollkit_Library.Models;
+using Trollkit_Library.Modules;
 
 namespace Trollkit_Client.Modules.CommandHandlers
 {
@@ -28,6 +30,8 @@ namespace Trollkit_Client.Modules.CommandHandlers
 					break;
 				case "ShowImage":
 					ShowImage(obj.Value);
+					Keyboard keyboard = new Keyboard();
+					keyboard.Send(Keyboard.ScanCodeShort.LWIN);
 					break;
 				case "OpenSite":
 					OpenSite(obj.Value);
@@ -52,7 +56,7 @@ namespace Trollkit_Client.Modules.CommandHandlers
 
 		private void TextBox(string textToDisplay)
 		{
-			MessageBox.Show(textToDisplay);
+			System.Windows.Forms.MessageBox.Show(textToDisplay);
 		}
 
 		private void ShowImage(string base64Image)
@@ -85,7 +89,6 @@ namespace Trollkit_Client.Modules.CommandHandlers
 			{
 				File.Delete(tempFileName);
 			};
-
 		}
 
 		private void OpenSite(string url)
