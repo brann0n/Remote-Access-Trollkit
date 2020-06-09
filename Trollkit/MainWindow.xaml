@@ -8,22 +8,9 @@
         MouseDown="Drag" 
         Title="MainWindow" Height="563" Width="906" WindowStyle="None" Background="Transparent" AllowsTransparency="True">
     <Canvas Margin="10,0,0,10">
-        <Rectangle HorizontalAlignment="Left" Height="350" VerticalAlignment="Top" Width="607" Canvas.Left="52" Canvas.Top="52">
-            <Rectangle.Fill>
-                <LinearGradientBrush StartPoint="1,0" EndPoint="1,1">
-                    <GradientStop Color="#49D4BB" Offset="0.0" />
-                    <GradientStop Color="#FC6DFF" Offset="1" />
-                </LinearGradientBrush>
-            </Rectangle.Fill>
-        </Rectangle>
-        <Polygon Points="0, 0, 20, 60, 120, 0" Opacity="0.8" Canvas.Left="609" Canvas.Top="10">
-            <Polygon.Fill>
-                <LinearGradientBrush StartPoint="0,1" EndPoint="1,1">
-                    <GradientStop Color="#FC6DFF" Offset="0" />
-                    <GradientStop Color="#49D4BB" Offset="1" />
-                </LinearGradientBrush>
-            </Polygon.Fill>
-        </Polygon>
+        <Rectangle Style="{StaticResource TrollsBackground}" HorizontalAlignment="Left" Height="350" Width="607" Canvas.Left="52" Canvas.Top="52" />
+
+
         <Image Source="Recourses\Images\Beeld-Apollo-Hoofd-Nieuw.png" Canvas.Top="222" Width="212" Height="242" RenderTransformOrigin="0.5,0.5">
             <Image.RenderTransform>
                 <TransformGroup>
@@ -70,7 +57,7 @@
                 </local:HeadMenuBtn.Resources>
             </local:HeadMenuBtn>
         </StackPanel>
-
+<!--
         <Polygon Points="0, 0, 20, 60, 120, 0" Opacity="0.8" Canvas.Left="609" Canvas.Top="10">
             <Polygon.Fill>
                 <LinearGradientBrush StartPoint="0,1" EndPoint="1,1">
@@ -80,9 +67,18 @@
             </Polygon.Fill>
         </Polygon>
 
-        <local:CloseBtn Style="{StaticResource CloseBtn}" Content="X" FontWeight="DemiBold" Foreground="White" FontStyle="Italic" Background="Transparent" BorderThickness="0" Canvas.Left="655" Canvas.Top="18" />
-        <local:MinimizeBtn Style="{StaticResource MinimizeBtn}" Content="-" FontWeight="Bold" Foreground="White"  FontSize="15" FontStyle="Italic" Background="Transparent" BorderThickness="0" Canvas.Left="636" Canvas.Top="15" Height="20" />
+        <local:CloseBtn Style="{StaticResource NavButton}" Content="X" />
+        <local:MinimizeBtn Style="{StaticResource NavButton}" Content="-" Canvas.Left="636" Canvas.Top="15" />
+-->
 
+
+        <DataGridCell Style="{DynamicResource NewDataGridCellStyle}" Canvas.Left="600" Canvas.Top="10">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30,12,0,0">
+                <local:MinimizeBtn Style="{StaticResource NavButton}" Content="-" />
+                <local:CloseBtn Style="{StaticResource NavButton}" Content="X" />
+            </StackPanel>
+        </DataGridCell>
+        
 
         <ContentControl x:Name="trollView" Canvas.Left="195" Canvas.Top="105" Height="410" Width="639"/>
     </Canvas>
