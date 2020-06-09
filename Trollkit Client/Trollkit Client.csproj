@@ -58,7 +58,7 @@
     <Compile Include="Modules\CommandHandlers\AudioHandler.cs" />
     <Compile Include="Modules\ICommandHandler.cs" />
     <Compile Include="Modules\CommandHandlers\TaskHandler.cs" />
-    <Compile Include="Modules\TaskSchedulerHandler.cs" />
+    <Compile Include="Modules\TaskSchedulerHelper.cs" />
     <Compile Include="Modules\Virus.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
