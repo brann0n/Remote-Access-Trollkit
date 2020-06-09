@@ -140,13 +140,13 @@ namespace Trollkit_Library
 					DataBufferModel buffer = Buffers.FirstOrDefault(n => n.DataId == guid);
 					if(buffer != null)
 					{
-						buffer.BufferedData.Add(series, client.Data.SubArray(19, 2028));
+						buffer.BufferedData.Add(series, client.Data.SubArray(19, 2029));
 						buffer.LatestSeries = series;
 					}
 					else
 					{
 						buffer = new DataBufferModel();
-						buffer.BufferedData.Add(series, client.Data.SubArray(19, 2028));
+						buffer.BufferedData.Add(series, client.Data.SubArray(19, 2029));
 						buffer.DataId = guid;
 						buffer.SeriesLength = length;
 						buffer.LatestSeries = series;
