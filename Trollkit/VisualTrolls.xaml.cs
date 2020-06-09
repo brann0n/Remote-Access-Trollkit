@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -33,9 +36,19 @@ namespace Trollkit
 
 		private void BtnDisplayImage_Click(object sender, RoutedEventArgs e)
 		{
-			TransferCommandObject returnObject = new TransferCommandObject { Command = "ShowImage", Handler = handler, Value = "iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAH0lEQVR42mP8z8BQz0BFwDhq4KiBowaOGjhq4Eg1EAA5Ex3tabMqWgAAAABJRU5ErkJggg==" };
-			
-			parent.server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
+			OpenFileDialog open = new OpenFileDialog();
+			open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
+			open.Multiselect = false;
+			open.Title = "Pick an image to send to the client";
+			if(open.ShowDialog() == true)
+			{
+				byte[] bytes = File.ReadAllBytes(open.FileName);
+
+				string base64 = Convert.ToBase64String(bytes);
+				TransferCommandObject returnObject = new TransferCommandObject { Command = "ShowImage", Handler = handler, Value = base64 };
+
+				parent.server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
+			}		
 		}
 
 		private void BtnDisplayText_Click(object sender, RoutedEventArgs e)
