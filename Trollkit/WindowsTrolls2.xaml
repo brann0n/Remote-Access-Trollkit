@@ -20,7 +20,7 @@
                 <SolidColorBrush>#141318</SolidColorBrush>
             </Rectangle.Fill>
         </Rectangle>
-        <Image Source="Recourses\Images\triangles.png" Canvas.Top="23" Width="275" Height="252" RenderTransformOrigin="0.5,0.5" Canvas.Left="332">
+        <Image Source="Resources\Images\triangles.png" Canvas.Top="23" Width="275" Height="252" RenderTransformOrigin="0.5,0.5" Canvas.Left="332">
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -30,7 +30,7 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <Image Source="Recourses\Images\windows.png" Canvas.Top="27" Width="259" Height="236" RenderTransformOrigin="0.5,0.5" Canvas.Left="130">
+        <Image Source="Resources\Images\windows.png" Canvas.Top="27" Width="259" Height="236" RenderTransformOrigin="0.5,0.5" Canvas.Left="130">
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -40,7 +40,7 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <Image Source="Recourses\Images\japanese.png" Canvas.Top="67" Width="165" Height="137" RenderTransformOrigin="0.5,0.5" Canvas.Left="-10">
+        <Image Source="Resources\Images\japanese.png" Canvas.Top="67" Width="165" Height="137" RenderTransformOrigin="0.5,0.5" Canvas.Left="-10">
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -50,7 +50,7 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <Image Source="Recourses\Images\windowstrolls.png" Canvas.Top="-90" Width="367" Height="263" RenderTransformOrigin="0.5,0.5" Canvas.Left="1">
+        <Image Source="Resources\Images\windowstrolls.png" Canvas.Top="-90" Width="367" Height="263" RenderTransformOrigin="0.5,0.5" Canvas.Left="1">
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>

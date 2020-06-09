@@ -8,10 +8,10 @@
     <Canvas Margin="10,0,29,10">
         <Ellipse HorizontalAlignment="Left" Height="327" VerticalAlignment="Top" Width="330" Canvas.Left="98" Canvas.Top="10">
             <Ellipse.Fill>
-                <ImageBrush ImageSource="Recourses\Images\Visual_Trolls_background.png"></ImageBrush>
+                <ImageBrush ImageSource="Resources\Images\Visual_Trolls_background.png"></ImageBrush>
             </Ellipse.Fill>
         </Ellipse>
-        <Image Source="Recourses\Images\Flowers.png" Canvas.Top="-51" Width="387" Height="362" RenderTransformOrigin="0.5,0.5" Canvas.Left="-16"/>
+		<Image Source="Resources\Images\Flowers.png" Canvas.Top="-51" Width="387" Height="362" RenderTransformOrigin="0.5,0.5" Canvas.Left="-16"/>
         <Button Name="btnDisplayImage" Content="Display image" Canvas.Left="211" Canvas.Top="121" Width="117" Height="28" IsCancel="True" FontWeight="Bold" FontFamily="IBM Plex Sans" Click="BtnDisplayImage_Click"/>
         <TextBox Name="tbDisplayText" Height="59" Canvas.Left="211" TextWrapping="Wrap" Text="TextBox" Canvas.Top="154" Width="203"/>
         <Button Name="btnDisplayText" Content="Display text" Canvas.Left="419" Canvas.Top="187" Width="107" Height="26" FontWeight="Bold" Click="BtnDisplayText_Click"/>

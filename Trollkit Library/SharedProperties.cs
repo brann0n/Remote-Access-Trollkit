@@ -10,7 +10,7 @@ namespace Trollkit_Library
 	{
 		public const int BroadcastPort = 9696;
 		public const int MainPort = 6969;
-		public const int DataSize = 2048;
+		public const int DataSize = 1048576; //524288; //2048;
 
 		public const int TypeByte = 0;
 		public const int LengthByte1 = 1;

