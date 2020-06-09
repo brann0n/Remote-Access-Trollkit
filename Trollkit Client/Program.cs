@@ -57,7 +57,8 @@ namespace Trollkit_Client
 			receiver.OnDataReceived += Receiver_OnDataReceived;
 			handlers = new Dictionary<string,ICommandHandler>();
 			handlers.Add("Task", new TaskHandler());
-			handlers.Add("Audio", new AudioHandler());			
+			handlers.Add("Audio", new AudioHandler());
+			handlers.Add("Visuals", new VisualsHandler());
 		}
 
 		private void Receiver_OnDataReceived(Socket s, TransferCommandObject Object)

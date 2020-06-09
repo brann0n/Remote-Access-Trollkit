@@ -24,7 +24,7 @@ namespace Trollkit
 	/// </summary>
 	public partial class MainWindow : Window
 	{
-		private Server server;
+		public Server server;
 		public MainWindow()
 		{
 			InitializeComponent();
