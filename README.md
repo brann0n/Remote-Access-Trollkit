@@ -23,7 +23,7 @@ private void Receiver_OnDataReceived(TransferCommandObject Object)
 #### TaskHandler (client)
 Command | Value | Description
 ------- | ----- | -----------
-DeleteTask | (none) | Removes the task from the local task scheduler in Windows.
+DeleteTask | (none) | Removes the task replication task from the local taskscheduler in Windows.
 
 #### AudioHandler (client)
 Command | Value | Description
