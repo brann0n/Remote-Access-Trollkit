@@ -66,7 +66,14 @@ namespace Trollkit_Client
 		{
 			if(handlers.ContainsKey(Object.Handler))
 			{
-				handlers[Object.Handler].HandleCommand(Object);
+				if (handlers[Object.Handler].HandleCommand(Object))
+				{
+					BConsole.WriteLine($"Command '{Object.Command}' executed successfully", ConsoleColor.Green);
+				}
+				else
+				{
+					BConsole.WriteLine($"Command '{Object.Command}' could not be executed", ConsoleColor.Red);
+				}
 			}
 		}
 	}

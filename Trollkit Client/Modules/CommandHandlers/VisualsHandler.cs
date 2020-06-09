@@ -20,29 +20,31 @@ namespace Trollkit_Client.Modules.CommandHandlers
 		private const int SC_MONITORPOWER = 0xF170;
 		private const int WM_SYSCOMMAND = 0x0112;
 
-		public void HandleCommand(TransferCommandObject obj)
+		public bool HandleCommand(TransferCommandObject obj)
 		{
 			switch (obj.Command)
 			{
 				case "BlackScreen":
 					MonitorSleep();
-					break;
+					return true;
 				case "TextBox":
 					TextBox(obj.Value);
-					break;
+					return true;
 				case "ShowImage":
 					ShowImage(obj.Value);
 					Thread.Sleep(1000); //wait for the other program to display and get focus
 					Keyboard keyboard = new Keyboard();
 					keyboard.Send(Keyboard.ScanCodeShort.F11);
-					break;
+					return true;
 				case "OpenSite":
 					OpenSite(obj.Value);
-					break;
+					return true;
 				case "SetBackground":
 					SetWallpaper(obj.Value);
-					break;
+					return true;
 			}
+
+			return false;
 		}
 
 		private void MonitorSleep()

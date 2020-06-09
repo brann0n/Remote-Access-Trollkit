@@ -9,7 +9,7 @@ namespace Trollkit_Client.Modules.CommandHandlers
 {
 	public class AudioHandler : ICommandHandler
 	{
-		public void HandleCommand(TransferCommandObject obj)
+		public bool HandleCommand(TransferCommandObject obj)
 		{
 			if (obj.Command == "PlayBeep")
 			{
@@ -23,7 +23,11 @@ namespace Trollkit_Client.Modules.CommandHandlers
 				{
 					Console.Beep(500, 500);
 				}
+
+				return true;
 			}
+
+			return false;
 		}
 	}
 }

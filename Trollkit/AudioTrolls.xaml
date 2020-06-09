@@ -47,7 +47,7 @@
                 </TransformGroup>
             </TextBlock.RenderTransform>
         </TextBlock>
-        <Button Content="Button" Canvas.Left="52" Canvas.Top="240" Width="99" Height="33" RenderTransformOrigin="0.5,0.5">
+        <Button Name="btnBeep" Content="Beep" Canvas.Left="52" Canvas.Top="240" Width="99" Height="33" RenderTransformOrigin="0.5,0.5" Click="BtnBeep_Click">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>

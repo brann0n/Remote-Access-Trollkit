@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Trollkit_Library.Models;
+using Trollkit_Library.Modules;
 
 namespace Trollkit
 {
@@ -20,9 +22,18 @@ namespace Trollkit
     /// </summary>
     public partial class AudioTrolls : UserControl
     {
-        public AudioTrolls()
+		private MainWindow ParentFrame { get { return (MainWindow)Application.Current.MainWindow; } }
+		private const string Handler = "Audio";
+
+		public AudioTrolls()
         {
             InitializeComponent();
         }
-    }
+
+		private void BtnBeep_Click(object sender, RoutedEventArgs e)
+		{
+			TransferCommandObject returnObject = new TransferCommandObject { Command = "PlayBeep", Handler = Handler, Value = "800,800" };
+			ParentFrame.server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
+		}
+	}
 }
