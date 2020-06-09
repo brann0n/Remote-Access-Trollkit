@@ -4,6 +4,11 @@
              xmlns:local="clr-namespace:Trollkit"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <ResourceDictionary Source="ResourceDictionaries\MenuButton.xaml"/>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="ResourceDictionaries\MenuButton.xaml"/>
+                <ResourceDictionary Source="ResourceDictionaries\VisualTrolls.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

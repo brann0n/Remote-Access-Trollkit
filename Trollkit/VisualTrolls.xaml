@@ -11,13 +11,18 @@
                 <ImageBrush ImageSource="Recourses\Images\Visual_Trolls_background.png"></ImageBrush>
             </Ellipse.Fill>
         </Ellipse>
+        <local:VisualTrollsBtn Style="{StaticResource VisualTrolls}" Content="> Audio Trolls">
+            <local:VisualTrolls.Resources>
+                <local:AudioTrolls x:Key="View" />
+            </local:VisualTrolls.Resources>
+        </local:VisualTrollsBtn>
         <Image Source="Recourses\Images\Flowers.png" Canvas.Top="-51" Width="387" Height="362" RenderTransformOrigin="0.5,0.5" Canvas.Left="-16"/>
         <Button Content="Display Image" Canvas.Left="211" Canvas.Top="121" Width="117" Height="28" IsCancel="True" FontWeight="Bold" FontFamily="IBM Plex Sans" Click="Button_Click"/>
         <TextBox Height="59" Canvas.Left="211" TextWrapping="Wrap" Text="TextBox" Canvas.Top="154" Width="203"/>
-        <Button Content="Display Text" Canvas.Left="419" Canvas.Top="187" Width="107" Height="26" FontWeight="Bold"/>
+        <Button Content="Display Text" Canvas.Left="419" Canvas.Top="191" Width="100" Height="22" FontWeight="Bold"/>
         <Button Content="Turn Off Screen" Canvas.Left="211" Canvas.Top="224" Width="133" Height="24" FontWeight="Bold"/>
         <TextBox Height="22" Canvas.Left="211" TextWrapping="Wrap" Text="TextBox" Canvas.Top="258" Width="203"/>
-        <Button Content="Open Site" Canvas.Left="419" Canvas.Top="255" Width="100" Height="24" FontWeight="Bold"/>
+        <Button Content="Open Site" Canvas.Left="419" Canvas.Top="258" Width="100" Height="22" FontWeight="Bold"/>
         <Button Content="Pick Backgroundimage" Canvas.Left="211" Canvas.Top="289" Width="177" Height="22" FontWeight="Bold"/>
     </Canvas>
 </UserControl>
