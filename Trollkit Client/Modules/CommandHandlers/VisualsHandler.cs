@@ -59,7 +59,21 @@ namespace Trollkit_Client.Modules.CommandHandlers
 
 		private void TextBox(string textToDisplay)
 		{
-			System.Windows.Forms.MessageBox.Show(textToDisplay);
+			string title = textToDisplay.Split('|')[0];
+			string[] content = textToDisplay.Split(new[] { '|' }, 2);
+			
+			Array values = Enum.GetValues(typeof(MessageBoxIcon));
+			Random random = new Random();
+			MessageBoxIcon randomMessageBoxIcon = (MessageBoxIcon)values.GetValue(random.Next(values.Length));
+
+			if (content.Length == 1)
+			{
+				System.Windows.Forms.MessageBox.Show(title, "", MessageBoxButtons.OK, randomMessageBoxIcon);
+			} else
+			{
+				System.Windows.Forms.MessageBox.Show(content[1], title, MessageBoxButtons.OK, randomMessageBoxIcon);
+			}
+
 		}
 
 		private void ShowImage(string base64Image)
