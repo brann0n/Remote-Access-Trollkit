@@ -37,26 +37,26 @@
 
     <Style TargetType = "{x:Type Button}" x:Key="NavButton"
         BasedOn = "{StaticResource {x:Type Button}}">
-        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
         <Setter Property="Foreground" Value="White"/>
         <Setter Property="FontSize" Value="15"/>
         <Setter Property="FontStyle" Value="Italic"/>
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="Height" Value="20"/>
-        <Setter Property="Padding" Value="0,0,10,0"/>
+        <Setter Property="Padding" Value="5,0,10,0"/>
     </Style>
 
 
 
-    <Style x:Key="NewDataGridCellStyle" TargetType="{x:Type DataGridCell}">
+    <Style x:Key="NavMenu" TargetType="{x:Type DataGridCell}">
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type DataGridCell}">
-                    <Grid Height="70" Width="120">
+                    <Grid Height="70" Width="130">
                         <Path Data=" M 0, 0 L 20, 250 L 100, 0 z" HorizontalAlignment="Stretch" Height="Auto" Stretch="Fill" Width="Auto" Opacity="0.8">
                             <Path.Fill>
                                 <LinearGradientBrush StartPoint="0,1" EndPoint="1,1">
@@ -72,7 +72,12 @@
         </Setter>
     </Style>
 
-
+    <Style x:Key="NavMenuContent" TargetType="{x:Type StackPanel}">
+        <Setter Property="Orientation" Value="Horizontal"/>
+        <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="Margin" Value="30,12,0,0"/>
+    </Style>
+    
 
     <Style TargetType="{x:Type Rectangle}" x:Key="TrollsBackground">
         <Setter Property="Fill">
@@ -83,6 +88,43 @@
                 </LinearGradientBrush>
             </Setter.Value>
         </Setter>
+    </Style>
+
+
+    <Style TargetType="{x:Type Image}" x:Key="ImageReflectHorizontal">
+        <Setter Property="RenderTransform">
+            <Setter.Value>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+    </Style>
+
+    <Style TargetType="{x:Type TextBlock}" x:Key="HeadMenuText">
+        <Setter Property="RenderTransform">
+            <Setter.Value>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-17.223"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+        <Setter Property="Background" Value="#000000"/>
+        <Setter Property="Foreground" Value="#ffffff"/>
+        <Setter Property="FontStyle" Value="Italic"/>
+        <Setter Property="FontSize" Value="17"/>
+        <Setter Property="Padding" Value="2,0,2,2"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
+        <Setter Property="Text" Value="HOOFDMENU"/>
+
     </Style>
     
 </ResourceDictionary>

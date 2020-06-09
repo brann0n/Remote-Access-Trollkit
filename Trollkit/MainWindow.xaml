@@ -7,31 +7,12 @@
         mc:Ignorable="d"
         MouseDown="Drag" 
         Title="MainWindow" Height="563" Width="906" WindowStyle="None" Background="Transparent" AllowsTransparency="True">
-    <Canvas Margin="10,0,0,10">
-        <Rectangle Style="{StaticResource TrollsBackground}" HorizontalAlignment="Left" Height="350" Width="607" Canvas.Left="52" Canvas.Top="52" />
+    <Canvas>
+        <Rectangle Style="{StaticResource TrollsBackground}" Height="350" Width="607" Canvas.Left="52" Canvas.Top="52" />
 
-
-        <Image Source="Recourses\Images\Beeld-Apollo-Hoofd-Nieuw.png" Canvas.Top="222" Width="212" Height="242" RenderTransformOrigin="0.5,0.5">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform ScaleX="-1"/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
-        <TextBlock Background="Black" Foreground="White" FontStyle="Italic" FontSize="17" Padding="2,0,2,2" Canvas.Left="19" TextWrapping="Wrap" Text="HOOFDMENU" Canvas.Top="310" RenderTransformOrigin="0.5,0.5" Height="24" Width="110">
-            <TextBlock.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-17.223"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </TextBlock.RenderTransform>
-        </TextBlock>
-
+        <Image Style="{StaticResource ImageReflectHorizontal}" Source="Recourses\Images\Beeld-Apollo-Hoofd-Nieuw.png" Canvas.Top="222" Width="212" Height="242"/>
+        <TextBlock Style="{StaticResource HeadMenuText}" Canvas.Left="19" Canvas.Top="310"/>
+        
         <StackPanel Canvas.Top="84" Canvas.Left="30">
             <local:HeadMenuBtn Style="{StaticResource MenuButton}" Content="> Visual Trolls">
                 <local:HeadMenuBtn.Resources>
@@ -57,28 +38,13 @@
                 </local:HeadMenuBtn.Resources>
             </local:HeadMenuBtn>
         </StackPanel>
-<!--
-        <Polygon Points="0, 0, 20, 60, 120, 0" Opacity="0.8" Canvas.Left="609" Canvas.Top="10">
-            <Polygon.Fill>
-                <LinearGradientBrush StartPoint="0,1" EndPoint="1,1">
-                    <GradientStop Color="#FC6DFF" Offset="0" />
-                    <GradientStop Color="#49D4BB" Offset="1" />
-                </LinearGradientBrush>
-            </Polygon.Fill>
-        </Polygon>
 
-        <local:CloseBtn Style="{StaticResource NavButton}" Content="X" />
-        <local:MinimizeBtn Style="{StaticResource NavButton}" Content="-" Canvas.Left="636" Canvas.Top="15" />
--->
-
-
-        <DataGridCell Style="{DynamicResource NewDataGridCellStyle}" Canvas.Left="600" Canvas.Top="10">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30,12,0,0">
+        <DataGridCell Style="{DynamicResource NavMenu}" Canvas.Left="600" Canvas.Top="10">
+            <StackPanel Style="{DynamicResource NavMenuContent}">
                 <local:MinimizeBtn Style="{StaticResource NavButton}" Content="-" />
                 <local:CloseBtn Style="{StaticResource NavButton}" Content="X" />
             </StackPanel>
         </DataGridCell>
-        
 
         <ContentControl x:Name="trollView" Canvas.Left="195" Canvas.Top="105" Height="410" Width="639"/>
     </Canvas>
