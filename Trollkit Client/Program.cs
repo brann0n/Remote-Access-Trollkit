@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Trollkit_Client.Modules;
 using Trollkit_Client.Modules.CommandHandlers;
 using Trollkit_Library;
+using Trollkit_Library.ClientModules;
 using Trollkit_Library.Models;
 using Trollkit_Library.Modules;
 

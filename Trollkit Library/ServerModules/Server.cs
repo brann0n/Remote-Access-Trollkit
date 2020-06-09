@@ -7,8 +7,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Trollkit_Library.Models;
 using Trollkit_Library.Modules;
+using Trollkit_Library.ClientModules;
 
-namespace Trollkit_Library
+namespace Trollkit_Library.ServerModules
 {
 	public class Server
 	{
@@ -60,7 +61,7 @@ namespace Trollkit_Library
 		public Server(IPAddress ip)
 		{
 			this.ip = ip;
-			dataSize = 2048;
+			dataSize = SharedProperties.DataSize;
 			clients = new Dictionary<Socket, Client>();
 			acceptIncomingConnections = true;
 			serverSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
@@ -72,7 +73,7 @@ namespace Trollkit_Library
 		/// </summary>
 		public void Start()
 		{
-			serverSocket.Bind(new IPEndPoint(ip, 6969));
+			serverSocket.Bind(new IPEndPoint(ip, SharedProperties.MainPort));
 			serverSocket.Listen(0);
 			serverSocket.BeginAccept(new AsyncCallback(HandleIncomingConnection), serverSocket);
 		}
@@ -125,28 +126,28 @@ namespace Trollkit_Library
 				Socket clientSocket = (Socket)result.AsyncState;
 				Client client = GetClientBySocket(clientSocket);
 				int bytesReceived = clientSocket.EndReceive(result);
-				DataByteType type = (DataByteType)client.Data[0];
+				DataByteType type = (DataByteType)client.Data[SharedProperties.TypeByte];
 				if(bytesReceived == 0)
 				{
 					CloseSocket(clientSocket);
 					serverSocket.BeginAccept(new AsyncCallback(HandleIncomingConnection), serverSocket);
 				}
-				else if(Enum.IsDefined(typeof(DataByteType), client.Data[0]))
+				else if(Enum.IsDefined(typeof(DataByteType), client.Data[SharedProperties.TypeByte]))
 				{
-					int length = BitConverter.ToInt32(new byte[] { client.Data[1], client.Data[2], 0, 0 }, 0);
-					int series = BitConverter.ToInt32(new byte[] { client.Data[3], client.Data[4], 0, 0 }, 0);
-					Guid guid = new Guid(client.Data.SubArray(5, 16));
+					int length = BitConverter.ToInt32(new byte[] { client.Data[SharedProperties.LengthByte1], client.Data[SharedProperties.LengthByte2], 0, 0 }, 0);
+					int series = BitConverter.ToInt32(new byte[] { client.Data[SharedProperties.SeriesByte1], client.Data[SharedProperties.SeriesByte2], 0, 0 }, 0);
+					Guid guid = new Guid(client.Data.SubArray(SharedProperties.GuidStartByte, 16));
 
 					DataBufferModel buffer = Buffers.FirstOrDefault(n => n.DataId == guid);
 					if(buffer != null)
 					{
-						buffer.BufferedData.Add(series, client.Data.SubArray(21, 2027));
+						buffer.BufferedData.Add(series, client.Data.SubArray(SharedProperties.HeaderByteSize, SharedProperties.DataLength));
 						buffer.LatestSeries = series;
 					}
 					else
 					{
 						buffer = new DataBufferModel();
-						buffer.BufferedData.Add(series, client.Data.SubArray(21, 2027));
+						buffer.BufferedData.Add(series, client.Data.SubArray(SharedProperties.HeaderByteSize, SharedProperties.DataLength));
 						buffer.DataId = guid;
 						buffer.SeriesLength = length;
 						buffer.LatestSeries = series;

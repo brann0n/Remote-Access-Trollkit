@@ -14,8 +14,10 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Trollkit_Library;
+using Trollkit_Library.ClientModules;
 using Trollkit_Library.Models;
 using Trollkit_Library.Modules;
+using Trollkit_Library.ServerModules;
 
 namespace Trollkit
 {
