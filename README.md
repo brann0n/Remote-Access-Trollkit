@@ -47,13 +47,14 @@ first byte is check:
 0x1B: Command  
 0x1C: Data
 ```
-second byte is data length:
+second 2 bytes is data length:
 ```
-0x01: 1x 2029 bytes sets  
-0x1B: 27x 2029 bytes sets  
-0x22: 34x 2029 bytes sets etc...  
+0x0001: 1x 2029 bytes sets  
+0x001B: 27x 2029 bytes sets  
+0x0022: 34x 2029 bytes sets  
+0x012C: 300x 2029 bytes sets etc...  
 ```
-third byte is series:
+fourth byte is series:
 ```
 0x01: 1/N byte set  
 0x1A: 26/N byte set etc...  
