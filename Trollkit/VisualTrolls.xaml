@@ -11,11 +11,7 @@
                 <ImageBrush ImageSource="Recourses\Images\Visual_Trolls_background.png"></ImageBrush>
             </Ellipse.Fill>
         </Ellipse>
-        <local:VisualTrollsBtn Style="{StaticResource VisualTrolls}" Content="> Audio Trolls">
-            <local:VisualTrollsDictionary.Resources>
-                <local:AudioTrolls x:Key="View" />
-            </local:VisualTrollsDictionary.Resources>
-        </local:VisualTrollsBtn>
+
         <Image Source="Recourses\Images\Flowers.png" Canvas.Top="-51" Width="387" Height="362" RenderTransformOrigin="0.5,0.5" Canvas.Left="-16"/>
         <Button Content="Display Image" Canvas.Left="211" Canvas.Top="121" Width="117" Height="28" IsCancel="True" FontWeight="Bold" FontFamily="IBM Plex Sans" Click="Button_Click"/>
         <TextBox Height="59" Canvas.Left="211" TextWrapping="Wrap" Text="TextBox" Canvas.Top="154" Width="203"/>
