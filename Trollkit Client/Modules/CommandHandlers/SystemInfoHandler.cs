@@ -10,9 +10,10 @@ namespace Trollkit_Client.Modules.CommandHandlers
 {
     class SystemInfoHandler : ICommandHandler
     {
-        public void HandleCommand(TransferCommandObject obj)
+        public bool HandleCommand(TransferCommandObject obj)
         {
             Console.WriteLine(getSysInfo());
+            return true;
         }
 
         private string getSysInfo()
