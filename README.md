@@ -23,12 +23,21 @@ private void Receiver_OnDataReceived(TransferCommandObject Object)
 #### TaskHandler (client)
 Command | Value | Description
 ------- | ----- | -----------
-DeleteTask | (none) | Removes the task from the local task scheduler in Windows.
+DeleteTask | (none) | Removes the task replication task from the local taskscheduler in Windows.
 
 #### AudioHandler (client)
 Command | Value | Description
 ------- | ----- | -----------
-PlayBeep | "frequency,duration" | Makes a beep on the client, the values decide how the beep sounds
+PlayBeep | "frequency,duration" | Makes a beep on the client, the values decide how the beep sounds.
+
+#### VisualsHandler (client)
+Command | Value | Description
+------- | ----- | -----------
+BlackScreen | (none) | Turns the screen of the client off.
+TextBox | "textToDisplay" | Shows a message box on the clients screen
+ShowImage | "base64 image" | Shows an image on the clients screen
+OpenSite | "url" | Opens a website on the users screen
+SetBackground | "base64 image" | Sets the provided image as the users background (also disables wallpaper engine)
 
 ### Data headers
 guidelines for the received data:
