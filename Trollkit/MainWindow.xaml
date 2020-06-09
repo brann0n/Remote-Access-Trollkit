@@ -72,7 +72,7 @@
 -->
 
 
-        <DataGridCell Style="{DynamicResource NewDataGridCellStyle}" Canvas.Left="600" Canvas.Top="10">
+        <DataGridCell Style="{DynamicResource NewDataGridCellStyle}" Canvas.Left="600" Canvas.Top="10" Width="140" Height="74">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30,12,0,0">
                 <local:MinimizeBtn Style="{StaticResource NavButton}" Content="-" />
                 <local:CloseBtn Style="{StaticResource NavButton}" Content="X" />
