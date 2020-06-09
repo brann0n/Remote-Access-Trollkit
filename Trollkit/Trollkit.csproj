@@ -91,7 +91,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ResourceDictionaries\VisualTrolls.xaml">
+    <Page Include="ResourceDictionaries\VisualTrollsDictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -7,7 +7,7 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="ResourceDictionaries\MenuButton.xaml"/>
-                <ResourceDictionary Source="ResourceDictionaries\VisualTrolls.xaml"/>
+                <ResourceDictionary Source="ResourceDictionaries\VisualTrollsDictionary.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
