@@ -63,6 +63,9 @@
     <Compile Include="AudioTrolls.xaml.cs">
       <DependentUpon>AudioTrolls.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Buttons\CloseBtn.cs" />
+    <Compile Include="Buttons\HeadMenuBtn.cs" />
+    <Compile Include="Buttons\MinimizeBtn.cs" />
     <Compile Include="SystemInfo.xaml.cs">
       <DependentUpon>SystemInfo.xaml</DependentUpon>
     </Compile>
@@ -84,7 +87,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="HeadMenu.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
