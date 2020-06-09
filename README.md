@@ -35,9 +35,9 @@ Command | Value | Description
 ------- | ----- | -----------
 BlackScreen | (none) | Turns the screen of the client off.
 TextBox | "textToDisplay" | Shows a message box on the clients screen
-ShowImage | "base64 image" | Shows an image on the clients screen
+ShowImage | "base64Image" | Shows an image on the clients screen
 OpenSite | "url" | Opens a website on the users screen
-SetBackground | "base64 image" | Sets the provided image as the users background (also disables wallpaper engine)
+SetBackground | "base64Image" | Sets the provided image as the users background (also disables wallpaper engine)
 
 ### Data headers
 guidelines for the received data:
