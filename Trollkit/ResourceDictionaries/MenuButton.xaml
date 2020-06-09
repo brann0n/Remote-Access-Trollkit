@@ -35,10 +35,54 @@
     </Style>
 
 
-    <Style TargetType = "{x:Type local:CloseBtn}" x:Key="CloseBtn"
-            BasedOn = "{StaticResource {x:Type Button}}">
+    <Style TargetType = "{x:Type Button}" x:Key="NavButton"
+        BasedOn = "{StaticResource {x:Type Button}}">
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="FontSize" Value="15"/>
+        <Setter Property="FontStyle" Value="Italic"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="Padding" Value="0,0,10,0"/>
     </Style>
-    <Style TargetType = "{x:Type local:MinimizeBtn}" x:Key="MinimizeBtn"
-            BasedOn = "{StaticResource {x:Type Button}}">
+
+
+
+    <Style x:Key="NewDataGridCellStyle" TargetType="{x:Type DataGridCell}">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type DataGridCell}">
+                    <Grid Height="60" Width="140">
+                        <Path Data=" M 0, 0 L 20, 250 L 100, 0 z" HorizontalAlignment="Stretch" Height="Auto" Stretch="Fill" Width="Auto" Opacity="0.8">
+                            <Path.Fill>
+                                <LinearGradientBrush StartPoint="0,1" EndPoint="1,1">
+                                    <GradientStop Color="#FC6DFF" Offset="0" />
+                                    <GradientStop Color="#49D4BB" Offset="1" />
+                                </LinearGradientBrush>
+                            </Path.Fill>
+                        </Path>
+                        <ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
     </Style>
+
+
+
+    <Style TargetType="{x:Type Rectangle}" x:Key="TrollsBackground">
+        <Setter Property="Fill">
+            <Setter.Value>
+                <LinearGradientBrush StartPoint="1,0" EndPoint="1,1">
+                    <GradientStop Color="#49D4BB" Offset="0.0" />
+                    <GradientStop Color="#FC6DFF" Offset="1" />
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
 </ResourceDictionary>
