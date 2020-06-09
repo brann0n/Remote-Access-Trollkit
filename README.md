@@ -40,25 +40,31 @@ OpenSite | "url" | Opens a website on the users screen
 SetBackground | "base64Image" | Sets the provided image as the users background (also disables wallpaper engine)
 
 ### Data headers
-guidelines for the received data:
-first byte is check:
+In order to keep perfect track of data that is being sent and data that is received we thought of a clever way to devide the byte streams.  
+The first 21 bytes of each 2048 byte packet is made up of 'header' data that tells the program what to expect of the next piece of data.
+
+guidelines for the received data are:
+
+first byte is for a type check:
 ```
 0x1A: Response  
 0x1B: Command  
 0x1C: Data
 ```
-second byte is data length:
+the 2 bytes after that are for data length:
 ```
-0x01: 1x 2029 bytes sets  
-0x1B: 27x 2029 bytes sets  
-0x22: 34x 2029 bytes sets etc...  
+0x0001: 1x 2027 bytes sets  
+0x001B: 27x 2027 bytes sets  
+0x0022: 34x 2027 bytes sets  
+0x012C: 300x 2027 bytes sets etc...  
 ```
-third byte is series:
+the 2 bytes after that indicate the series of data:
 ```
-0x01: 1/N byte set  
-0x1A: 26/N byte set etc...  
+0x0001: 1/N byte set  
+0x001A: 26/N byte set  
+0x014A: 420/N byte set etc...  
 ```
 the next 16 bytes are unique id:
 ```
-0x00112233445566778899AABBCCDDFF00
+0x00112233445566778899AABBCCDDFF00: d479950c-d020-46e2-b809-634dc634c9f6
 ```
