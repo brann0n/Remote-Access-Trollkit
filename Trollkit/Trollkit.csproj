@@ -142,14 +142,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Images\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Beeld-Apollo-Hoofd-Nieuw.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Recourses\Images\Beeld-Apollo-Hoofd-Nieuw.png" />
+    <Resource Include="Resources\Images\Beeld-Apollo-Hoofd-Nieuw.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Trollkit Library\Trollkit Library.csproj">
@@ -158,44 +153,38 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Recourses\Images\System_Info_PC.png" />
+    <Resource Include="Resources\Images\System_Info_PC.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Recourses\Images\System_Info_background.png" />
+    <Resource Include="Resources\Images\System_Info_background.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Recourses\Images\Visual_Trolls_background.png" />
+    <Resource Include="Resources\Images\Visual_Trolls_background.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Recourses\Images\Flowers.png" />
+    <Resource Include="Resources\Images\Flowers.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Recourses\Images\Sirenhead.png" />
+    <Resource Include="Resources\Images\Sirenhead.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Recourses\Images\button_long.png" />
-    <Resource Include="Recourses\Images\button_small.png" />
+    <Resource Include="Resources\Images\button_long.png" />
+    <Resource Include="Resources\Images\button_small.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Recourses\Images\triangle.png" />
+    <Resource Include="Resources\Images\triangle.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Recourses\Images\triangles.png" />
+    <Resource Include="Resources\Images\triangles.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Recourses\Images\windows.png" />
+    <Resource Include="Resources\Images\windows.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Recourses\Images\japanese.png" />
+    <Resource Include="Resources\Images\japanese.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Recourses\Images\windowstrolls.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="button_small.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="button_long.png" />
+    <Resource Include="Resources\Images\windowstrolls.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
