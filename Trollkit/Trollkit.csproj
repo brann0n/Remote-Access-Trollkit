@@ -91,6 +91,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ResourceDictionaries\VisualTrollsDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SystemInfo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -159,6 +163,31 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Recourses\Images\Sirenhead.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Recourses\Images\button_long.png" />
+    <Resource Include="Recourses\Images\button_small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Recourses\Images\triangle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Recourses\Images\triangles.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Recourses\Images\windows.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Recourses\Images\japanese.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Recourses\Images\windowstrolls.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="button_small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="button_long.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
