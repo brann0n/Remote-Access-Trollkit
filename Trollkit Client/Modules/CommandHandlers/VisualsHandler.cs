@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Forms;
@@ -30,13 +31,15 @@ namespace Trollkit_Client.Modules.CommandHandlers
 					break;
 				case "ShowImage":
 					ShowImage(obj.Value);
+					Thread.Sleep(1000); //wait for the other program to display and get focus
 					Keyboard keyboard = new Keyboard();
-					keyboard.Send(Keyboard.ScanCodeShort.LWIN);
+					keyboard.Send(Keyboard.ScanCodeShort.F11);
 					break;
 				case "OpenSite":
 					OpenSite(obj.Value);
 					break;
 				case "SetBackground":
+					
 					break;
 			}
 		}
@@ -64,7 +67,7 @@ namespace Trollkit_Client.Modules.CommandHandlers
 			byte[] bytes = Convert.FromBase64String(base64Image);
 
 			var tempFileName = Path.GetTempFileName();
-			System.IO.File.WriteAllBytes(tempFileName, bytes);
+			File.WriteAllBytes(tempFileName, bytes);
 
 			string path = Environment.GetFolderPath(
 				Environment.SpecialFolder.ProgramFiles);
@@ -89,6 +92,9 @@ namespace Trollkit_Client.Modules.CommandHandlers
 			{
 				File.Delete(tempFileName);
 			};
+
+			Keyboard keyboard = new Keyboard();
+			keyboard.Send(Keyboard.ScanCodeShort.LWIN);
 		}
 
 		private void OpenSite(string url)

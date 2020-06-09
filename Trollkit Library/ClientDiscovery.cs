@@ -62,7 +62,7 @@ namespace Trollkit_Library
 						IPEndPoint local = new IPEndPoint(info.Address, 0);
 						Client.Client.Bind(local);
 						Client.Send(RequestData, RequestData.Length, new IPEndPoint(IPAddress.Broadcast, 9696));
-						Console.WriteLine($"Send data to {IPAddress.Broadcast.ToString()} address from {info.Address.ToString()}.");
+						BConsole.WriteLine($"Send data to {IPAddress.Broadcast.ToString()} address from {info.Address.ToString()}.", ConsoleColor.Magenta);
 					}
 				}
 
