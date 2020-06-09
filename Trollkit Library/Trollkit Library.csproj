@@ -54,6 +54,7 @@
     <Compile Include="Models\TransferCommandObject.cs" />
     <Compile Include="Modules\ClientServerPipeline.cs" />
     <Compile Include="Modules\Extensions.cs" />
+    <Compile Include="Modules\Keyboard.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Server.cs" />
     <Compile Include="ServerDiscovery.cs" />
