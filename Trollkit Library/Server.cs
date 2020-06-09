@@ -133,20 +133,20 @@ namespace Trollkit_Library
 				}
 				else if(Enum.IsDefined(typeof(DataByteType), client.Data[0]))
 				{
-					int length = client.Data[1];
-					int series = client.Data[2];
-					Guid guid = new Guid(client.Data.SubArray(3, 16));
+					int length = BitConverter.ToInt32(new byte[] { client.Data[1], client.Data[2], 0, 0 }, 0);
+					int series = BitConverter.ToInt32(new byte[] { client.Data[3], client.Data[4], 0, 0 }, 0);
+					Guid guid = new Guid(client.Data.SubArray(5, 16));
 
 					DataBufferModel buffer = Buffers.FirstOrDefault(n => n.DataId == guid);
 					if(buffer != null)
 					{
-						buffer.BufferedData.Add(series, client.Data.SubArray(19, 2029));
+						buffer.BufferedData.Add(series, client.Data.SubArray(21, 2027));
 						buffer.LatestSeries = series;
 					}
 					else
 					{
 						buffer = new DataBufferModel();
-						buffer.BufferedData.Add(series, client.Data.SubArray(19, 2029));
+						buffer.BufferedData.Add(series, client.Data.SubArray(21, 2027));
 						buffer.DataId = guid;
 						buffer.SeriesLength = length;
 						buffer.LatestSeries = series;
@@ -200,9 +200,13 @@ namespace Trollkit_Library
 		{
 			BConsole.WriteLine("Sending data with id: " + message.DataId.ToString());
 
+			byte[] lengthByteArray = BitConverter.GetBytes(message.SeriesLength);
+
 			foreach (KeyValuePair<int, byte[]> item in message.BufferedData)
 			{
-				byte[] sendArray = new byte[] { (byte)type, (byte)message.SeriesLength, (byte)item.Key };
+				byte[] seriesByteArray = BitConverter.GetBytes(item.Key);
+
+				byte[] sendArray = new byte[] { 0x1b, lengthByteArray[0], lengthByteArray[1], seriesByteArray[0], seriesByteArray[1] };
 				sendArray = sendArray.Concat(message.DataId.ToByteArray()).Concat(item.Value).ToArray();
 				SendBytesToSocket(s, sendArray);
 			}

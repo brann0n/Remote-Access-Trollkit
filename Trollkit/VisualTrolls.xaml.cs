@@ -37,7 +37,7 @@ namespace Trollkit
 		private void BtnDisplayImage_Click(object sender, RoutedEventArgs e)
 		{
 			OpenFileDialog open = new OpenFileDialog();
-			open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
+			open.Filter = "Image Files(*.png;)|*.png";
 			open.Multiselect = false;
 			open.Title = "Pick an image to send to the client";
 			if(open.ShowDialog() == true)
