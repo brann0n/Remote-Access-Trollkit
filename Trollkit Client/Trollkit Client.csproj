@@ -56,6 +56,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Modules\CommandHandlers\AudioHandler.cs" />
+    <Compile Include="Modules\CommandHandlers\VisualsHandler.cs" />
     <Compile Include="Modules\ICommandHandler.cs" />
     <Compile Include="Modules\CommandHandlers\TaskHandler.cs" />
     <Compile Include="Modules\TaskSchedulerHelper.cs" />
