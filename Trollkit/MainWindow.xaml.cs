@@ -28,6 +28,7 @@ namespace Trollkit
 	public partial class MainWindow : Window
 	{
 		public Server server;
+
 		public MainWindow()
 		{
 			InitializeComponent();
@@ -83,6 +84,7 @@ namespace Trollkit
                 popup.addClient(client);
             }
 
+            //popup.ddos();
             popup.ShowDialog();
         }
     }
