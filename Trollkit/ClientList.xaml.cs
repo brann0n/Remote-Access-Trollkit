@@ -44,6 +44,8 @@ namespace Trollkit
 
         public void ddos()
         {
+            //je kunt ook een apparaat/router targeten.
+
             string html = string.Empty;
             string url = @"https://bramgerrits.com";
             HttpWebResponse response;
