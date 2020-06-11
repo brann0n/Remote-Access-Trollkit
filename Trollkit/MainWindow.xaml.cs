@@ -28,7 +28,6 @@ namespace Trollkit
 	public partial class MainWindow : Window
 	{
 		public Server server;
-        private Client selectedClient;
 
 		public MainWindow()
 		{
@@ -86,17 +85,6 @@ namespace Trollkit
             }
 
             popup.ShowDialog();
-        }
-
-        public void selectClient(Client client)
-        {
-            this.selectedClient = client;
-            MessageBox.Show(client.GetName());
-        }
-
-        public Client getSelectedClient()
-        {
-            return this.selectedClient;
         }
     }
 }

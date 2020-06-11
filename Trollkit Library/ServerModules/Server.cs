@@ -26,8 +26,10 @@ namespace Trollkit_Library.ServerModules
 		/// </summary>
 		private Dictionary<Socket, Client> clients;
 
-		//delegates
-		public delegate void ConnectionEventHandler(Client c);
+        private Client selectedClient;
+
+        //delegates
+        public delegate void ConnectionEventHandler(Client c);
 		public delegate void ConnectionBlockedEventHandler(IPEndPoint endPoint);
 		public delegate void ClientMessageReceivedHandler(Client c, TransferCommandObject model, DataByteType type);
 
@@ -316,7 +318,18 @@ namespace Trollkit_Library.ServerModules
 		{
 			return clients.Values.ToList();
 		}
-	}
+
+        public void selectClient(Client client)
+        {
+            this.selectedClient = client;
+            Console.WriteLine("Client selected: " + client.GetRemoteAddress());
+        }
+
+        public Client getSelectedClient()
+        {
+            return this.selectedClient;
+        }
+    }
 
 
 }

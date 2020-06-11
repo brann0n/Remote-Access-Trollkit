@@ -32,7 +32,7 @@ namespace Trollkit
 
             button.Content = client.GetRemoteAddress();
             button.Click += (s, e) => {
-                ((MainWindow)Application.Current.MainWindow).selectClient(client);
+                ((MainWindow)Application.Current.MainWindow).server.selectClient(client);
             };
             clientsList.Children.Add(button);
         }
