@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -70,6 +71,19 @@ namespace Trollkit
         private void Drag(object sender, MouseButtonEventArgs e)
         {
             this.DragMove();
+        }
+
+        private void HeadMenuText_Click(object sender, RoutedEventArgs e)
+        {
+            List<Client> clients = this.server.GetClients();
+
+            ClientList popup = new ClientList();
+            foreach (Client client in clients)
+            {
+                popup.addClient(client);
+            }
+
+            popup.ShowDialog();
         }
     }
 }

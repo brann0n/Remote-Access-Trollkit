@@ -12,7 +12,7 @@
         <Rectangle Style="{StaticResource TrollsBackground}" Height="350" Width="607" Canvas.Left="52" Canvas.Top="52" />
 
         <Image Style="{StaticResource ImageReflectHorizontal}" Source="Resources\Images\Beeld-Apollo-Hoofd-Nieuw.png" Canvas.Top="222" Width="212" Height="242"/>
-        <TextBlock Style="{StaticResource HeadMenuText}" Canvas.Left="19" Canvas.Top="310"/>
+        <Button Click="HeadMenuText_Click" Style="{StaticResource HeadMenuText}" Canvas.Left="19" Canvas.Top="310"/>
         
         <StackPanel Canvas.Top="84" Canvas.Left="30">
 			<buttons:HeadMenuBtn Style="{StaticResource MenuButton}" Content="> Visual Trolls">
