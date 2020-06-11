@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using Trollkit_Library.Models;
@@ -15,7 +16,7 @@ namespace Trollkit_Client.Modules.CommandHandlers
 			{
 				string[] values = obj.Value.Split(',');
 
-				if(values.Length == 2)
+				if (values.Length == 2)
 				{
 					Console.Beep(int.Parse(values[0]), int.Parse(values[1]));
 				}
@@ -26,6 +27,12 @@ namespace Trollkit_Client.Modules.CommandHandlers
 
 				return true;
 			}
+			else if (obj.Command == "Jeff")
+			{
+				SoundPlayer sndplayr = new SoundPlayer(Properties.Resources.MyNameIsJeff);
+				sndplayr.Play();
+			}
+		
 
 			return false;
 		}

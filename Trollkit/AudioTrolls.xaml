@@ -57,7 +57,7 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
-        <Button Content="Button" Canvas.Left="55" Canvas.Top="284" Width="99" Height="33" RenderTransformOrigin="0.5,0.5">
+        <Button x:Name="MyNameIsJeff" Content="My name is Jeff" Canvas.Left="55" Canvas.Top="284" Width="99" Height="33" RenderTransformOrigin="0.5,0.5" Click="BtnMyNameIsJeff_Click">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
