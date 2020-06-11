@@ -8,10 +8,10 @@
     <Canvas Margin="10,0,80,41">
         <Rectangle HorizontalAlignment="Left" Height="310" VerticalAlignment="Top" Width="510" Canvas.Top="10">
             <Rectangle.Fill>
-                <ImageBrush ImageSource="Recourses\Images\System_Info_background.png"></ImageBrush>
+                <ImageBrush ImageSource="Resources\Images\System_Info_background.png"></ImageBrush>
             </Rectangle.Fill>
         </Rectangle>
-        <Image Source="Recourses\Images\System_Info_PC.png" Canvas.Top="203" Width="191" Height="175" RenderTransformOrigin="0.5,0.5" Canvas.Left="411">
+        <Image Source="Resources\Images\System_Info_PC.png" Canvas.Top="203" Width="191" Height="175" RenderTransformOrigin="0.5,0.5" Canvas.Left="411">
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="-1"/>

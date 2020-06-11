@@ -1,9 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:local="clr-namespace:Trollkit.ResourceDictionaries">
-
-
-    <Style x:Key="OutrunButton" TargetType="{x:Type Button}">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<Style x:Key="OutrunButton" TargetType="{x:Type Button}">
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="FontWeight" Value="SemiBold"/>
         <Setter Property="Foreground" Value="White"/>
@@ -51,55 +48,51 @@
         </Setter>
     </Style>
 
-    <Style x:Key="OutrunBigButton" TargetType="{x:Type Button}">
-        <Setter Property="BorderThickness" Value="0"/>
-        <Setter Property="FontWeight" Value="SemiBold"/>
-        <Setter Property="Foreground" Value="White"/>
-        <Setter Property="FontSize" Value="14"/>
-        <Setter Property="Padding" Value="30,0,30,0"/>
-        <Setter Property="Height" Value="22"/>
+	<Style x:Key="OutrunBigButton" TargetType="{x:Type Button}">
+		<Setter Property="BorderThickness" Value="0"/>
+		<Setter Property="FontWeight" Value="SemiBold"/>
+		<Setter Property="Foreground" Value="White"/>
+		<Setter Property="FontSize" Value="14"/>
+		<Setter Property="Padding" Value="30,0,30,0"/>
+		<Setter Property="Height" Value="22"/>
 
-        <Setter Property="Background">
-            <Setter.Value>
-                <VisualBrush TileMode="Tile">
-                    <VisualBrush.Visual>
-                        <StackPanel>
-                            <StackPanel.Background>
-                                <DrawingBrush>
-                                    <DrawingBrush.Drawing>
-                                        <GeometryDrawing>
+		<Setter Property="Background">
+			<Setter.Value>
+				<VisualBrush TileMode="Tile">
+					<VisualBrush.Visual>
+						<StackPanel>
+							<StackPanel.Background>
+								<DrawingBrush>
+									<DrawingBrush.Drawing>
+										<GeometryDrawing>
 
-                                            <GeometryDrawing.Brush>
-                                                <LinearGradientBrush StartPoint="1,0" EndPoint="1,1">
-                                                    <GradientStop Color="#7b17d2" Offset="0.0" />
-                                                    <GradientStop Color="#c71494" Offset="1" />
-                                                </LinearGradientBrush>
-                                            </GeometryDrawing.Brush>
+											<GeometryDrawing.Brush>
+												<LinearGradientBrush StartPoint="1,0" EndPoint="1,1">
+													<GradientStop Color="#7b17d2" Offset="0.0" />
+													<GradientStop Color="#c71494" Offset="1" />
+												</LinearGradientBrush>
+											</GeometryDrawing.Brush>
 
-                                            <GeometryDrawing.Geometry>
-                                                <GeometryGroup>
-                                                    <RectangleGeometry Rect="0,0,100,14" />
-                                                    <RectangleGeometry Rect="0,20,100,14" />
-                                                    <RectangleGeometry Rect="0,40,100,14" />
-                                                    <RectangleGeometry Rect="0,60,100,14" />
-                                                    <RectangleGeometry Rect="0,80,100,14" />
-                                                    <RectangleGeometry Rect="0,100,100,14" />
-                                                </GeometryGroup>
-                                            </GeometryDrawing.Geometry>
+											<GeometryDrawing.Geometry>
+												<GeometryGroup>
+													<RectangleGeometry Rect="0,0,100,14" />
+													<RectangleGeometry Rect="0,20,100,14" />
+													<RectangleGeometry Rect="0,40,100,14" />
+													<RectangleGeometry Rect="0,60,100,14" />
+													<RectangleGeometry Rect="0,80,100,14" />
+													<RectangleGeometry Rect="0,100,100,14" />
+												</GeometryGroup>
+											</GeometryDrawing.Geometry>
 
-                                        </GeometryDrawing>
-                                    </DrawingBrush.Drawing>
-                                </DrawingBrush>
-                            </StackPanel.Background>
-                            <TextBlock FontSize="10pt" Margin="10"></TextBlock>
-                        </StackPanel>
-                    </VisualBrush.Visual>
-                </VisualBrush>
-            </Setter.Value>
-        </Setter>
-    </Style>
-
-
-
-
+										</GeometryDrawing>
+									</DrawingBrush.Drawing>
+								</DrawingBrush>
+							</StackPanel.Background>
+							<TextBlock FontSize="10pt" Margin="10"></TextBlock>
+						</StackPanel>
+					</VisualBrush.Visual>
+				</VisualBrush>
+			</Setter.Value>
+		</Setter>
+	</Style>
 </ResourceDictionary>

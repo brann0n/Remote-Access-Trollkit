@@ -19,7 +19,7 @@ namespace Trollkit_Library.Modules
 			int count = 0;
 			int bytesLeft = byteArray.Length;
 			int index = 0;
-			int increment = 2029;
+			int increment = SharedProperties.DataLength;
 
 			while(bytesLeft > 0)
 			{

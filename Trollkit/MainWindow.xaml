@@ -4,45 +4,46 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Trollkit"
-        mc:Ignorable="d"
+		xmlns:buttons="clr-namespace:Trollkit.Buttons"
+		mc:Ignorable="d"
         MouseDown="Drag" 
         Title="MainWindow" Height="563" Width="906" WindowStyle="None" Background="Transparent" AllowsTransparency="True">
     <Canvas>
         <Rectangle Style="{StaticResource TrollsBackground}" Height="350" Width="607" Canvas.Left="52" Canvas.Top="52" />
 
-        <Image Style="{StaticResource ImageReflectHorizontal}" Source="Recourses\Images\Beeld-Apollo-Hoofd-Nieuw.png" Canvas.Top="222" Width="212" Height="242"/>
+        <Image Style="{StaticResource ImageReflectHorizontal}" Source="Resources\Images\Beeld-Apollo-Hoofd-Nieuw.png" Canvas.Top="222" Width="212" Height="242"/>
         <TextBlock Style="{StaticResource HeadMenuText}" Canvas.Left="19" Canvas.Top="310"/>
         
         <StackPanel Canvas.Top="84" Canvas.Left="30">
-            <local:HeadMenuBtn Style="{StaticResource MenuButton}" Content="> Visual Trolls">
-                <local:HeadMenuBtn.Resources>
+			<buttons:HeadMenuBtn Style="{StaticResource MenuButton}" Content="> Visual Trolls">
+				<buttons:HeadMenuBtn.Resources>
                     <local:VisualTrolls x:Key="View" />
-                </local:HeadMenuBtn.Resources>
-            </local:HeadMenuBtn>
+                </buttons:HeadMenuBtn.Resources>
+            </buttons:HeadMenuBtn>
 
-            <local:HeadMenuBtn Style="{StaticResource MenuButton}" Content="> Audio Trolls">
-                <local:HeadMenuBtn.Resources>
+			<buttons:HeadMenuBtn Style="{StaticResource MenuButton}" Content="> Audio Trolls">
+				<buttons:HeadMenuBtn.Resources>
                     <local:AudioTrolls x:Key="View" />
-                </local:HeadMenuBtn.Resources>
-            </local:HeadMenuBtn>
+                </buttons:HeadMenuBtn.Resources>
+            </buttons:HeadMenuBtn>
 
-            <local:HeadMenuBtn Style="{StaticResource MenuButton}" Content="> Windows Trolls">
-                <local:HeadMenuBtn.Resources>
+			<buttons:HeadMenuBtn Style="{StaticResource MenuButton}" Content="> Windows Trolls">
+				<buttons:HeadMenuBtn.Resources>
                     <local:WindowsTrolls2 x:Key="View" />
-                </local:HeadMenuBtn.Resources>
-            </local:HeadMenuBtn>
+                </buttons:HeadMenuBtn.Resources>
+            </buttons:HeadMenuBtn>
 
-            <local:HeadMenuBtn Style="{StaticResource MenuButton}" Content="> System Info">
-                <local:HeadMenuBtn.Resources>
+			<buttons:HeadMenuBtn Style="{StaticResource MenuButton}" Content="> System Info">
+				<buttons:HeadMenuBtn.Resources>
                     <local:SystemInfo x:Key="View" />
-                </local:HeadMenuBtn.Resources>
-            </local:HeadMenuBtn>
+                </buttons:HeadMenuBtn.Resources>
+            </buttons:HeadMenuBtn>
         </StackPanel>
 
         <DataGridCell Style="{DynamicResource NavMenu}" Canvas.Left="600" Canvas.Top="10">
             <StackPanel Style="{DynamicResource NavMenuContent}">
-                <local:MinimizeBtn Style="{StaticResource NavButton}" Content="-" />
-                <local:CloseBtn Style="{StaticResource NavButton}" Content="X" />
+				<buttons:MinimizeBtn Style="{StaticResource NavButton}" Content="-" />
+				<buttons:CloseBtn Style="{StaticResource NavButton}" Content="X" />
             </StackPanel>
         </DataGridCell>
 

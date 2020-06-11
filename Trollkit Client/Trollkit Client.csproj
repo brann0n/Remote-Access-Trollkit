@@ -48,6 +48,7 @@
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -58,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Modules\CommandHandlers\AudioHandler.cs" />
+    <Compile Include="Modules\CommandHandlers\SystemInfoHandler.cs" />
     <Compile Include="Modules\CommandHandlers\VisualsHandler.cs" />
     <Compile Include="Modules\ICommandHandler.cs" />
     <Compile Include="Modules\CommandHandlers\TaskHandler.cs" />

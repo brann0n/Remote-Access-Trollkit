@@ -38,6 +38,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,17 +48,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BConsole.cs" />
-    <Compile Include="Client.cs" />
-    <Compile Include="ClientDiscovery.cs" />
-    <Compile Include="ClientReceiver.cs" />
+    <Compile Include="ClientModules\Client.cs" />
+    <Compile Include="ClientModules\ClientDiscovery.cs" />
+    <Compile Include="ClientModules\ClientReceiver.cs" />
     <Compile Include="Models\DataBufferModel.cs" />
     <Compile Include="Models\TransferCommandObject.cs" />
     <Compile Include="Modules\ClientServerPipeline.cs" />
     <Compile Include="Modules\Extensions.cs" />
     <Compile Include="Modules\Keyboard.cs" />
+    <Compile Include="Modules\Wallpaper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Server.cs" />
-    <Compile Include="ServerDiscovery.cs" />
+    <Compile Include="ServerModules\Server.cs" />
+    <Compile Include="ServerModules\ServerDiscovery.cs" />
+    <Compile Include="SharedProperties.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />

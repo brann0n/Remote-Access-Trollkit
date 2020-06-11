@@ -26,8 +26,8 @@ namespace Trollkit
     /// </summary>
     public partial class VisualTrolls : UserControl
     {
-		private MainWindow parent { get { return (MainWindow)Application.Current.MainWindow; } }
-		private string handler = "Visuals";
+		private MainWindow ParentFrame { get { return (MainWindow)Application.Current.MainWindow; } }
+		private const string Handler = "Visuals";
 
         public VisualTrolls()
         {
@@ -37,7 +37,7 @@ namespace Trollkit
 		private void BtnDisplayImage_Click(object sender, RoutedEventArgs e)
 		{
 			OpenFileDialog open = new OpenFileDialog();
-			open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
+			open.Filter = "Image Files(*.png; *.jpg; *.jpeg;)|*.png; *.jpg; *.jpeg;";
 			open.Multiselect = false;
 			open.Title = "Pick an image to send to the client";
 			if(open.ShowDialog() == true)
@@ -45,34 +45,45 @@ namespace Trollkit
 				byte[] bytes = File.ReadAllBytes(open.FileName);
 
 				string base64 = Convert.ToBase64String(bytes);
-				TransferCommandObject returnObject = new TransferCommandObject { Command = "ShowImage", Handler = handler, Value = base64 };
+				TransferCommandObject returnObject = new TransferCommandObject { Command = "ShowImage", Handler = Handler, Value = base64 };
 
-				parent.server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
+				ParentFrame.server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
 			}		
 		}
 
 		private void BtnDisplayText_Click(object sender, RoutedEventArgs e)
 		{
-			TransferCommandObject returnObject = new TransferCommandObject { Command = "TextBox", Handler = handler, Value = tbDisplayText.Text };
-			parent.server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
+			TransferCommandObject returnObject = new TransferCommandObject { Command = "TextBox", Handler = Handler, Value = tbDisplayText.Text };
+			ParentFrame.server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
 		}
 
 		private void BtnTurnOffScreen_Click(object sender, RoutedEventArgs e)
 		{
-			TransferCommandObject returnObject = new TransferCommandObject { Command = "BlackScreen", Handler = handler, Value = "" };
-			parent.server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
+			TransferCommandObject returnObject = new TransferCommandObject { Command = "BlackScreen", Handler = Handler, Value = "" };
+			ParentFrame.server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
 		}
 
 		private void BtnOpenSite_Click(object sender, RoutedEventArgs e)
 		{
-			TransferCommandObject returnObject = new TransferCommandObject { Command = "OpenSite", Handler = handler, Value = tbOpenSite.Text };
-			parent.server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
+			TransferCommandObject returnObject = new TransferCommandObject { Command = "OpenSite", Handler = Handler, Value = tbOpenSite.Text };
+			ParentFrame.server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
 		}
 
 		private void BtnPickBackgroundImage_Click(object sender, RoutedEventArgs e)
 		{
-			TransferCommandObject returnObject = new TransferCommandObject { Command = "SetBackground", Handler = handler, Value = "iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAH0lEQVR42mP8z8BQz0BFwDhq4KiBowaOGjhq4Eg1EAA5Ex3tabMqWgAAAABJRU5ErkJggg==" };
-			parent.server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
+			OpenFileDialog open = new OpenFileDialog();
+			open.Filter = "Image Files(*.png; *.jpg; *.jpeg;)|*.png; *.jpg; *.jpeg;";
+			open.Multiselect = false;
+			open.Title = "Pick an image to set as background in the client";
+			if (open.ShowDialog() == true)
+			{
+				byte[] bytes = File.ReadAllBytes(open.FileName);
+
+				string base64 = Convert.ToBase64String(bytes);
+
+				TransferCommandObject returnObject = new TransferCommandObject { Command = "SetBackground", Handler = Handler, Value = base64 };
+				ParentFrame.server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
+			}			
 		}
 	}
 }

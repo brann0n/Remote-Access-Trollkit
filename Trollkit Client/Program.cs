@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Trollkit_Client.Modules;
 using Trollkit_Client.Modules.CommandHandlers;
 using Trollkit_Library;
+using Trollkit_Library.ClientModules;
 using Trollkit_Library.Models;
 using Trollkit_Library.Modules;
 
@@ -65,7 +66,14 @@ namespace Trollkit_Client
 		{
 			if(handlers.ContainsKey(Object.Handler))
 			{
-				handlers[Object.Handler].HandleCommand(Object);
+				if (handlers[Object.Handler].HandleCommand(Object))
+				{
+					BConsole.WriteLine($"Command '{Object.Command}' executed successfully", ConsoleColor.Green);
+				}
+				else
+				{
+					BConsole.WriteLine($"Command '{Object.Command}' could not be executed", ConsoleColor.Red);
+				}
 			}
 		}
 	}

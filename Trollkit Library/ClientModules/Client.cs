@@ -5,7 +5,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Trollkit_Library
+namespace Trollkit_Library.ClientModules
 {
 	public class Client
 	{
@@ -22,7 +22,7 @@ namespace Trollkit_Library
 			this.connectedAt = DateTime.Now;
 			this.endPoint = pAddressEndpoint;
 			SetName($"Client #{id}");
-			this.Data = new byte[2048];
+			this.Data = new byte[SharedProperties.DataSize];
 		}
 
 		public string GetName()

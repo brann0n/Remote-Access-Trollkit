@@ -9,6 +9,6 @@ namespace Trollkit_Client.Modules
 {
     interface ICommandHandler
     {
-        void HandleCommand(TransferCommandObject obj);
+        bool HandleCommand(TransferCommandObject obj);
     }
 }

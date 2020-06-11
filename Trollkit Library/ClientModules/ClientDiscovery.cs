@@ -4,7 +4,7 @@ using System.Net.NetworkInformation;
 using System.Net.Sockets;
 using System.Text;
 
-namespace Trollkit_Library
+namespace Trollkit_Library.ClientModules
 {
 	public class ClientDiscovery
 	{
@@ -61,7 +61,7 @@ namespace Trollkit_Library
 					{
 						IPEndPoint local = new IPEndPoint(info.Address, 0);
 						Client.Client.Bind(local);
-						Client.Send(RequestData, RequestData.Length, new IPEndPoint(IPAddress.Broadcast, 9696));
+						Client.Send(RequestData, RequestData.Length, new IPEndPoint(IPAddress.Broadcast, SharedProperties.BroadcastPort));
 						BConsole.WriteLine($"Send data to {IPAddress.Broadcast.ToString()} address from {info.Address.ToString()}.", ConsoleColor.Magenta);
 					}
 				}
