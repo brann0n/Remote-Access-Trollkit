@@ -40,7 +40,24 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <Image Source="Recourses\Images\japanese.png" Canvas.Top="67" Width="165" Height="137" RenderTransformOrigin="0.5,0.5" Canvas.Left="-10">
+
+        <Label Content="足りる" FontSize="60" Foreground="White" Canvas.Top="65" Width="165" Height="137" RenderTransformOrigin="0.5,0.5" Canvas.Left="30">
+            <Label.Effect>
+                <DropShadowEffect
+                ShadowDepth="2"
+                Direction="90"
+                Color="#c71494"
+                Opacity="1"
+                 BlurRadius="0"/>
+            </Label.Effect>
+            <Label.LayoutTransform>
+                <TransformGroup>
+                    <RotateTransform Angle="-90" />
+                </TransformGroup>
+            </Label.LayoutTransform>
+        </Label>
+
+        <!-- <Image Source="Recourses\Images\japanese.png" Canvas.Top="67" Width="165" Height="137" RenderTransformOrigin="0.5,0.5" Canvas.Left="-10">
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -49,7 +66,7 @@
                     <TranslateTransform/>
                 </TransformGroup>
             </Image.RenderTransform>
-        </Image>
+        </Image>-->
         <Image Source="Recourses\Images\windowstrolls.png" Canvas.Top="-90" Width="367" Height="263" RenderTransformOrigin="0.5,0.5" Canvas.Left="1">
             <Image.RenderTransform>
                 <TransformGroup>
