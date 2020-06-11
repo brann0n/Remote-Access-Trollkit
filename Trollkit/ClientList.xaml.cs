@@ -28,9 +28,13 @@ namespace Trollkit
 
         public void addClient(Client client)
         {
-            Label label = new Label();
-            label.Content = client.GetRemoteAddress();
-            clientsList.Children.Add(label);
+            Button button = new Button();
+
+            button.Content = client.GetRemoteAddress();
+            button.Click += (s, e) => {
+                ((MainWindow)Application.Current.MainWindow).selectClient(client);
+            };
+            clientsList.Children.Add(button);
         }
     }
 }
