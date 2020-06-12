@@ -73,19 +73,5 @@ namespace Trollkit
         {
             this.DragMove();
         }
-
-        private void HeadMenuText_Click(object sender, RoutedEventArgs e)
-        {
-            List<Client> clients = this.server.GetClients();
-
-            ClientList popup = new ClientList();
-            foreach (Client client in clients)
-            {
-                popup.addClient(client);
-            }
-
-            //popup.ddos();
-            popup.ShowDialog();
-        }
     }
 }
