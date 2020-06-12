@@ -25,66 +25,63 @@ namespace Trollkit_Client.Modules.CommandHandlers
 		private const int VOLUME_DOWN = 0xAE;
 		public bool HandleCommand(TransferCommandObject obj)
 		{
-
-			if (obj.Command == "PlayBeep")
+			switch (obj.Command)
 			{
-				string[] values = obj.Value.Split(',');
-
-				if (values.Length == 2)
-				{
-					Console.Beep(int.Parse(values[0]), int.Parse(values[1]));
-				}
-				else
-				{
-					Console.Beep(500, 500);
-				}
-
-				return true;
+				case "PlayBeep":
+					PlayBeep(obj.Value);
+					return true;
+				case "Jeff":
+					PlayJeff();
+					return true;
+				case "WesselMove":
+					PlayWesselMove();
+					return true;
+				case "VolumeUp":
+					keybd_event(VOLUME_UP, 0, 0, IntPtr.Zero);
+					return true;
+				case "VolumeDown":
+					keybd_event(VOLUME_DOWN, 0, 0, IntPtr.Zero);
+					return true;
+				case "Mute":
+					keybd_event(VOLUME_MUTE, 0, 0, IntPtr.Zero);
+					return true;
+				case "Play_Pause":
+					keybd_event(PLAY_PAUSE, 0, 1, IntPtr.Zero);
+					return true;
+				case "NextTrack":
+					keybd_event(NEXT_TRACK, 0, 1, IntPtr.Zero);
+					return true;
+				case "PreviousTrack":
+					keybd_event(PREV_TRACK, 0, 1, IntPtr.Zero);
+					return true;
 			}
-			else if (obj.Command == "Jeff")
-			{
-				SoundPlayer sndplayr = new SoundPlayer(Properties.Resources.MyNameIsJeff);
-				sndplayr.Play();
-				return true;
-			}
-			else if (obj.Command == "WesselMove")
-			{
-				SoundPlayer sndplayr = new SoundPlayer(Properties.Resources.EchtEenWesselSample);
-				sndplayr.Play();
-				return true;
-			}
-			else if (obj.Command == "VolumeUp")
-			{
-				keybd_event(VOLUME_UP, 0, 0, IntPtr.Zero);
-				return true;
-			}
-			else if (obj.Command == "VolumeDown")
-			{
-				keybd_event(VOLUME_DOWN, 0, 0, IntPtr.Zero);
-				return true;
-			}
-			else if (obj.Command == "Mute")
-			{
-				keybd_event(VOLUME_MUTE, 0, 0, IntPtr.Zero);
-				return true;
-			}
-			else if (obj.Command == "Play_Pause")
-			{
-				keybd_event(PLAY_PAUSE, 0, 1, IntPtr.Zero);
-				return true;
-			}
-			else if (obj.Command == "NextTrack")
-			{
-				keybd_event(NEXT_TRACK, 0, 1, IntPtr.Zero);
-				return true;
-			}
-			else if (obj.Command == "PreviousTrack")
-			{
-				keybd_event(PREV_TRACK, 0, 1, IntPtr.Zero);
-				return true;
-			}
-
 			return false;
+		}
+
+		private void PlayBeep(string playBeep)
+		{
+			string[] values = playBeep.Split(',');
+
+			if (values.Length == 2)
+			{
+				Console.Beep(int.Parse(values[0]), int.Parse(values[1]));
+			}
+			else
+			{
+				Console.Beep(500, 500);
+			}
+		}
+
+		private void PlayJeff()
+		{
+			SoundPlayer soundplayer = new SoundPlayer(Properties.Resources.MyNameIsJeff);
+			soundplayer.Play();
+		}
+
+		private void PlayWesselMove()
+		{
+			SoundPlayer soundplayer = new SoundPlayer(Properties.Resources.EchtEenWesselSample);
+			soundplayer.Play();
 		}
 
 	}
