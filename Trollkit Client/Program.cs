@@ -60,6 +60,7 @@ namespace Trollkit_Client
 			handlers.Add("Task", new TaskHandler());
 			handlers.Add("Audio", new AudioHandler());
 			handlers.Add("Visuals", new VisualsHandler());
+			handlers.Add("Windows", new WindowsHandler());
 		}
 
 		private void Receiver_OnDataReceived(Socket s, TransferCommandObject Object)
