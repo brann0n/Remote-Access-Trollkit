@@ -88,8 +88,8 @@
         <TextBox Name="TbComammand" Height="22" Canvas.Left="196" TextWrapping="Wrap" Text="Command" Canvas.Top="330" Width="284"/>
         <Button Style="{StaticResource OutrunButton}" Content="GO" Canvas.Left="490" Canvas.Top="330" Click="BtnGo_Click"/>
         <Label Content="CMD command" Canvas.Left="59" Canvas.Top="325" Foreground="White" Height="31" Width="132" FontSize="16"/>
-        <Button Style="{StaticResource OutrunButton}" Content="ALT-TAB" Canvas.Left="59" Canvas.Top="372" Click="BtnStart_Click"/>
-        <Button Style="{StaticResource OutrunBigButton}" Content="WINDOWS VERGRENDELEN" Canvas.Left="149" Canvas.Top="372" Click="BtnStart_Click"/>
+        <Button Style="{StaticResource OutrunButton}" Content="ALT-TAB" Canvas.Left="59" Canvas.Top="372" Click="BtnAltTab_Click"/>
+        <Button Style="{StaticResource OutrunBigButton}" Content="WINDOWS VERGRENDELEN" Canvas.Left="149" Canvas.Top="372" Click="BtnLockWindows_Click"/>
 
 
         

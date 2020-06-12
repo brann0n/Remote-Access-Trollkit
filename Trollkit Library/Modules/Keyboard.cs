@@ -20,6 +20,17 @@ namespace Trollkit_Library.Modules
             SendInput(1, Inputs, INPUT.Size);
         }
 
+        public void release(ScanCodeShort a)
+        {
+            INPUT[] Inputs = new INPUT[1];
+            INPUT Input = new INPUT();
+            Input.type = 1;
+            Input.U.ki.wScan = a;
+            Input.U.ki.dwFlags = KEYEVENTF.SCANCODE | KEYEVENTF.KEYUP;
+            Inputs[0] = Input;
+            SendInput(1, Inputs, INPUT.Size);
+        }
+
         /// <summary>
         /// Declaration of external SendInput method
         /// </summary>

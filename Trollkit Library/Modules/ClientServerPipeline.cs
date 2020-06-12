@@ -26,6 +26,7 @@ namespace Trollkit_Library.Modules
 				count++;
 				byte[] subArray = byteArray.SubArray(index, increment);
 
+
 				bytesLeft -= increment;
 				index += increment;
 

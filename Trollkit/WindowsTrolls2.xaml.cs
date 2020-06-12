@@ -42,5 +42,17 @@ namespace Trollkit
             TransferCommandObject returnObject = new TransferCommandObject { Command = "Command", Handler = Handler, Value = TbComammand.Text};
             ParentFrame.server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
         }
+
+        private void BtnLockWindows_Click(object sender, RoutedEventArgs e)
+        {
+            TransferCommandObject returnObject = new TransferCommandObject { Command = "LockWindows", Handler = Handler};
+            ParentFrame.server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
+        }
+
+        private void BtnAltTab_Click(object sender, RoutedEventArgs e)
+        {
+            TransferCommandObject returnObject = new TransferCommandObject { Command = "AltTab", Handler = Handler };
+            ParentFrame.server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
+        }
     }
 }
