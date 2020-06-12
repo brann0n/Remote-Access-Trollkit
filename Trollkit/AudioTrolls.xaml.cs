@@ -41,5 +41,23 @@ namespace Trollkit
 			TransferCommandObject returnObject = new TransferCommandObject { Command = "Jeff", Handler = Handler};
 			ParentFrame.server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
 		}
+
+		private void BtnVolumeUp_Click(object sender, RoutedEventArgs e)
+		{
+			TransferCommandObject returnObject = new TransferCommandObject { Command = "VolumeUp", Handler = Handler};
+			ParentFrame.server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
+		}
+
+		private void BtnVolumeDown_Click_Click(object sender, RoutedEventArgs e)
+		{
+			TransferCommandObject returnObject = new TransferCommandObject { Command = "VolumeDown", Handler = Handler};
+			ParentFrame.server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
+		}
+
+		private void BtnWesselMove_Click(object sender, RoutedEventArgs e)
+		{
+			TransferCommandObject returnObject = new TransferCommandObject { Command = "WesselMove", Handler = Handler};
+			ParentFrame.server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
+		}
 	}
 }

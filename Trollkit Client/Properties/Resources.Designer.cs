@@ -63,6 +63,15 @@ namespace Trollkit_Client.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
+        internal static System.IO.UnmanagedMemoryStream EchtEenWesselSample {
+            get {
+                return ResourceManager.GetStream("EchtEenWesselSample", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
         internal static System.IO.UnmanagedMemoryStream MyNameIsJeff {
             get {
                 return ResourceManager.GetStream("MyNameIsJeff", resourceCulture);
