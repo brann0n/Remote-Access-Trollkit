@@ -66,6 +66,9 @@
     <Compile Include="Buttons\CloseBtn.cs" />
     <Compile Include="Buttons\HeadMenuBtn.cs" />
     <Compile Include="Buttons\MinimizeBtn.cs" />
+    <Compile Include="ClientsView.xaml.cs">
+      <DependentUpon>ClientsView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SystemInfo.xaml.cs">
       <DependentUpon>SystemInfo.xaml</DependentUpon>
     </Compile>
@@ -76,6 +79,10 @@
       <DependentUpon>WindowsTrolls2.xaml</DependentUpon>
     </Compile>
     <Page Include="AudioTrolls.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ClientsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

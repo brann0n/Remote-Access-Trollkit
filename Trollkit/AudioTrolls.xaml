@@ -57,7 +57,7 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
-        <Button Content="Button" Canvas.Left="55" Canvas.Top="284" Width="99" Height="33" RenderTransformOrigin="0.5,0.5">
+        <Button x:Name="MyNameIsJeff" Content="My name is Jeff" Canvas.Left="55" Canvas.Top="284" Width="99" Height="33" RenderTransformOrigin="0.5,0.5" Click="BtnMyNameIsJeff_Click">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -67,7 +67,7 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
-        <Button Content="Button" Canvas.Left="57" Canvas.Top="326" Width="99" Height="33" RenderTransformOrigin="0.5,0.5">
+        <Button Content="Wessel Move" Canvas.Left="57" Canvas.Top="326" Width="99" Height="33" RenderTransformOrigin="0.5,0.5" Click="BtnWesselMove_Click" >
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -77,7 +77,7 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
-        <Button Content="Button" Canvas.Left="215" Canvas.Top="231" Width="99" Height="33" RenderTransformOrigin="0.5,0.5">
+        <Button Content="Volume Up" Canvas.Left="215" Canvas.Top="231" Width="99" Height="33" RenderTransformOrigin="0.5,0.5" Click="BtnVolumeUp_Click">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -87,7 +87,7 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
-        <Button Content="Button" Canvas.Left="217" Canvas.Top="273" Width="99" Height="33" RenderTransformOrigin="0.5,0.5">
+        <Button Content="Volume Down" Canvas.Left="217" Canvas.Top="273" Width="99" Height="33" RenderTransformOrigin="0.5,0.5" Click="BtnVolumeDown_Click_Click">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>

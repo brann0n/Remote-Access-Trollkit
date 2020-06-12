@@ -100,7 +100,8 @@
         <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
     </Style>
 
-    <Style TargetType="{x:Type TextBlock}" x:Key="HeadMenuText">
+    <Style TargetType="{x:Type buttons:HeadMenuBtn}" x:Key="HeadMenuText"
+        BasedOn = "{StaticResource {x:Type Button}}">
         <Setter Property="RenderTransform">
             <Setter.Value>
                 <TransformGroup>
@@ -117,8 +118,7 @@
         <Setter Property="FontStyle" Value="Italic"/>
         <Setter Property="FontSize" Value="17"/>
         <Setter Property="Padding" Value="2,0,2,2"/>
-        <Setter Property="TextWrapping" Value="Wrap"/>
-		<Setter Property="Text" Value="HOOFDMENU"/>
+        <Setter Property="Content" Value="HOOFDMENU"/>
 	</Style>
     
 </ResourceDictionary>

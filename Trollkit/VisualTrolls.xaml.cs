@@ -55,7 +55,7 @@ namespace Trollkit
 		{
 			TransferCommandObject returnObject = new TransferCommandObject { Command = "TextBox", Handler = Handler, Value = tbDisplayText.Text };
 			ParentFrame.server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
-		}
+        }
 
 		private void BtnTurnOffScreen_Click(object sender, RoutedEventArgs e)
 		{
