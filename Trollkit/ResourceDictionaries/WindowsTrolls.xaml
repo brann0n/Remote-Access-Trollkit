@@ -7,6 +7,7 @@
         <Setter Property="FontSize" Value="14"/>
         <Setter Property="Padding" Value="12,0,12,0"/>
         <Setter Property="Height" Value="22"/>
+        <Setter Property="Margin" Value="6,0,6,0"/>
         
         <Setter Property="Background">
             <Setter.Value>
@@ -48,14 +49,119 @@
         </Setter>
     </Style>
 
-	<Style x:Key="OutrunBigButton" TargetType="{x:Type Button}">
+
+
+    <Style x:Key="OutrunCircle" TargetType="{x:Type Ellipse}">
+
+        <Setter Property="Fill">
+            <Setter.Value>
+                <VisualBrush TileMode="Tile">
+                    <VisualBrush.Visual>
+                        <StackPanel>
+                            <StackPanel.Background>
+                                <DrawingBrush>
+                                    <DrawingBrush.Drawing>
+                                        <GeometryDrawing>
+
+                                            <GeometryDrawing.Brush>
+                                                <LinearGradientBrush StartPoint="1,0" EndPoint="1,1">
+                                                    <GradientStop Color="#129566" Offset="0.0" />
+                                                    <GradientStop Color="#c71494" Offset="1" />
+                                                </LinearGradientBrush>
+                                            </GeometryDrawing.Brush>
+
+                                            <GeometryDrawing.Geometry>
+                                                <GeometryGroup>
+                                                    
+                                                    <GeometryGroup>
+                                                        <GeometryGroup.Transform>
+                                                            <TransformGroup>
+                                                                <TranslateTransform X="0.4" Y="0.5"/>
+                                                                <ScaleTransform ScaleX="0.468" ScaleY="0.468"/>
+                                                            </TransformGroup>
+                                                        </GeometryGroup.Transform>
+                                                        <PathGeometry FillRule="Nonzero" Figures="M60.2,85.3L72.5,43c4.6-2.1,16.7-6.7,31.3-3.3c7,1.6,12.4,4.6,16,7c-4.3,14.4-8.7,28.9-13,43.3c-2.8-2.5-9.2-7.8-19-9.7C73.9,77.6,63,83.7,60.2,85.3z"/>
+                                                        <PathGeometry FillRule="Nonzero" Figures="M44.5,136.9l12.3-42.3c4.6-2.1,16.7-6.7,31.3-3.3c7,1.6,12.4,4.6,16,7c-4.3,14.4-8.7,28.9-13,43.3c-2.8-2.5-9.2-7.8-19-9.7C58.2,129.2,47.3,135.2,44.5,136.9z"/>
+                                                        <PathGeometry FillRule="Nonzero" Figures="M157.5,105.7L145.2,148c-4.6,2.1-16.7,6.7-31.3,3.3c-7-1.6-12.4-4.6-16-7c4.3-14.4,8.7-28.9,13-43.3c2.8,2.5,9.2,7.8,19,9.7C143.8,113.4,154.7,107.3,157.5,105.7z"/>
+                                                        <PathGeometry FillRule="Nonzero" Figures="M173.2,54.1l-12.3,42.3c-4.6,2.1-16.7,6.7-31.3,3.3c-7-1.6-12.4-4.6-16-7c4.3-14.4,8.7-28.9,13-43.3c2.8,2.5,9.2,7.8,19,9.7C159.5,61.8,170.3,55.8,173.2,54.1z"/>
+                                                    </GeometryGroup>
+
+                                                    <GeometryGroup>
+                                                        <GeometryGroup.Transform>
+                                                            <TransformGroup>
+                                                                <TranslateTransform X="0.5" Y="0.5"/>
+                                                                <ScaleTransform ScaleX="1" ScaleY="1"/>
+                                                            </TransformGroup>
+                                                        </GeometryGroup.Transform>
+                                                        <RectangleGeometry Rect="0,0,100,8" />
+                                                        <RectangleGeometry Rect="0,10,100,8" />
+                                                        <RectangleGeometry Rect="0,20,100,8" />
+                                                        <RectangleGeometry Rect="0,30,100,8" />
+                                                        <RectangleGeometry Rect="0,40,100,8" />
+                                                        <RectangleGeometry Rect="0,50,100,8" />
+                                                        <RectangleGeometry Rect="0,60,100,8" />
+                                                        <RectangleGeometry Rect="0,70,100,8" />
+                                                        <RectangleGeometry Rect="0,80,100,8" />
+                                                        <RectangleGeometry Rect="0,90,100,10" />
+                                                    </GeometryGroup>
+                                                </GeometryGroup>
+                                            </GeometryDrawing.Geometry>
+                                            
+                                            
+
+                                        </GeometryDrawing>
+                                    </DrawingBrush.Drawing>
+                                </DrawingBrush>
+                            </StackPanel.Background>
+                            <TextBlock FontSize="10pt" Margin="10"></TextBlock>
+                        </StackPanel>
+                    </VisualBrush.Visual>
+                </VisualBrush>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+
+
+    <Style x:Key="VerticalGlitchText" TargetType="{x:Type Label}">
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="FontSize" Value="60"/>
+
+        <Setter Property="Padding" Value="30,0,30,0"/>
+
+        <Setter Property="Width" Value="auto"/>
+
+        <Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect
+                ShadowDepth="2"
+                Direction="90"
+                Color="#c71494"
+                Opacity="1"
+                 BlurRadius="0"/>
+            </Setter.Value>
+        </Setter>
+
+        <Setter Property="LayoutTransform">
+            <Setter.Value>
+                <TransformGroup>
+                    <RotateTransform Angle="-90" />
+                </TransformGroup>
+            </Setter.Value>
+            
+        </Setter>
+    </Style>
+
+    <Style x:Key="OutrunBigButton" TargetType="{x:Type Button}">
 		<Setter Property="BorderThickness" Value="0"/>
 		<Setter Property="FontWeight" Value="SemiBold"/>
 		<Setter Property="Foreground" Value="White"/>
 		<Setter Property="FontSize" Value="14"/>
 		<Setter Property="Padding" Value="30,0,30,0"/>
 		<Setter Property="Height" Value="22"/>
-
+        <Setter Property="Margin" Value="6,0,6,0"/>
+        
 		<Setter Property="Background">
 			<Setter.Value>
 				<VisualBrush TileMode="Tile">

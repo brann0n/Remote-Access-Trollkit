@@ -11,5 +11,6 @@
             
         </StackPanel>
         <Button Click="Button_Click" Content="clients weergeven"/>
+        <Button Content="Ddos met alle clients"/>
     </StackPanel>
 </UserControl>
