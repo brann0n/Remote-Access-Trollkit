@@ -215,5 +215,11 @@
       <Name>Trollkit Library</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\volume-up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\volume-down.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
