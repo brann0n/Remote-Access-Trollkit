@@ -204,5 +204,8 @@
   <ItemGroup>
     <Resource Include="Resources\Images\VolumeDown.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\PlayPause.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
