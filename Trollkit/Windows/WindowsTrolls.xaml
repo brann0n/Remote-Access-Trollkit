@@ -9,16 +9,7 @@
     <Canvas Margin="10,0,0,10">
         <Rectangle Fill="#141318" HorizontalAlignment="Left" Height="392" VerticalAlignment="Top" Width="500" Canvas.Top="27" RenderTransformOrigin="0.5,0.5" Canvas.Left="12"/>
 
-        <Image Source="Resources\Images\triangles.png" Canvas.Top="23" Width="275" Height="252" RenderTransformOrigin="0.5,0.5" Canvas.Left="332">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-0.391"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
+        <Polygon Points="21.5,128.7 97.5,36 178.5,164 " Stroke="White" StrokeThickness="4" Canvas.Left="360" Canvas.Top="35"/>
 
         <Label Style="{StaticResource VerticalGlitchText}" Content="足りる" Canvas.Top="65"  Height="137" Canvas.Left="30"/>
 
