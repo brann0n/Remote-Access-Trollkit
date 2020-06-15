@@ -16,7 +16,7 @@
         </Setter>
         <Setter Property="RenderTransform">
             <Setter.Value>
-                <SkewTransform CenterX="0" CenterY="0" AngleX="45" AngleY="0" />
+                <SkewTransform CenterX="0" CenterY="0" AngleX="-20" AngleY="0" />
             </Setter.Value>
         </Setter>
     </Style>

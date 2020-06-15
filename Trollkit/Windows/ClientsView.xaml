@@ -18,7 +18,11 @@
                 </ItemsControl.ItemsPanel>
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <Button Content="{Binding Path=ClientName}"/>
+                        <StackPanel Height="auto" Width="auto" Orientation="Horizontal">
+                            <Button Content="{Binding Path=ClientName}"/>
+                            <Label Content="{Binding Path=ClientName}"/>
+                            <Button Content="X"/>
+                        </StackPanel>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
