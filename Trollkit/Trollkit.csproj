@@ -79,6 +79,10 @@
     <Compile Include="Windows\WindowsTrolls.xaml.cs">
       <DependentUpon>WindowsTrolls.xaml</DependentUpon>
     </Compile>
+    <Page Include="ResourceDictionaries\ClientsDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\AudioTrolls.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -150,7 +154,14 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Resources\Images\VolumeUp.png" />
+    <Resource Include="Resources\Images\Next.png" />
+    <Resource Include="Resources\Images\Mute.png" />
+    <Resource Include="Resources\Images\Pause.png" />
+    <Resource Include="Resources\Images\Play.png" />
+    <Resource Include="Resources\Images\Previous.png" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Images\Beeld-Apollo-Hoofd-Nieuw.png" />
   </ItemGroup>
@@ -193,6 +204,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Images\windowstrolls.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\VolumeDown.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -80,5 +80,18 @@ namespace Trollkit
                 this.addClient(client);
             }
         }
+
+        public void displayClients()
+        {
+            this.clearClients();
+            MainWindow main = (MainWindow)Application.Current.MainWindow;
+            List<Client> clients = main.server.GetClients();
+
+            foreach (Client client in clients)
+            {
+                this.addClient(client);
+            }
+        }
+
     }
 }
