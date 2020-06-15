@@ -15,7 +15,7 @@ using System.Windows.Shapes;
 using Trollkit_Library.Models;
 using Trollkit_Library.Modules;
 
-namespace Trollkit
+namespace Trollkit.Windows
 {
     /// <summary>
     /// Interaction logic for AudioTrolls.xaml

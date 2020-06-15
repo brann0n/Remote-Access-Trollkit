@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Trollkit"
 		xmlns:buttons="clr-namespace:Trollkit.Buttons"
+		xmlns:windows="clr-namespace:Trollkit.Windows"
 		mc:Ignorable="d"
         MouseDown="Drag" 
         Title="MainWindow" Height="563" Width="906" WindowStyle="None" Background="Transparent" AllowsTransparency="True">
@@ -24,25 +25,25 @@
         <StackPanel Canvas.Top="84" Canvas.Left="30">
 			<buttons:HeadMenuBtn Style="{StaticResource MenuButton}" Content="> Visual Trolls">
 				<buttons:HeadMenuBtn.Resources>
-                    <local:VisualTrolls x:Key="View" />
+					<windows:VisualTrolls x:Key="View" />
                 </buttons:HeadMenuBtn.Resources>
             </buttons:HeadMenuBtn>
 
 			<buttons:HeadMenuBtn Style="{StaticResource MenuButton}" Content="> Audio Trolls">
 				<buttons:HeadMenuBtn.Resources>
-                    <local:AudioTrolls x:Key="View" />
+                    <windows:AudioTrolls x:Key="View" />
                 </buttons:HeadMenuBtn.Resources>
             </buttons:HeadMenuBtn>
 
 			<buttons:HeadMenuBtn Style="{StaticResource MenuButton}" Content="> Windows Trolls">
 				<buttons:HeadMenuBtn.Resources>
-                    <local:WindowsTrolls2 x:Key="View" />
+                    <windows:WindowsTrolls x:Key="View" />
                 </buttons:HeadMenuBtn.Resources>
             </buttons:HeadMenuBtn>
 
 			<buttons:HeadMenuBtn Style="{StaticResource MenuButton}" Content="> System Info">
 				<buttons:HeadMenuBtn.Resources>
-                    <local:SystemInfo x:Key="View" />
+                    <windows:SystemInfo x:Key="View" />
                 </buttons:HeadMenuBtn.Resources>
             </buttons:HeadMenuBtn>
         </StackPanel>

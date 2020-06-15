@@ -60,7 +60,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AudioTrolls.xaml.cs">
+    <Compile Include="Windows\AudioTrolls.xaml.cs">
       <DependentUpon>AudioTrolls.xaml</DependentUpon>
     </Compile>
     <Compile Include="Buttons\CloseBtn.cs" />
@@ -69,16 +69,16 @@
     <Compile Include="ClientsView.xaml.cs">
       <DependentUpon>ClientsView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SystemInfo.xaml.cs">
+    <Compile Include="Windows\SystemInfo.xaml.cs">
       <DependentUpon>SystemInfo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="VisualTrolls.xaml.cs">
+    <Compile Include="Windows\VisualTrolls.xaml.cs">
       <DependentUpon>VisualTrolls.xaml</DependentUpon>
     </Compile>
-    <Compile Include="WindowsTrolls2.xaml.cs">
-      <DependentUpon>WindowsTrolls2.xaml</DependentUpon>
+    <Compile Include="Windows\WindowsTrolls.xaml.cs">
+      <DependentUpon>WindowsTrolls.xaml</DependentUpon>
     </Compile>
-    <Page Include="AudioTrolls.xaml">
+    <Page Include="Windows\AudioTrolls.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -110,15 +110,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="SystemInfo.xaml">
+    <Page Include="Windows\SystemInfo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="VisualTrolls.xaml">
+    <Page Include="Windows\VisualTrolls.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="WindowsTrolls2.xaml">
+    <Page Include="Windows\WindowsTrolls.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
