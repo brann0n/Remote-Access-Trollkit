@@ -72,6 +72,7 @@
     <Compile Include="Windows\SystemInfo.xaml.cs">
       <DependentUpon>SystemInfo.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\TrollControl.cs" />
     <Compile Include="Windows\VisualTrolls.xaml.cs">
       <DependentUpon>VisualTrolls.xaml</DependentUpon>
     </Compile>
