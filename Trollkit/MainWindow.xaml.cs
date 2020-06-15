@@ -64,12 +64,12 @@ namespace Trollkit
 		private void Server_ClientDisconnected(Client c)
 		{
 			BConsole.WriteLine($"Client {c.GetName()} has disconnected!", ConsoleColor.Yellow);
-		}
+        }
 
 		private void Server_ClientConnected(Client c)
 		{
 			BConsole.WriteLine($"Client {c.GetName()} has connected!", ConsoleColor.Yellow);
-		}
+        }
 
         private void Drag(object sender, MouseButtonEventArgs e)
         {

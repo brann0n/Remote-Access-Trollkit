@@ -79,6 +79,10 @@
     <Compile Include="Windows\WindowsTrolls.xaml.cs">
       <DependentUpon>WindowsTrolls.xaml</DependentUpon>
     </Compile>
+    <Page Include="ResourceDictionaries\ClientsDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\AudioTrolls.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
