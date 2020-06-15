@@ -16,7 +16,7 @@
                 </TransformGroup>
             </Rectangle.RenderTransform>
         </Rectangle>
-        <Rectangle HorizontalAlignment="Left" Height="378" VerticalAlignment="Top" Width="634" Canvas.Top="20" Canvas.Left="12"  RenderTransformOrigin="0.5,0.5" Fill="#FF1C83FF">
+        <Rectangle HorizontalAlignment="Left" Height="378" VerticalAlignment="Top" Width="634" Canvas.Top="22" Canvas.Left="10"  RenderTransformOrigin="0.5,0.5" Fill="#FF1C83FF">
             <Rectangle.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -106,7 +106,77 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
-        <Image Source="..\Resources\Images\Sirenhead.png" Canvas.Top="77" Width="208" Height="265" RenderTransformOrigin="0.5,0.5" Canvas.Left="374">
+        <Image Source="..\Resources\Images\VolumeUp.png" Canvas.Top="365" Width="20" Height="20" RenderTransformOrigin="0.5,0.5" Canvas.Left="157">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-3.277"/>
+                    <TranslateTransform X="0.094" Y="0.138"/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image Source="..\Resources\Images\VolumeDown.png" Canvas.Top="366" Width="20" Height="20" RenderTransformOrigin="0.5,0.5" Canvas.Left="137">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-3.277"/>
+                    <TranslateTransform X="0.096" Y="0.161"/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image Source="..\Resources\Images\Mute.png" Canvas.Top="367" Width="20" Height="20" RenderTransformOrigin="0.5,0.5" Canvas.Left="117">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-3.277"/>
+                    <TranslateTransform X="0.097" Y="0.184"/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image Source="..\Resources\Images\Previous.png" Canvas.Top="364" Width="20" Height="20" RenderTransformOrigin="0.5,0.5" Canvas.Left="182">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-3.277"/>
+                    <TranslateTransform X="0.093" Y="0.108"/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image Source="..\Resources\Images\Play.png" Canvas.Top="363" Width="20" Height="20" RenderTransformOrigin="0.5,0.5" Canvas.Left="207">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-3.277"/>
+                    <TranslateTransform X="0.092" Y="0.079"/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image Source="..\Resources\Images\Pause.png" Canvas.Top="362" Width="20" Height="20" RenderTransformOrigin="0.5,0.5" Canvas.Left="217">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-3.277"/>
+                    <TranslateTransform X="0.092" Y="0.067"/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image Source="..\Resources\Images\Next.png" Canvas.Top="361" Width="20" Height="20" RenderTransformOrigin="0.5,0.5" Canvas.Left="242">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-3.277"/>
+                    <TranslateTransform X="0.091" Y="0.038"/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image Source="..\Resources\Images\Sirenhead.png" Canvas.Top="74" Width="208" Height="265" RenderTransformOrigin="0.5,0.5" Canvas.Left="373">
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
