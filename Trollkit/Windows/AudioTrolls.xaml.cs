@@ -63,6 +63,30 @@ namespace Trollkit.Windows
 			ParentFrame.server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
 		}
 
+		private void BtnNext_Click(object sender, RoutedEventArgs e)
+		{
+			TransferCommandObject returnObject = new TransferCommandObject { Command = "NextTrack", Handler = GetHandler() };
+			ParentFrame.server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
+		}
+
+		private void BtnMute_Click(object sender, RoutedEventArgs e)
+		{
+			TransferCommandObject returnObject = new TransferCommandObject { Command = "Mute", Handler = GetHandler() };
+			ParentFrame.server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
+		}
+
+		private void BtnVolumeDown_Click(object sender, RoutedEventArgs e)
+		{
+			TransferCommandObject returnObject = new TransferCommandObject { Command = "VolumeDown", Handler = GetHandler() };
+			ParentFrame.server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
+		}
+
+		private void BtnPrev_Click(object sender, RoutedEventArgs e)
+		{
+			TransferCommandObject returnObject = new TransferCommandObject { Command = "PreviousTrack", Handler = GetHandler() };
+			ParentFrame.server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
+		}
+
 		//TODO: Add following actions:
 		//Mute, NextTrack, PrevTrack
 	}
