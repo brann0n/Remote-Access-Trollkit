@@ -59,7 +59,7 @@ namespace Trollkit.Windows
 
 		private void BtnPlayPauze_Click(object sender, RoutedEventArgs e)
 		{
-			TransferCommandObject returnObject = new TransferCommandObject { Command = "PlayPause", Handler = Handler };
+			TransferCommandObject returnObject = new TransferCommandObject { Command = "PlayPause", Handler = GetHandler() };
 			ParentFrame.server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
 		}
 
