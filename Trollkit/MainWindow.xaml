@@ -56,6 +56,10 @@
 			</StackPanel>
 		</DataGridCell>
 
-		<ContentControl x:Name="trollView" Canvas.Left="195" Canvas.Top="105" Height="560" Width="774"/>
-	</Canvas>
+        <ContentControl x:Name="trollView" Canvas.Left="195" Canvas.Top="105" Height="560" Width="774">
+            <ContentControl.Content>
+                <windows:ClientsView/>
+            </ContentControl.Content>
+        </ContentControl>
+    </Canvas>
 </Window>

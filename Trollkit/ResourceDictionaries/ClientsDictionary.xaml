@@ -14,5 +14,10 @@
                 </DrawingBrush>
             </Setter.Value>
         </Setter>
+        <Setter Property="RenderTransform">
+            <Setter.Value>
+                <SkewTransform CenterX="0" CenterY="0" AngleX="45" AngleY="0" />
+            </Setter.Value>
+        </Setter>
     </Style>
 </ResourceDictionary>
