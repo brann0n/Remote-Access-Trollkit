@@ -19,7 +19,7 @@
 
 		<buttons:HeadMenuBtn Style="{StaticResource HeadMenuText}" Canvas.Left="19" Canvas.Top="310" Content="HOOFDMENU">
 			<buttons:HeadMenuBtn.Resources>
-				<local:ClientsView x:Key="View" />
+				<windows:ClientsView x:Key="View" />
 			</buttons:HeadMenuBtn.Resources>
 		</buttons:HeadMenuBtn>
 
@@ -56,6 +56,10 @@
 			</StackPanel>
 		</DataGridCell>
 
-		<ContentControl x:Name="trollView" Canvas.Left="195" Canvas.Top="105" Height="560" Width="774"/>
-	</Canvas>
+        <ContentControl x:Name="trollView" Canvas.Left="195" Canvas.Top="105" Height="560" Width="774">
+            <ContentControl.Content>
+                <windows:ClientsView/>
+            </ContentControl.Content>
+        </ContentControl>
+    </Canvas>
 </Window>

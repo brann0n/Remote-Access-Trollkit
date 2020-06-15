@@ -8,10 +8,12 @@ using System.Threading.Tasks;
 using Trollkit_Library.Models;
 using Trollkit_Library.Modules;
 using Trollkit_Library.ClientModules;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace Trollkit_Library.ServerModules
 {
-	public class Server
+	public class Server : INotifyPropertyChanged
 	{
 		private IPAddress ip;
 		private int dataSize;
@@ -50,6 +52,11 @@ namespace Trollkit_Library.ServerModules
 		/// Occures when a message is received by the server.
 		/// </summary>
 		public event ClientMessageReceivedHandler MessageReceived;
+
+		/// <summary>
+		/// Event that occures when a list object is updated
+		/// </summary>
+		public event PropertyChangedEventHandler PropertyChanged;
 
 		public enum DataByteType
 		{
@@ -102,8 +109,10 @@ namespace Trollkit_Library.ServerModules
 				clients.Add(newSocket, client);
 
 				ClientConnected(client);
+				//update current object
+				NotifyPropertyChanged("Clients"); //update the Clients list
 
-				//TODO: send data to client for verification
+				//TODO: send request for system info instead of beep
 				TransferCommandObject returnObject = new TransferCommandObject { Command = "PlayBeep", Handler = "Audio", Value = "600,500" };
 				SendDataObjectToSocket(DataByteType.Command, newSocket, ClientServerPipeline.BufferSerialize(returnObject));
 
@@ -278,6 +287,7 @@ namespace Trollkit_Library.ServerModules
 			{
 				CloseSocket(s);
 				ClientDisconnected(client);
+				NotifyPropertyChanged("Clients"); //update the Clients list
 			}
 		}
 
@@ -316,5 +326,14 @@ namespace Trollkit_Library.ServerModules
 		{
 			return clients.Values.ToList();
 		}
-    }
+
+		/// <summary>
+		/// The important notifier method of changed properties. This function should be called whenever you want to inform other classes that some property has changed.
+		/// </summary>
+		/// <param name="propertyName">The name of the updated property. Leaving this blank will fill in the name of the calling property.</param>
+		private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
+		{
+			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+		}
+	}
 }

@@ -14,6 +14,8 @@ namespace Trollkit_Library.ClientModules
 		private string receivedData;
 		private DateTime connectedAt;
 		private string Name;
+		public string ClientName { get { return Name; } }
+
 		public byte[] Data;
 		public Dictionary<string, string> storedData { get; set; }
 

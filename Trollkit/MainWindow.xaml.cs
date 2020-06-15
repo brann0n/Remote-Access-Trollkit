@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Trollkit.Windows;
 using Trollkit_Library;
 using Trollkit_Library.ClientModules;
 using Trollkit_Library.Models;
@@ -40,7 +41,7 @@ namespace Trollkit
 
 			Task.Run(() => new ServerDiscovery("gang?", "Dopple gang").Discover());
 
-            ((ContentControl)this.FindName("trollView")).Content = new ClientsView();
+            //((ContentControl)this.FindName("trollView")).Content = new ClientsView();
         }
 
 		private void Server_MessageReceived(Client c, TransferCommandObject model, Server.DataByteType type)

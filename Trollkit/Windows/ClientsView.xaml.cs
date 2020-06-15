@@ -16,19 +16,17 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Trollkit_Library.ClientModules;
 
-namespace Trollkit
+namespace Trollkit.Windows
 {
     /// <summary>
     /// Interaction logic for ClientsView.xaml
     /// </summary>
-    public partial class ClientsView : UserControl
+    public partial class ClientsView : TrollControl
     {
-        public ClientsView()
+		public ClientsView() : base("Clients")
         {
             InitializeComponent();
-
-
-            //this.ddos();
+			DataContext = ParentFrame.server;
         }
 
         public void addClient(Client client)
