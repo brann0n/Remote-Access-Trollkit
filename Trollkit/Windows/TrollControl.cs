@@ -21,7 +21,5 @@ namespace Trollkit.Windows
 		{
 			return this.Handler;
 		}
-
-		public MainWindow ParentFrame { get { return (MainWindow)Application.Current.MainWindow; } }
 	}
 }

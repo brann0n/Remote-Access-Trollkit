@@ -1,15 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
 using System.Net;
 using System.Runtime.CompilerServices;
-using System.Text;
 using System.Threading.Tasks;
 using Trollkit_Library.ClientModules;
 using Trollkit_Library.Models;
 using Trollkit_Library.Modules;
 using Trollkit_Library.ServerModules;
+using Trollkit_Library.ViewModels.Commands;
 
 namespace Trollkit_Library.ViewModels
 {
@@ -17,6 +16,8 @@ namespace Trollkit_Library.ViewModels
 	{
 		public Server Server;
 		public event PropertyChangedEventHandler PropertyChanged;
+
+		public AudioCommands Audio { get { return new AudioCommands(Server, "Audio"); } }
 
 		public ServerViewModel()
 		{
@@ -27,6 +28,18 @@ namespace Trollkit_Library.ViewModels
 			Server.Start();
 
 			Task.Run(() => new ServerDiscovery("gang?", "Dopple gang").Discover());
+		}
+
+		private void test()
+		{
+			////Create a command binding for the Save command
+			//CommandBinding saveBinding = new CommandBinding(ApplicationCommands., SaveExecuted, SaveCanExecute);
+
+			////Register the binding to the class
+			//CommandManager.RegisterClassCommandBinding(typeof(CustomerViewModel), saveBinding);
+
+			////Adds the binding to the CommandBindingCollection
+			//CommandBindings.Add(saveBinding);
 		}
 
 		private void Server_MessageReceived(Client c, TransferCommandObject model, Server.DataByteType type)
@@ -44,6 +57,7 @@ namespace Trollkit_Library.ViewModels
 		private void Server_ClientDisconnected(Client c)
 		{
 			BConsole.WriteLine($"Client {c.GetName()} has disconnected!", ConsoleColor.Yellow);
+			NotifyPropertyChanged("Clients");
 		}
 
 		private void Server_ClientConnected(Client c)
@@ -53,8 +67,11 @@ namespace Trollkit_Library.ViewModels
 			{
 				Server.SelectedClient = c;
 			}
+
+			NotifyPropertyChanged("Clients");
 		}
 
+		public List<Client> Clients { get { return Server.Clients; } }
 
 		public Client SelectedClient
 		{

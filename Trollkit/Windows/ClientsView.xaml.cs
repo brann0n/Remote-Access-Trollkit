@@ -26,7 +26,6 @@ namespace Trollkit.Windows
 		public ClientsView() : base("Clients")
         {
             InitializeComponent();
-			
         }
 
         public void addClient(Client client)

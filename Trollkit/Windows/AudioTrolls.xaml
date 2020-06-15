@@ -47,8 +47,14 @@
                 </TransformGroup>
             </TextBlock.RenderTransform>
         </TextBlock>
-        <Button Style="{StaticResource SoundButton}" Name="btnBeep"  Canvas.Left="52" Canvas.Top="240" RenderTransformOrigin="0.5,0.5" Click="BtnBeep_Click">
-            <TextBlock Text="> Beep"/>
+        <Button Style="{StaticResource SoundButton}" 
+				Name="btnBeep"  
+				Canvas.Left="52" 
+				Canvas.Top="240" 
+				RenderTransformOrigin="0.5,0.5"
+				Command="{Binding Audio.Beep}">
+            <TextBlock 
+				Text="> Beep"/>
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -58,7 +64,7 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
-        <Button Style="{StaticResource SoundButton}" Canvas.Left="55" Canvas.Top="284" RenderTransformOrigin="0.5,0.5" Click="BtnMyNameIsJeff_Click">
+		<Button Style="{StaticResource SoundButton}" Canvas.Left="55" Canvas.Top="284" RenderTransformOrigin="0.5,0.5" Command="{Binding Audio.MyNameIsJeff}">
             <TextBlock Text="> My name is Jeff"/>
             <Button.RenderTransform>
                 <TransformGroup>
@@ -69,7 +75,7 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
-        <Button Style="{StaticResource SoundButton}" Canvas.Left="57" Canvas.Top="326" RenderTransformOrigin="0.5,0.5" Click="BtnWesselMove_Click" >
+		<Button Style="{StaticResource SoundButton}" Canvas.Left="57" Canvas.Top="326" RenderTransformOrigin="0.5,0.5" Command="{Binding Audio.WesselMove}" >
             <TextBlock Text="> Wessel Move"/>
             <Button.RenderTransform>
                 <TransformGroup>
@@ -90,7 +96,7 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <Button Style="{StaticResource SoundButton}" Canvas.Left="510" Canvas.Top="54" Width="25" Height="25" RenderTransformOrigin="0.5,0.5" Click="BtnMute_Click" Background="{x:Null}" BorderBrush="{x:Null}">
+		<Button Style="{StaticResource SoundButton}" Canvas.Left="510" Canvas.Top="54" Width="25" Height="25" RenderTransformOrigin="0.5,0.5" Command="{Binding Audio.Mute}" Background="{x:Null}" BorderBrush="{x:Null}">
             <Image Source="..\Resources\Images\Mute.png"/>
             <Button.RenderTransform>
                 <TransformGroup>
@@ -101,7 +107,7 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
-        <Button Style="{StaticResource SoundButton}" Canvas.Left="464" Canvas.Top="116" Width="43" Height="43" RenderTransformOrigin="0.5,0.5" Click="BtnVolumeDown_Click" Background="{x:Null}" BorderBrush="{x:Null}">
+		<Button Style="{StaticResource SoundButton}" Canvas.Left="464" Canvas.Top="116" Width="43" Height="43" RenderTransformOrigin="0.5,0.5" Command="{Binding Audio.VolumeDown}" Background="{x:Null}" BorderBrush="{x:Null}">
             <Image Source="..\Resources\Images\VolumeDown.png" RenderTransformOrigin="0.5,0.5">
                 <Image.RenderTransform>
                     <TransformGroup>
@@ -121,7 +127,7 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
-        <Button Style="{StaticResource SoundButton}" Canvas.Left="539" Canvas.Top="70" Width="48" Height="48" RenderTransformOrigin="0.5,0.5" Click="BtnVolumeUp_Click" Background="{x:Null}" BorderBrush="{x:Null}">
+		<Button Style="{StaticResource SoundButton}" Canvas.Left="539" Canvas.Top="70" Width="48" Height="48" RenderTransformOrigin="0.5,0.5" Command="{Binding Audio.VolumeUp}" Background="{x:Null}" BorderBrush="{x:Null}">
             <Image Source="..\Resources\Images\VolumeUp.png"/>
             <Button.RenderTransform>
                 <TransformGroup>
@@ -132,7 +138,7 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
-        <Button Style="{StaticResource SoundButton}" Canvas.Left="245" Canvas.Top="273" Width="25" Height="25" RenderTransformOrigin="0.5,0.5" Click="BtnPrev_Click" Background="{x:Null}" BorderBrush="{x:Null}">
+		<Button Style="{StaticResource SoundButton}" Canvas.Left="245" Canvas.Top="273" Width="25" Height="25" RenderTransformOrigin="0.5,0.5" Command="{Binding Audio.Previous}" Background="{x:Null}" BorderBrush="{x:Null}">
             <Image Source="..\Resources\Images\Previous.png"/>
             <Button.RenderTransform>
                 <TransformGroup>
@@ -143,7 +149,7 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
-        <Button Style="{StaticResource SoundButton}" Canvas.Left="278" Canvas.Top="270" Width="25" Height="25" RenderTransformOrigin="0.5,0.5" Click="BtnPlayPauze_Click" Background="{x:Null}" BorderBrush="{x:Null}">
+		<Button Style="{StaticResource SoundButton}" Canvas.Left="278" Canvas.Top="270" Width="25" Height="25" RenderTransformOrigin="0.5,0.5" Command="{Binding Audio.PlayPause}" Background="{x:Null}" BorderBrush="{x:Null}">
             <Image Source="..\Resources\Images\PlayPause.png"/>
             <Button.RenderTransform>
                 <TransformGroup>
@@ -155,7 +161,7 @@
             </Button.RenderTransform>
         </Button>
 
-        <Button Style="{StaticResource SoundButton}" Canvas.Left="310" Canvas.Top="267" Width="24" Height="26" RenderTransformOrigin="0.5,0.5" Click="BtnNext_Click" Background="{x:Null}" BorderBrush="{x:Null}">
+		<Button Style="{StaticResource SoundButton}" Canvas.Left="310" Canvas.Top="267" Width="24" Height="26" RenderTransformOrigin="0.5,0.5" Command="{Binding Audio.Next}" Background="{x:Null}" BorderBrush="{x:Null}">
             <Image Source="..\Resources\Images\Next.png" />
             <Button.RenderTransform>
                 <TransformGroup>

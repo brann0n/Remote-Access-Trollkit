@@ -24,7 +24,6 @@ namespace Trollkit.Windows
         public SystemInfo() : base("System")
         {
             InitializeComponent();
-			//DataContext = App.Server;
         }
     } 
 }
