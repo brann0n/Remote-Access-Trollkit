@@ -19,7 +19,7 @@
 
 		<buttons:HeadMenuBtn Style="{StaticResource HeadMenuText}" Canvas.Left="19" Canvas.Top="310" Content="HOOFDMENU">
 			<buttons:HeadMenuBtn.Resources>
-				<local:ClientsView x:Key="View" />
+				<windows:ClientsView x:Key="View" />
 			</buttons:HeadMenuBtn.Resources>
 		</buttons:HeadMenuBtn>
 

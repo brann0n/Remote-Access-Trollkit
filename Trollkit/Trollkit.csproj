@@ -66,7 +66,7 @@
     <Compile Include="Buttons\CloseBtn.cs" />
     <Compile Include="Buttons\HeadMenuBtn.cs" />
     <Compile Include="Buttons\MinimizeBtn.cs" />
-    <Compile Include="ClientsView.xaml.cs">
+    <Compile Include="Windows\ClientsView.xaml.cs">
       <DependentUpon>ClientsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\SystemInfo.xaml.cs">
@@ -87,7 +87,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ClientsView.xaml">
+    <Page Include="Windows\ClientsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

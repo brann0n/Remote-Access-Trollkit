@@ -102,8 +102,9 @@ namespace Trollkit_Library.ServerModules
 				clients.Add(newSocket, client);
 
 				ClientConnected(client);
+				//update current object
 
-				//TODO: send data to client for verification
+				//TODO: send request for system info instead of beep
 				TransferCommandObject returnObject = new TransferCommandObject { Command = "PlayBeep", Handler = "Audio", Value = "600,500" };
 				SendDataObjectToSocket(DataByteType.Command, newSocket, ClientServerPipeline.BufferSerialize(returnObject));
 
