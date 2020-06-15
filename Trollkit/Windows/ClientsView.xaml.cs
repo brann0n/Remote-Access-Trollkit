@@ -27,8 +27,6 @@ namespace Trollkit.Windows
         {
             InitializeComponent();
 			DataContext = ParentFrame.server;
-
-            //this.ddos();
         }
 
         public void addClient(Client client)
