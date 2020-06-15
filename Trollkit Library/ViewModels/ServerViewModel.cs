@@ -30,18 +30,6 @@ namespace Trollkit_Library.ViewModels
 			Task.Run(() => new ServerDiscovery("gang?", "Dopple gang").Discover());
 		}
 
-		private void test()
-		{
-			////Create a command binding for the Save command
-			//CommandBinding saveBinding = new CommandBinding(ApplicationCommands., SaveExecuted, SaveCanExecute);
-
-			////Register the binding to the class
-			//CommandManager.RegisterClassCommandBinding(typeof(CustomerViewModel), saveBinding);
-
-			////Adds the binding to the CommandBindingCollection
-			//CommandBindings.Add(saveBinding);
-		}
-
 		private void Server_MessageReceived(Client c, TransferCommandObject model, Server.DataByteType type)
 		{
 			BConsole.WriteLine($"Client {c.GetName()} sent a message", ConsoleColor.DarkGray);
