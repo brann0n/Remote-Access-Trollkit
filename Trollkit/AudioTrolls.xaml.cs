@@ -59,5 +59,14 @@ namespace Trollkit
 			TransferCommandObject returnObject = new TransferCommandObject { Command = "WesselMove", Handler = Handler};
 			ParentFrame.server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
 		}
+
+		private void BtnPlayPauze_Click(object sender, RoutedEventArgs e)
+		{
+			TransferCommandObject returnObject = new TransferCommandObject { Command = "PlayPause", Handler = Handler };
+			ParentFrame.server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
+		}
+
+		//TODO: Add following actions:
+		//Mute, NextTrack, PrevTrack
 	}
 }

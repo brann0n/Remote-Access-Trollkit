@@ -97,7 +97,7 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
-        <Button Content="Button" Canvas.Left="219" Canvas.Top="313" Width="99" Height="33" RenderTransformOrigin="0.5,0.5">
+        <Button Content="PlayPauze" Canvas.Left="219" Canvas.Top="313" Width="99" Height="33" RenderTransformOrigin="0.5,0.5" Click="BtnPlayPauze_Click">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
