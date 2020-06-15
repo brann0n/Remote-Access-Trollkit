@@ -40,7 +40,11 @@ namespace Trollkit
 			server.Start();
 
 			Task.Run(() => new ServerDiscovery("gang?", "Dopple gang").Discover());
-		}
+
+
+            ContentControl trollView = (ContentControl)this.FindName("trollView");
+            trollView.Content = new ClientsView();
+        }
 
 		private void Server_MessageReceived(Client c, TransferCommandObject model, Server.DataByteType type)
 		{
