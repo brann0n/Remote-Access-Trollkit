@@ -13,5 +13,19 @@
         <Button Click="Button_Click" Content="clients weergeven"/>
         <Button Content="Ddos met alle clients"/>
         <Button Content="Selecteer alle clients"/>
+        
+        <Rectangle Width="400" Height="100" Canvas.Left="10" Canvas.Top="10">
+            <Rectangle.Fill>
+                
+                <DrawingBrush TileMode="Tile" Viewport="0,0,32,32" ViewportUnits="Absolute">
+                    <DrawingBrush.Drawing>
+                        <DrawingGroup>
+                            <GeometryDrawing Geometry="M0,0 H2 V1 H2 V1 H2 V1 H0Z" Brush="black"/>
+                        </DrawingGroup>
+                    </DrawingBrush.Drawing>
+                </DrawingBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        
     </StackPanel>
 </UserControl>
