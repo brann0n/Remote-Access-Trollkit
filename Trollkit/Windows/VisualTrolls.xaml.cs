@@ -19,7 +19,7 @@ using Trollkit_Library;
 using Trollkit_Library.Models;
 using Trollkit_Library.Modules;
 
-namespace Trollkit
+namespace Trollkit.Windows
 {
     /// <summary>
     /// Interaction logic for VisualTrolls.xaml

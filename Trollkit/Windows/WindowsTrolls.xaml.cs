@@ -15,16 +15,16 @@ using System.Windows.Shapes;
 using Trollkit_Library.Models;
 using Trollkit_Library.Modules;
 
-namespace Trollkit
+namespace Trollkit.Windows
 {
     /// <summary>
     /// Interaction logic for WindowsTrolls2.xaml
     /// </summary>
-    public partial class WindowsTrolls2 : UserControl
+    public partial class WindowsTrolls : UserControl
     {
         private MainWindow ParentFrame { get { return (MainWindow)Application.Current.MainWindow; } }
         private const string Handler = "Windows";
-        public WindowsTrolls2()
+        public WindowsTrolls()
         {
             InitializeComponent();
         }
