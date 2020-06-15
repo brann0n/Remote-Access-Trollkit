@@ -35,7 +35,6 @@ namespace Trollkit
 			server = new Server(IPAddress.Any);
 			server.ClientConnected += Server_ClientConnected;
 			server.ClientDisconnected += Server_ClientDisconnected;
-			server.ConnectionBlocked += Server_ConnectionBlocked;
 			server.MessageReceived += Server_MessageReceived;
 			server.Start();
 
@@ -56,11 +55,6 @@ namespace Trollkit
 			}
 		}
 
-		private void Server_ConnectionBlocked(IPEndPoint endPoint)
-		{
-			//throw new NotImplementedException();
-		}
-
 		private void Server_ClientDisconnected(Client c)
 		{
 			BConsole.WriteLine($"Client {c.GetName()} has disconnected!", ConsoleColor.Yellow);
@@ -69,6 +63,10 @@ namespace Trollkit
 		private void Server_ClientConnected(Client c)
 		{
 			BConsole.WriteLine($"Client {c.GetName()} has connected!", ConsoleColor.Yellow);
+			if(server.SelectedClient != null)
+			{
+				server.SelectedClient = c;
+			}
 		}
 
         private void Drag(object sender, MouseButtonEventArgs e)

@@ -9,6 +9,7 @@
                 <ResourceDictionary Source="ResourceDictionaries\Menu.xaml"/>
                 <ResourceDictionary Source="ResourceDictionaries\WindowsTrolls.xaml"/>
                 <ResourceDictionary Source="ResourceDictionaries\VisualTrollsDictionary.xaml"/>
+                <ResourceDictionary Source="ResourceDictionaries\ClientsDictionary.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

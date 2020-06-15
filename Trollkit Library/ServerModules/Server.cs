@@ -26,7 +26,10 @@ namespace Trollkit_Library.ServerModules
 		/// </summary>
 		private Dictionary<Socket, Client> clients;
 
-        private Client selectedClient;
+		public List<Client> Clients { get { return clients.Values.ToList(); } }
+
+		private Client selectedClient;
+		public Client SelectedClient { get { return selectedClient; } set { selectedClient = value; } }
 
         //delegates
         public delegate void ConnectionEventHandler(Client c);
@@ -42,11 +45,6 @@ namespace Trollkit_Library.ServerModules
 		/// Occures when a client is disconnected.
 		/// </summary>
 		public event ConnectionEventHandler ClientDisconnected;
-
-		/// <summary>
-		/// Occures when an incoming connection is blocked.
-		/// </summary>
-		public event ConnectionBlockedEventHandler ConnectionBlocked;
 
 		/// <summary>
 		/// Occures when a message is received by the server.
@@ -318,18 +316,5 @@ namespace Trollkit_Library.ServerModules
 		{
 			return clients.Values.ToList();
 		}
-
-        public void selectClient(Client client)
-        {
-            this.selectedClient = client;
-            Console.WriteLine("Client selected: " + client.GetRemoteAddress());
-        }
-
-        public Client getSelectedClient()
-        {
-            return this.selectedClient;
-        }
     }
-
-
 }
