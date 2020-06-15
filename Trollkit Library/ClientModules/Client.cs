@@ -15,6 +15,7 @@ namespace Trollkit_Library.ClientModules
 		private DateTime connectedAt;
 		private string Name;
 		public byte[] Data;
+		public Dictionary<string, string> storedData { get; set; }
 
 		public Client(uint id, IPEndPoint pAddressEndpoint)
 		{
@@ -23,6 +24,18 @@ namespace Trollkit_Library.ClientModules
 			this.endPoint = pAddressEndpoint;
 			SetName($"Client #{id}");
 			this.Data = new byte[SharedProperties.DataSize];
+			storedData = new Dictionary<string, string>();
+			storedData.Add("test", "dit is een test");
+		}
+
+		public void SetDataItem(string key, string value)
+		{
+			storedData[key] = value;
+		}
+
+		public string GetDataItem(string key)
+		{
+			return storedData[key];
 		}
 
 		public string GetName()
