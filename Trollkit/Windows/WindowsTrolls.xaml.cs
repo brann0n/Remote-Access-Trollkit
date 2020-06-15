@@ -32,25 +32,25 @@ namespace Trollkit.Windows
             string X = TbXcoordinate.Text;
             string Y = TbYcoordinate.Text;
             TransferCommandObject returnObject = new TransferCommandObject { Command = "MousePosition", Handler = GetHandler(), Value = $"{X},{Y}"};
-            ParentFrame.server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
+            //App.Server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
         }
 
         private void BtnGo_Click(object sender, RoutedEventArgs e)
         {
             TransferCommandObject returnObject = new TransferCommandObject { Command = "Command", Handler = GetHandler(), Value = $"{TbComammand.Text},hidden"};
-            ParentFrame.server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
+           /// App.Server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
         }
 
         private void BtnLockWindows_Click(object sender, RoutedEventArgs e)
         {
             TransferCommandObject returnObject = new TransferCommandObject { Command = "LockWindows", Handler = GetHandler() };
-            ParentFrame.server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
+            //App.Server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
         }
 
         private void BtnAltTab_Click(object sender, RoutedEventArgs e)
         {
             TransferCommandObject returnObject = new TransferCommandObject { Command = "AltTab", Handler = GetHandler() };
-            ParentFrame.server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
+            //App.Server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
         }
     }
 }

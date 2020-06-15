@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Net;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Trollkit_Library.ClientModules
 {
-	public class Client
+	public class Client : INotifyPropertyChanged
 	{
 		private IPEndPoint endPoint;
 		private uint id;
@@ -17,6 +19,12 @@ namespace Trollkit_Library.ClientModules
 		public string ClientName { get { return Name; } }
 
 		public byte[] Data;
+
+		/// <summary>
+		/// Event that occures when a list object is updated
+		/// </summary>
+		public event PropertyChangedEventHandler PropertyChanged;
+
 		public Dictionary<string, string> storedData { get; set; }
 
 		public Client(uint id, IPEndPoint pAddressEndpoint)
@@ -25,14 +33,15 @@ namespace Trollkit_Library.ClientModules
 			this.connectedAt = DateTime.Now;
 			this.endPoint = pAddressEndpoint;
 			SetName($"Client #{id}");
+			NotifyPropertyChanged("ClientName");
 			this.Data = new byte[SharedProperties.DataSize];
 			storedData = new Dictionary<string, string>();
-			storedData.Add("test", "dit is een test");
 		}
 
 		public void SetDataItem(string key, string value)
 		{
 			storedData[key] = value;
+			NotifyPropertyChanged("storedData");
 		}
 
 		public string GetDataItem(string key)
@@ -48,8 +57,8 @@ namespace Trollkit_Library.ClientModules
 		public void SetName(string name)
 		{
 			Name = name;
+			NotifyPropertyChanged("ClientName");
 		}
-
 
 		/// <summary>
 		/// Gets the client identifier.
@@ -120,6 +129,15 @@ namespace Trollkit_Library.ClientModules
 			string res = string.Format("Client #{0} (From: {1}, Connection time: {2})", id, ip, connectedAt);
 
 			return res;
+		}
+
+		/// <summary>
+		/// The important notifier method of changed properties. This function should be called whenever you want to inform other classes that some property has changed.
+		/// </summary>
+		/// <param name="propertyName">The name of the updated property. Leaving this blank will fill in the name of the calling property.</param>
+		private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
+		{
+			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 		}
 	}
 }

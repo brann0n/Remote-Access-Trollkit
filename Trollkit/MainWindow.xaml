@@ -4,12 +4,15 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Trollkit"
-        
 		xmlns:buttons="clr-namespace:Trollkit.Buttons"
 		xmlns:windows="clr-namespace:Trollkit.Windows"
+		xmlns:viewmodels="clr-namespace:Trollkit_Library.ViewModels;assembly=Trollkit_Library"
 		mc:Ignorable="d"
         MouseDown="Drag" 
         Title="MainWindow" Height="740" Width="1014" WindowStyle="None" Background="Transparent" AllowsTransparency="True">
+	<Window.DataContext>
+		<viewmodels:ServerViewModel/>
+	</Window.DataContext>
 	<Canvas Margin="0,0,-96,-153">
 		<Rectangle Style="{StaticResource TrollsBackground}" Height="350" Width="607" Canvas.Left="52" Canvas.Top="52" />
 

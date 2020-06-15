@@ -166,12 +166,6 @@
     <Resource Include="Resources\Images\Beeld-Apollo-Hoofd-Nieuw.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Trollkit Library\Trollkit Library.csproj">
-      <Project>{D8A33FFD-15E7-48C0-8241-32452941D208}</Project>
-      <Name>Trollkit Library</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Resources\Images\System_Info_PC.png" />
   </ItemGroup>
   <ItemGroup>
@@ -210,6 +204,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Images\PlayPause.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Trollkit Library\Trollkit Library.csproj">
+      <Project>{d8a33ffd-15e7-48c0-8241-32452941d208}</Project>
+      <Name>Trollkit Library</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

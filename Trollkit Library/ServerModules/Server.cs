@@ -10,10 +10,11 @@ using Trollkit_Library.Modules;
 using Trollkit_Library.ClientModules;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using Trollkit_Library.ViewModels;
 
 namespace Trollkit_Library.ServerModules
 {
-	public class Server : INotifyPropertyChanged
+	public class Server
 	{
 		private IPAddress ip;
 		private int dataSize;
@@ -31,7 +32,17 @@ namespace Trollkit_Library.ServerModules
 		public List<Client> Clients { get { return clients.Values.ToList(); } }
 
 		private Client selectedClient;
-		public Client SelectedClient { get { return selectedClient; } set { selectedClient = value; } }
+		public Client SelectedClient
+		{
+			get
+			{
+				return selectedClient;
+			}
+			set
+			{
+				selectedClient = value;
+			}
+		}
 
         //delegates
         public delegate void ConnectionEventHandler(Client c);
@@ -52,11 +63,6 @@ namespace Trollkit_Library.ServerModules
 		/// Occures when a message is received by the server.
 		/// </summary>
 		public event ClientMessageReceivedHandler MessageReceived;
-
-		/// <summary>
-		/// Event that occures when a list object is updated
-		/// </summary>
-		public event PropertyChangedEventHandler PropertyChanged;
 
 		public enum DataByteType
 		{
@@ -106,11 +112,12 @@ namespace Trollkit_Library.ServerModules
 
 				uint clientId = clientCount++;
 				Client client = new Client(clientId, (IPEndPoint)newSocket.RemoteEndPoint);
+				client.SetDataItem("test", "DEBUG_TEST_ITEM");
 				clients.Add(newSocket, client);
-
+				
 				ClientConnected(client);
 				//update current object
-				NotifyPropertyChanged("Clients"); //update the Clients list
+				//ServerViewModel.ForceUpdate("Clients"); //update the Clients list
 
 				//TODO: send request for system info instead of beep
 				TransferCommandObject returnObject = new TransferCommandObject { Command = "PlayBeep", Handler = "Audio", Value = "600,500" };
@@ -287,7 +294,7 @@ namespace Trollkit_Library.ServerModules
 			{
 				CloseSocket(s);
 				ClientDisconnected(client);
-				NotifyPropertyChanged("Clients"); //update the Clients list
+				//NotifyPropertyChanged("Clients"); //update the Clients list
 			}
 		}
 
@@ -325,15 +332,6 @@ namespace Trollkit_Library.ServerModules
 		public List<Client> GetClients()
 		{
 			return clients.Values.ToList();
-		}
-
-		/// <summary>
-		/// The important notifier method of changed properties. This function should be called whenever you want to inform other classes that some property has changed.
-		/// </summary>
-		/// <param name="propertyName">The name of the updated property. Leaving this blank will fill in the name of the calling property.</param>
-		private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
-		{
-			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 		}
 	}
 }

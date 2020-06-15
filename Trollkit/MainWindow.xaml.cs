@@ -28,47 +28,10 @@ namespace Trollkit
 	/// </summary>
 	public partial class MainWindow : Window
 	{
-		public Server server;
-
 		public MainWindow()
 		{
 			InitializeComponent();
-			server = new Server(IPAddress.Any);
-			server.ClientConnected += Server_ClientConnected;
-			server.ClientDisconnected += Server_ClientDisconnected;
-			server.MessageReceived += Server_MessageReceived;
-			server.Start();
-
-			Task.Run(() => new ServerDiscovery("gang?", "Dopple gang").Discover());
-
-            //((ContentControl)this.FindName("trollView")).Content = new ClientsView();
         }
-
-		private void Server_MessageReceived(Client c, TransferCommandObject model, Server.DataByteType type)
-		{
-			BConsole.WriteLine($"Client {c.GetName()} sent a message", ConsoleColor.DarkGray);
-
-			if(model.Command == "Debug")
-			{
-				TransferCommandObject returnObject = new TransferCommandObject { Command = "PlayBeep", Handler = "Audio", Value = "200,300" };
-
-				server.SendDataObjectToSocket(Server.DataByteType.Command, server.GetSocketByClient(c), ClientServerPipeline.BufferSerialize(returnObject));
-			}
-		}
-
-		private void Server_ClientDisconnected(Client c)
-		{
-			BConsole.WriteLine($"Client {c.GetName()} has disconnected!", ConsoleColor.Yellow);
-		}
-
-		private void Server_ClientConnected(Client c)
-		{
-			BConsole.WriteLine($"Client {c.GetName()} has connected!", ConsoleColor.Yellow);
-			if(server.SelectedClient != null)
-			{
-				server.SelectedClient = c;
-			}
-		}
 
         private void Drag(object sender, MouseButtonEventArgs e)
         {

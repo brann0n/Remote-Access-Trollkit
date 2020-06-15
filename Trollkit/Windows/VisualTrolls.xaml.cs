@@ -44,26 +44,26 @@ namespace Trollkit.Windows
 				string base64 = Convert.ToBase64String(bytes);
 				TransferCommandObject returnObject = new TransferCommandObject { Command = "ShowImage", Handler = GetHandler(), Value = base64 };
 
-				ParentFrame.server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
+				//App.Server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
 			}		
 		}
 
 		private void BtnDisplayText_Click(object sender, RoutedEventArgs e)
 		{
 			TransferCommandObject returnObject = new TransferCommandObject { Command = "TextBox", Handler = GetHandler(), Value = tbDisplayText.Text };
-			ParentFrame.server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
+			//App.Server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
         }
 
 		private void BtnTurnOffScreen_Click(object sender, RoutedEventArgs e)
 		{
 			TransferCommandObject returnObject = new TransferCommandObject { Command = "BlackScreen", Handler = GetHandler(), Value = "" };
-			ParentFrame.server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
+			//App.Server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
 		}
 
 		private void BtnOpenSite_Click(object sender, RoutedEventArgs e)
 		{
 			TransferCommandObject returnObject = new TransferCommandObject { Command = "OpenSite", Handler = GetHandler(), Value = tbOpenSite.Text };
-			ParentFrame.server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
+			//App.Server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
 		}
 
 		private void BtnPickBackgroundImage_Click(object sender, RoutedEventArgs e)
@@ -79,7 +79,7 @@ namespace Trollkit.Windows
 				string base64 = Convert.ToBase64String(bytes);
 
 				TransferCommandObject returnObject = new TransferCommandObject { Command = "SetBackground", Handler = GetHandler(), Value = base64 };
-				ParentFrame.server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
+				//App.Server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
 			}			
 		}
 	}

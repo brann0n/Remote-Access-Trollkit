@@ -26,7 +26,7 @@ namespace Trollkit.Windows
 		public ClientsView() : base("Clients")
         {
             InitializeComponent();
-			DataContext = ParentFrame.server;
+			
         }
 
         public void addClient(Client client)
@@ -35,7 +35,7 @@ namespace Trollkit.Windows
 
             button.Content = client.GetRemoteAddress();
             button.Click += (s, e) => {
-                ((MainWindow)Application.Current.MainWindow).server.SelectedClient = client;
+                //App.Server.SelectedClient = client;
             };
             clientsList.Children.Add(button);
         }
@@ -65,31 +65,6 @@ namespace Trollkit.Windows
             //}
 
             //Console.WriteLine("Request status: " + response.StatusCode + " Server: " + response.Server);
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            this.clearClients();
-            MainWindow main = (MainWindow)Application.Current.MainWindow;
-            List<Client> clients = main.server.GetClients();
-
-            foreach (Client client in clients)
-            {
-                this.addClient(client);
-            }
-        }
-
-        public void displayClients()
-        {
-            this.clearClients();
-            MainWindow main = (MainWindow)Application.Current.MainWindow;
-            List<Client> clients = main.server.GetClients();
-
-            foreach (Client client in clients)
-            {
-                this.addClient(client);
-            }
-        }
-
+        }      
     }
 }
