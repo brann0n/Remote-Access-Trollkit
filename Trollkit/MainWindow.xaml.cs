@@ -73,6 +73,7 @@ namespace Trollkit
 
         private void Drag(object sender, MouseButtonEventArgs e)
         {
+			if(e.RightButton != MouseButtonState.Pressed)
             this.DragMove();
         }
     }

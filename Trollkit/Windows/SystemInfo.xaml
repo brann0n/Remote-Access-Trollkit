@@ -1,10 +1,12 @@
-﻿<UserControl x:Class="Trollkit.Windows.SystemInfo"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             mc:Ignorable="d" Height="361" Width="599">
-    <Canvas Margin="10,0,80,41">
+﻿<windows:TrollControl
+	xmlns:windows="clr-namespace:Trollkit.Windows"
+	x:Class="Trollkit.Windows.SystemInfo"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    mc:Ignorable="d" Height="361" Width="599">
+	<Canvas Margin="10,0,80,41">
         <Rectangle HorizontalAlignment="Left" Height="310" VerticalAlignment="Top" Width="510" Canvas.Top="10">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="..\Resources\Images\System_Info_background.png"></ImageBrush>
@@ -27,7 +29,7 @@
             <Label Content="> Client info" Canvas.Left="21" Canvas.Top="27" Foreground="#FF52FF00" Height="38" FontSize="20" FontWeight="Bold"/>
             <Label Content="&gt; &quot;Client PC name&quot;" Canvas.Left="21" Canvas.Top="64" Foreground="#FF52FF00" Height="32" FontSize="18" FontFamily="Segoe UI Semilight"/>
             <StackPanel Height="97" Canvas.Left="61" Canvas.Top="96" Margin="50,0,13,0">
-                <Label Content="127.0.0.1" Foreground="#FF52FF00" Height="27" FontSize="16" FontFamily="Segoe UI Semilight"/>
+                <Label Content="{Binding Ip, Mode = OneWay}" Foreground="#FF52FF00" Height="27" FontSize="16" FontFamily="Segoe UI Semilight"/>
                 <Label Content="Intel Core i7-2600 Processor, 3.4GHz, 8M Cache" Foreground="#FF52FF00" Height="32" Width="419" FontSize="16" FontFamily="Segoe UI Semilight"/>
                 <Label Content="Windows 7 Professional 64" Foreground="#FF52FF00" Height="32" Width="419" FontSize="16" FontFamily="Segoe UI Semilight"/>
             </StackPanel>
@@ -39,4 +41,4 @@
         </StackPanel>
 
     </Canvas>
-</UserControl>
+</windows:TrollControl>
