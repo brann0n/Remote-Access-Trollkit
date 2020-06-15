@@ -45,7 +45,7 @@ namespace Trollkit_Client.Modules.CommandHandlers
 				case "Mute":
 					keybd_event(VOLUME_MUTE, 0, 0, IntPtr.Zero);
 					return true;
-				case "Play_Pause":
+				case "PlayPause":
 					keybd_event(PLAY_PAUSE, 0, 1, IntPtr.Zero);
 					return true;
 				case "NextTrack":
