@@ -27,7 +27,7 @@
             <Label Content="> Client info" Canvas.Left="21" Canvas.Top="27" Foreground="#FF52FF00" Height="38" FontSize="20" FontWeight="Bold"/>
             <Label Content="&gt; &quot;Client PC name&quot;" Canvas.Left="21" Canvas.Top="64" Foreground="#FF52FF00" Height="32" FontSize="18" FontFamily="Segoe UI Semilight"/>
             <StackPanel Height="97" Canvas.Left="61" Canvas.Top="96" Margin="50,0,13,0">
-                <Label Content="127.0.0.1" Foreground="#FF52FF00" Height="27" FontSize="16" FontFamily="Segoe UI Semilight"/>
+                <Label Content="{Binding Ip, Mode = OneWay}" Foreground="#FF52FF00" Height="27" FontSize="16" FontFamily="Segoe UI Semilight"/>
                 <Label Content="Intel Core i7-2600 Processor, 3.4GHz, 8M Cache" Foreground="#FF52FF00" Height="32" Width="419" FontSize="16" FontFamily="Segoe UI Semilight"/>
                 <Label Content="Windows 7 Professional 64" Foreground="#FF52FF00" Height="32" Width="419" FontSize="16" FontFamily="Segoe UI Semilight"/>
             </StackPanel>
