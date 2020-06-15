@@ -6,108 +6,91 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     mc:Ignorable="d" Height="580.5" Width="834.5">
-	<Canvas>
-		<Rectangle HorizontalAlignment="Left" Height="378" VerticalAlignment="Top" Width="634" Canvas.Top="22" Canvas.Left="10"  RenderTransformOrigin="0.5,0.5" Fill="White">
-			<Rectangle.RenderTransform>
-				<TransformGroup>
-					<ScaleTransform/>
-					<SkewTransform/>
-					<RotateTransform Angle="-1.486"/>
-					<TranslateTransform/>
-				</TransformGroup>
-			</Rectangle.RenderTransform>
-		</Rectangle>
-		<Rectangle HorizontalAlignment="Left" Height="378" VerticalAlignment="Top" Width="634" Canvas.Top="20" Canvas.Left="12"  RenderTransformOrigin="0.5,0.5" Fill="#FF1C83FF">
-			<Rectangle.RenderTransform>
-				<TransformGroup>
-					<ScaleTransform/>
-					<SkewTransform/>
-					<RotateTransform Angle="-1.486"/>
-					<TranslateTransform/>
-				</TransformGroup>
-			</Rectangle.RenderTransform>
-		</Rectangle>
-		<Label x:Name="HeaderText" Content="xD" Canvas.Left="46" Canvas.Top="47" Height="135" Width="165" FontSize="90" RenderTransformOrigin="0.5,0.5" IsEnabled="False" Foreground="White" FontFamily="Microsoft YaHei Light">
-			<Label.RenderTransform>
-				<TransformGroup>
-					<ScaleTransform/>
-					<SkewTransform/>
-					<RotateTransform Angle="-2.509"/>
-					<TranslateTransform/>
-				</TransformGroup>
-			</Label.RenderTransform>
-		</Label>
-		<TextBlock Canvas.Left="53" TextWrapping="Wrap" Text="Your PC wants to preform an audo troll, please select an option." Canvas.Top="160" RenderTransformOrigin="0.5,0.5" Height="66" Width="360" FontSize="20" Foreground="White" FontWeight="ExtraLight">
-			<TextBlock.RenderTransform>
-				<TransformGroup>
-					<ScaleTransform/>
-					<SkewTransform/>
-					<RotateTransform Angle="-2.844"/>
-					<TranslateTransform/>
-				</TransformGroup>
-			</TextBlock.RenderTransform>
-		</TextBlock>
-		<Button Name="btnBeep" Content="Beep" Canvas.Left="52" Canvas.Top="240" Width="99" Height="33" RenderTransformOrigin="0.5,0.5" Click="BtnBeep_Click">
-			<Button.RenderTransform>
-				<TransformGroup>
-					<ScaleTransform/>
-					<SkewTransform/>
-					<RotateTransform Angle="-3.037"/>
-					<TranslateTransform/>
-				</TransformGroup>
-			</Button.RenderTransform>
-		</Button>
-		<Button x:Name="MyNameIsJeff" Content="My name is Jeff" Canvas.Left="55" Canvas.Top="284" Width="99" Height="33" RenderTransformOrigin="0.5,0.5" Click="BtnMyNameIsJeff_Click">
-			<Button.RenderTransform>
-				<TransformGroup>
-					<ScaleTransform/>
-					<SkewTransform/>
-					<RotateTransform Angle="-3.142"/>
-					<TranslateTransform/>
-				</TransformGroup>
-			</Button.RenderTransform>
-		</Button>
-		<Button Content="Wessel Move" Canvas.Left="57" Canvas.Top="326" Width="99" Height="33" RenderTransformOrigin="0.5,0.5" Click="BtnWesselMove_Click" >
-			<Button.RenderTransform>
-				<TransformGroup>
-					<ScaleTransform/>
-					<SkewTransform/>
-					<RotateTransform Angle="-3.481"/>
-					<TranslateTransform/>
-				</TransformGroup>
-			</Button.RenderTransform>
-		</Button>
-		<Button Content="Volume Up" Canvas.Left="215" Canvas.Top="231" Width="99" Height="33" RenderTransformOrigin="0.5,0.5" Click="BtnVolumeUp_Click">
-			<Button.RenderTransform>
-				<TransformGroup>
-					<ScaleTransform/>
-					<SkewTransform/>
-					<RotateTransform Angle="-3.596"/>
-					<TranslateTransform/>
-				</TransformGroup>
-			</Button.RenderTransform>
-		</Button>
-		<Button Content="Volume Down" Canvas.Left="217" Canvas.Top="273" Width="99" Height="33" RenderTransformOrigin="0.5,0.5" Click="BtnVolumeDown_Click_Click">
-			<Button.RenderTransform>
-				<TransformGroup>
-					<ScaleTransform/>
-					<SkewTransform/>
-					<RotateTransform Angle="-3.608"/>
-					<TranslateTransform/>
-				</TransformGroup>
-			</Button.RenderTransform>
-		</Button>
-		<Button Content="PlayPauze" Canvas.Left="219" Canvas.Top="313" Width="99" Height="33" RenderTransformOrigin="0.5,0.5" Click="BtnPlayPauze_Click">
-			<Button.RenderTransform>
-				<TransformGroup>
-					<ScaleTransform/>
-					<SkewTransform/>
-					<RotateTransform Angle="-3.617"/>
-					<TranslateTransform/>
-				</TransformGroup>
-			</Button.RenderTransform>
-		</Button>
-        <Button Canvas.Left="117" Canvas.Top="367" Width="20" Height="20" RenderTransformOrigin="0.5,0.5" Click="BtnMute_Click" Background="{x:Null}" BorderBrush="{x:Null}">
+    <Canvas>
+        <Rectangle HorizontalAlignment="Left" Height="378" VerticalAlignment="Top" Width="634" Canvas.Top="22" Canvas.Left="10"  RenderTransformOrigin="0.5,0.5" Fill="White">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-1.486"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle HorizontalAlignment="Left" Height="378" VerticalAlignment="Top" Width="634" Canvas.Top="22" Canvas.Left="11"  RenderTransformOrigin="0.5,0.5" Fill="#FF1C83FF">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-1.486"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Label x:Name="HeaderText" Content="xD" Canvas.Left="46" Canvas.Top="47" Height="135" Width="165" FontSize="90" RenderTransformOrigin="0.5,0.5" IsEnabled="False" Foreground="White" FontFamily="Microsoft YaHei Light">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-2.509"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <TextBlock Canvas.Left="53" TextWrapping="Wrap" Text="Your PC wants to preform an audo troll, please select an option." Canvas.Top="160" RenderTransformOrigin="0.5,0.5" Height="66" Width="360" FontSize="20" Foreground="White" FontWeight="ExtraLight">
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-2.844"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+        <Button Style="{StaticResource SoundButton}" Name="btnBeep"  Canvas.Left="52" Canvas.Top="240" RenderTransformOrigin="0.5,0.5" Click="BtnBeep_Click">
+            <TextBlock Text="> Beep"/>
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-3.037"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <Button Style="{StaticResource SoundButton}" Canvas.Left="55" Canvas.Top="284" RenderTransformOrigin="0.5,0.5" Click="BtnMyNameIsJeff_Click">
+            <TextBlock Text="> My name is Jeff"/>
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-3.142"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <Button Style="{StaticResource SoundButton}" Canvas.Left="57" Canvas.Top="326" RenderTransformOrigin="0.5,0.5" Click="BtnWesselMove_Click" >
+            <TextBlock Text="> Wessel Move"/>
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-3.481"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <Image Source="..\Resources\Images\Sirenhead.png" Canvas.Top="48" Width="406" Height="517" RenderTransformOrigin="0.5,0.5" Canvas.Left="325" >
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.391"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Button Style="{StaticResource SoundButton}" Canvas.Left="510" Canvas.Top="54" Width="25" Height="25" RenderTransformOrigin="0.5,0.5" Click="BtnMute_Click" Background="{x:Null}" BorderBrush="{x:Null}">
             <Image Source="..\Resources\Images\Mute.png"/>
             <Button.RenderTransform>
                 <TransformGroup>
@@ -118,29 +101,38 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
-        <Button Canvas.Left="137" Canvas.Top="366" Width="20" Height="20" RenderTransformOrigin="0.5,0.5" Click="BtnVolumeDown_Click" Background="{x:Null}" BorderBrush="{x:Null}">
-            <Image Source="..\Resources\Images\VolumeDown.png"/>
+        <Button Style="{StaticResource SoundButton}" Canvas.Left="464" Canvas.Top="116" Width="43" Height="43" RenderTransformOrigin="0.5,0.5" Click="BtnVolumeDown_Click" Background="{x:Null}" BorderBrush="{x:Null}">
+            <Image Source="..\Resources\Images\VolumeDown.png" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="2.686"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
                     <SkewTransform/>
-                    <RotateTransform Angle="-3.608"/>
+                    <RotateTransform Angle="161.465"/>
                     <TranslateTransform/>
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
-        <Button Canvas.Left="157" Canvas.Top="365" Width="20" Height="20" RenderTransformOrigin="0.5,0.5" Click="BtnVolumeUp_Click" Background="{x:Null}" BorderBrush="{x:Null}">
+        <Button Style="{StaticResource SoundButton}" Canvas.Left="539" Canvas.Top="70" Width="48" Height="48" RenderTransformOrigin="0.5,0.5" Click="BtnVolumeUp_Click" Background="{x:Null}" BorderBrush="{x:Null}">
             <Image Source="..\Resources\Images\VolumeUp.png"/>
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
                     <SkewTransform/>
-                    <RotateTransform Angle="-3.608"/>
+                    <RotateTransform Angle="-14.646"/>
                     <TranslateTransform/>
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
-        <Button Canvas.Left="182" Canvas.Top="364" Width="20" Height="20" RenderTransformOrigin="0.5,0.5" Click="BtnPrev_Click" Background="{x:Null}" BorderBrush="{x:Null}">
+        <Button Style="{StaticResource SoundButton}" Canvas.Left="245" Canvas.Top="273" Width="25" Height="25" RenderTransformOrigin="0.5,0.5" Click="BtnPrev_Click" Background="{x:Null}" BorderBrush="{x:Null}">
             <Image Source="..\Resources\Images\Previous.png"/>
             <Button.RenderTransform>
                 <TransformGroup>
@@ -151,7 +143,7 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
-        <Button Canvas.Left="202" Canvas.Top="363" Width="20" Height="20" RenderTransformOrigin="0.5,0.5" Click="BtnPlayPauze_Click" Background="{x:Null}" BorderBrush="{x:Null}">
+        <Button Style="{StaticResource SoundButton}" Canvas.Left="278" Canvas.Top="270" Width="25" Height="25" RenderTransformOrigin="0.5,0.5" Click="BtnPlayPauze_Click" Background="{x:Null}" BorderBrush="{x:Null}">
             <Image Source="..\Resources\Images\PlayPause.png"/>
             <Button.RenderTransform>
                 <TransformGroup>
@@ -162,9 +154,9 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
-        
-        <Button Canvas.Left="222" Canvas.Top="362" Width="20" Height="20" RenderTransformOrigin="0.5,0.5" Click="BtnNext_Click" Background="{x:Null}" BorderBrush="{x:Null}">
-            <Image Source="..\Resources\Images\Next.png"/>
+
+        <Button Style="{StaticResource SoundButton}" Canvas.Left="310" Canvas.Top="267" Width="24" Height="26" RenderTransformOrigin="0.5,0.5" Click="BtnNext_Click" Background="{x:Null}" BorderBrush="{x:Null}">
+            <Image Source="..\Resources\Images\Next.png" />
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -174,15 +166,6 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
-        <Image Source="..\Resources\Images\Sirenhead.png" Canvas.Top="48" Width="406" Height="517" RenderTransformOrigin="0.5,0.5" Canvas.Left="325" >
-			<Image.RenderTransform>
-				<TransformGroup>
-					<ScaleTransform/>
-					<SkewTransform/>
-					<RotateTransform Angle="-0.391"/>
-					<TranslateTransform/>
-				</TransformGroup>
-			</Image.RenderTransform>
-		</Image>
-	</Canvas>
+
+    </Canvas>
 </windows:TrollControl>

@@ -10,6 +10,7 @@
                 <ResourceDictionary Source="ResourceDictionaries\WindowsTrolls.xaml"/>
                 <ResourceDictionary Source="ResourceDictionaries\VisualTrollsDictionary.xaml"/>
                 <ResourceDictionary Source="ResourceDictionaries\ClientsDictionary.xaml"/>
+                <ResourceDictionary Source="ResourceDictionaries\AudioTrollsDictionary.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
