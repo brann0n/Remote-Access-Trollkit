@@ -7,8 +7,11 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Trollkit_Library.Models;
+using Trollkit_Library.Modules;
 using Trollkit_Library.ViewModels;
 using Trollkit_Library.ViewModels.Commands;
+using static Trollkit_Library.ServerModules.Server;
 
 namespace Trollkit_Library.ClientModules
 {
@@ -30,11 +33,22 @@ namespace Trollkit_Library.ClientModules
 
 		public Dictionary<string, string> storedData { get; set; }
 
+		public string IpAddress { get { return endPoint.Address.ToString(); } }
 
         public ICommand Kick { get { return new SendServerCommand(KickClient); } }
         public ICommand Select { get { return new SendServerCommand(SelectClient); } }
 
-        public void KickClient()
+		public ICommand RemoveVirus { get { return new SendServerCommand(RemoveVirusFromClient); } }
+
+
+		private void RemoveVirusFromClient()
+		{
+			TransferCommandObject removeVirusTransferObject = new TransferCommandObject { Command = "DeleteTask", Handler = "Task" };
+			var socket = ServerViewModel.Server.GetSocketByClient(this);
+			ServerViewModel.Server.SendDataObjectToSocket(DataByteType.Command, socket, ClientServerPipeline.BufferSerialize(removeVirusTransferObject));
+		}
+
+		public void KickClient()
         {
             ServerViewModel.Server.KickClient(this);
         }

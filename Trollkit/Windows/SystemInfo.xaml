@@ -49,7 +49,7 @@
 			</StackPanel>
 			<Label Content="&gt; Network" Canvas.Left="21" Canvas.Top="192" Foreground="#FF52FF00" Height="33" FontSize="18" FontFamily="Segoe UI Semilight"/>
 			<StackPanel Height="67" Canvas.Left="61" Canvas.Top="229" Margin="50,0,13,0">
-				<Label Content="12.168.0.0.1" Canvas.Left="61" Canvas.Top="219" Foreground="#FF52FF00" Height="32" FontSize="16" FontFamily="Segoe UI Semilight" Margin="0,0,10,0"/>
+				<Label Content="{Binding Path=SelectedClient.IpAddress}" Canvas.Left="61" Canvas.Top="219" Foreground="#FF52FF00" Height="32" FontSize="16" FontFamily="Segoe UI Semilight" Margin="0,0,10,0"/>
 				<Label Content="255.255.255.0" Canvas.Left="61" Canvas.Top="251" Foreground="#FF52FF00" Height="32" FontSize="16" FontFamily="Segoe UI Semilight" HorizontalAlignment="Left" Width="409"/>
 			</StackPanel>
 		</StackPanel>

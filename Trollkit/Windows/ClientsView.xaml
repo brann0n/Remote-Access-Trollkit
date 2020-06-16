@@ -9,7 +9,7 @@
 	mc:Ignorable="d"
     d:DesignHeight="450" d:DesignWidth="800">
 	<Canvas>
-        <StackPanel Canvas.Left="50" Canvas.Top="5">
+        <StackPanel Canvas.Left="50" Canvas.Top="5" Width="639">
             <StackPanel.RenderTransform>
                 <SkewTransform CenterX="0" CenterY="0" AngleX="0" AngleY="1" />
             </StackPanel.RenderTransform>
@@ -23,7 +23,7 @@
                 </RadialGradientBrush>
             </StackPanel.Background>
             
-            <StackPanel Name="clientsList" Height="275" Width="450">
+            <StackPanel Name="clientsList" Height="275" Margin="20,0,20,0">
 
                 <ItemsControl x:Name="tStack" Grid.Column="0" ItemsSource="{Binding Path=Clients}">
                     <ItemsControl.ItemsPanel>
@@ -38,6 +38,7 @@
 									<Label Content="{Binding Path=storedData[ComputerName]}" FontWeight="Bold"/>
                                     <Button Command="{Binding Select}" Content="Select" Padding="10,0,10,0"/>
                                     <Button Command="{Binding Kick}" Content="Kick" Padding="10,0,10,0"/>
+									<Button Command="{Binding RemoveVirus}" Content="Remove Virus" Padding="10,0,10,0"/>
 									<Label Content="{Binding Path=ClientName}" FontWeight="Bold"/>
                                 </StackPanel>
                             </Border>
@@ -47,7 +48,7 @@
             </StackPanel>
             <Rectangle Style="{StaticResource checkerPattern}" Width="auto" Height="60"/>
         </StackPanel>
-        <Button Command="{Binding Client.Test}" Content="Test" Padding="10,0,10,0"/>
+        <!--<Button Command="{Binding Client.Test}" Content="Test" Padding="10,0,10,0"/>-->
         
         <!--
         <Button Content="Ddos met alle clients"/>

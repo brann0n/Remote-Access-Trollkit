@@ -18,12 +18,29 @@ namespace Trollkit_Library.ViewModels
 
 		public event PropertyChangedEventHandler PropertyChanged;
 
+		//sub viewmodels
 		public AudioCommands Audio { get; private set; }
 		public VisualCommands Visual { get; private set; }
 		public WindowsCommands Windows { get; private set; }
         public ClientCommands Client { get; private set; }
 
-        public ServerViewModel()
+		//model properties
+		public List<Client> Clients { get { return Server.Clients; } }
+
+		public Client SelectedClient
+		{
+			get
+			{
+				return Server.SelectedClient;
+			}
+			set
+			{
+				Server.SelectedClient = value;
+				NotifyPropertyChanged("SelectedClient");
+			}
+		}
+
+		public ServerViewModel()
 		{
 			Server = new Server(IPAddress.Any);
 			Server.ClientConnected += Server_ClientConnected;
@@ -83,20 +100,7 @@ namespace Trollkit_Library.ViewModels
 			NotifyPropertyChanged("Clients");
 		}
 
-		public List<Client> Clients { get { return Server.Clients; } }
-
-		public Client SelectedClient
-		{
-			get
-			{
-				return Server.SelectedClient;
-			}
-			set
-			{
-				Server.SelectedClient = value;
-				NotifyPropertyChanged("SelectedClient");
-			}
-		}
+		
 
 		private void Server_OnPropertyChanged(string Property)
 		{

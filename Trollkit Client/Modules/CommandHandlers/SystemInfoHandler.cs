@@ -74,7 +74,7 @@ namespace Trollkit_Client.Modules.CommandHandlers
 				string releaseId = key.GetValue("ReleaseId", "").ToString();
 				string productName = key.GetValue("ProductName", "Unknown OS").ToString();
 
-				string bit = Environment.Is64BitOperatingSystem ? "64 Bit" : "32 Bit";
+				string bit = Environment.Is64BitOperatingSystem ? "x64" : "x86";
 
 				return $"{productName} [{releaseId}] ({bit})";
 			}
