@@ -19,9 +19,9 @@ namespace Trollkit.Windows
     /// <summary>
     /// Interaction logic for SystemInfo.xaml
     /// </summary>
-    public partial class SystemInfo : TrollControl
+    public partial class SystemInfo : UserControl
 	{
-        public SystemInfo() : base("System")
+        public SystemInfo()
         {
             InitializeComponent();
         }

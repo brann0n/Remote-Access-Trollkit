@@ -20,9 +20,9 @@ namespace Trollkit.Windows
     /// <summary>
     /// Interaction logic for AudioTrolls.xaml
     /// </summary>
-    public partial class AudioTrolls : TrollControl
+    public partial class AudioTrolls : UserControl
 	{
-		public AudioTrolls() : base("Audio")
+		public AudioTrolls()
         {
             InitializeComponent();
         }

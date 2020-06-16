@@ -20,9 +20,9 @@ namespace Trollkit.Windows
     /// <summary>
     /// Interaction logic for WindowsTrolls.xaml
     /// </summary>
-    public partial class WindowsTrolls : TrollControl
-    {
-        public WindowsTrolls() :base("Windows")
+    public partial class WindowsTrolls : UserControl
+	{
+        public WindowsTrolls()
         {
             InitializeComponent();
         }

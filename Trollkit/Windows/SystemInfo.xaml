@@ -1,4 +1,4 @@
-﻿<windows:TrollControl
+﻿<UserControl
 	xmlns:windows="clr-namespace:Trollkit.Windows"
 	x:Class="Trollkit.Windows.SystemInfo"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -7,9 +7,9 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 	xmlns:resources="clr-namespace:Trollkit.Resources"
     mc:Ignorable="d" Height="395" Width="623">
-	<windows:TrollControl.Resources>
+	<UserControl.Resources>
 		<resources:ProfilePictureImageConverter x:Key="ImageConverter"/>
-	</windows:TrollControl.Resources>
+	</UserControl.Resources>
 	<Canvas Margin="10,0,10,10">
 		<Rectangle HorizontalAlignment="Left" Height="310" VerticalAlignment="Top" Width="510" Canvas.Top="10">
 			<Rectangle.Fill>
@@ -55,4 +55,4 @@
 		</StackPanel>
 
 	</Canvas>
-</windows:TrollControl>
+</UserControl>

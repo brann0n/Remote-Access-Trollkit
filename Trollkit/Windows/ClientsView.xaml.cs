@@ -21,9 +21,9 @@ namespace Trollkit.Windows
     /// <summary>
     /// Interaction logic for ClientsView.xaml
     /// </summary>
-    public partial class ClientsView : TrollControl
-    {
-		public ClientsView() : base("Clients")
+    public partial class ClientsView : UserControl
+	{
+		public ClientsView()
         {
             InitializeComponent();
         }

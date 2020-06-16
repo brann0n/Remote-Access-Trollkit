@@ -1,4 +1,4 @@
-﻿<windows:TrollControl
+﻿<UserControl
 	xmlns:windows="clr-namespace:Trollkit.Windows"
 	x:Class="Trollkit.Windows.WindowsTrolls"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -39,4 +39,4 @@
         
         
     </Canvas>
-</windows:TrollControl>
+</UserControl>
