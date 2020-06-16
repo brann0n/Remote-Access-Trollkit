@@ -47,9 +47,17 @@ ShowImage | "base64Image" | Shows an image on the clients screen
 OpenSite | "url" | Opens a website on the users screen
 SetBackground | "base64Image" | Sets the provided image as the users background (also disables wallpaper engine)
 
+#### WindowsHandler (client)
+Command | Value | Description
+------- | ----- | -----------
+MousePosition | "x,y" | Sets the cursor of the client to the provided location
+Command | "{hidden;show},command" | runs a cmd command depending if it shows or not.
+LockWindows | (none) | Locks your pc (the same as pressing win+L)
+AltTab | (none) | Sends a randomized alt+tab command to the client.
+
 ### Data headers
 In order to keep perfect track of data that is being sent and data that is received we thought of a clever way to devide the byte streams.  
-The first 21 bytes of each 2048 byte packet is made up of 'header' data that tells the program what to expect of the next piece of data.
+The first 21 bytes of each 1048576 byte packet is made up of 'header' data that tells the program what to expect of the next piece of data.
 
 guidelines for the received data are:
 
