@@ -1,6 +1,7 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.IO;
+using System.Windows.Controls;
 using System.Windows.Input;
 using Trollkit_Library.Models;
 using Trollkit_Library.Modules;
@@ -12,6 +13,7 @@ namespace Trollkit_Library.ViewModels.Commands
     {
 		private Server _server;
 		private string handler;
+		
 		public VisualCommands(Server server, string handler)
 		{
 			_server = server;
@@ -24,6 +26,8 @@ namespace Trollkit_Library.ViewModels.Commands
 		public ICommand	OpenSite { get { return new SendServerCommand(SendOpenSite); } }
 		public ICommand PickBackgroundImage { get { return new SendServerCommand(SendPickBackgroundImage); } }
 		public string TbDisplayText { get; set; }
+
+
 		 
 		private void SendDisplayImage()
 		{

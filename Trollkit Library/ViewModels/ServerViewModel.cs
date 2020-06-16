@@ -18,7 +18,9 @@ namespace Trollkit_Library.ViewModels
 		public event PropertyChangedEventHandler PropertyChanged;
 
 		public AudioCommands Audio { get { return new AudioCommands(Server, "Audio"); } }
-		public VisualCommands Visual { get { return new VisualCommands(Server, "Visuals"); } }
+		public VisualCommands Visuals { get { return new VisualCommands(Server, "Visuals"); } }
+		public WindowsCommands Windows { get { return new WindowsCommands(Server, "Windows"); } }
+
 
 		public ServerViewModel()
 		{

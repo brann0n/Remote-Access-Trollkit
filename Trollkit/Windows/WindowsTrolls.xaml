@@ -22,18 +22,18 @@
                 <Label Content="Mouseposition" Foreground="White" Height="31" Width="150" FontSize="16"/>
                 <TextBox Name="TbXcoordinate" Height="22" TextWrapping="Wrap" Text="0" Width="40"/>
                 <TextBox Name="TbYcoordinate" Height="22" TextWrapping="Wrap" Text="0" Width="40"/>
-                <Button Style="{StaticResource OutrunButton}" Content="START" Click="BtnStart_Click"/>
+                <Button Style="{StaticResource OutrunButton}" Content="START" Command="{Binding Windows.MousePosition}"/>
             </WrapPanel>
 
             <WrapPanel Orientation="Horizontal" Height="auto" Width="auto" Margin="0,0,0,20">
                 <Label Content="CMD Command" Foreground="White" Height="31" Width="150" FontSize="16"/>
                 <TextBox Name="TbComammand" Height="22" TextWrapping="Wrap" Text="Command" Width="250"/>
-                <Button Style="{StaticResource OutrunButton}" Content="GO" Click="BtnGo_Click"/>
+                <Button Style="{StaticResource OutrunButton}" Content="GO" Command="{Binding Windows.Go}"/>
             </WrapPanel>
 
             <WrapPanel Orientation="Horizontal" Height="auto" Width="auto">
-                <Button Style="{StaticResource OutrunButton}" Content="ALT-TAB" Click="BtnAltTab_Click"/>
-                <Button Style="{StaticResource OutrunBigButton}" Content="WINDOWS VERGRENDELEN" Click="BtnLockWindows_Click"/>
+                <Button Style="{StaticResource OutrunButton}" Content="ALT-TAB" Command="{Binding Windows.AltTab}"/>
+                <Button Style="{StaticResource OutrunBigButton}" Content="WINDOWS VERGRENDELEN" Command="{Binding Windows.LockWindows}"/>
             </WrapPanel>
         </WrapPanel>
         

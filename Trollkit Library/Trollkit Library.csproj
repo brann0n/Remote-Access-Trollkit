@@ -67,6 +67,7 @@
     <Compile Include="ViewModels\Commands\AudioCommands.cs" />
     <Compile Include="ViewModels\Commands\SendServerCommand.cs" />
     <Compile Include="ViewModels\Commands\VisualCommands.cs" />
+    <Compile Include="ViewModels\Commands\WindowCommands.cs" />
     <Compile Include="ViewModels\ServerViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
