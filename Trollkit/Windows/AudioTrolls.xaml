@@ -7,36 +7,9 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     mc:Ignorable="d" Height="580.5" Width="834.5">
     <Canvas>
-        <Rectangle HorizontalAlignment="Left" Height="378" VerticalAlignment="Top" Width="634" Canvas.Top="22" Canvas.Left="10"  RenderTransformOrigin="0.5,0.5" Fill="White">
-            <Rectangle.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-1.486"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Rectangle.RenderTransform>
-        </Rectangle>
-        <Rectangle HorizontalAlignment="Left" Height="378" VerticalAlignment="Top" Width="634" Canvas.Top="22" Canvas.Left="11"  RenderTransformOrigin="0.5,0.5" Fill="#FF1C83FF">
-            <Rectangle.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-1.486"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Rectangle.RenderTransform>
-        </Rectangle>
-        <Label x:Name="HeaderText" Content="xD" Canvas.Left="46" Canvas.Top="47" Height="135" Width="165" FontSize="90" RenderTransformOrigin="0.5,0.5" IsEnabled="False" Foreground="White" FontFamily="Microsoft YaHei Light">
-            <Label.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-2.509"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Label.RenderTransform>
-        </Label>
+        <Rectangle Style="{StaticResource VisualWhite}"/>
+        <Rectangle Style="{StaticResource VisualBlue}"/>
+        <Label Style="{StaticResource HeaderText}" Content="xD"/>
         <TextBlock Canvas.Left="53" TextWrapping="Wrap" Text="Your PC wants to preform an audo troll, please select an option." Canvas.Top="160" RenderTransformOrigin="0.5,0.5" Height="66" Width="360" FontSize="20" Foreground="White" FontWeight="ExtraLight">
             <TextBlock.RenderTransform>
                 <TransformGroup>
