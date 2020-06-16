@@ -76,6 +76,10 @@ namespace Trollkit_Client
 					BConsole.WriteLine($"Command '{Object.Command}' could not be executed", ConsoleColor.Red);
 				}
 			}
+			else
+			{
+				BConsole.WriteLine($"Unkown Handler '{Object.Handler}', please refer to the README.md", ConsoleColor.Red);
+			}
 		}
 	}
 }
