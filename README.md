@@ -55,6 +55,12 @@ Command | "{hidden;show},command" | runs a cmd command depending if it shows or 
 LockWindows | (none) | Locks your pc (the same as pressing win+L)
 AltTab | (none) | Sends a randomized alt+tab command to the client.
 
+#### SystemInfoHandler (client & server)
+Command | Target | Type | Value | Description
+GetClientInfo | client | Command | (none) | Tells the client that it needs to start sending back its system info.
+ComputerName | server | Data | "PCNAME\UserName" | Gets the pcname and username combo from the client.
+CPU | server | Data | "cpu info" | Gets info about the clients CPU
+
 ### Data headers
 In order to keep perfect track of data that is being sent and data that is received we thought of a clever way to devide the byte streams.  
 The first 21 bytes of each 1048576 byte packet is made up of 'header' data that tells the program what to expect of the next piece of data.
