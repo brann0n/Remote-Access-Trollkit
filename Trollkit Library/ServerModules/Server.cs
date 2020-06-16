@@ -112,15 +112,14 @@ namespace Trollkit_Library.ServerModules
 
 				uint clientId = clientCount++;
 				Client client = new Client(clientId, (IPEndPoint)newSocket.RemoteEndPoint);
-				client.SetDataItem("test", "DEBUG_TEST_ITEM");
 				clients.Add(newSocket, client);
-				
-				ClientConnected(client);
-				//update current object
-				//ServerViewModel.ForceUpdate("Clients"); //update the Clients list
+				clients.FirstOrDefault(m => m.Key == newSocket).Value.SetDataItem("test", "DEBUG_TEST_ITEM2");
 
-				//TODO: send request for system info instead of beep
-				TransferCommandObject returnObject = new TransferCommandObject { Command = "PlayBeep", Handler = "Audio", Value = "600,500" };
+				//call the client connected event, this is then passed up into the ServerViewModel.
+				ClientConnected(client);
+
+				//tell the client to start sending back its client info.
+				TransferCommandObject returnObject = new TransferCommandObject { Command = "GetClientInfo", Handler = "SystemInfo"};
 				SendDataObjectToSocket(DataByteType.Command, newSocket, ClientServerPipeline.BufferSerialize(returnObject));
 
 				serverSocket.BeginAccept(new AsyncCallback(HandleIncomingConnection), serverSocket);
@@ -175,7 +174,7 @@ namespace Trollkit_Library.ServerModules
 					{				
 						if (HandleIncomingData(ClientServerPipeline.BufferDeserialize(buffer), client, type))
 						{
-							//todo: remove id from buffer
+							//TODO: remove id from buffer
 						}
 					}
 				}
