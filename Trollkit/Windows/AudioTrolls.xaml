@@ -47,7 +47,7 @@
                 </TransformGroup>
             </TextBlock.RenderTransform>
         </TextBlock>
-        <Button Style="{StaticResource SoundButton}" 
+        <Button Style="{StaticResource AudioFileButton}" 
 				Name="btnBeep"  
 				Canvas.Left="52" 
 				Canvas.Top="240" 
@@ -64,7 +64,7 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
-		<Button Style="{StaticResource SoundButton}" Canvas.Left="55" Canvas.Top="284" RenderTransformOrigin="0.5,0.5" Command="{Binding Audio.MyNameIsJeff}">
+        <Button Style="{StaticResource AudioFileButton}" Canvas.Left="55" Canvas.Top="284" RenderTransformOrigin="0.5,0.5" Command="{Binding Audio.MyNameIsJeff}">
             <TextBlock Text="> My name is Jeff"/>
             <Button.RenderTransform>
                 <TransformGroup>
@@ -75,7 +75,7 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
-		<Button Style="{StaticResource SoundButton}" Canvas.Left="57" Canvas.Top="326" RenderTransformOrigin="0.5,0.5" Command="{Binding Audio.WesselMove}" >
+        <Button Style="{StaticResource AudioFileButton}" Canvas.Left="57" Canvas.Top="326" RenderTransformOrigin="0.5,0.5" Command="{Binding Audio.WesselMove}" >
             <TextBlock Text="> Wessel Move"/>
             <Button.RenderTransform>
                 <TransformGroup>
@@ -96,8 +96,49 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-		<Button Style="{StaticResource SoundButton}" Canvas.Left="510" Canvas.Top="54" Width="25" Height="25" RenderTransformOrigin="0.5,0.5" Command="{Binding Audio.Mute}" Background="{x:Null}" BorderBrush="{x:Null}">
-            <Image Source="..\Resources\Images\Mute.png"/>
+        <Button Style="{StaticResource ControlButton}" Canvas.Left="476" Canvas.Top="40" Width="61" Height="59" RenderTransformOrigin="0.565,0.471" Command="{Binding Audio.Mute}" Foreground="{x:Null}" BorderBrush="{x:Null}">
+            <Button.Background>
+                <ImageBrush ImageSource="..\Resources\Images\volume-mute.png" />
+            </Button.Background>
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="220.024"/>
+                    <TranslateTransform X="-8.255" Y="1.199"/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <Button Style="{StaticResource ControlButton}" Canvas.Left="465" Canvas.Top="104" Width="62" Height="62" RenderTransformOrigin="0.5,0.5" Command="{Binding Audio.VolumeDown}" BorderBrush="{x:Null}" Foreground="{x:Null}">
+            <Button.Background>
+                <ImageBrush ImageSource="..\Resources\Images\volume-down.png" />
+            </Button.Background>
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="525"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <Button Style="{StaticResource ControlButton}" Canvas.Left="525" Canvas.Top="58" Width="79" Height="77" RenderTransformOrigin="0.5,0.5" Command="{Binding Audio.VolumeUp}" BorderBrush="{x:Null}" Foreground="{x:Null}">
+            <Button.Background>
+                <ImageBrush ImageSource="..\Resources\Images\volume-up.png" />
+            </Button.Background>
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="345.208"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <Button Style="{StaticResource ControlButton}" Canvas.Left="448" Canvas.Top="215" Width="24" Height="25" RenderTransformOrigin="0.5,0.5" Command="{Binding Audio.Previous}">
+            <Button.Background>
+                <ImageBrush ImageSource="..\Resources\Images\Prev.png" />
+            </Button.Background>
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -107,62 +148,24 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
-		<Button Style="{StaticResource SoundButton}" Canvas.Left="464" Canvas.Top="116" Width="43" Height="43" RenderTransformOrigin="0.5,0.5" Command="{Binding Audio.VolumeDown}" Background="{x:Null}" BorderBrush="{x:Null}">
-            <Image Source="..\Resources\Images\VolumeDown.png" RenderTransformOrigin="0.5,0.5">
-                <Image.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="2.686"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Image.RenderTransform>
-            </Image>
+        <Button Style="{StaticResource ControlButton}" Canvas.Left="516" Canvas.Top="209" Width="25" Height="25" RenderTransformOrigin="0.5,0.5" Command="{Binding Audio.PlayPause}" >
+            <Button.Background>
+                <ImageBrush ImageSource="..\Resources\Images\Play.png" />
+            </Button.Background>
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
                     <SkewTransform/>
-                    <RotateTransform Angle="161.465"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Button.RenderTransform>
-        </Button>
-		<Button Style="{StaticResource SoundButton}" Canvas.Left="539" Canvas.Top="70" Width="48" Height="48" RenderTransformOrigin="0.5,0.5" Command="{Binding Audio.VolumeUp}" Background="{x:Null}" BorderBrush="{x:Null}">
-            <Image Source="..\Resources\Images\VolumeUp.png"/>
-            <Button.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-14.646"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Button.RenderTransform>
-        </Button>
-		<Button Style="{StaticResource SoundButton}" Canvas.Left="245" Canvas.Top="273" Width="25" Height="25" RenderTransformOrigin="0.5,0.5" Command="{Binding Audio.Previous}" Background="{x:Null}" BorderBrush="{x:Null}">
-            <Image Source="..\Resources\Images\Previous.png"/>
-            <Button.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-3.608"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Button.RenderTransform>
-        </Button>
-		<Button Style="{StaticResource SoundButton}" Canvas.Left="278" Canvas.Top="270" Width="25" Height="25" RenderTransformOrigin="0.5,0.5" Command="{Binding Audio.PlayPause}" Background="{x:Null}" BorderBrush="{x:Null}">
-            <Image Source="..\Resources\Images\PlayPause.png"/>
-            <Button.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-3.608"/>
+                    <RotateTransform Angle="-4.635"/>
                     <TranslateTransform/>
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
 
-		<Button Style="{StaticResource SoundButton}" Canvas.Left="310" Canvas.Top="267" Width="24" Height="26" RenderTransformOrigin="0.5,0.5" Command="{Binding Audio.Next}" Background="{x:Null}" BorderBrush="{x:Null}">
-            <Image Source="..\Resources\Images\Next.png" />
+        <Button Style="{StaticResource ControlButton}" Canvas.Left="583" Canvas.Top="201" Width="24" Height="26" RenderTransformOrigin="0.5,0.5" Command="{Binding Audio.Next}">
+            <Button.Background>
+                <ImageBrush ImageSource="..\Resources\Images\Next.png" />
+            </Button.Background>
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>

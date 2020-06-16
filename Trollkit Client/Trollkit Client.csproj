@@ -80,12 +80,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Trollkit Library\Trollkit Library.csproj">
-      <Project>{D8A33FFD-15E7-48C0-8241-32452941D208}</Project>
-      <Name>Trollkit Library</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Images\MineCraft.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -104,6 +98,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Trollkit Library\Trollkit Library.csproj">
+      <Project>{d8a33ffd-15e7-48c0-8241-32452941d208}</Project>
+      <Name>Trollkit Library</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Fody.6.0.0\build\Fody.targets" Condition="Exists('..\packages\Fody.6.0.0\build\Fody.targets')" />

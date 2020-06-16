@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Interop;
 using Trollkit_Library.Models;
-using Trollkit_Library.Modules;
 
 namespace Trollkit_Client.Modules.CommandHandlers
 {
