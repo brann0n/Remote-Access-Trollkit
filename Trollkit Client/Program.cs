@@ -65,20 +65,27 @@ namespace Trollkit_Client
 
 		private void Receiver_OnDataReceived(Socket s, TransferCommandObject Object)
 		{
-			if(handlers.ContainsKey(Object.Handler))
+			try
 			{
-				if (handlers[Object.Handler].HandleCommand(s, Object))
+				if (handlers.ContainsKey(Object.Handler))
 				{
-					BConsole.WriteLine($"Command '{Object.Command}' executed successfully", ConsoleColor.Green);
+					if (handlers[Object.Handler].HandleCommand(s, Object))
+					{
+						BConsole.WriteLine($"Command '{Object.Command}' executed successfully", ConsoleColor.Green);
+					}
+					else
+					{
+						BConsole.WriteLine($"Command '{Object.Command}' could not be executed", ConsoleColor.Red);
+					}
 				}
 				else
 				{
-					BConsole.WriteLine($"Command '{Object.Command}' could not be executed", ConsoleColor.Red);
+					BConsole.WriteLine($"Unkown Handler '{Object.Handler}', please refer to the README.md", ConsoleColor.Red);
 				}
 			}
-			else
+			catch(Exception e)
 			{
-				BConsole.WriteLine($"Unkown Handler '{Object.Handler}', please refer to the README.md", ConsoleColor.Red);
+				BConsole.WriteLine("Handler error: " + e.Message, ConsoleColor.Red);
 			}
 		}
 	}

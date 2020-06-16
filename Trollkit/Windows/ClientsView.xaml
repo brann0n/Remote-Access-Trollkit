@@ -34,10 +34,11 @@
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
                             <Border Margin="5,5,5,0" BorderBrush="#666666" BorderThickness="0 0 0 1" VerticalAlignment="Top">
-                                <StackPanel Height="auto" Width="auto" Orientation="Horizontal" Margin="0,0,0,5">
-                                    <Label Content="{Binding Path=ClientName}" FontWeight="Bold"/>
+								<StackPanel Height="auto" Width="auto" Orientation="Horizontal" Margin="0,0,0,5">
+									<Label Content="{Binding Path=storedData[ComputerName]}" FontWeight="Bold"/>
                                     <Button Command="{Binding Select}" Content="Select" Padding="10,0,10,0"/>
                                     <Button Command="{Binding Kick}" Content="Kick" Padding="10,0,10,0"/>
+									<Label Content="{Binding Path=ClientName}" FontWeight="Bold"/>
                                 </StackPanel>
                             </Border>
                         </DataTemplate>

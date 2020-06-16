@@ -41,11 +41,11 @@
 
 		<StackPanel Height="284" Canvas.Left="21" Canvas.Top="26" Width="445">
 			<Label Content="> Client info" Canvas.Left="21" Canvas.Top="27" Foreground="#FF52FF00" Height="38" FontSize="20" FontWeight="Bold"/>
-			<Label Content="{Binding Path=SelectedClient.storedData[Drives]}" Canvas.Left="21" Canvas.Top="64" Foreground="#FF52FF00" Height="32" FontSize="18" FontFamily="Segoe UI Semilight"/>
+			<Label Content="{Binding Path=SelectedClient.storedData[ComputerName]}" Canvas.Left="21" Canvas.Top="64" Foreground="#FF52FF00" Height="32" FontSize="18" FontFamily="Segoe UI Semilight"/>
 			<StackPanel Height="97" Canvas.Left="61" Canvas.Top="96" Margin="50,0,13,0">
-				<Label Content="127:0.01" Foreground="#FF52FF00" Height="27" FontSize="16" FontFamily="Segoe UI Semilight"/>
-				<Label Content="Intel Core i7-2600 Processor, 3.4GHz, 8M Cache" Foreground="#FF52FF00" Height="32" Width="419" FontSize="16" FontFamily="Segoe UI Semilight"/>
-				<Label Content="Windows 7 Professional 64" Foreground="#FF52FF00" Height="32" Width="419" FontSize="16" FontFamily="Segoe UI Semilight"/>
+				<Label Content="{Binding Path=SelectedClient.storedData[Drives]}" Foreground="#FF52FF00" Height="27" FontSize="16" FontFamily="Segoe UI Semilight"/>
+				<Label Content="{Binding Path=SelectedClient.storedData[CPU]}" Foreground="#FF52FF00" Height="32" Width="419" FontSize="16" FontFamily="Segoe UI Semilight"/>
+				<Label Content="{Binding Path=SelectedClient.storedData[WindowsVersion]}" Foreground="#FF52FF00" Height="32" Width="419" FontSize="16" FontFamily="Segoe UI Semilight"/>
 			</StackPanel>
 			<Label Content="&gt; Network" Canvas.Left="21" Canvas.Top="192" Foreground="#FF52FF00" Height="33" FontSize="18" FontFamily="Segoe UI Semilight"/>
 			<StackPanel Height="67" Canvas.Left="61" Canvas.Top="229" Margin="50,0,13,0">
