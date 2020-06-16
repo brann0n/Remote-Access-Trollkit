@@ -56,7 +56,7 @@ namespace Trollkit_Library.ViewModels.Commands
 
 		private void SendTurnOffScreen()
 		{
-			TransferCommandObject returnObject = new TransferCommandObject { Command = "BlackScreen", Handler = handler, Value = "" };
+			TransferCommandObject returnObject = new TransferCommandObject { Command = "BlackScreen", Handler = handler };
 			_server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
 		}
 
