@@ -35,12 +35,26 @@ namespace Trollkit_Library.ViewModels
 		{
 			BConsole.WriteLine($"Client {c.GetName()} sent a message", ConsoleColor.DarkGray);
 
-			if (model.Command == "Debug")
-			{
-				TransferCommandObject returnObject = new TransferCommandObject { Command = "PlayBeep", Handler = "Audio", Value = "200,300" };
 
-				Server.SendDataObjectToSocket(Server.DataByteType.Command, Server.GetSocketByClient(c), ClientServerPipeline.BufferSerialize(returnObject));
-			}
+			switch (type)
+			{
+				case Server.DataByteType.Response:
+					//TODO: track messages and their responses
+					break;
+				case Server.DataByteType.Command:
+					if (model.Command == "Debug")
+					{
+						TransferCommandObject returnObject = new TransferCommandObject { Command = "PlayBeep", Handler = "Audio", Value = "200,300" };
+
+						Server.SendDataObjectToSocket(Server.DataByteType.Command, Server.GetSocketByClient(c), ClientServerPipeline.BufferSerialize(returnObject));
+					}
+					break;
+				case Server.DataByteType.Data:
+					//TODO: Store the data in the key value of the client
+					c.SetDataItem(model.Command, model.Value);
+					NotifyPropertyChanged("SelectedClient.storedData");
+					break;
+			}			
 		}
 
 		private void Server_ClientDisconnected(Client c)

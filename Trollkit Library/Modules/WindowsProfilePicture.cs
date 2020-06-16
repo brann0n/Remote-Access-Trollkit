@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Drawing;
 using System.IO;
 
@@ -7,9 +8,14 @@ namespace Trollkit_Library.Modules
 	public class WindowsProfilePicture
 	{
 
-		public static string Get448ImageString(string filePath)
+		public static string Get448ImageString()
 		{
-			return Convert.ToBase64String(GetImage448Bytes(filePath));
+			RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\AccountPicture", true);
+			string imageId = key.GetValue(@"SourceId").ToString();
+			//TODO: get the path for the current user: C:\Users\Brandon\AppData\Roaming\Microsoft\Windows\AccountPictures OR C:\ProgramData\Microsoft\User Account Pictures
+
+
+			return Convert.ToBase64String(GetImage448Bytes(imageId));
 		}
 
 		public static void SaveImagesAsBitmap(string filePath)
