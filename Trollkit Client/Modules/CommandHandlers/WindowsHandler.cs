@@ -18,7 +18,7 @@ namespace Trollkit_Client.Modules.CommandHandlers
     {
 		[DllImport("user32.dll")]
 		public static extern bool LockWorkStation();
-		public bool HandleCommand(Socket s, TransferCommandObject obj)
+		public override bool HandleCommand(Socket s, TransferCommandObject obj)
         {
 			switch (obj.Command)
 			{

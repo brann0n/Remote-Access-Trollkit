@@ -81,6 +81,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\MineCraft.ico" />
+    <None Include="Resources\EchtEenWesselSample.wav" />
+    <None Include="Resources\MyNameIsJeff.wav" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="TaskScheduler">

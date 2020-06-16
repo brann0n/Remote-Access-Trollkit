@@ -41,6 +41,7 @@ namespace Trollkit_Library.ServerModules
 			set
 			{
 				selectedClient = value;
+				OnPropertyChanged("SelectedClient");
 			}
 		}
 
@@ -48,6 +49,7 @@ namespace Trollkit_Library.ServerModules
         public delegate void ConnectionEventHandler(Client c);
 		public delegate void ConnectionBlockedEventHandler(IPEndPoint endPoint);
 		public delegate void ClientMessageReceivedHandler(Client c, TransferCommandObject model, DataByteType type);
+		public delegate void ServerPropertyChangedHandeler(string Property);
 
 		/// <summary>
 		/// Occures when a client is connected.
@@ -63,6 +65,11 @@ namespace Trollkit_Library.ServerModules
 		/// Occures when a message is received by the server.
 		/// </summary>
 		public event ClientMessageReceivedHandler MessageReceived;
+
+		/// <summary>
+		/// Occures when we need to update a property in the UI through the static reference.
+		/// </summary>
+		public event ServerPropertyChangedHandeler OnPropertyChanged;
 
 		public enum DataByteType
 		{
@@ -147,7 +154,7 @@ namespace Trollkit_Library.ServerModules
 					CloseSocket(clientSocket);
 					serverSocket.BeginAccept(new AsyncCallback(HandleIncomingConnection), serverSocket);
 				}
-				else if(Enum.IsDefined(typeof(DataByteType), client.Data[SharedProperties.TypeByte]))
+				else if(Enum.IsDefined(typeof(DataByteType), (DataByteType)client.Data[SharedProperties.TypeByte]))
 				{
 					int length = BitConverter.ToInt32(new byte[] { client.Data[SharedProperties.LengthByte1], client.Data[SharedProperties.LengthByte2], 0, 0 }, 0);
 					int series = BitConverter.ToInt32(new byte[] { client.Data[SharedProperties.SeriesByte1], client.Data[SharedProperties.SeriesByte2], 0, 0 }, 0);
@@ -279,7 +286,15 @@ namespace Trollkit_Library.ServerModules
 		/// returned; otherwise null is returned.</returns>
 		public Socket GetSocketByClient(Client client)
 		{
-			return clients.FirstOrDefault(x => x.Value.GetClientID() == client.GetClientID()).Key;
+			try
+			{
+				return clients.FirstOrDefault(x => x.Value.GetClientID() == client.GetClientID()).Key;
+			}
+			catch
+			{
+				BConsole.WriteLine($"Socket for {client.GetName()} not found", ConsoleColor.Red);
+				return null;
+			}
 		}
 
 		/// <summary>
@@ -294,6 +309,10 @@ namespace Trollkit_Library.ServerModules
 				CloseSocket(s);
 				ClientDisconnected(client);
 				//NotifyPropertyChanged("Clients"); //update the Clients list
+			}
+			else
+			{
+				ClientDisconnected(client);
 			}
 		}
 

@@ -23,7 +23,9 @@ namespace Trollkit_Client.Modules.CommandHandlers
 		private const int VOLUME_MUTE = 0xAD;
 		private const int VOLUME_UP = 0xAF;
 		private const int VOLUME_DOWN = 0xAE;
-		public bool HandleCommand(Socket s, TransferCommandObject obj)
+
+
+		public override bool HandleCommand(Socket s, TransferCommandObject obj)
 		{
 			switch (obj.Command)
 			{

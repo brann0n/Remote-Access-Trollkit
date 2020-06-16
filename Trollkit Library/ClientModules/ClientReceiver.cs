@@ -23,7 +23,6 @@ namespace Trollkit_Library.ClientModules
 			buffers = new List<DataBufferModel>();
 		}
 
-
 		public void ConnectAndReceive(string ip)
 		{
 			remoteSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
@@ -39,7 +38,7 @@ namespace Trollkit_Library.ClientModules
 				}
 				catch
 				{
-					BConsole.WriteLine("Crashed");
+					BConsole.WriteLine("Could no longer receive data, client disconnected???");
 					break;
 				}
 				int length = BitConverter.ToInt32(new byte[] { array[SharedProperties.LengthByte1], array[SharedProperties.LengthByte2], 0, 0 }, 0);
@@ -70,21 +69,6 @@ namespace Trollkit_Library.ClientModules
 					}
 
 				}
-			}
-		}
-
-
-		public void SendCommandObjectToSocket(DataBufferModel message)
-		{
-			BConsole.WriteLine("Sending data with id: " + message.DataId.ToString());
-			byte[] lengthByteArray = BitConverter.GetBytes(message.SeriesLength);
-			foreach (KeyValuePair<int, byte[]> item in message.BufferedData)
-			{
-				byte[] seriesByteArray = BitConverter.GetBytes(item.Key);
-
-				byte[] sendArray = new byte[] { 0x1b, lengthByteArray[0], lengthByteArray[1], seriesByteArray[0], seriesByteArray[1] };
-				sendArray = sendArray.Concat(message.DataId.ToByteArray()).Concat(item.Value).ToArray();
-				remoteSocket.Send(item.Value, 0, item.Value.Length, SocketFlags.None);
 			}
 		}
 	}

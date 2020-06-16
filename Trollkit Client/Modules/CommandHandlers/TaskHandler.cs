@@ -11,7 +11,7 @@ namespace Trollkit_Client.Modules.CommandHandlers
 {
     public class TaskHandler : ICommandHandler
     {
-        public bool HandleCommand(Socket s, TransferCommandObject obj)
+        public override bool HandleCommand(Socket s, TransferCommandObject obj)
         {
             if(obj.Command == "DeleteTask")
             {

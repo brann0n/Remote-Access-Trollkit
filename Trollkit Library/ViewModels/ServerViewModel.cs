@@ -14,8 +14,6 @@ namespace Trollkit_Library.ViewModels
 {
 	public class ServerViewModel : INotifyPropertyChanged
 	{
-
-
 		public static Server Server;
 
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -31,10 +29,11 @@ namespace Trollkit_Library.ViewModels
 			Server.ClientConnected += Server_ClientConnected;
 			Server.ClientDisconnected += Server_ClientDisconnected;
 			Server.MessageReceived += Server_MessageReceived;
+			Server.OnPropertyChanged += Server_OnPropertyChanged;
 			Server.Start();
 
 			Task.Run(() => new ServerDiscovery("gang?", "Dopple gang").Discover());
-		}
+		}	
 
 		private void Server_MessageReceived(Client c, TransferCommandObject model, Server.DataByteType type)
 		{
@@ -92,6 +91,11 @@ namespace Trollkit_Library.ViewModels
 				Server.SelectedClient = value;
 				NotifyPropertyChanged("SelectedClient");
 			}
+		}
+
+		private void Server_OnPropertyChanged(string Property)
+		{
+			NotifyPropertyChanged(Property);
 		}
 
 		/// <summary>

