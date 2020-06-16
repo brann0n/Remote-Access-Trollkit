@@ -6,6 +6,9 @@ using System.Net;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
+using Trollkit_Library.ViewModels;
+using Trollkit_Library.ViewModels.Commands;
 
 namespace Trollkit_Library.ClientModules
 {
@@ -27,7 +30,22 @@ namespace Trollkit_Library.ClientModules
 
 		public Dictionary<string, string> storedData { get; set; }
 
-		public Client(uint id, IPEndPoint pAddressEndpoint)
+
+        public ICommand Kick { get { return new SendServerCommand(kick); } }
+        public ICommand Select { get { return new SendServerCommand(select); } }
+
+        public void kick()
+        {
+            ServerViewModel.Server.KickClient(this);
+        }
+
+        public void select()
+        {
+            ServerViewModel.Server.SelectedClient = this;
+        }
+
+
+        public Client(uint id, IPEndPoint pAddressEndpoint)
 		{
 			this.id = id;
 			this.connectedAt = DateTime.Now;
