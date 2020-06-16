@@ -12,12 +12,12 @@
             </Ellipse.Fill>
         </Ellipse>
 		<Image Source="..\Resources\Images\Flowers.png" Canvas.Top="-51" Width="387" Height="362" RenderTransformOrigin="0.5,0.5" Canvas.Left="-16"/>
-        <Button Name="btnDisplayImage" Content="Display image" Canvas.Left="211" Canvas.Top="121" Width="117" Height="28" IsCancel="True" FontWeight="Bold" FontFamily="IBM Plex Sans" Command="{Binding Visual.DisplayImage}"/>
-		<TextBox Name="tbDisplayText" Height="59" Canvas.Left="211" TextWrapping="Wrap" Text="{Binding Visual.BroadcastMessageText}" Canvas.Top="154" Width="203" />
-        <Button Name="btnDisplayText" Content="Display text" Canvas.Left="419" Canvas.Top="187" Width="107" Height="26" FontWeight="Bold"  Command="{Binding Visual.DisplayText}"/>
-        <Button Name="btnTurnOffScreen" Content="Disable screen" Canvas.Left="211" Canvas.Top="224" Width="133" Height="24" FontWeight="Bold" Command="{Binding Visual.TurnOffScreen}"/>
-		<TextBox Name="tbOpenSite"  Height="22" Canvas.Left="211" TextWrapping="Wrap" Text="{Binding Visual.OpenUrlText}" Canvas.Top="258" Width="203"/>
-        <Button Name="btnOpenSite" Content="Open site" Canvas.Left="419" Canvas.Top="255" Width="100" Height="24" FontWeight="Bold" Command="{Binding Visual.OpenSite}"/>
-        <Button Name="btnPickBackgroundImage" Content="Choose background image" Canvas.Left="211" Canvas.Top="289" Width="177" Height="22" FontWeight="Bold" Command="{Binding Visual.PickBackgroundImage}"/>
+        <Button Content="Display image" Canvas.Left="211" Canvas.Top="121" Width="117" Height="28" IsCancel="True" FontWeight="Bold" FontFamily="IBM Plex Sans" Command="{Binding Visual.DisplayImage}"/>
+		<TextBox Height="59" Canvas.Left="211" TextWrapping="Wrap" Text="{Binding Visual.BroadcastMessageText}" Canvas.Top="154" Width="203" />
+        <Button Content="Display text" Canvas.Left="419" Canvas.Top="187" Width="107" Height="26" FontWeight="Bold"  Command="{Binding Visual.DisplayText}"/>
+        <Button Content="Disable screen" Canvas.Left="211" Canvas.Top="224" Width="133" Height="24" FontWeight="Bold" Command="{Binding Visual.TurnOffScreen}"/>
+		<TextBox Height="22" Canvas.Left="211" TextWrapping="Wrap" Text="{Binding Visual.OpenUrlText}" Canvas.Top="258" Width="203"/>
+        <Button Content="Open site" Canvas.Left="419" Canvas.Top="255" Width="100" Height="24" FontWeight="Bold" Command="{Binding Visual.OpenSite}"/>
+        <Button Content="Choose background image" Canvas.Left="211" Canvas.Top="289" Width="177" Height="22" FontWeight="Bold" Command="{Binding Visual.PickBackgroundImage}"/>
     </Canvas>
 </UserControl>
