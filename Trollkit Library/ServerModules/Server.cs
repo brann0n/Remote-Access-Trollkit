@@ -189,7 +189,7 @@ namespace Trollkit_Library.ServerModules
 			}
 			catch (Exception e)
 			{
-				BConsole.WriteLine("Error occured: " + e.Message.Substring(0, 20), ConsoleColor.Red);
+				BConsole.WriteLine("Error occured: " + e.Message, ConsoleColor.Red);
 			}
 		}
 
