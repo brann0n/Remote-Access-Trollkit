@@ -23,7 +23,8 @@ namespace Trollkit_Library.ViewModels.Commands
 		public ICommand TurnOffScreen { get { return new SendServerCommand(SendTurnOffScreen); } }
 		public ICommand	OpenSite { get { return new SendServerCommand(SendOpenSite); } }
 		public ICommand PickBackgroundImage { get { return new SendServerCommand(SendPickBackgroundImage); } }
-
+		public string TbDisplayText { get; set; }
+		 
 		private void SendDisplayImage()
 		{
 			OpenFileDialog open = new OpenFileDialog();
@@ -36,16 +37,13 @@ namespace Trollkit_Library.ViewModels.Commands
 
 				string base64 = Convert.ToBase64String(bytes);
 				TransferCommandObject returnObject = new TransferCommandObject { Command = "ShowImage", Handler = handler, Value = base64 };
-
-				//App.Server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
 				_server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
 			}
 		}
 
 		private void SendDisplayText()
 		{
-			TransferCommandObject returnObject = new TransferCommandObject { Command = "TextBox", Handler = handler, Value = "" }; //tbDisplayText.Text };
-			//App.Server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
+			TransferCommandObject returnObject = new TransferCommandObject { Command = "TextBox", Handler = handler, Value = $"{TbDisplayText}" }; //tbDisplayText.Text };
 			_server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
 		}
 
