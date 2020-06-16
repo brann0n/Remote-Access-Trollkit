@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net.Sockets;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
@@ -20,7 +21,7 @@ namespace Trollkit_Client.Modules.CommandHandlers
 		private const int SC_MONITORPOWER = 0xF170;
 		private const int WM_SYSCOMMAND = 0x0112;
 
-		public bool HandleCommand(TransferCommandObject obj)
+		public bool HandleCommand(Socket s, TransferCommandObject obj)
 		{
 			switch (obj.Command)
 			{

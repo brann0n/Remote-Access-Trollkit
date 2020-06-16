@@ -14,7 +14,10 @@ namespace Trollkit_Library.ViewModels
 {
 	public class ServerViewModel : INotifyPropertyChanged
 	{
-		public Server Server;
+
+
+		public static Server Server;
+
 		public event PropertyChangedEventHandler PropertyChanged;
 
 		public AudioCommands Audio { get { return new AudioCommands(Server, "Audio"); } }

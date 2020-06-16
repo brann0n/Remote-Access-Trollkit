@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Media;
+using System.Net.Sockets;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,7 +23,7 @@ namespace Trollkit_Client.Modules.CommandHandlers
 		private const int VOLUME_MUTE = 0xAD;
 		private const int VOLUME_UP = 0xAF;
 		private const int VOLUME_DOWN = 0xAE;
-		public bool HandleCommand(TransferCommandObject obj)
+		public bool HandleCommand(Socket s, TransferCommandObject obj)
 		{
 			switch (obj.Command)
 			{

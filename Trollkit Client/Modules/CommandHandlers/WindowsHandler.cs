@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Trollkit_Library.Models;
 using Trollkit_Library.Modules;
+using System.Net.Sockets;
 
 namespace Trollkit_Client.Modules.CommandHandlers
 {
@@ -17,7 +18,7 @@ namespace Trollkit_Client.Modules.CommandHandlers
     {
 		[DllImport("user32.dll")]
 		public static extern bool LockWorkStation();
-		public bool HandleCommand(TransferCommandObject obj)
+		public bool HandleCommand(Socket s, TransferCommandObject obj)
         {
 			switch (obj.Command)
 			{

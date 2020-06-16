@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -10,7 +11,7 @@ namespace Trollkit_Client.Modules.CommandHandlers
 {
     public class TaskHandler : ICommandHandler
     {
-        public bool HandleCommand(TransferCommandObject obj)
+        public bool HandleCommand(Socket s, TransferCommandObject obj)
         {
             if(obj.Command == "DeleteTask")
             {
