@@ -58,6 +58,7 @@
     <Compile Include="Modules\Extensions.cs" />
     <Compile Include="Modules\Keyboard.cs" />
     <Compile Include="Modules\Wallpaper.cs" />
+    <Compile Include="Modules\WindowsProfilePicture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServerModules\Server.cs" />
     <Compile Include="ServerModules\ServerDiscovery.cs" />
