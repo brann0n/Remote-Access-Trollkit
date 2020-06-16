@@ -1,4 +1,5 @@
-﻿using System.Windows.Input;
+﻿using System;
+using System.Windows.Input;
 using Trollkit_Library.Models;
 using Trollkit_Library.Modules;
 using Trollkit_Library.ServerModules;
@@ -24,6 +25,19 @@ namespace Trollkit_Library.ViewModels.Commands
 		public ICommand Next { get { return new SendServerCommand(SendNext); } }
 		public ICommand Previous { get { return new SendServerCommand(SendPrev); } }
 		public ICommand Mute { get { return new SendServerCommand(SendMute); } }
+
+		public string Button 
+		{
+			get
+			{
+				return @"..\Resources\Images\Pause.png";
+			}
+			set
+			{
+				
+			}
+		
+		}
 
 		public void SendBeep()
 		{

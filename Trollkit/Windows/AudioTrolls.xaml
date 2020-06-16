@@ -69,13 +69,13 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <Button Style="{StaticResource ControlButton}" Canvas.Left="476" Canvas.Top="40" Width="61" Height="59" RenderTransformOrigin="0.565,0.471" Command="{Binding Audio.Mute}" Foreground="{x:Null}" BorderBrush="{x:Null}">
+        <Button Style="{StaticResource ControlButton}" Canvas.Left="476" Canvas.Top="36" Width="62" Height="62" RenderTransformOrigin="0.565,0.471" Command="{Binding Audio.Mute}" Foreground="{x:Null}" BorderBrush="{x:Null}">
             <Button.Background>
                 <ImageBrush ImageSource="..\Resources\Images\volume-mute.png" />
             </Button.Background>
             <Button.RenderTransform>
                 <TransformGroup>
-                    <ScaleTransform/>
+                    <ScaleTransform ScaleY="-1"/>
                     <SkewTransform/>
                     <RotateTransform Angle="220.024"/>
                     <TranslateTransform X="-8.255" Y="1.199"/>
@@ -123,7 +123,7 @@
         </Button>
         <Button Style="{StaticResource ControlButton}" Canvas.Left="516" Canvas.Top="209" Width="25" Height="25" RenderTransformOrigin="0.5,0.5" Command="{Binding Audio.PlayPause}" >
             <Button.Background>
-                <ImageBrush ImageSource="..\Resources\Images\Play.png" />
+                <ImageBrush ImageSource="{Binding Audio.Button}"/>
             </Button.Background>
             <Button.RenderTransform>
                 <TransformGroup>

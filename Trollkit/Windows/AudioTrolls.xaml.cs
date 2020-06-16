@@ -11,5 +11,7 @@ namespace Trollkit.Windows
         {
             InitializeComponent();
         }
+
+ 
     }
 }
