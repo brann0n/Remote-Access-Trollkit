@@ -57,6 +57,7 @@ AltTab | (none) | Sends a randomized alt+tab command to the client.
 
 #### SystemInfoHandler (client & server)
 Command | Target | Type | Value | Description
+------- | ------ | ---- | ----- | -----------
 GetClientInfo | client | Command | (none) | Tells the client that it needs to start sending back its system info.
 ComputerName | server | Data | "PCNAME\UserName" | Gets the pcname and username combo from the client.
 CPU | server | Data | "cpu info" | Gets info about the clients CPU
