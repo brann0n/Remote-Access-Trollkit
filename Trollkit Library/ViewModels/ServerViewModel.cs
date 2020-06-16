@@ -19,8 +19,9 @@ namespace Trollkit_Library.ViewModels
 
 		public AudioCommands Audio { get { return new AudioCommands(Server, "Audio"); } }
 		public VisualCommands Visual { get { return new VisualCommands(Server, "Visuals"); } }
+        public ClientCommands Client { get { return new ClientCommands(Server, "Client"); } }
 
-		public ServerViewModel()
+        public ServerViewModel()
 		{
 			Server = new Server(IPAddress.Any);
 			Server.ClientConnected += Server_ClientConnected;

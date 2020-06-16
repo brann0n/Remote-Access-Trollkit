@@ -18,7 +18,7 @@
                 <RadialGradientBrush>
                     <RadialGradientBrush.GradientStops>
                         <GradientStop Color="#ffffff" Offset="0" />
-                        <GradientStop Color="#ff94d8" Offset="1.0" />
+                        <GradientStop Color="#ffa3de" Offset="1.0" />
                     </RadialGradientBrush.GradientStops>
                 </RadialGradientBrush>
             </StackPanel.Background>
@@ -36,8 +36,8 @@
                             <Border Margin="5,5,5,0" BorderBrush="#666666" BorderThickness="0 0 0 1" VerticalAlignment="Top">
                                 <StackPanel Height="auto" Width="auto" Orientation="Horizontal" Margin="0,0,0,5">
                                     <Label Content="{Binding Path=ClientName}" FontWeight="Bold"/>
-                                    <Button Content="Select" Padding="10,0,10,0"/>
-                                    <Button Content="Kick" Padding="10,0,10,0"/>
+                                    <Button Command="{Binding Client.Beep}" Content="Select" Padding="10,0,10,0"/>
+                                    <Button Command="{Binding Client.Beep}" Content="Kick" Padding="10,0,10,0"/>
                                 </StackPanel>
                             </Border>
                         </DataTemplate>
@@ -46,7 +46,7 @@
             </StackPanel>
             <Rectangle Style="{StaticResource checkerPattern}" Width="auto" Height="60"/>
         </StackPanel>
-
+        <Button Command="{Binding Client.Test}" Content="Test" Padding="10,0,10,0"/>
         
         <!--
         <Button Content="Ddos met alle clients"/>
