@@ -62,6 +62,9 @@ GetClientInfo | client | Command | (none) | Tells the client that it needs to st
 ComputerName | server | Data | "PCNAME\UserName" | Gets the pcname and username combo from the client.
 CPU | server | Data | "cpu info" | Gets info about the clients CPU
 Drives | server | Data | "string with drives" | Gets all the drives on the client pc
+ProfilePicture | server | Data | "base64String" | Gets the base64 of the users profile picture in Windows.
+RAM | server | Data | "RAM" | Gets the ram thats available in the system
+WindowsVersion | server | Data | "Windows Version" | Gets the clients Windows Version
 
 ### Data headers
 In order to keep perfect track of data that is being sent and data that is received we thought of a clever way to devide the byte streams.  
