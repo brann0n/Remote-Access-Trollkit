@@ -29,6 +29,14 @@ DeleteTask | (none) | Removes the task replication task from the local tasksched
 Command | Value | Description
 ------- | ----- | -----------
 PlayBeep | "frequency,duration" | Makes a beep on the client, the values decide how the beep sounds.
+Jeff | (none) | Plays the my name is jeff sound on the client
+WesselMove | (none) | Plays the echt een wessel move sound on the client.
+VolumeUp | (none) | Ups the volume on the client
+VolumeDown | (none) | Downs the volume on the client
+Mute | (none) | Mutes the volume on the client
+PlayPause | (none) | Triggers the playback of the default player
+NextTrack | (none) | Skips whatever is playing to the next track
+PreviousTrack | (none) | Skips whatever is playing to the previous track
 
 #### VisualsHandler (client)
 Command | Value | Description
@@ -39,9 +47,24 @@ ShowImage | "base64Image" | Shows an image on the clients screen
 OpenSite | "url" | Opens a website on the users screen
 SetBackground | "base64Image" | Sets the provided image as the users background (also disables wallpaper engine)
 
+#### WindowsHandler (client)
+Command | Value | Description
+------- | ----- | -----------
+MousePosition | "x,y" | Sets the cursor of the client to the provided location
+Command | "{hidden;show},command" | runs a cmd command depending if it shows or not.
+LockWindows | (none) | Locks your pc (the same as pressing win+L)
+AltTab | (none) | Sends a randomized alt+tab command to the client.
+
+#### SystemInfoHandler (client & server)
+Command | Target | Type | Value | Description
+------- | ------ | ---- | ----- | -----------
+GetClientInfo | client | Command | (none) | Tells the client that it needs to start sending back its system info.
+ComputerName | server | Data | "PCNAME\UserName" | Gets the pcname and username combo from the client.
+CPU | server | Data | "cpu info" | Gets info about the clients CPU
+
 ### Data headers
 In order to keep perfect track of data that is being sent and data that is received we thought of a clever way to devide the byte streams.  
-The first 21 bytes of each 2048 byte packet is made up of 'header' data that tells the program what to expect of the next piece of data.
+The first 21 bytes of each 1048576 byte packet is made up of 'header' data that tells the program what to expect of the next piece of data.
 
 guidelines for the received data are:
 

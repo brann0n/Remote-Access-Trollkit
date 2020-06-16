@@ -17,9 +17,10 @@
         <Setter Property="RenderTransform">
             <Setter.Value>
                 <TransformGroup>
-                    <SkewTransform CenterX="0" CenterY="0" AngleX="-20" AngleY="2" />
+                    <SkewTransform CenterX="0" CenterY="0" AngleX="0" AngleY="0" />
                 </TransformGroup>
             </Setter.Value>
         </Setter>
+        <Setter Property="Opacity" Value="0.8"/>
     </Style>
 </ResourceDictionary>

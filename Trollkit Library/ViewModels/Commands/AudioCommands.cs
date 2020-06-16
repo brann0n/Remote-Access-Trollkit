@@ -28,7 +28,6 @@ namespace Trollkit_Library.ViewModels.Commands
 		public void SendBeep()
 		{
 			TransferCommandObject returnObject = new TransferCommandObject { Command = "PlayBeep", Handler = handler, Value = "800,800" };
-
 			_server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
 		}
 

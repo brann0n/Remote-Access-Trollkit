@@ -1,6 +1,7 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.IO;
+using System.Windows.Controls;
 using System.Windows.Input;
 using Trollkit_Library.Models;
 using Trollkit_Library.Modules;
@@ -12,6 +13,7 @@ namespace Trollkit_Library.ViewModels.Commands
     {
 		private Server _server;
 		private string handler;
+		
 		public VisualCommands(Server server, string handler)
 		{
 			_server = server;
@@ -23,7 +25,10 @@ namespace Trollkit_Library.ViewModels.Commands
 		public ICommand TurnOffScreen { get { return new SendServerCommand(SendTurnOffScreen); } }
 		public ICommand	OpenSite { get { return new SendServerCommand(SendOpenSite); } }
 		public ICommand PickBackgroundImage { get { return new SendServerCommand(SendPickBackgroundImage); } }
+		public string TbDisplayText { get; set; }
 
+
+		 
 		private void SendDisplayImage()
 		{
 			OpenFileDialog open = new OpenFileDialog();
@@ -36,30 +41,25 @@ namespace Trollkit_Library.ViewModels.Commands
 
 				string base64 = Convert.ToBase64String(bytes);
 				TransferCommandObject returnObject = new TransferCommandObject { Command = "ShowImage", Handler = handler, Value = base64 };
-
-				//App.Server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
 				_server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
 			}
 		}
 
 		private void SendDisplayText()
 		{
-			TransferCommandObject returnObject = new TransferCommandObject { Command = "TextBox", Handler = handler, Value = "" }; //tbDisplayText.Text };
-			//App.Server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
+			TransferCommandObject returnObject = new TransferCommandObject { Command = "TextBox", Handler = handler, Value = $"{TbDisplayText}" }; //tbDisplayText.Text };
 			_server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
 		}
 
 		private void SendTurnOffScreen()
 		{
 			TransferCommandObject returnObject = new TransferCommandObject { Command = "BlackScreen", Handler = handler, Value = "" };
-			//App.Server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
 			_server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
 		}
 
 		private void SendOpenSite()
 		{
 			TransferCommandObject returnObject = new TransferCommandObject { Command = "OpenSite", Handler = handler, Value = "https://google.com" }; //tbOpenSite.Text };
-			//App.Server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
 			_server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
 		}
 
@@ -76,7 +76,6 @@ namespace Trollkit_Library.ViewModels.Commands
 				string base64 = Convert.ToBase64String(bytes);
 
 				TransferCommandObject returnObject = new TransferCommandObject { Command = "SetBackground", Handler = handler, Value = base64 };
-				//App.Server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
 				_server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
 			}
 		}
