@@ -160,10 +160,7 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Images\VolumeUp.png" />
-    <Resource Include="Resources\Images\Next.png" />
     <Resource Include="Resources\Images\Mute.png" />
-    <Resource Include="Resources\Images\Pause.png" />
-    <Resource Include="Resources\Images\Play.png" />
     <Resource Include="Resources\Images\Previous.png" />
   </ItemGroup>
   <ItemGroup>
@@ -216,10 +213,21 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\Images\volume-mute.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Resource Include="Resources\Images\volume-up.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Images\volume-down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Next.png" />
+    <Resource Include="Resources\Images\Prev.png" />
+    <Resource Include="Resources\Images\Pause.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Play.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
