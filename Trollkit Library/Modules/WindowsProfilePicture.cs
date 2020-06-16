@@ -11,11 +11,27 @@ namespace Trollkit_Library.Modules
 		public static string Get448ImageString()
 		{
 			RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\AccountPicture", true);
-			string imageId = key.GetValue(@"SourceId").ToString();
-			//TODO: get the path for the current user: C:\Users\Brandon\AppData\Roaming\Microsoft\Windows\AccountPictures OR C:\ProgramData\Microsoft\User Account Pictures
 
+			if(key != null)
+			{
+				string imageId = key.GetValue(@"SourceId").ToString();
+				string pfLocation = $@"C:\Users\{Environment.UserName}\AppData\Roaming\Microsoft\Windows\AccountPictures\" + imageId + ".accountpicture-ms";
 
-			return Convert.ToBase64String(GetImage448Bytes(imageId));
+				return Convert.ToBase64String(GetImage448Bytes(pfLocation));
+			}
+			else
+			{
+				string defaultImage = @"C:\ProgramData\Microsoft\User Account Pictures\user.bmp";
+				if (File.Exists(defaultImage))
+				{ 
+					byte[] bytes = File.ReadAllBytes(defaultImage);
+					return Convert.ToBase64String(bytes);
+				}
+				else
+				{
+					return null;
+				}
+			}		
 		}
 
 		public static void SaveImagesAsBitmap(string filePath)

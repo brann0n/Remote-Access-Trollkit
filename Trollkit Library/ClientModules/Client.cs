@@ -44,7 +44,6 @@ namespace Trollkit_Library.ClientModules
             ServerViewModel.Server.SelectedClient = this;
         }
 
-
         public Client(uint id, IPEndPoint pAddressEndpoint)
 		{
 			this.id = id;

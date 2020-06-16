@@ -60,6 +60,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Resources\ProfilePictureImageConverter.cs" />
     <Compile Include="Windows\AudioTrolls.xaml.cs">
       <DependentUpon>AudioTrolls.xaml</DependentUpon>
     </Compile>

