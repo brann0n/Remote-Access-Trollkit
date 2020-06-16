@@ -15,19 +15,23 @@ namespace Trollkit_Library.ViewModels.Commands
 		private Server _server;
 		private string handler;
 
+		public ICommand DisplayImage { get { return new SendServerCommand(SendDisplayImage); } }
+		public ICommand DisplayText { get { return new SendServerCommand(SendDisplayText); } }
+		public ICommand TurnOffScreen { get { return new SendServerCommand(SendTurnOffScreen); } }
+		public ICommand OpenSite { get { return new SendServerCommand(SendOpenSite); } }
+		public ICommand PickBackgroundImage { get { return new SendServerCommand(SendPickBackgroundImage); } }
+		public string BroadcastMessageText { get; set; }
+		public string OpenUrlText { get; set; }
+
 		public VisualCommands(Server server, string handler)
 		{
 			_server = server;
 			this.handler = handler;
-		}
 
-		public ICommand DisplayImage { get { return new SendServerCommand(SendDisplayImage); } }
-		public ICommand DisplayText { get { return new SendServerCommand(SendDisplayText); } }
-		public ICommand TurnOffScreen { get { return new SendServerCommand(SendTurnOffScreen); } }
-		public ICommand	OpenSite { get { return new SendServerCommand(SendOpenSite); } }
-		public ICommand PickBackgroundImage { get { return new SendServerCommand(SendPickBackgroundImage); } }
-		public string TbDisplayText { get; set; }
-		 
+			BroadcastMessageText = "Dit is een bericht";
+			OpenUrlText = "https://google.com";
+		}	
+
 		private void SendDisplayImage()
 		{
 			OpenFileDialog open = new OpenFileDialog();
@@ -46,7 +50,7 @@ namespace Trollkit_Library.ViewModels.Commands
 
 		private void SendDisplayText()
 		{
-			TransferCommandObject returnObject = new TransferCommandObject { Command = "TextBox", Handler = handler, Value = $"{TbDisplayText}" }; //tbDisplayText.Text };
+			TransferCommandObject returnObject = new TransferCommandObject { Command = "TextBox", Handler = handler, Value = BroadcastMessageText };
 			_server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
 		}
 
@@ -58,7 +62,7 @@ namespace Trollkit_Library.ViewModels.Commands
 
 		private void SendOpenSite()
 		{
-			TransferCommandObject returnObject = new TransferCommandObject { Command = "OpenSite", Handler = handler, Value = "https://google.com" }; //tbOpenSite.Text };
+			TransferCommandObject returnObject = new TransferCommandObject { Command = "OpenSite", Handler = handler, Value = OpenUrlText };
 			_server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
 		}
 

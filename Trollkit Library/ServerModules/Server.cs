@@ -305,15 +305,10 @@ namespace Trollkit_Library.ServerModules
 		{
 			Socket s = GetSocketByClient(client);
 			if (s != null)
-			{
 				CloseSocket(s);
+			
+			if(client != null)
 				ClientDisconnected(client);
-				//NotifyPropertyChanged("Clients"); //update the Clients list
-			}
-			else
-			{
-				ClientDisconnected(client);
-			}
 		}
 
 		/// <summary>
