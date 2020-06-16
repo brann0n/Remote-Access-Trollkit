@@ -65,6 +65,7 @@
     <Compile Include="ServerModules\ServerDiscovery.cs" />
     <Compile Include="SharedProperties.cs" />
     <Compile Include="ViewModels\Commands\AudioCommands.cs" />
+    <Compile Include="ViewModels\Commands\ClientCommands.cs" />
     <Compile Include="ViewModels\Commands\SendServerCommand.cs" />
     <Compile Include="ViewModels\Commands\VisualCommands.cs" />
     <Compile Include="ViewModels\Commands\WindowCommands.cs" />

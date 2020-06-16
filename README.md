@@ -29,6 +29,14 @@ DeleteTask | (none) | Removes the task replication task from the local tasksched
 Command | Value | Description
 ------- | ----- | -----------
 PlayBeep | "frequency,duration" | Makes a beep on the client, the values decide how the beep sounds.
+Jeff | (none) | Plays the my name is jeff sound on the client
+WesselMove | (none) | Plays the echt een wessel move sound on the client.
+VolumeUp | (none) | Ups the volume on the client
+VolumeDown | (none) | Downs the volume on the client
+Mute | (none) | Mutes the volume on the client
+PlayPause | (none) | Triggers the playback of the default player
+NextTrack | (none) | Skips whatever is playing to the next track
+PreviousTrack | (none) | Skips whatever is playing to the previous track
 
 #### VisualsHandler (client)
 Command | Value | Description
