@@ -61,6 +61,7 @@ Command | Target | Type | Value | Description
 GetClientInfo | client | Command | (none) | Tells the client that it needs to start sending back its system info.
 ComputerName | server | Data | "PCNAME\UserName" | Gets the pcname and username combo from the client.
 CPU | server | Data | "cpu info" | Gets info about the clients CPU
+Drives | server | Data | "string with drives" | Gets all the drives on the client pc
 
 ### Data headers
 In order to keep perfect track of data that is being sent and data that is received we thought of a clever way to devide the byte streams.  
