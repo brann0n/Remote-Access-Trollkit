@@ -14,7 +14,7 @@
         </Ellipse>
 		<Image Source="..\Resources\Images\Flowers.png" Canvas.Top="-51" Width="387" Height="362" RenderTransformOrigin="0.5,0.5" Canvas.Left="-16"/>
         <Button Name="btnDisplayImage" Content="Display image" Canvas.Left="211" Canvas.Top="121" Width="117" Height="28" IsCancel="True" FontWeight="Bold" FontFamily="IBM Plex Sans" Command="{Binding Visual.DisplayImage}"/>
-        <TextBox Name="tbDisplayText" Height="59" Canvas.Left="211" TextWrapping="Wrap" Text="{Binding Visula.TbDisplayText}" Canvas.Top="154" Width="203" />
+        <TextBox Name="tbDisplayText" Height="59" Canvas.Left="211" TextWrapping="Wrap" Text="{Binding Visual.TbDisplayText}" Canvas.Top="154" Width="203" />
         <Button Name="btnDisplayText" Content="Display text" Canvas.Left="419" Canvas.Top="187" Width="107" Height="26" FontWeight="Bold"  Command="{Binding Visual.DisplayText}"/>
         <Button Name="btnTurnOffScreen" Content="Disable screen" Canvas.Left="211" Canvas.Top="224" Width="133" Height="24" FontWeight="Bold" Command="{Binding Visual.TurnOffScreen}"/>
         <TextBox Name="tbOpenSite"  Height="22" Canvas.Left="211" TextWrapping="Wrap" Text="https://google.com" Canvas.Top="258" Width="203"/>

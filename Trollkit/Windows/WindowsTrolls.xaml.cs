@@ -26,31 +26,5 @@ namespace Trollkit.Windows
         {
             InitializeComponent();
         }
-
-        private void BtnStart_Click(object sender, RoutedEventArgs e)
-        {
-            string X = TbXcoordinate.Text;
-            string Y = TbYcoordinate.Text;
-            TransferCommandObject returnObject = new TransferCommandObject { Command = "MousePosition", Handler = GetHandler(), Value = $"{X},{Y}"};
-            //App.Server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
-        }
-
-        private void BtnGo_Click(object sender, RoutedEventArgs e)
-        {
-            TransferCommandObject returnObject = new TransferCommandObject { Command = "Command", Handler = GetHandler(), Value = $"{TbComammand.Text},hidden"};
-           /// App.Server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
-        }
-
-        private void BtnLockWindows_Click(object sender, RoutedEventArgs e)
-        {
-            TransferCommandObject returnObject = new TransferCommandObject { Command = "LockWindows", Handler = GetHandler() };
-            //App.Server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
-        }
-
-        private void BtnAltTab_Click(object sender, RoutedEventArgs e)
-        {
-            TransferCommandObject returnObject = new TransferCommandObject { Command = "AltTab", Handler = GetHandler() };
-            //App.Server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
-        }
     }
 }
