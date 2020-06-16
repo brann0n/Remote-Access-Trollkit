@@ -18,10 +18,10 @@ namespace Trollkit_Library.ViewModels
 
 		public event PropertyChangedEventHandler PropertyChanged;
 
-		public AudioCommands Audio { get { return new AudioCommands(Server, "Audio"); } }
-		public VisualCommands Visual { get { return new VisualCommands(Server, "Visuals"); } }
-		public WindowsCommands Windows { get { return new WindowsCommands(Server, "Windows"); } }
-        public ClientCommands Client { get { return new ClientCommands(Server, "Client"); } }
+		public AudioCommands Audio { get; private set; }
+		public VisualCommands Visual { get; private set; }
+		public WindowsCommands Windows { get; private set; }
+        public ClientCommands Client { get; private set; }
 
         public ServerViewModel()
 		{
@@ -31,6 +31,11 @@ namespace Trollkit_Library.ViewModels
 			Server.MessageReceived += Server_MessageReceived;
 			Server.OnPropertyChanged += Server_OnPropertyChanged;
 			Server.Start();
+
+			Audio = new AudioCommands(Server, "Audio");
+			Visual = new VisualCommands(Server, "Visuals");
+			Windows = new WindowsCommands(Server, "Windows");
+			Client = new ClientCommands(Server, "Client");
 
 			Task.Run(() => new ServerDiscovery("gang?", "Dopple gang").Discover());
 		}	

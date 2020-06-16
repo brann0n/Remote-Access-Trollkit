@@ -31,15 +31,15 @@ namespace Trollkit_Library.ClientModules
 		public Dictionary<string, string> storedData { get; set; }
 
 
-        public ICommand Kick { get { return new SendServerCommand(kick); } }
-        public ICommand Select { get { return new SendServerCommand(select); } }
+        public ICommand Kick { get { return new SendServerCommand(KickClient); } }
+        public ICommand Select { get { return new SendServerCommand(SelectClient); } }
 
-        public void kick()
+        public void KickClient()
         {
             ServerViewModel.Server.KickClient(this);
         }
 
-        public void select()
+        public void SelectClient()
         {
             ServerViewModel.Server.SelectedClient = this;
         }
