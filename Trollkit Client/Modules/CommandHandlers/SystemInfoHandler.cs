@@ -85,7 +85,6 @@ namespace Trollkit_Client.Modules.CommandHandlers
 			}
 
 			return "Unknown GPU";
-
 		}
 
 
