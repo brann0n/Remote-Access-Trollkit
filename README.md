@@ -1,11 +1,12 @@
 # Remote-Access-Trollkit
 Development project voor het vak C# 2 van de 4e periode in jaar 2
 
-## Wat is de trollkit?
-Dit is een remote access tool waarmee je 'grappige' acties kunt uitvoeren op een andere pc.
+## What is the trollkit?
+This is a remote access tool with wich you can make another pc do "funny" actions.
+The trollkit consists of a host(the pc who issues the commands) and a client(the pc who executes the commands).
+The client can be installed as a .exe file on the target pc.
 
-
-## Vaste waarden
+## Fixed values
 
 ### Pipeline handler Code
 ```csharp

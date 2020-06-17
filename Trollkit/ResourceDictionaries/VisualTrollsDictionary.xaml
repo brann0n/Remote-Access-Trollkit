@@ -1,3 +1,27 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
-    
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style x:Key="SubmitButton" TargetType="{x:Type Button}">
+        <Setter Property="FontFamily" Value="IBM Plex Sans"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Height" Value="28"/>
+        <Setter Property="Canvas.Left" Value="211"/>
+        <Setter Property="BorderThickness" Value="0 "/>
+        <Setter Property="Button.Effect">
+            <Setter.Value>
+                <DropShadowEffect Color="gray" Direction="320" ShadowDepth="3" BlurRadius="2" Opacity="0.5" />
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="TextBox" TargetType="{x:Type TextBox}">
+        <Setter Property="FontFamily" Value="IBM Plex Sans"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="FontWeight" Value="300"/>
+        <Setter Property="Canvas.Left" Value="211"/>
+        <Setter Property="BorderThickness" Value= " 0"/>
+    </Style>
+
+
 </ResourceDictionary>

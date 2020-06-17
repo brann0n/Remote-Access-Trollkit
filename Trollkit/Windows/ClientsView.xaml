@@ -7,52 +7,112 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:local="clr-namespace:Trollkit"
 	mc:Ignorable="d"
-    d:DesignHeight="450" d:DesignWidth="800">
+    d:DesignHeight="450" d:DesignWidth="700">
 	<Canvas>
-        <StackPanel Canvas.Left="50" Canvas.Top="5" Width="639">
-            <StackPanel.RenderTransform>
-                <SkewTransform CenterX="0" CenterY="0" AngleX="0" AngleY="1" />
-            </StackPanel.RenderTransform>
 
-            <StackPanel.Background>
-                <RadialGradientBrush>
-                    <RadialGradientBrush.GradientStops>
-                        <GradientStop Color="#ffffff" Offset="0" />
-                        <GradientStop Color="#ffa3de" Offset="1.0" />
-                    </RadialGradientBrush.GradientStops>
-                </RadialGradientBrush>
-            </StackPanel.Background>
-            
-            <StackPanel Name="clientsList" Height="275" Margin="20,0,20,0">
+        <StackPanel
+            Orientation="Vertical"
+            Canvas.Left="20"
+            Canvas.Top="20">
 
-                <ItemsControl x:Name="tStack" Grid.Column="0" ItemsSource="{Binding Path=Clients}">
-                    <ItemsControl.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <StackPanel Orientation="Vertical"/>
-                        </ItemsPanelTemplate>
-                    </ItemsControl.ItemsPanel>
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <Border Margin="5,5,5,0" BorderBrush="#666666" BorderThickness="0 0 0 1" VerticalAlignment="Top">
-								<StackPanel Height="auto" Width="auto" Orientation="Horizontal" Margin="0,0,0,5">
-									<Label Content="{Binding Path=storedData[ComputerName]}" FontWeight="Bold"/>
-                                    <Button Command="{Binding Select}" Content="Select" Padding="10,0,10,0"/>
-                                    <Button Command="{Binding Kick}" Content="Kick" Padding="10,0,10,0"/>
-									<Button Command="{Binding RemoveVirus}" Content="Remove Virus" Padding="10,0,10,0"/>
-									<Label Content="{Binding Path=ClientName}" FontWeight="Bold"/>
-                                </StackPanel>
-                            </Border>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
+            <Border
+                BorderThickness="1"
+                BorderBrush="Black">
+                <TextBlock Text="Trollkit.exe"
+                       Width="auto"
+                       Background="#c70ca5"
+                       TextAlignment="Center"
+                       Padding="4"
+                       FontWeight="Bold"
+                       Foreground="White"
+                        />
+            </Border>
+
+            <StackPanel
+                Orientation="Horizontal"
+                Background="#e6eaed">
+                <Label Content="Made by:"
+                    FontSize="8"
+                    FontWeight="Bold"
+                    Foreground="#888888"/>
+                <Label Content="Brandon"
+                    FontSize="8"
+                    FontWeight="Bold"/>
+                <Label Content="Jarno"                  
+                    FontSize="8"
+                    FontWeight="Bold"/>
+                <Label Content="Bram"
+                   FontSize="8"
+                    FontWeight="Bold"/>
+                <Label Content="Sjihdazi"
+                     FontSize="8"
+                    FontWeight="Bold"/>
+                <Label Content="Dennis"
+                    FontSize="8"
+                    FontWeight="Bold"/>
+                <Label Content="Mark"
+                    FontSize="8"
+                    FontWeight="Bold"/>
+                <Label Content="Jurrian"
+                    FontSize="8"
+                    FontWeight="Bold"/>
             </StackPanel>
-            <Rectangle Style="{StaticResource checkerPattern}" Width="auto" Height="60"/>
+
+            <ScrollViewer 
+                Canvas.Left="50" 
+                Canvas.Top="5" 
+                Width="540"
+                ScrollViewer.HorizontalScrollBarVisibility="Visible" 
+                ScrollViewer.VerticalScrollBarVisibility="Visible">
+                <ScrollViewer.RenderTransform>
+                    <SkewTransform CenterX="0" CenterY="0" AngleX="0" AngleY="0" />
+                </ScrollViewer.RenderTransform>
+
+                <ScrollViewer.Background>
+                    <SolidColorBrush Color="#aa94b3" Opacity="0.9"/>
+                </ScrollViewer.Background>
+                <!--<StackPanel.Background>
+                    <RadialGradientBrush>
+                        <RadialGradientBrush.GradientStops>
+                            <GradientStop Color="#ffffff" Offset="0" />
+                            <GradientStop Color="#ffa3de" Offset="1.0" />
+                        </RadialGradientBrush.GradientStops>
+                    </RadialGradientBrush>
+                </StackPanel.Background> -->
+
+                <StackPanel Name="clientsList" Height="275" Margin="20,0,20,0">
+
+                    <ItemsControl x:Name="tStack" Grid.Column="0" ItemsSource="{Binding Path=Clients}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Vertical"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Border Margin="1,5,1,0" BorderBrush="#444444" BorderThickness="0 0 0 1" VerticalAlignment="Top">
+                                    <StackPanel Height="auto" Width="auto" Orientation="Horizontal" Margin="0,0,0,5">
+                                        <Label Content="{Binding Path=storedData[ComputerName]}" FontWeight="Bold"/>
+                                        <Button Command="{Binding Select}" Content="Select" Padding="10,0,10,0"/>
+                                        <Button Command="{Binding Kick}" Content="Kick" Padding="10,0,10,0"/>
+                                        <Button Command="{Binding RemoveVirus}" Content="Remove Virus" Padding="10,0,10,0"/>
+                                        <Label Content="{Binding Path=ClientName}" FontWeight="Bold"/>
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                    <!--
+                    <Rectangle Style="{StaticResource checkerPattern}" Width="auto" Height="60"/>
+                    -->
+                </StackPanel>
+            </ScrollViewer>
         </StackPanel>
         <!--<Button Command="{Binding Client.Test}" Content="Test" Padding="10,0,10,0"/>-->
         
-        <!--
-        <Button Content="Ddos met alle clients"/>
-        <Button Content="Selecteer alle clients"/>
-        -->
+            <!--
+            <Button Content="Ddos met alle clients"/>
+            <Button Content="Selecteer alle clients"/>
+            -->
     </Canvas>
 </UserControl>
