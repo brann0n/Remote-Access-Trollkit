@@ -167,9 +167,6 @@
     <Resource Include="Resources\Images\Beeld-Apollo-Hoofd-Nieuw.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\Images\System_Info_PC.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Resources\Images\System_Info_background.png" />
   </ItemGroup>
   <ItemGroup>
@@ -230,6 +227,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Images\Pause.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\System_Info_PC.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

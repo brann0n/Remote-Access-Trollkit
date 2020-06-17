@@ -7,52 +7,53 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 	xmlns:resources="clr-namespace:Trollkit.Resources"
     mc:Ignorable="d" Height="395" Width="623">
-	<UserControl.Resources>
-		<resources:ProfilePictureImageConverter x:Key="ImageConverter"/>
-	</UserControl.Resources>
-	<Canvas Margin="10,0,10,10">
-		<Rectangle HorizontalAlignment="Left" Height="310" VerticalAlignment="Top" Width="510" Canvas.Top="10">
-			<Rectangle.Fill>
-				<ImageBrush ImageSource="..\Resources\Images\System_Info_background.png"></ImageBrush>
-			</Rectangle.Fill>
-		</Rectangle>
-		<Image Source="..\Resources\Images\System_Info_PC.png" Canvas.Top="203" Width="191" Height="175" RenderTransformOrigin="0.5,0.5" Canvas.Left="411">
-			<Image.RenderTransform>
-				<TransformGroup>
-					<ScaleTransform ScaleX="-1"/>
-					<SkewTransform/>
-					<RotateTransform/>
-					<TranslateTransform/>
-				</TransformGroup>
-			</Image.RenderTransform>
-		</Image>
-		<Image Source="{Binding Path=SelectedClient.storedData[ProfilePicture], Converter={StaticResource ImageConverter}}" Width="68" Height="48" Canvas.Left="480" Canvas.Top="247" RenderTransformOrigin="0.5,0.5">
-			<Image.RenderTransform>
-				<TransformGroup>
-					<ScaleTransform/>
-					<SkewTransform/>
-					<RotateTransform Angle="3.339"/>
-					<TranslateTransform/>
-				</TransformGroup>
-			</Image.RenderTransform>
-		</Image>
+    <UserControl.Resources>
+        <resources:ProfilePictureImageConverter x:Key="ImageConverter"/>
+    </UserControl.Resources>
+    <Canvas Margin="10,0,10,10">
+        <Rectangle HorizontalAlignment="Left" Height="310" VerticalAlignment="Top" Width="510" Canvas.Top="10">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="..\Resources\Images\System_Info_background.png"></ImageBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Image Source="{Binding Path=SelectedClient.storedData[ProfilePicture], Converter={StaticResource ImageConverter}}" Width="63" Height="48" Canvas.Left="481" Canvas.Top="246" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="3.339"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image Source="..\Resources\Images\System_Info_PC.png" Canvas.Top="203" Width="191" Height="175" RenderTransformOrigin="0.5,0.5" Canvas.Left="411">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        
 
 
 
-		<StackPanel Height="284" Canvas.Left="21" Canvas.Top="26" Width="445">
-			<Label Content="> Client info" Canvas.Left="21" Canvas.Top="27" Foreground="#FF52FF00" Height="38" FontSize="20" FontWeight="Bold"/>
-			<Label Content="{Binding Path=SelectedClient.storedData[ComputerName]}" Canvas.Left="21" Canvas.Top="64" Foreground="#FF52FF00" Height="32" FontSize="18" FontFamily="Segoe UI Semilight"/>
-			<StackPanel Height="97" Canvas.Left="61" Canvas.Top="96" Margin="50,0,13,0">
-				<Label Content="{Binding Path=SelectedClient.storedData[Drives]}" Foreground="#FF52FF00" Height="27" FontSize="16" FontFamily="Segoe UI Semilight"/>
-				<Label Content="{Binding Path=SelectedClient.storedData[CPU]}" Foreground="#FF52FF00" Height="32" Width="419" FontSize="16" FontFamily="Segoe UI Semilight"/>
-				<Label Content="{Binding Path=SelectedClient.storedData[WindowsVersion]}" Foreground="#FF52FF00" Height="32" Width="419" FontSize="16" FontFamily="Segoe UI Semilight"/>
-			</StackPanel>
-			<Label Content="&gt; Network" Canvas.Left="21" Canvas.Top="192" Foreground="#FF52FF00" Height="33" FontSize="18" FontFamily="Segoe UI Semilight"/>
-			<StackPanel Height="67" Canvas.Left="61" Canvas.Top="229" Margin="50,0,13,0">
-				<Label Content="{Binding Path=SelectedClient.IpAddress}" Canvas.Left="61" Canvas.Top="219" Foreground="#FF52FF00" Height="32" FontSize="16" FontFamily="Segoe UI Semilight" Margin="0,0,10,0"/>
-				<Label Content="255.255.255.0" Canvas.Left="61" Canvas.Top="251" Foreground="#FF52FF00" Height="32" FontSize="16" FontFamily="Segoe UI Semilight" HorizontalAlignment="Left" Width="409"/>
-			</StackPanel>
-		</StackPanel>
+        <StackPanel Height="284" Canvas.Left="21" Canvas.Top="26" Width="445">
+            <Label Content="> Client info" Canvas.Left="21" Canvas.Top="27" Foreground="#FF52FF00" Height="38" FontSize="20" FontWeight="Bold"/>
+            <Label Content="{Binding Path=SelectedClient.storedData[ComputerName]}" Canvas.Left="21" Canvas.Top="64" Foreground="#FF52FF00" Height="32" FontSize="18" FontFamily="Segoe UI Semilight"/>
+            <StackPanel Height="97" Canvas.Left="61" Canvas.Top="96" Margin="50,0,13,0">
+                <Label Content="{Binding Path=SelectedClient.storedData[Drives]}" Foreground="#FF52FF00" Height="27" FontSize="16" FontFamily="Segoe UI Semilight"/>
+                <Label Content="{Binding Path=SelectedClient.storedData[CPU]}" Foreground="#FF52FF00" Height="32" Width="419" FontSize="16" FontFamily="Segoe UI Semilight"/>
+                <Label Content="{Binding Path=SelectedClient.storedData[WindowsVersion]}" Foreground="#FF52FF00" Height="32" Width="419" FontSize="16" FontFamily="Segoe UI Semilight"/>
+            </StackPanel>
+            <Label Content="&gt; Network" Canvas.Left="21" Canvas.Top="192" Foreground="#FF52FF00" Height="33" FontSize="18" FontFamily="Segoe UI Semilight"/>
+            <StackPanel Height="67" Canvas.Left="61" Canvas.Top="229" Margin="50,0,13,0">
+                <Label Content="{Binding Path=SelectedClient.IpAddress}" Canvas.Left="61" Canvas.Top="219" Foreground="#FF52FF00" Height="32" FontSize="16" FontFamily="Segoe UI Semilight" Margin="0,0,10,0"/>
+                <Label Content="255.255.255.0" Canvas.Left="61" Canvas.Top="251" Foreground="#FF52FF00" Height="32" FontSize="16" FontFamily="Segoe UI Semilight" HorizontalAlignment="Left" Width="409"/>
+            </StackPanel>
+        </StackPanel>
 
-	</Canvas>
+    </Canvas>
 </UserControl>
