@@ -26,19 +26,6 @@ namespace Trollkit_Library.ViewModels.Commands
 		public ICommand Previous { get { return new SendServerCommand(SendPrev); } }
 		public ICommand Mute { get { return new SendServerCommand(SendMute); } }
 
-		public string Button 
-		{
-			get
-			{
-				return @"..\Resources\Images\Pause.png";
-			}
-			set
-			{
-				
-			}
-		
-		}
-
 		public void SendBeep()
 		{
 			TransferCommandObject returnObject = new TransferCommandObject { Command = "PlayBeep", Handler = handler, Value = "800,800" };

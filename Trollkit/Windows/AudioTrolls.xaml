@@ -121,19 +121,17 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
-        <Button Style="{StaticResource ControlButton}" Canvas.Left="516" Canvas.Top="209" Width="25" Height="25" RenderTransformOrigin="0.5,0.5" Command="{Binding Audio.PlayPause}" >
-            <Button.Background>
-                <ImageBrush ImageSource="{Binding Audio.Button}"/>
-            </Button.Background>
-            <Button.RenderTransform>
+        <ToggleButton Name="PlayPauseButton" Canvas.Left="516" Canvas.Top="206" Width="25" Height="25" RenderTransformOrigin="0.5,0.5" Style="{StaticResource PlayPause}" Command="{Binding Audio.PlayPause}">
+            <ToggleButton.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
                     <SkewTransform/>
-                    <RotateTransform Angle="-4.635"/>
+                    <RotateTransform Angle="-3.051"/>
                     <TranslateTransform/>
                 </TransformGroup>
-            </Button.RenderTransform>
-        </Button>
+            </ToggleButton.RenderTransform>
+            <Image Style="{StaticResource image}" Margin="0,0,0.333,0.333"/>
+        </ToggleButton>
 
         <Button Style="{StaticResource ControlButton}" Canvas.Left="583" Canvas.Top="201" Width="24" Height="26" RenderTransformOrigin="0.5,0.5" Command="{Binding Audio.Next}">
             <Button.Background>
