@@ -31,7 +31,7 @@
                 </TransformGroup>
             </StackPanel.RenderTransform>
         </StackPanel>
-        <StackPanel Height="106" Canvas.Left="228" Canvas.Top="243" Width="175" RenderTransformOrigin="0.5,0.5">
+        <StackPanel Height="139" Canvas.Left="228" Canvas.Top="243" Width="175" RenderTransformOrigin="0.5,0.5">
             <Button Style="{StaticResource AudioFileButton}" Canvas.Left="57" Canvas.Top="326" Command="{Binding Audio.Windows}" >
                 <TextBlock Text="&gt; Windows pop-up"/>
             </Button>
@@ -40,6 +40,9 @@
             </Button>
             <Button Style="{StaticResource AudioFileButton}" Canvas.Left="57" Canvas.Top="326" Command="{Binding Audio.Macintosh}" >
                 <TextBlock Text="&gt; Machintosh 420"/>
+            </Button>
+            <Button Style="{StaticResource AudioFileButton}" Canvas.Left="237" Canvas.Top="339" Command="{Binding Audio.StopSound}" Width="164" Height="34" RenderTransformOrigin="0.5,0.5" >
+                <TextBlock Text="&gt; Stop Sound"/>
             </Button>
             <StackPanel.RenderTransform>
                 <TransformGroup>
@@ -50,6 +53,7 @@
                 </TransformGroup>
             </StackPanel.RenderTransform>
         </StackPanel>
+
         <Image Source="..\Resources\Images\Sirenhead.png" Canvas.Top="47" Width="315" Height="517" Canvas.Left="367" >
             <Image.RenderTransform>
                 <TransformGroup>

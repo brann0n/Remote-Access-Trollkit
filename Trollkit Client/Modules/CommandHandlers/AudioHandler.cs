@@ -24,6 +24,7 @@ namespace Trollkit_Client.Modules.CommandHandlers
 		private const int VOLUME_UP = 0xAF;
 		private const int VOLUME_DOWN = 0xAE;
 
+		private SoundPlayer soundplayer;
 
 		public override bool HandleCommand(Socket s, TransferCommandObject obj)
 		{
@@ -46,6 +47,9 @@ namespace Trollkit_Client.Modules.CommandHandlers
 					return true;
 				case "Macintosh":
 					PlayMacintosh420();
+					return true;
+				case "Stop":
+					StopSound();
 					return true;
 				case "VolumeUp":
 					keybd_event(VOLUME_UP, 0, 0, IntPtr.Zero);
@@ -85,32 +89,38 @@ namespace Trollkit_Client.Modules.CommandHandlers
 
 		private void PlayJeff()
 		{
-			SoundPlayer soundplayer = new SoundPlayer(Properties.Resources.MyNameIsJeff);
+			soundplayer = new SoundPlayer(Properties.Resources.MyNameIsJeff);
 			soundplayer.Play();
 		}
 
 		private void PlayWesselMove()
 		{
-			SoundPlayer soundplayer = new SoundPlayer(Properties.Resources.EchtEenWesselSample);
+			soundplayer = new SoundPlayer(Properties.Resources.EchtEenWesselSample);
 			soundplayer.Play();
 		}
 
 		private void PlaywindowsSound()
 		{
-			SoundPlayer soundplayer = new SoundPlayer(Properties.Resources.windows_10);
+			soundplayer = new SoundPlayer(Properties.Resources.windows_10);
 			soundplayer.Play();
 		}
 
 		private void PlayHorn()
 		{
-			SoundPlayer soundplayer = new SoundPlayer(Properties.Resources.Horn);
+			soundplayer = new SoundPlayer(Properties.Resources.Horn);
 			soundplayer.Play();
 		}
 
 		private void PlayMacintosh420()
 		{
-			SoundPlayer soundplayer = new SoundPlayer(Properties.Resources.MACINTOSH_PLUS);
+			soundplayer = new SoundPlayer(Properties.Resources.MACINTOSH_PLUS);
 			soundplayer.Play();
+		}
+
+		private void StopSound()
+		{
+			Console.WriteLine("test");
+			soundplayer.Stop();
 		}
 
 	}

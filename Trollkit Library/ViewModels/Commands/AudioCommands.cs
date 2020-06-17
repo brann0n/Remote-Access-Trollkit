@@ -28,6 +28,7 @@ namespace Trollkit_Library.ViewModels.Commands
 		public ICommand Next { get { return new SendServerCommand(SendNext); } }
 		public ICommand Previous { get { return new SendServerCommand(SendPrev); } }
 		public ICommand Mute { get { return new SendServerCommand(SendMute); } }
+		public ICommand StopSound { get { return new SendServerCommand(SendStop); } }
 
 		public void SendBeep()
 		{
@@ -99,6 +100,12 @@ namespace Trollkit_Library.ViewModels.Commands
 		private void SendPrev()
 		{
 			TransferCommandObject returnObject = new TransferCommandObject { Command = "PreviousTrack", Handler = handler };
+			_server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
+		}
+
+		private void SendStop()
+		{
+			TransferCommandObject returnObject = new TransferCommandObject { Command = "Stop", Handler = handler };
 			_server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
 		}
 	}
