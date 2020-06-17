@@ -1,4 +1,5 @@
-﻿using System.Windows.Input;
+﻿using System;
+using System.Windows.Input;
 using Trollkit_Library.Models;
 using Trollkit_Library.Modules;
 using Trollkit_Library.ServerModules;
@@ -15,13 +16,12 @@ namespace Trollkit_Library.ViewModels.Commands
             this.handler = handler;
         }
 
-        public ICommand Test { get { return new SendServerCommand(SendBeep); } }
+        public ICommand Website { get { return new SendServerCommand(param => OpenWebsite(param));}}
 
-        public void SendBeep()
+        private void OpenWebsite(Object url)
         {
-            //TransferCommandObject returnObject = new TransferCommandObject { Command = "PlayBeep", Handler = handler, Value = "800,800" };
-            BConsole.WriteLine("TESTESTEST");
-            //_server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
+            System.Diagnostics.Process.Start(url.ToString());
         }
+
     }
 }

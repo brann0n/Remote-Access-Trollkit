@@ -28,7 +28,7 @@ namespace Trollkit_Library.ViewModels.Commands
 			: this(action, (o) => true)
 		{ }
 
-		public SendServerCommand(Action<object> action, Func<object, bool> canExecute)
+        public SendServerCommand(Action<object> action, Func<object, bool> canExecute)
 		{
 			_action = action;
 			this._canExecute = canExecute;

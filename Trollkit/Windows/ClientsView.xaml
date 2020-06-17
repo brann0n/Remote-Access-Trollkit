@@ -35,27 +35,34 @@
                     FontSize="8"
                     FontWeight="Bold"
                     Foreground="#888888"/>
-                <Label Content="Brandon"
-                    FontSize="8"
-                    FontWeight="Bold"/>
-                <Label Content="Jarno"                  
-                    FontSize="8"
-                    FontWeight="Bold"/>
-                <Label Content="Bram"
-                   FontSize="8"
-                    FontWeight="Bold"/>
-                <Label Content="Sjihdazi"
-                     FontSize="8"
-                    FontWeight="Bold"/>
-                <Label Content="Dennis"
-                    FontSize="8"
-                    FontWeight="Bold"/>
-                <Label Content="Mark"
-                    FontSize="8"
-                    FontWeight="Bold"/>
-                <Label Content="Jurrian"
-                    FontSize="8"
-                    FontWeight="Bold"/>
+                <Button 
+                    Content="Brandon"
+                    Style="{StaticResource urlButton}"
+                    CommandParameter="https://www.youtube.com/watch?v=dQw4w9WgXcQ"/>
+                <Button 
+                    Content="Jarno"                  
+                    Style="{StaticResource urlButton}"
+                    CommandParameter="https://www.youtube.com/watch?v=dQw4w9WgXcQ"/>
+                <Button 
+                    Content="Bram"
+                    Style="{StaticResource urlButton}"
+                    CommandParameter="http://www.bramgerrits.com"/>
+                <Button 
+                    Content="Sjihdazi"
+                    Style="{StaticResource urlButton}"
+                    CommandParameter="https://www.youtube.com/watch?v=dQw4w9WgXcQ"/>
+                <Button 
+                    Content="Dennis"
+                    Style="{StaticResource urlButton}"
+                    CommandParameter="https://www.youtube.com/watch?v=dQw4w9WgXcQ"/>
+                <Button 
+                    Content="Mark"
+                    Style="{StaticResource urlButton}"
+                    CommandParameter="https://www.youtube.com/watch?v=dQw4w9WgXcQ"/>
+                <Button 
+                    Content="Jurrian"
+                    Style="{StaticResource urlButton}"
+                    CommandParameter="https://www.youtube.com/watch?v=dQw4w9WgXcQ"/>
             </StackPanel>
 
             <ScrollViewer 
