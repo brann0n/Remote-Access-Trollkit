@@ -81,6 +81,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\MineCraft.ico" />
+    <None Include="Resources\windows_10.wav" />
+    <None Include="Resources\Horn.wav" />
+    <None Include="Resources\macintosh plus 420.wav" />
     <None Include="Resources\EchtEenWesselSample.wav" />
     <None Include="Resources\MyNameIsJeff.wav" />
   </ItemGroup>
@@ -99,6 +102,7 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

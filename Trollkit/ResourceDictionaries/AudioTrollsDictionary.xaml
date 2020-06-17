@@ -7,7 +7,7 @@
         <Setter Property="FontSize" Value="18"/>
         <Setter Property="Foreground" Value="White"/>
         <Setter Property="Height" Value="33"/>
-        <Setter Property="Width" Value="160"/>
+        <Setter Property="Width" Value="165"/>
         <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
       
         <Setter Property="Template">

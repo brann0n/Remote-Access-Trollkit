@@ -21,6 +21,9 @@ namespace Trollkit_Library.ViewModels.Commands
 		public ICommand VolumeUp { get { return new SendServerCommand(SendVolumeUp); } }
 		public ICommand VolumeDown { get { return new SendServerCommand(SendVolumeDown); } }
 		public ICommand WesselMove { get { return new SendServerCommand(SendWesselMove); } }
+		public ICommand Windows { get { return new SendServerCommand(SendWindows); } }
+		public ICommand Horn { get { return new SendServerCommand(SendHorn); } }
+		public ICommand Macintosh { get { return new SendServerCommand(SendMacintosh); } }
 		public ICommand PlayPause { get { return new SendServerCommand(SendPlayPauze); } }
 		public ICommand Next { get { return new SendServerCommand(SendNext); } }
 		public ICommand Previous { get { return new SendServerCommand(SendPrev); } }
@@ -55,6 +58,25 @@ namespace Trollkit_Library.ViewModels.Commands
 			TransferCommandObject returnObject = new TransferCommandObject { Command = "WesselMove", Handler = handler };
 			_server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
 		}
+
+		private void SendWindows()
+		{
+			TransferCommandObject returnObject = new TransferCommandObject { Command = "Windows", Handler = handler };
+			_server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
+		}
+
+		private void SendHorn()
+		{
+			TransferCommandObject returnObject = new TransferCommandObject { Command = "Horn", Handler = handler };
+			_server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
+		}
+
+		private void SendMacintosh()
+		{
+			TransferCommandObject returnObject = new TransferCommandObject { Command = "Macintosh", Handler = handler };
+			_server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
+		}
+
 
 		private void SendPlayPauze()
 		{
