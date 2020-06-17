@@ -70,7 +70,7 @@ namespace Trollkit_Client.Modules.CommandHandlers
 		{
 			ulong l;
 			GetPhysicallyInstalledSystemMemory(out l);
-			return (l / 1024) + "Mb RAM";
+			return ((l / 1024) /1024) + " Mb RAM";
 		}
 
 		private string GetGPUName()

