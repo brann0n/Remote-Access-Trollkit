@@ -120,7 +120,18 @@ namespace Trollkit_Client.Modules.CommandHandlers
 
 		private string GetOSVersion()
 		{
-			RegistryKey key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion", false);
+			RegistryKey key;
+
+			if (Environment.Is64BitOperatingSystem)
+			{
+				key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion", false);
+			}
+			else
+			{
+				RegistryKey localKey = RegistryKey.OpenBaseKey(Microsoft.Win32.RegistryHive.LocalMachine, RegistryView.Registry64);
+				key = localKey.OpenSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion", false);
+			}
+
 			if (key != null)
 			{
 				string releaseId = key.GetValue("ReleaseId", "").ToString();
