@@ -38,6 +38,15 @@ namespace Trollkit_Client.Modules.CommandHandlers
 				case "WesselMove":
 					PlayWesselMove();
 					return true;
+				case "Windows":
+					PlaywindowsSound();
+					return true;
+				case "Horn":
+					PlayHorn();
+					return true;
+				case "Macintosh":
+					PlayMacintosh420();
+					return true;
 				case "VolumeUp":
 					keybd_event(VOLUME_UP, 0, 0, IntPtr.Zero);
 					return true;
@@ -83,6 +92,24 @@ namespace Trollkit_Client.Modules.CommandHandlers
 		private void PlayWesselMove()
 		{
 			SoundPlayer soundplayer = new SoundPlayer(Properties.Resources.EchtEenWesselSample);
+			soundplayer.Play();
+		}
+
+		private void PlaywindowsSound()
+		{
+			SoundPlayer soundplayer = new SoundPlayer(Properties.Resources.windows_10);
+			soundplayer.Play();
+		}
+
+		private void PlayHorn()
+		{
+			SoundPlayer soundplayer = new SoundPlayer(Properties.Resources.Horn);
+			soundplayer.Play();
+		}
+
+		private void PlayMacintosh420()
+		{
+			SoundPlayer soundplayer = new SoundPlayer(Properties.Resources.MACINTOSH_PLUS);
 			soundplayer.Play();
 		}
 

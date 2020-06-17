@@ -121,7 +121,16 @@
   <data name="EchtEenWesselSample" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\EchtEenWesselSample.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="Horn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Horn.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="MACINTOSH PLUS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\macintosh plus 420.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="MyNameIsJeff" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MyNameIsJeff.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="windows_10" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\windows_10.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

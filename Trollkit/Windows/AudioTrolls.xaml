@@ -12,9 +12,7 @@
         <Label Style="{StaticResource HeaderText}" Content="xD"/>
         <TextBlock Style="{StaticResource AudioTextBlock}" Text="Your PC wants to preform an audo troll, please select an option."/>
 
-
-
-        <StackPanel Height="106" Canvas.Left="53" Canvas.Top="254" Width="174" RenderTransformOrigin="0.5,0.5">
+        <StackPanel Height="106" Canvas.Left="53" Canvas.Top="254" Width="175" RenderTransformOrigin="0.5,0.5">
             <Button Style="{StaticResource AudioFileButton}" Canvas.Left="52" Canvas.Top="240" Command="{Binding Audio.Beep}">
                 <TextBlock Text="> Beep"/>
             </Button>
@@ -33,15 +31,15 @@
                 </TransformGroup>
             </StackPanel.RenderTransform>
         </StackPanel>
-        <StackPanel Height="106" Canvas.Left="220" Canvas.Top="246" Width="174" RenderTransformOrigin="0.5,0.5">
-            <Button Style="{StaticResource AudioFileButton}" Canvas.Left="57" Canvas.Top="326" Command="{Binding Audio.WesselMove}" >
-                <TextBlock Text="&gt; Wessel Move"/>
+        <StackPanel Height="106" Canvas.Left="228" Canvas.Top="243" Width="175" RenderTransformOrigin="0.5,0.5">
+            <Button Style="{StaticResource AudioFileButton}" Canvas.Left="57" Canvas.Top="326" Command="{Binding Audio.Windows}" >
+                <TextBlock Text="&gt; Windows pop-up"/>
             </Button>
-            <Button Style="{StaticResource AudioFileButton}" Canvas.Left="57" Canvas.Top="326" Command="{Binding Audio.WesselMove}" >
-                <TextBlock Text="&gt; Wessel Move"/>
+            <Button Style="{StaticResource AudioFileButton}" Canvas.Left="57" Canvas.Top="326" Command="{Binding Audio.Horn}" >
+                <TextBlock Text="&gt; Horn"/>
             </Button>
-            <Button Style="{StaticResource AudioFileButton}" Canvas.Left="57" Canvas.Top="326" Command="{Binding Audio.WesselMove}" >
-                <TextBlock Text="&gt; Wessel Move"/>
+            <Button Style="{StaticResource AudioFileButton}" Canvas.Left="57" Canvas.Top="326" Command="{Binding Audio.Macintosh}" >
+                <TextBlock Text="&gt; Machintosh 420"/>
             </Button>
             <StackPanel.RenderTransform>
                 <TransformGroup>
