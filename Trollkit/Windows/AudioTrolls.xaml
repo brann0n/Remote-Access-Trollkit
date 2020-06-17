@@ -12,46 +12,47 @@
         <Label Style="{StaticResource HeaderText}" Content="xD"/>
         <TextBlock Style="{StaticResource AudioTextBlock}" Text="Your PC wants to preform an audo troll, please select an option."/>
 
-        <Button Style="{StaticResource AudioFileButton}" 
-				Name="btnBeep"  
-				Canvas.Left="52" 
-				Canvas.Top="240" 
-				RenderTransformOrigin="0.5,0.5"
-				Command="{Binding Audio.Beep}">
-            <TextBlock 
-				Text="> Beep"/>
-            <Button.RenderTransform>
+
+
+        <StackPanel Height="106" Canvas.Left="53" Canvas.Top="254" Width="174" RenderTransformOrigin="0.5,0.5">
+            <Button Style="{StaticResource AudioFileButton}" Canvas.Left="52" Canvas.Top="240" Command="{Binding Audio.Beep}">
+                <TextBlock Text="> Beep"/>
+            </Button>
+            <Button Style="{StaticResource AudioFileButton}" Canvas.Left="55" Canvas.Top="284" Command="{Binding Audio.MyNameIsJeff}">
+                <TextBlock Text="> My name is Jeff"/>
+            </Button>
+            <Button Style="{StaticResource AudioFileButton}" Canvas.Left="57" Canvas.Top="326" Command="{Binding Audio.WesselMove}" >
+                <TextBlock Text="&gt; Wessel Move"/>
+            </Button>
+            <StackPanel.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
                     <SkewTransform/>
                     <RotateTransform Angle="-3.037"/>
                     <TranslateTransform/>
                 </TransformGroup>
-            </Button.RenderTransform>
-        </Button>
-        <Button Style="{StaticResource AudioFileButton}" Canvas.Left="55" Canvas.Top="284" RenderTransformOrigin="0.5,0.5" Command="{Binding Audio.MyNameIsJeff}">
-            <TextBlock Text="> My name is Jeff"/>
-            <Button.RenderTransform>
+            </StackPanel.RenderTransform>
+        </StackPanel>
+        <StackPanel Height="106" Canvas.Left="220" Canvas.Top="246" Width="174" RenderTransformOrigin="0.5,0.5">
+            <Button Style="{StaticResource AudioFileButton}" Canvas.Left="57" Canvas.Top="326" Command="{Binding Audio.WesselMove}" >
+                <TextBlock Text="&gt; Wessel Move"/>
+            </Button>
+            <Button Style="{StaticResource AudioFileButton}" Canvas.Left="57" Canvas.Top="326" Command="{Binding Audio.WesselMove}" >
+                <TextBlock Text="&gt; Wessel Move"/>
+            </Button>
+            <Button Style="{StaticResource AudioFileButton}" Canvas.Left="57" Canvas.Top="326" Command="{Binding Audio.WesselMove}" >
+                <TextBlock Text="&gt; Wessel Move"/>
+            </Button>
+            <StackPanel.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
                     <SkewTransform/>
-                    <RotateTransform Angle="-3.142"/>
+                    <RotateTransform Angle="-3.037"/>
                     <TranslateTransform/>
                 </TransformGroup>
-            </Button.RenderTransform>
-        </Button>
-        <Button Style="{StaticResource AudioFileButton}" Canvas.Left="57" Canvas.Top="326" RenderTransformOrigin="0.5,0.5" Command="{Binding Audio.WesselMove}" >
-            <TextBlock Text="> Wessel Move"/>
-            <Button.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-3.481"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Button.RenderTransform>
-        </Button>
-        <Image Source="..\Resources\Images\Sirenhead.png" Canvas.Top="48" Width="406" Height="517" RenderTransformOrigin="0.5,0.5" Canvas.Left="325" >
+            </StackPanel.RenderTransform>
+        </StackPanel>
+        <Image Source="..\Resources\Images\Sirenhead.png" Canvas.Top="47" Width="315" Height="517" Canvas.Left="367" >
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -138,5 +139,6 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
+
     </Canvas>
 </UserControl>

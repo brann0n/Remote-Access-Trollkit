@@ -1,11 +1,12 @@
 # Remote-Access-Trollkit
 Development project voor het vak C# 2 van de 4e periode in jaar 2
 
-## Wat is de trollkit?
-Dit is een remote access tool waarmee je 'grappige' acties kunt uitvoeren op een andere pc.
+## What is the trollkit?
+This is a remote access tool with wich you can make another pc do "funny" actions.
+The trollkit consists of a host(the pc who issues the commands) and a client(the pc who executes the commands).
+The client can be installed as a .exe file on the target pc.
 
-
-## Vaste waarden
+## Fixed values
 
 ### Pipeline handler Code
 ```csharp
@@ -65,6 +66,7 @@ Drives | server | Data | "string with drives" | Gets all the drives on the clien
 ProfilePicture | server | Data | "base64String" | Gets the base64 of the users profile picture in Windows.
 RAM | server | Data | "RAM" | Gets the ram thats available in the system
 WindowsVersion | server | Data | "Windows Version" | Gets the clients Windows Version
+GPU | server | Data | "GPU name string" | Description of the gpu
 
 ### Data headers
 In order to keep perfect track of data that is being sent and data that is received we thought of a clever way to devide the byte streams.  
