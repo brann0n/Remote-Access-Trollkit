@@ -36,7 +36,5 @@
                 <Button Style="{StaticResource OutrunBigButton}" Content="WINDOWS VERGRENDELEN" Command="{Binding Windows.LockWindows}"/>
             </WrapPanel>
         </WrapPanel>
-        
-        
     </Canvas>
 </UserControl>

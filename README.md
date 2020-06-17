@@ -65,6 +65,7 @@ Drives | server | Data | "string with drives" | Gets all the drives on the clien
 ProfilePicture | server | Data | "base64String" | Gets the base64 of the users profile picture in Windows.
 RAM | server | Data | "RAM" | Gets the ram thats available in the system
 WindowsVersion | server | Data | "Windows Version" | Gets the clients Windows Version
+GPU | server | Data | "GPU name string" | Description of the gpu
 
 ### Data headers
 In order to keep perfect track of data that is being sent and data that is received we thought of a clever way to devide the byte streams.  
