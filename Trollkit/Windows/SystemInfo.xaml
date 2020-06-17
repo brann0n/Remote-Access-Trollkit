@@ -16,7 +16,7 @@
                 <ImageBrush ImageSource="..\Resources\Images\System_Info_background.png"></ImageBrush>
             </Rectangle.Fill>
         </Rectangle>
-        <Image Source="{Binding Path=SelectedClient.storedData[ProfilePicture], Converter={StaticResource ImageConverter}}" Width="63" Height="48" Canvas.Left="481" Canvas.Top="246" RenderTransformOrigin="0.5,0.5">
+        <Image Source="{Binding SelectedClient.storedData[ProfilePicture], Converter={StaticResource ImageConverter}}" Width="63" Height="48" Canvas.Left="482" Canvas.Top="246" RenderTransformOrigin="0.5,0.5">
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -36,7 +36,7 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        
+
 
 
 

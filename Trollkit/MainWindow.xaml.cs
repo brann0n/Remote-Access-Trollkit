@@ -10,8 +10,9 @@ namespace Trollkit
 	{
 		public MainWindow()
 		{
+
 			InitializeComponent();
-        }
+		}
 
         private void Drag(object sender, MouseButtonEventArgs e)
         {
