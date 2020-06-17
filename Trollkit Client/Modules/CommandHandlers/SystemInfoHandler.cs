@@ -68,12 +68,12 @@ namespace Trollkit_Client.Modules.CommandHandlers
 				{
 					string[] splitInfo = videoDriverLocation.Replace(@"\", "|").Split('|');
 
-					string path = $@"SYSTEM\CurrentControlSet\Control\Video\{splitInfo[splitInfo.Length - 1]}\{splitInfo[splitInfo.Length]}";
+					string path = $@"SYSTEM\CurrentControlSet\Control\Video\{splitInfo[splitInfo.Length - 2]}\{splitInfo[splitInfo.Length -1]}";
 
 					RegistryKey key2 = Registry.LocalMachine.OpenSubKey(path, false);
 					if (key2 != null)
 					{
-						string driverDescription = key.GetValue(@"DriverDesc", notfound).ToString();
+						string driverDescription = key2.GetValue(@"DriverDesc", notfound).ToString();
 						if (driverDescription != notfound)
 						{
 							return driverDescription;
