@@ -14,8 +14,11 @@ namespace Trollkit_Library.Modules
 
 			if(key != null)
 			{
+				string UserName = Directory.GetParent(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)).FullName;
+				UserName = Directory.GetParent(UserName).Name;
+
 				string imageId = key.GetValue(@"SourceId").ToString();
-				string pfLocation = $@"C:\Users\{Environment.UserName}\AppData\Roaming\Microsoft\Windows\AccountPictures\" + imageId + ".accountpicture-ms";
+				string pfLocation = $@"C:\Users\{UserName}\AppData\Roaming\Microsoft\Windows\AccountPictures\" + imageId + ".accountpicture-ms";
 
 				return Convert.ToBase64String(GetImage448Bytes(pfLocation));
 			}
