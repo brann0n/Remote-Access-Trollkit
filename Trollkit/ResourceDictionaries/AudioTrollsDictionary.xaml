@@ -68,11 +68,11 @@
         </Setter>
     </Style>
 
-    <Style x:Key="VisualWhite" TargetType="Rectangle" BasedOn="{StaticResource VisualRectangle}">
+    <Style x:Key="AudioWhite" TargetType="Rectangle" BasedOn="{StaticResource VisualRectangle}">
         <Setter Property="Fill" Value="White"/>
     </Style>
 
-    <Style x:Key="VisualBlue" TargetType="Rectangle"  BasedOn="{StaticResource VisualRectangle}">
+    <Style x:Key="AudioBlue" TargetType="Rectangle"  BasedOn="{StaticResource VisualRectangle}">
         <Setter Property="Fill" Value="#FF1C83FF"/>
     </Style>
 
@@ -85,9 +85,7 @@
         <Setter Property="Canvas.Top" Value="47"/>
         <Setter Property="Canvas.Left" Value="46"/>
         <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
-        <Setter Property="IsEnabled" Value="False"/>
         <Setter Property="FontFamily" Value="Microsoft YaHei Light"/>
-        <Setter Property="Content" Value="xD"/>
         <Setter Property="RenderTransform">
             <Setter.Value>
                 <TransformGroup>
@@ -126,6 +124,26 @@
             </DataTrigger>
         </Style.Triggers>
     </Style>
-  
-              
+
+    <Style x:Key="AudioTextBlock" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="Height" Value="66"/>
+        <Setter Property="Width" Value="360"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="FontWeight" Value="ExtraLight"/>
+        <Setter Property="Canvas.Top" Value="160"/>
+        <Setter Property="Canvas.Left" Value="53"/>
+        <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
+        <Setter Property="RenderTransform">
+            <Setter.Value>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-2.844"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Setter.Value>
+        </Setter>
+    </Style>
 </ResourceDictionary>
