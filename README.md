@@ -2,8 +2,7 @@
 Development project voor het vak C# 2 van de 4e periode in jaar 2
 
 ## Wat is de trollkit?
-Dit is een remote access tool waarmee je 'grappige' acties kunt uitvoeren op een andere pc.
-
+This is a remote access tool with wich you can make another pc do "funny" actions.
 
 ## Vaste waarden
 
