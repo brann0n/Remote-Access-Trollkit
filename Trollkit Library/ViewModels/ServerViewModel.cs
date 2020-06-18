@@ -77,7 +77,10 @@ namespace Trollkit_Library.ViewModels
 			switch (type)
 			{
 				case Server.DataByteType.Response:
-					//TODO: track messages and their responses
+					if(model.Command == "CMDResponse")
+					{
+						c.AddToCMDBuffer(model.Value);
+					}				
 					break;
 				case Server.DataByteType.Command:
 					if (model.Command == "Debug")

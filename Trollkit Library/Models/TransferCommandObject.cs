@@ -11,5 +11,11 @@ namespace Trollkit_Library.Models
 		public string Command { get; set; }
 		public string Value { get; set; }
 		public string Handler { get; set; }
+
+
+		public override string ToString()
+		{
+			return $"{{\"Handler\":\"{Handler}\", \"Command\":\"{Command}\", \"Value\":\"{Value}\"}}";
+		}
 	}
 }

