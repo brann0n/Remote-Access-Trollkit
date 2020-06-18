@@ -22,13 +22,9 @@
 
 		<Image Style="{StaticResource ImageReflectHorizontal}" Source="Resources\Images\Beeld-Apollo-Hoofd-Nieuw.png" Canvas.Top="276" Width="212" Height="242" Canvas.Left="-13"/>
 
-		<buttons:HeadMenuBtn Style="{StaticResource HeadMenuText}" Canvas.Left="6" Canvas.Top="364" Content="HOOFDMENU">
-			<buttons:HeadMenuBtn.Resources>
-				<windows:ClientsView x:Key="View" />
-			</buttons:HeadMenuBtn.Resources>
-		</buttons:HeadMenuBtn>
 
-		<StackPanel Canvas.Top="120" Canvas.Left="30" FocusManager.IsFocusScope="True">
+
+		<StackPanel Canvas.Top="120" Canvas.Left="30" FocusManager.IsFocusScope="True" Height="282">
 			<buttons:HeadMenuBtn Content="&gt; Visual Trolls">
 				<buttons:HeadMenuBtn.Resources>
 					<windows:VisualTrolls x:Key="View" />
@@ -64,6 +60,14 @@
 					<StaticResource ResourceKey="MenuButton"/>
 				</buttons:HeadMenuBtn.Style>
 			</buttons:HeadMenuBtn>
+			<buttons:HeadMenuBtn Content="HOOFDMENU">
+				<buttons:HeadMenuBtn.Resources>
+					<windows:ClientsView x:Key="View" />
+				</buttons:HeadMenuBtn.Resources>
+				<buttons:HeadMenuBtn.Style>
+					<StaticResource ResourceKey="HeadMenuText"/>
+				</buttons:HeadMenuBtn.Style>
+			</buttons:HeadMenuBtn>
 		</StackPanel>
 
 		<DataGridCell Style="{DynamicResource NavMenu}" Canvas.Left="600" Canvas.Top="10">
@@ -78,7 +82,7 @@
 				<windows:ClientsView/>
 			</ContentControl.Content>
 		</ContentControl>
-        
-        <Label Style="{StaticResource Client}" Content="{Binding Path=SelectedClient.storedData[ComputerName]}" Canvas.Left="66" Canvas.Top="68"/>
+
+		<Label Style="{StaticResource Client}" Content="{Binding Path=SelectedClient.storedData[ComputerName]}" Canvas.Left="66" Canvas.Top="68"/>
 	</Canvas>
 </Window>
