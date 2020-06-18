@@ -30,8 +30,8 @@
 			</buttons:HeadMenuBtn.Resources>
 		</buttons:HeadMenuBtn>
 
-		<StackPanel Canvas.Top="84" Canvas.Left="30">
-			<buttons:HeadMenuBtn Style="{StaticResource MenuButton}" Content="> Visual Trolls">
+        <StackPanel Canvas.Top="84" Canvas.Left="30" FocusManager.IsFocusScope="True">
+            <buttons:HeadMenuBtn Style="{StaticResource MenuButton}" Content="> Visual Trolls">
 				<buttons:HeadMenuBtn.Resources>
 					<windows:VisualTrolls x:Key="View" />
 				</buttons:HeadMenuBtn.Resources>
