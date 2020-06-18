@@ -7,7 +7,7 @@
 		xmlns:buttons="clr-namespace:Trollkit.Buttons"
 		xmlns:windows="clr-namespace:Trollkit.Windows"
 		xmlns:viewmodels="clr-namespace:Trollkit_Library.ViewModels;assembly=Trollkit_Library"
-		
+		xmlns:resources="clr-namespace:Trollkit.Resources"
 		mc:Ignorable="d"
         MouseDown="Drag" 
         Title="MainWindow" Height="740" Width="1014" WindowStyle="None" Background="Transparent" AllowsTransparency="True">
@@ -15,7 +15,7 @@
 		<viewmodels:ServerViewModel/>
 	</Window.DataContext>
 	<Window.Resources>
-
+		<resources:InverseBooleanConverter x:Key="BooleanConverter"/>
 	</Window.Resources>
 	<Canvas Margin="0,0,-96,-153">
 		<Rectangle Style="{StaticResource TrollsBackground}" Height="350" Width="607" Canvas.Left="52" Canvas.Top="52" />
@@ -53,7 +53,7 @@
 			</buttons:HeadMenuBtn>
 
 
-            <buttons:HeadMenuBtn Content="&gt; CMD Shell">
+			<buttons:HeadMenuBtn Content="&gt; CMD Shell" IsEnabled="{Binding AllClientsSelected, Converter={StaticResource BooleanConverter}}">
                 <buttons:HeadMenuBtn.Resources>
                     <windows:CMDShell x:Key="View" />
                 </buttons:HeadMenuBtn.Resources>
@@ -62,7 +62,7 @@
                 </buttons:HeadMenuBtn.Style>
             </buttons:HeadMenuBtn>
 
-            <buttons:HeadMenuBtn Content="&gt; System Info">
+			<buttons:HeadMenuBtn Content="&gt; System Info" IsEnabled="{Binding AllClientsSelected, Converter={StaticResource BooleanConverter}}">
 				<buttons:HeadMenuBtn.Resources>
 					<windows:SystemInfo x:Key="View" />
 				</buttons:HeadMenuBtn.Resources>

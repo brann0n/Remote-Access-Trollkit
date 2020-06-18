@@ -107,7 +107,7 @@ namespace Trollkit_Library.ServerModules
 			clients = new Dictionary<Socket, Client>();
 			serverSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
 			Buffers = new List<DataBufferModel>();
-			allClientsSelected = true;
+			allClientsSelected = false;
 		}
 
 		/// <summary>

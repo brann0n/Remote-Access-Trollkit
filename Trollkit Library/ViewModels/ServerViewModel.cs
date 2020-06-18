@@ -24,6 +24,8 @@ namespace Trollkit_Library.ViewModels
 		public WindowsCommands Windows { get; private set; }
         public ClientCommands Client { get; private set; }
 
+		public CMDCommands CMD { get; private set; }
+
 		//model properties
 		public List<Client> Clients { get { return Server.Clients; } }
 
@@ -66,6 +68,7 @@ namespace Trollkit_Library.ViewModels
 			Visual = new VisualCommands(Server, "Visuals");
 			Windows = new WindowsCommands(Server, "Windows");
 			Client = new ClientCommands(Server, "Client");
+			CMD = new CMDCommands(Server, "CMD");
 
 			Task.Run(() => new ServerDiscovery("gang?", "Dopple gang").Discover());
 		}	
