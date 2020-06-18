@@ -17,11 +17,12 @@ namespace Trollkit_Library.ServerModules
 	public class Server
 	{
 		private IPAddress ip;
-		private int dataSize;
-		private Socket serverSocket;
-		private bool acceptIncomingConnections;
+		private readonly int dataSize;
+		private readonly Socket serverSocket;
 		private uint clientCount = 0;
-		private List<DataBufferModel> Buffers;
+		private readonly List<DataBufferModel> Buffers;
+		private Client selectedClient;
+		private bool allClientsSelected;
 
 		/// <summary>
 		/// Contains all connected clients indexed
@@ -29,9 +30,14 @@ namespace Trollkit_Library.ServerModules
 		/// </summary>
 		private Dictionary<Socket, Client> clients;
 
-		public List<Client> Clients { get { return clients.Values.ToList(); } }
+		public List<Client> Clients
+		{
+			get
+			{
+				return clients.Values.ToList();
+			}
+		}
 
-		private Client selectedClient;
 		public Client SelectedClient
 		{
 			get
@@ -44,8 +50,6 @@ namespace Trollkit_Library.ServerModules
 				OnPropertyChanged("SelectedClient");
 			}
 		}
-
-		private bool allClientsSelected;
 
 		public bool AllClientsSelected
 		{
@@ -86,6 +90,9 @@ namespace Trollkit_Library.ServerModules
 		/// </summary>
 		public event ServerPropertyChangedHandeler OnPropertyChanged;
 
+		/// <summary>
+		/// Enum that holds the send, response and data types for the data framework
+		/// </summary>
 		public enum DataByteType
 		{
 			Response = 0x1A,
@@ -98,10 +105,8 @@ namespace Trollkit_Library.ServerModules
 			this.ip = ip;
 			dataSize = SharedProperties.DataSize;
 			clients = new Dictionary<Socket, Client>();
-			acceptIncomingConnections = true;
 			serverSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
 			Buffers = new List<DataBufferModel>();
-
 			allClientsSelected = true;
 		}
 
@@ -198,7 +203,7 @@ namespace Trollkit_Library.ServerModules
 					{				
 						if (HandleIncomingData(ClientServerPipeline.BufferDeserialize(buffer), client, type))
 						{
-							//TODO: remove id from buffer
+							Buffers.Remove(buffer);
 						}
 					}
 				}
@@ -226,7 +231,6 @@ namespace Trollkit_Library.ServerModules
 		private bool HandleIncomingData(TransferCommandObject dObj, Client client, DataByteType type)
 		{
 			MessageReceived?.Invoke(client, dObj, type);
-
 			return true;
 		}
 
@@ -239,19 +243,21 @@ namespace Trollkit_Library.ServerModules
 		public void SendDataObjectToSocket(DataByteType type, Socket s, DataBufferModel message)
 		{
 			BConsole.WriteLine("Sending data with id: " + message.DataId.ToString());
-
 			byte[] lengthByteArray = BitConverter.GetBytes(message.SeriesLength);
-
 			foreach (KeyValuePair<int, byte[]> item in message.BufferedData)
 			{
 				byte[] seriesByteArray = BitConverter.GetBytes(item.Key);
-
 				byte[] sendArray = new byte[] { (byte)type, lengthByteArray[0], lengthByteArray[1], seriesByteArray[0], seriesByteArray[1] };
 				sendArray = sendArray.Concat(message.DataId.ToByteArray()).Concat(item.Value).ToArray();
 				SendBytesToSocket(s, sendArray);
 			}
 		}
 
+		/// <summary>
+		/// Function that checks for the client you selected and then according to that sends the object.
+		/// </summary>
+		/// <param name="type"></param>
+		/// <param name="message"></param>
 		public void SendDataObjectToSelectedClient(DataByteType type, DataBufferModel message)
 		{
 			if (allClientsSelected)
@@ -274,6 +280,10 @@ namespace Trollkit_Library.ServerModules
 			s.BeginSend(data, 0, data.Length, SocketFlags.None, new AsyncCallback(SendData), s);
 		}
 
+		/// <summary>
+		/// Function that can send data and then receive a callback
+		/// </summary>
+		/// <param name="result"></param>
 		private void SendData(IAsyncResult result)
 		{
 			try
@@ -281,8 +291,6 @@ namespace Trollkit_Library.ServerModules
 				Socket clientSocket = (Socket)result.AsyncState;
 				Client client = GetClientBySocket(clientSocket);
 				clientSocket.EndSend(result);
-
-
 				clientSocket.BeginReceive(client.Data, 0, dataSize, SocketFlags.None, new AsyncCallback(ReceiveData), clientSocket);
 			}
 			catch (Exception e)
@@ -303,7 +311,6 @@ namespace Trollkit_Library.ServerModules
 			{
 				c = null;
 			}
-
 			return c;
 		}
 
