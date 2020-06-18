@@ -30,9 +30,7 @@
         </Setter>
     </Style>
 
-    <Style x:Key="ControlButton" TargetType="{x:Type Button}">
-        <Setter Property="Height" Value="25"/>
-        <Setter Property="Width" Value="25"/>
+    <Style x:Key="Button" TargetType="{x:Type Button}">
         <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
         <Setter Property="Template">
             <Setter.Value>
@@ -50,6 +48,10 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+    </Style>
+    <Style x:Key="ControlButton" TargetType="{x:Type Button}" BasedOn="{StaticResource Button}">
+        <Setter Property="Height" Value="25"/>
+        <Setter Property="Width" Value="25"/>
         <Setter Property="RenderTransform">
             <Setter.Value>
                 <TransformGroup>
@@ -59,25 +61,9 @@
         </Setter>
     </Style>
 
-    <Style x:Key="VolumeButton" TargetType="{x:Type Button}">
+    <Style x:Key="VolumeButton" TargetType="{x:Type Button}" BasedOn="{StaticResource Button}">
         <Setter Property="Height" Value="62"/>
         <Setter Property="Width" Value="62"/>
-        <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="Button">
-                    <Border Name="border" 
-                            Background="{TemplateBinding Background}">
-                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
-                    </Border>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Cursor" Value="Hand" />
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
     </Style>
 
     
@@ -190,14 +176,12 @@
         </Setter>
     </Style>
 
-    <Style x:Key="PlayPause" TargetType="{x:Type ToggleButton}">
+    <Style x:Key="PlayPause" TargetType="{x:Type ToggleButton}" >
         <Setter Property="Height" Value="25"/>
         <Setter Property="Width" Value="25"/>
         <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderThickness" Value="0"/>
-        <Setter Property="HorizontalContentAlignment" Value="Center"/>
-        <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ToggleButton}">
