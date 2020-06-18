@@ -39,8 +39,8 @@
 
                 <Border BorderBrush="#bfc4c0" BorderThickness="4,4,4,8">
                     <ScrollViewer Height="350" Width="auto" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Auto">
-                        <TextBlock Padding="8" Background="#000000" Foreground="#eac2ff" Height="auto" Width="auto">dit is tekst alalalaallalal</TextBlock>
-                    </ScrollViewer>
+						<TextBlock Padding="8" Background="#000000" Foreground="#eac2ff" Height="auto" Width="auto" Text="{Binding Path=SelectedClient.CMDBuffer}"/>
+					</ScrollViewer>
                 </Border>
             </StackPanel>
         </Border>
