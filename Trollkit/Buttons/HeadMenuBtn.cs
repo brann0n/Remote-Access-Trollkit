@@ -50,7 +50,6 @@ namespace Trollkit.Buttons
 			ContentControl trollView = (ContentControl)this.FindName("trollView");
 			trollView.Content = this.Resources["View"];
 			focussedBtn = this;
-			//Focus();
 		}
 	}
 }
