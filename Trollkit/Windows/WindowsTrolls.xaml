@@ -8,32 +8,82 @@
     xmlns:local="clr-namespace:Trollkit"
     mc:Ignorable="d" 
     Height="600" Width="732">
-	<Canvas Margin="10,0,0,10">
-        <Rectangle Fill="#141318" HorizontalAlignment="Left" Height="392" VerticalAlignment="Top" Width="500" Canvas.Top="27" RenderTransformOrigin="0.5,0.5" Canvas.Left="12"/>
+    
+	<Canvas>
+        <Rectangle 
+            Style="{StaticResource windowsTrollBackground}"
+            Canvas.Left="12"/>
 
-        <Polygon Points="21.5,128.7 97.5,36 178.5,164 " Stroke="White" StrokeThickness="4" Canvas.Left="360" Canvas.Top="35"/>
+        <DockPanel
+            Width="580">
 
-        <Label Style="{StaticResource VerticalGlitchText}" Content="足りる" Canvas.Top="65"  Height="137" Canvas.Left="30"/>
+            <Label 
+                Style="{StaticResource VerticalGlitchText}" 
+                Content="足りる" 
+                DockPanel.Dock="Left"
+                />
 
-        <Ellipse Style="{StaticResource OutrunCircle}" Height="120" Width="120" Canvas.Top="65" Canvas.Left="200"/>
+            <Polygon 
+                Style="{StaticResource whiteLineTriangle}" 
+                DockPanel.Dock="Right"/>
 
-        <WrapPanel Orientation="Vertical" Width="auto" Height="auto" Canvas.Top="240" Canvas.Left="140">
-            <WrapPanel Orientation="Horizontal" Height="auto" Width="auto" Margin="0,0,0,20">
-                <Label Content="Mouseposition" Foreground="White" Height="31" Width="150" FontSize="16"/>
-                <TextBox Height="22" TextWrapping="Wrap" Text="{Binding Windows.XCoordinate}" Width="40"/>
-				<TextBox Height="22" TextWrapping="Wrap" Text="{Binding Windows.YCoordinate}" Width="40"/>
-                <Button Style="{StaticResource OutrunButton}" Content="START" Command="{Binding Windows.MousePosition}"/>
+            <Grid>
+                <Ellipse 
+                    Style="{StaticResource OutrunCircle}"/>
+            </Grid>
+        </DockPanel>
+        
+        
+        <WrapPanel      
+            Canvas.Top="240" 
+            Canvas.Left="140"
+            Style="{StaticResource windowsTrollWrapper}">
+            
+            <WrapPanel 
+                Style="{StaticResource windowsTrollElementsWrapper}">
+                
+                <Label 
+                    Content="Mouseposition" 
+                    Style="{StaticResource windowsTrollLabel}"/>
+                <TextBox 
+                    Style="{StaticResource tinyTextBox}"
+                    Text="{Binding Windows.XCoordinate}"/>
+                <TextBox 
+                    Style="{StaticResource tinyTextBox}"
+                    Text="{Binding Windows.YCoordinate}"/>
+                <Button 
+                    Style="{StaticResource OutrunButton}" 
+                    Content="START" 
+                    Command="{Binding Windows.MousePosition}"/>
             </WrapPanel>
 
-            <WrapPanel Orientation="Horizontal" Height="auto" Width="auto" Margin="0,0,0,20">
-                <Label Content="CMD Command" Foreground="White" Height="31" Width="150" FontSize="16"/>
-				<TextBox Height="22" TextWrapping="Wrap" Text="{Binding Windows.CommandText}" Width="250"/>
-                <Button Style="{StaticResource OutrunButton}" Content="GO" Command="{Binding Windows.Go}"/>
+            <WrapPanel 
+                Style="{StaticResource windowsTrollElementsWrapper}">
+                
+                <Label 
+                    Content="CMD Command" 
+                    Style="{StaticResource windowsTrollLabel}"/>
+				<TextBox 
+                    Style="{StaticResource largeTextBox}"
+                    Text="{Binding Windows.CommandText}"/>
+                <Button 
+                    Style="{StaticResource OutrunButton}" 
+                    Content="GO" 
+                    Command="{Binding Windows.Go}"/>
             </WrapPanel>
 
-            <WrapPanel Orientation="Horizontal" Height="auto" Width="auto">
-                <Button Style="{StaticResource OutrunButton}" Content="ALT-TAB" Command="{Binding Windows.AltTab}"/>
-                <Button Style="{StaticResource OutrunBigButton}" Content="WINDOWS VERGRENDELEN" Command="{Binding Windows.LockWindows}"/>
+
+            <WrapPanel 
+                Style="{StaticResource windowsTrollElementsWrapper}">
+                
+                <Button 
+                    Style="{StaticResource OutrunButton}" 
+                    Content="ALT-TAB" 
+                    Command="{Binding Windows.AltTab}"/>
+                <Button 
+                    Style="{StaticResource OutrunBigButton}" 
+                    Content="WINDOWS VERGRENDELEN" 
+                    Command="{Binding Windows.LockWindows}"/>
             </WrapPanel>
         </WrapPanel>
     </Canvas>

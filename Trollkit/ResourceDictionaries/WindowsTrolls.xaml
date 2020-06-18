@@ -52,6 +52,10 @@
 
 
     <Style x:Key="OutrunCircle" TargetType="{x:Type Ellipse}">
+        <Setter Property="Height" Value="120"/>
+        <Setter Property="Width" Value="120"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
 
         <Setter Property="Fill">
             <Setter.Value>
@@ -128,8 +132,8 @@
         <Setter Property="Foreground" Value="White"/>
         <Setter Property="FontSize" Value="60"/>
 
-        <Setter Property="Padding" Value="30,0,30,0"/>
-
+        <Setter Property="Padding" Value="0,40,60,40"/>
+        
         <Setter Property="Width" Value="auto"/>
 
         <Setter Property="Effect">
@@ -201,4 +205,55 @@
 			</Setter.Value>
 		</Setter>
 	</Style>
+
+
+    <Style x:Key="tinyTextBox" TargetType="{x:Type TextBox}">
+        <Setter Property="Height" Value="22"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
+        <Setter Property="Width" Value="40"/>
+    </Style>
+
+    <Style x:Key="largeTextBox" TargetType="{x:Type TextBox}">
+        <Setter Property="Height" Value="22"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
+        <Setter Property="Width" Value="250"/>
+    </Style>
+
+    <Style x:Key="windowsTrollLabel" TargetType="{x:Type Label}">
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Height" Value="31"/>
+        <Setter Property="Width" Value="150"/>
+        <Setter Property="FontSize" Value="16"/>
+    </Style>
+
+    <Style x:Key="windowsTrollElementsWrapper" TargetType="{x:Type WrapPanel}">
+        <Setter Property="Orientation" Value="Horizontal"/>
+        <Setter Property="Height" Value="auto"/>
+        <Setter Property="Width" Value="auto"/>
+        <Setter Property="Margin" Value="0,0,0,20"/>
+    </Style>
+
+    <Style x:Key="windowsTrollWrapper" TargetType="{x:Type WrapPanel}">
+        <Setter Property="Orientation" Value="Vertical"/>
+        <Setter Property="Height" Value="auto"/>
+        <Setter Property="Width" Value="auto"/>
+    </Style>
+
+    <Style x:Key="whiteLineTriangle" TargetType="{x:Type Polygon}">
+        <Setter Property="Points" Value="21.5,128.7 97.5,36 178.5,164 "/>
+        <Setter Property="Stroke" Value="White"/>
+        <Setter Property="StrokeThickness" Value="4"/>
+        <Setter Property="HorizontalAlignment" Value="Right"/>
+        <Setter Property="VerticalAlignment" Value="Bottom"/>
+    </Style>
+
+    <Style x:Key="windowsTrollBackground" TargetType="{x:Type Rectangle}">
+        <Setter Property="Fill" Value="#141318"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="Height" Value="400"/>
+        <Setter Property="Width" Value="500"/>
+        <Setter Property="VerticalAlignment" Value="Bottom"/>
+    </Style>
+
+
 </ResourceDictionary>
