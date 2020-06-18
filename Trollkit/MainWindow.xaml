@@ -78,6 +78,7 @@
 				<windows:ClientsView/>
 			</ContentControl.Content>
 		</ContentControl>
-		<Label Content="{Binding Path=SelectedClient.storedData[ComputerName]}" Canvas.Left="66" Canvas.Top="68" FontSize="20"/>
+        
+        <Label Style="{StaticResource Client}" Content="{Binding Path=SelectedClient.storedData[ComputerName]}" Canvas.Left="66" Canvas.Top="68"/>
 	</Canvas>
 </Window>
