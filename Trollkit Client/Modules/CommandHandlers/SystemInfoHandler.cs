@@ -63,7 +63,6 @@ namespace Trollkit_Client.Modules.CommandHandlers
 			string ramString = GetRamAmount();
 			TransferCommandObject ramTransferObject = new TransferCommandObject { Command = "RAM", Value = ramString };
 			SendDataObjectToSocket(s, ClientServerPipeline.BufferSerialize(ramTransferObject));
-
 		}
 		
 		private string GetRamAmount()
