@@ -45,8 +45,23 @@ namespace Trollkit_Library.ServerModules
 			}
 		}
 
-        //delegates
-        public delegate void ConnectionEventHandler(Client c);
+		private bool allClientsSelected;
+
+		public bool AllClientsSelected
+		{
+			get
+			{
+				return allClientsSelected;
+			}
+			set
+			{
+				allClientsSelected = value;
+				OnPropertyChanged("AllClientsSelected");
+			}
+		}
+
+		//delegates
+		public delegate void ConnectionEventHandler(Client c);
 		public delegate void ConnectionBlockedEventHandler(IPEndPoint endPoint);
 		public delegate void ClientMessageReceivedHandler(Client c, TransferCommandObject model, DataByteType type);
 		public delegate void ServerPropertyChangedHandeler(string Property);
@@ -86,6 +101,8 @@ namespace Trollkit_Library.ServerModules
 			acceptIncomingConnections = true;
 			serverSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
 			Buffers = new List<DataBufferModel>();
+
+			allClientsSelected = true;
 		}
 
 		/// <summary>
@@ -229,9 +246,21 @@ namespace Trollkit_Library.ServerModules
 			{
 				byte[] seriesByteArray = BitConverter.GetBytes(item.Key);
 
-				byte[] sendArray = new byte[] { 0x1b, lengthByteArray[0], lengthByteArray[1], seriesByteArray[0], seriesByteArray[1] };
+				byte[] sendArray = new byte[] { (byte)type, lengthByteArray[0], lengthByteArray[1], seriesByteArray[0], seriesByteArray[1] };
 				sendArray = sendArray.Concat(message.DataId.ToByteArray()).Concat(item.Value).ToArray();
 				SendBytesToSocket(s, sendArray);
+			}
+		}
+
+		public void SendDataObjectToSelectedClient(DataByteType type, DataBufferModel message)
+		{
+			if (allClientsSelected)
+			{
+				SendDataObjectToAll(type, message);
+			}
+			else
+			{
+				SendDataObjectToSocket(type, GetSocketByClient(SelectedClient), message);
 			}
 		}
 
@@ -326,13 +355,13 @@ namespace Trollkit_Library.ServerModules
 		/// Send a buffer model to all clients
 		/// </summary>
 		/// <param name="message"></param>
-		public void SendDataObjectToAll(DataBufferModel message)
+		public void SendDataObjectToAll(DataByteType type, DataBufferModel message)
 		{
 			foreach(Socket s in clients.Keys)
 			{
 				try
 				{
-					SendDataObjectToSocket(DataByteType.Data, s, message);
+					SendDataObjectToSocket(type, s, message);
 				}
 				catch { }
 			}

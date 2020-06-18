@@ -15,44 +15,54 @@
 		<viewmodels:ServerViewModel/>
 	</Window.DataContext>
 	<Window.Resources>
-		
+
 	</Window.Resources>
 	<Canvas Margin="0,0,-96,-153">
 		<Rectangle Style="{StaticResource TrollsBackground}" Height="350" Width="607" Canvas.Left="52" Canvas.Top="52" />
 
-		<Image Style="{StaticResource ImageReflectHorizontal}" Source="Resources\Images\Beeld-Apollo-Hoofd-Nieuw.png" Canvas.Top="222" Width="212" Height="242"/>
+		<Image Style="{StaticResource ImageReflectHorizontal}" Source="Resources\Images\Beeld-Apollo-Hoofd-Nieuw.png" Canvas.Top="276" Width="212" Height="242" Canvas.Left="-13"/>
 
-
-
-		<buttons:HeadMenuBtn Style="{StaticResource HeadMenuText}" Canvas.Left="19" Canvas.Top="310" Content="HOOFDMENU">
+		<buttons:HeadMenuBtn Style="{StaticResource HeadMenuText}" Canvas.Left="6" Canvas.Top="364" Content="HOOFDMENU">
 			<buttons:HeadMenuBtn.Resources>
 				<windows:ClientsView x:Key="View" />
 			</buttons:HeadMenuBtn.Resources>
 		</buttons:HeadMenuBtn>
 
-        <StackPanel Canvas.Top="84" Canvas.Left="30" FocusManager.IsFocusScope="True">
-            <buttons:HeadMenuBtn Style="{StaticResource MenuButton}" Content="> Visual Trolls">
+		<StackPanel Canvas.Top="120" Canvas.Left="30" FocusManager.IsFocusScope="True">
+			<buttons:HeadMenuBtn Content="&gt; Visual Trolls">
 				<buttons:HeadMenuBtn.Resources>
 					<windows:VisualTrolls x:Key="View" />
 				</buttons:HeadMenuBtn.Resources>
+				<buttons:HeadMenuBtn.Style>
+					<StaticResource ResourceKey="MenuButton"/>
+				</buttons:HeadMenuBtn.Style>
 			</buttons:HeadMenuBtn>
 
-			<buttons:HeadMenuBtn Style="{StaticResource MenuButton}" Content="> Audio Trolls">
+			<buttons:HeadMenuBtn Content="&gt; Audio Trolls">
 				<buttons:HeadMenuBtn.Resources>
 					<windows:AudioTrolls x:Key="View" />
 				</buttons:HeadMenuBtn.Resources>
+				<buttons:HeadMenuBtn.Style>
+					<StaticResource ResourceKey="MenuButton"/>
+				</buttons:HeadMenuBtn.Style>
 			</buttons:HeadMenuBtn>
 
-			<buttons:HeadMenuBtn Style="{StaticResource MenuButton}" Content="> Windows Trolls">
+			<buttons:HeadMenuBtn Content="&gt; Windows Trolls">
 				<buttons:HeadMenuBtn.Resources>
 					<windows:WindowsTrolls x:Key="View" />
 				</buttons:HeadMenuBtn.Resources>
+				<buttons:HeadMenuBtn.Style>
+					<StaticResource ResourceKey="MenuButton"/>
+				</buttons:HeadMenuBtn.Style>
 			</buttons:HeadMenuBtn>
 
-			<buttons:HeadMenuBtn Style="{StaticResource MenuButton}" Content="> System Info">
+			<buttons:HeadMenuBtn Content="&gt; System Info">
 				<buttons:HeadMenuBtn.Resources>
 					<windows:SystemInfo x:Key="View" />
 				</buttons:HeadMenuBtn.Resources>
+				<buttons:HeadMenuBtn.Style>
+					<StaticResource ResourceKey="MenuButton"/>
+				</buttons:HeadMenuBtn.Style>
 			</buttons:HeadMenuBtn>
 		</StackPanel>
 
@@ -63,10 +73,12 @@
 			</StackPanel>
 		</DataGridCell>
 
-        <ContentControl x:Name="trollView" Canvas.Left="195" Canvas.Top="105" Height="560" Width="774">
-            <ContentControl.Content>
-                <windows:ClientsView/>
-            </ContentControl.Content>
-        </ContentControl>
-    </Canvas>
+		<ContentControl x:Name="trollView" Canvas.Left="195" Canvas.Top="105" Height="560" Width="774">
+			<ContentControl.Content>
+				<windows:ClientsView/>
+			</ContentControl.Content>
+		</ContentControl>
+        
+        <Label Style="{StaticResource Client}" Content="{Binding Path=SelectedClient.storedData[ComputerName]}" Canvas.Left="66" Canvas.Top="68"/>
+	</Canvas>
 </Window>

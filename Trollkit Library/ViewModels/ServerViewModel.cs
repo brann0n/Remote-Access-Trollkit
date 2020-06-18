@@ -40,6 +40,19 @@ namespace Trollkit_Library.ViewModels
 			}
 		}
 
+		public bool AllClientsSelected
+		{
+			get
+			{
+				return Server.AllClientsSelected;
+			}
+			set
+			{
+				Server.AllClientsSelected = value;
+				NotifyPropertyChanged("AllClientsSelected");
+			}
+		}
+
 		public ServerViewModel()
 		{
 			Server = new Server(IPAddress.Any);

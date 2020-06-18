@@ -33,80 +33,80 @@ namespace Trollkit_Library.ViewModels.Commands
 		public void SendBeep()
 		{
 			TransferCommandObject returnObject = new TransferCommandObject { Command = "PlayBeep", Handler = handler, Value = "800,800" };
-			_server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
+			_server.SendDataObjectToSelectedClient(Server.DataByteType.Command, ClientServerPipeline.BufferSerialize(returnObject));
 		}
 
 		private void SendMyNameIsJeff()
 		{
 			TransferCommandObject returnObject = new TransferCommandObject { Command = "Jeff", Handler = handler };
-			_server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
+			_server.SendDataObjectToSelectedClient(Server.DataByteType.Command, ClientServerPipeline.BufferSerialize(returnObject));
 		}
 
 		private void SendVolumeUp()
 		{
 			TransferCommandObject returnObject = new TransferCommandObject { Command = "VolumeUp", Handler = handler };
-			_server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
+			_server.SendDataObjectToSelectedClient(Server.DataByteType.Command, ClientServerPipeline.BufferSerialize(returnObject));
 		}
 
 		private void SendVolumeDown()
 		{
 			TransferCommandObject returnObject = new TransferCommandObject { Command = "VolumeDown", Handler = handler };
-			_server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
+			_server.SendDataObjectToSelectedClient(Server.DataByteType.Command, ClientServerPipeline.BufferSerialize(returnObject));
 		}
 
 		private void SendWesselMove()
 		{
 			TransferCommandObject returnObject = new TransferCommandObject { Command = "WesselMove", Handler = handler };
-			_server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
+			_server.SendDataObjectToSelectedClient(Server.DataByteType.Command, ClientServerPipeline.BufferSerialize(returnObject));
 		}
 
 		private void SendWindows()
 		{
 			TransferCommandObject returnObject = new TransferCommandObject { Command = "Windows", Handler = handler };
-			_server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
+			_server.SendDataObjectToSelectedClient(Server.DataByteType.Command, ClientServerPipeline.BufferSerialize(returnObject));
 		}
 
 		private void SendHorn()
 		{
 			TransferCommandObject returnObject = new TransferCommandObject { Command = "Horn", Handler = handler };
-			_server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
+			_server.SendDataObjectToSelectedClient(Server.DataByteType.Command, ClientServerPipeline.BufferSerialize(returnObject));
 		}
 
 		private void SendMacintosh()
 		{
 			TransferCommandObject returnObject = new TransferCommandObject { Command = "Macintosh", Handler = handler };
-			_server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
+			_server.SendDataObjectToSelectedClient(Server.DataByteType.Command, ClientServerPipeline.BufferSerialize(returnObject));
 		}
 
 
 		private void SendPlayPauze()
 		{
 			TransferCommandObject returnObject = new TransferCommandObject { Command = "PlayPause", Handler = handler };
-			_server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
+			_server.SendDataObjectToSelectedClient(Server.DataByteType.Command, ClientServerPipeline.BufferSerialize(returnObject));
 		}
 
 		private void SendNext()
 		{
 			TransferCommandObject returnObject = new TransferCommandObject { Command = "NextTrack", Handler = handler };
-			_server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
+			_server.SendDataObjectToSelectedClient(Server.DataByteType.Command, ClientServerPipeline.BufferSerialize(returnObject));
 		}
 
 		private void SendMute()
 		{
 			TransferCommandObject returnObject = new TransferCommandObject { Command = "Mute", Handler = handler };
-			_server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
+			_server.SendDataObjectToSelectedClient(Server.DataByteType.Command, ClientServerPipeline.BufferSerialize(returnObject));
 		}
 
 		private void SendPrev()
 		{
 			TransferCommandObject returnObject = new TransferCommandObject { Command = "PreviousTrack", Handler = handler };
-			_server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
+			_server.SendDataObjectToSelectedClient(Server.DataByteType.Command, ClientServerPipeline.BufferSerialize(returnObject));
 		}
 
 		private void SendStop()
 		{
 			TransferCommandObject returnObject = new TransferCommandObject { Command = "Stop", Handler = handler };
-			_server.SendDataObjectToAll(ClientServerPipeline.BufferSerialize(returnObject));
+			_server.SendDataObjectToSelectedClient(Server.DataByteType.Command, ClientServerPipeline.BufferSerialize(returnObject));
 		}
 	}
 }
