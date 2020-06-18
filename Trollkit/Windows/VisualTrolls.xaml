@@ -6,12 +6,11 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              mc:Ignorable="d" Height="389.313" Width="633.969">
     <Canvas Margin="10,0,29,10">
-        <Ellipse 
+		<Ellipse 
             Style="{StaticResource Sun}" 
             Canvas.Left="98" 
             Canvas.Top="10"/>
-s
-        <Image 
+		<Image 
             Style="{StaticResource Flowers}" 
             Source="..\Resources\Images\Flowers.png" 
             Canvas.Top="-51" 
