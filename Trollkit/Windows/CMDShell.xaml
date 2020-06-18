@@ -38,25 +38,39 @@
                     </StackPanel>
                 </DockPanel>
 
-                <Border BorderBrush="#bfc4c0" BorderThickness="4,4,4,8">
-                    <ScrollViewer Height="350" Width="auto" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Auto">
-                        <StackPanel Orientation="Vertical" Background="#000000" >
-                            <TextBlock  Padding="8" Foreground="#eac2ff" Height="311" Width="auto" Text="{Binding Path=SelectedClient.CMDBuffer}" FontFamily="Consolas">
-                                <TextBlock.InputBindings>
-                                    <MouseBinding Command="{Binding Path=CMD.Focus}" MouseAction="LeftClick" />
-                                </TextBlock.InputBindings>
-                            </TextBlock>
-
-							<TextBox BorderBrush="#483254" BorderThickness="0,0,0,1" Margin="8" Padding="0,4,0,4" Background="Transparent" MinWidth="20" Text="{Binding Path=CMD.CommandText}" libmodules:FocusExtension.IsFocused="{Binding Path=CMD.IsFocusedElement}"  Foreground="#eac2ff" Focusable="True">
-								<TextBox.InputBindings>
-									<KeyBinding Command="{Binding Path=CMD.SendCMD}" Key="Return" />
-								</TextBox.InputBindings>
-							</TextBox>
-                            
-                        </StackPanel>
-                    </ScrollViewer>
-                </Border>
-            </StackPanel>
+				<Border BorderBrush="#bfc4c0" BorderThickness="4,4,4,8">
+					<StackPanel>
+						<ScrollViewer Height="350" Width="auto" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Auto" libmodules:ScrollHelper.AutoScroll="True">
+							<ScrollViewer.InputBindings>
+								<MouseBinding Command="{Binding CMD.Focus}" MouseAction="LeftClick" />
+							</ScrollViewer.InputBindings>
+							<StackPanel Orientation="Vertical" Background="#000000" >
+								<TextBlock  Padding="8" Foreground="#eac2ff" Width="auto" Text="{Binding SelectedClient.CMDBuffer}" FontFamily="Consolas">
+									<TextBlock.InputBindings>
+										<MouseBinding Command="{Binding CMD.Focus}" MouseAction="LeftClick" />
+									</TextBlock.InputBindings>
+								</TextBlock>
+							</StackPanel>
+						</ScrollViewer>
+						<TextBox 
+							BorderBrush="#483254" 
+							BorderThickness="0,0,0,1" 
+							Margin="0,0,17,0" 
+							Padding="0,4,0,4" 
+							Background="#000000" 
+							MinWidth="20" 
+							Text="{Binding CMD.CommandText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+							libmodules:FocusExtension.IsFocused="{Binding CMD.IsFocusedElement}" 
+							Foreground="#eac2ff" 
+							Focusable="True"
+							CaretBrush="Blue">
+							<TextBox.InputBindings>
+								<KeyBinding Command="{Binding CMD.SendCMD}" Key="Return" />
+							</TextBox.InputBindings>
+						</TextBox>
+					</StackPanel>
+				</Border>
+			</StackPanel>
         </Border>
     </Canvas>
 </UserControl>

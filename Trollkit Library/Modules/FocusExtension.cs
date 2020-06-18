@@ -7,31 +7,77 @@ using System.Windows;
 
 namespace Trollkit_Library.Modules
 {
-    public class FocusExtension
-    {
-        public static bool GetIsFocused(DependencyObject obj)
-        {
-            return (bool)obj.GetValue(IsFocusedProperty);
-        }
+	public static class FocusExtension
+	{
+		public static readonly DependencyProperty IsFocusedProperty = DependencyProperty
+			.RegisterAttached("IsFocused", typeof(bool?), typeof(FocusExtension), 
+			new FrameworkPropertyMetadata(IsFocusedChanged)
+			{
+				BindsTwoWayByDefault = true
+			});
 
-        public static void SetIsFocused(DependencyObject obj, bool value)
-        {
-            obj.SetValue(IsFocusedProperty, value);
-        }
+		public static bool? GetIsFocused(DependencyObject element)
+		{
+			if (element == null)
+			{
+				throw new ArgumentNullException("element");
+			}
 
-        public static readonly DependencyProperty IsFocusedProperty =
-            DependencyProperty.RegisterAttached(
-                "IsFocused", typeof(bool), typeof(FocusExtension),
-                new UIPropertyMetadata(false, OnIsFocusedPropertyChanged));
+			return (bool?)element.GetValue(IsFocusedProperty);
+		}
 
-        private static void OnIsFocusedPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            UIElement uie = (UIElement)d;
-            if ((bool)e.NewValue)
-            {
-                uie.Focus();
-                System.Windows.Input.Keyboard.Focus(uie);
-            }
-        }
-    }
+		public static void SetIsFocused(DependencyObject element, bool? value)
+		{
+			if (element == null)
+			{
+				throw new ArgumentNullException("element");
+			}
+
+			element.SetValue(IsFocusedProperty, value);
+		}
+
+		private static void IsFocusedChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+		{
+			var fe = (FrameworkElement)d;
+
+			if (e.OldValue == null)
+			{
+				fe.GotFocus += FrameworkElement_GotFocus;
+				fe.LostFocus += FrameworkElement_LostFocus;
+			}
+
+			if (!fe.IsVisible)
+			{
+				fe.IsVisibleChanged += new DependencyPropertyChangedEventHandler(fe_IsVisibleChanged);
+			}
+
+			if(e.NewValue != null)
+			{
+				if ((bool)e.NewValue)
+				{
+					fe.Focus();
+				}
+			}
+		}
+
+		private static void fe_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+		{
+			var fe = (FrameworkElement)sender;
+			if (fe.IsVisible && (bool)((FrameworkElement)sender).GetValue(IsFocusedProperty))
+			{
+				fe.IsVisibleChanged -= fe_IsVisibleChanged;
+				fe.Focus();
+			}
+		}
+
+		private static void FrameworkElement_GotFocus(object sender, RoutedEventArgs e)
+		{
+			((FrameworkElement)sender).SetValue(IsFocusedProperty, true);
+		}
+
+		private static void FrameworkElement_LostFocus(object sender, RoutedEventArgs e)
+		{
+			((FrameworkElement)sender).SetValue(IsFocusedProperty, false);
+		}
+	}
 }

