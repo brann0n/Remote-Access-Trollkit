@@ -39,8 +39,13 @@
 
                 <Border BorderBrush="#bfc4c0" BorderThickness="4,4,4,8">
                     <ScrollViewer Height="350" Width="auto" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Auto">
-						<TextBlock Padding="8" Background="#000000" Foreground="#eac2ff" Height="auto" Width="auto" Text="{Binding Path=SelectedClient.CMDBuffer}"/>
-					</ScrollViewer>
+                        <StackPanel Orientation="Vertical" Background="#000000" >
+                            <TextBlock Padding="8" Foreground="#eac2ff" Height="auto" Width="auto" Text="{Binding Path=SelectedClient.CMDBuffer}"/>
+
+                            <TextBox BorderBrush="#483254" BorderThickness="0,0,0,1" Margin="8" Padding="0,4,0,4" Background="Transparent" MinWidth="20" Text="C:\Users\Bram>" Foreground="#eac2ff" Focusable="True"/>
+                            
+                        </StackPanel>
+                    </ScrollViewer>
                 </Border>
             </StackPanel>
         </Border>
