@@ -6,18 +6,62 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              mc:Ignorable="d" Height="389.313" Width="633.969">
     <Canvas Margin="10,0,29,10">
-        <Ellipse HorizontalAlignment="Left" Height="327" VerticalAlignment="Top" Width="330" Canvas.Left="98" Canvas.Top="10">
-            <Ellipse.Fill>
-                <ImageBrush ImageSource="..\Resources\Images\Visual_Trolls_background.png"></ImageBrush>
-            </Ellipse.Fill>
-        </Ellipse>
-        <Image Source="..\Resources\Images\Flowers.png" Canvas.Top="-51" Width="387" Height="362" RenderTransformOrigin="0.5,0.5" Canvas.Left="-16"/>
-        <Button Style="{StaticResource SubmitButton}" Content="DISPLAY IMAGE" Canvas.Top="121" Width="117" IsCancel="True" Command="{Binding Visual.DisplayImage}" />
-        <TextBox Style="{StaticResource TextBox}" Height="59"  TextWrapping="Wrap" Text="{Binding Visual.BroadcastMessageText}" Canvas.Top="154" Width="203" />
-        <Button Style="{StaticResource SubmitButton}" Content="DISPLAY TEXT" Canvas.Left="419" Canvas.Top="184" Width="107" Command="{Binding Visual.DisplayText}"/>
-        <Button Style="{StaticResource SubmitButton}" Content="DISABLE SCREEN" Canvas.Top="222" Width="133" FontWeight="Bold" Command="{Binding Visual.TurnOffScreen}"/>
-        <TextBox Style="{StaticResource TextBox}" Height="28" TextWrapping="Wrap" Text="{Binding Visual.OpenUrlText}" Canvas.Top="255" Width="203"/>
-        <Button Style="{StaticResource SubmitButton}" Content="OPEN SITE" Canvas.Left="419" Canvas.Top="255" Width="100" FontWeight="Bold" Command="{Binding Visual.OpenSite}"/>
-        <Button Style="{StaticResource SubmitButton}" Content="CHOOSE BACKGROUND IMAGE"  Canvas.Top="289" Width="220" FontWeight="Bold" Command="{Binding Visual.PickBackgroundImage}"/>
+        <Ellipse 
+            Style="{StaticResource Sun}" 
+            Canvas.Left="98" 
+            Canvas.Top="10"/>
+s
+        <Image 
+            Style="{StaticResource Flowers}" 
+            Source="..\Resources\Images\Flowers.png" 
+            Canvas.Top="-51" 
+            Canvas.Left="-16"/>
+        
+        <StackPanel 
+            Style="{StaticResource VisualTrollsWrapper}" 
+            Canvas.Left="220" 
+            Canvas.Top="120">
+            
+            <StackPanel Style="{StaticResource VisualTrollsElementsWrapper}">    
+                <Button 
+                    Style="{StaticResource SubmitButton}" 
+                    Content="DISPLAY IMAGE" 
+                    Command="{Binding Visual.DisplayImage}" />
+            </StackPanel>
+            
+            <StackPanel Style="{StaticResource VisualTrollsElementsWrapper}">
+                <TextBox 
+                    Style="{StaticResource LargeTextBox}" 
+                    Text="{Binding Visual.BroadcastMessageText}" />
+                <Button 
+                    Style="{StaticResource SubmitButton}" 
+                    Content="DISPLAY TEXT" 
+                    Command="{Binding Visual.DisplayText}"/>
+            </StackPanel>
+
+            <StackPanel Style="{StaticResource VisualTrollsElementsWrapper}">
+                <Button 
+                    Style="{StaticResource SubmitButton}" 
+                    Content="DISABLE SCREEN" 
+                    Command="{Binding Visual.TurnOffScreen}"/>
+            </StackPanel>
+                
+            <StackPanel Style="{StaticResource VisualTrollsElementsWrapper}">
+                <TextBox 
+                    Style="{StaticResource TextBox}" 
+                    Text="{Binding Visual.OpenUrlText}"/>
+                <Button 
+                    Style="{StaticResource SubmitButton}" 
+                    Content="OPEN SITE" 
+                    Command="{Binding Visual.OpenSite}"/>
+            </StackPanel>
+
+            <StackPanel Style="{StaticResource VisualTrollsElementsWrapper}">
+                <Button 
+                    Style="{StaticResource SubmitButton}" 
+                    Content="CHOOSE BACKGROUND IMAGE" 
+                    Command="{Binding Visual.PickBackgroundImage}"/>
+            </StackPanel>
+        </StackPanel>
     </Canvas>
 </UserControl>
