@@ -70,6 +70,9 @@
     <Compile Include="Windows\ClientsView.xaml.cs">
       <DependentUpon>ClientsView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\CMDShell.xaml.cs">
+      <DependentUpon>CMDShell.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\SystemInfo.xaml.cs">
       <DependentUpon>SystemInfo.xaml</DependentUpon>
     </Compile>
@@ -79,6 +82,10 @@
     <Compile Include="Windows\WindowsTrolls.xaml.cs">
       <DependentUpon>WindowsTrolls.xaml</DependentUpon>
     </Compile>
+    <Page Include="ResourceDictionaries\CMDShellDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ResourceDictionaries\System_InfoDictionary.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -120,6 +127,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ResourceDictionaries\VisualTrollsDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\CMDShell.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -234,6 +245,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Images\System_Info_PC.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\cmd_icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

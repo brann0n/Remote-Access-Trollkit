@@ -52,7 +52,17 @@
 				</buttons:HeadMenuBtn.Style>
 			</buttons:HeadMenuBtn>
 
-			<buttons:HeadMenuBtn Content="&gt; System Info">
+
+            <buttons:HeadMenuBtn Content="&gt; CMD Shell">
+                <buttons:HeadMenuBtn.Resources>
+                    <windows:CMDShell x:Key="View" />
+                </buttons:HeadMenuBtn.Resources>
+                <buttons:HeadMenuBtn.Style>
+                    <StaticResource ResourceKey="MenuButton"/>
+                </buttons:HeadMenuBtn.Style>
+            </buttons:HeadMenuBtn>
+
+            <buttons:HeadMenuBtn Content="&gt; System Info">
 				<buttons:HeadMenuBtn.Resources>
 					<windows:SystemInfo x:Key="View" />
 				</buttons:HeadMenuBtn.Resources>
