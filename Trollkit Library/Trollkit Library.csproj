@@ -47,6 +47,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BConsole.cs" />
@@ -57,6 +58,7 @@
     <Compile Include="Models\TransferCommandObject.cs" />
     <Compile Include="Modules\ClientServerPipeline.cs" />
     <Compile Include="Modules\Extensions.cs" />
+    <Compile Include="Modules\FocusExtension.cs" />
     <Compile Include="Modules\Keyboard.cs" />
     <Compile Include="Modules\Wallpaper.cs" />
     <Compile Include="Modules\WindowsProfilePicture.cs" />

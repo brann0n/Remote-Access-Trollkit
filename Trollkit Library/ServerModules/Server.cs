@@ -384,5 +384,10 @@ namespace Trollkit_Library.ServerModules
 		{
 			return clients.Values.ToList();
 		}
+
+		public void UpdateProperty(string property)
+		{
+			OnPropertyChanged(property);
+		}
 	}
 }
