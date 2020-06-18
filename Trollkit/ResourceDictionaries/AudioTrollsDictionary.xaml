@@ -31,6 +31,9 @@
     </Style>
 
     <Style x:Key="ControlButton" TargetType="{x:Type Button}">
+        <Setter Property="Height" Value="25"/>
+        <Setter Property="Width" Value="25"/>
+        <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
@@ -47,9 +50,97 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+        <Setter Property="RenderTransform">
+            <Setter.Value>
+                <TransformGroup>
+                    <RotateTransform Angle="-3.608"/>
+                </TransformGroup>
+            </Setter.Value>
+        </Setter>
     </Style>
 
-    <Style x:Key="VisualRectangle" TargetType="Rectangle">
+    <Style x:Key="VolumeButton" TargetType="{x:Type Button}">
+        <Setter Property="Height" Value="62"/>
+        <Setter Property="Width" Value="62"/>
+        <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Name="border" 
+                            Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Cursor" Value="Hand" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    
+    <Style x:Key="ButtonPanel" TargetType="{x:Type StackPanel}">
+        <Setter Property="Height" Value="139"/>
+        <Setter Property="Width" Value="175"/>
+        <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+        <Setter Property="RenderTransform">
+            <Setter.Value>
+                <TransformGroup>
+                    <RotateTransform Angle="-3.037"/>
+                </TransformGroup>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="VolumeDown" TargetType="{x:Type Button}" BasedOn="{StaticResource VolumeButton}">
+        <Setter Property="Background">
+            <Setter.Value>
+                <ImageBrush ImageSource="..\Resources\Images\volume-down.png"/>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="RenderTransform">
+            <Setter.Value>
+                <TransformGroup>
+                    <RotateTransform Angle="525"/>
+                </TransformGroup>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="VolumeUp" TargetType="{x:Type Button}" BasedOn="{StaticResource VolumeButton}">
+        <Setter Property="Background">
+            <Setter.Value>
+                <ImageBrush ImageSource= "..\Resources\Images\volume-up.png"/>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="RenderTransform">
+            <Setter.Value>
+                <TransformGroup>
+                    <RotateTransform Angle="345.208"/>
+                </TransformGroup>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="VolumeMute" TargetType="{x:Type Button}" BasedOn="{StaticResource VolumeButton}">
+        <Setter Property="Background">
+            <Setter.Value>
+                <ImageBrush ImageSource="..\Resources\Images\volume-mute.png"/>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="RenderTransform">
+            <Setter.Value>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="-1"/>
+                    <RotateTransform Angle="220.024"/>
+                </TransformGroup>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="VisualRectangle" TargetType="{x:Type Rectangle}">
         <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="Height" Value="378"/>
         <Setter Property="Width" Value="634"/>
@@ -69,15 +160,15 @@
         </Setter>
     </Style>
 
-    <Style x:Key="AudioWhite" TargetType="Rectangle" BasedOn="{StaticResource VisualRectangle}">
+    <Style x:Key="AudioWhite" TargetType="{x:Type Rectangle}" BasedOn="{StaticResource VisualRectangle}">
         <Setter Property="Fill" Value="White"/>
     </Style>
 
-    <Style x:Key="AudioBlue" TargetType="Rectangle"  BasedOn="{StaticResource VisualRectangle}">
+    <Style x:Key="AudioBlue" TargetType="{x:Type Rectangle}" BasedOn="{StaticResource VisualRectangle}">
         <Setter Property="Fill" Value="#FF1C83FF"/>
     </Style>
 
-    <Style x:Key="HeaderText" TargetType="Label">
+    <Style x:Key="HeaderText" TargetType="{x:Type Label}">
         <Setter Property="FontSize" Value="90"/>
         <Setter Property="Height" Value="135"/>
         <Setter Property="Width" Value="165"/>
@@ -100,6 +191,9 @@
     </Style>
 
     <Style x:Key="PlayPause" TargetType="{x:Type ToggleButton}">
+        <Setter Property="Height" Value="25"/>
+        <Setter Property="Width" Value="25"/>
+        <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
@@ -111,6 +205,16 @@
                         <ContentPresenter/>
                     </Border>
                 </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="RenderTransform">
+            <Setter.Value>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-3.608"/>
+                    <TranslateTransform/>
+                </TransformGroup>
             </Setter.Value>
         </Setter>
     </Style>
