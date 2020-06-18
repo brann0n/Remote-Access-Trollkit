@@ -122,5 +122,10 @@
         <Setter Property="Padding" Value="2,0,2,2"/>
         <Setter Property="Content" Value="HOOFDMENU"/>
 	</Style>
-    
+
+    <Style x:Key="Client" TargetType="{x:Type Label}">
+        <Setter Property="FontSize" Value="20"/>
+
+    </Style>
+
 </ResourceDictionary>
