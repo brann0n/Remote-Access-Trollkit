@@ -25,7 +25,7 @@
 
 
 		<StackPanel Canvas.Top="120" Canvas.Left="30" FocusManager.IsFocusScope="True" Height="282">
-			<buttons:HeadMenuBtn Content="&gt; Visual Trolls">
+			<buttons:HeadMenuBtn Content="&gt; Visual Trolls" IsEnabled="{Binding ClientsAvailable}">
 				<buttons:HeadMenuBtn.Resources>
 					<windows:VisualTrolls x:Key="View" />
 				</buttons:HeadMenuBtn.Resources>
@@ -34,7 +34,7 @@
 				</buttons:HeadMenuBtn.Style>
 			</buttons:HeadMenuBtn>
 
-			<buttons:HeadMenuBtn Content="&gt; Audio Trolls">
+			<buttons:HeadMenuBtn Content="&gt; Audio Trolls" IsEnabled="{Binding ClientsAvailable}">
 				<buttons:HeadMenuBtn.Resources>
 					<windows:AudioTrolls x:Key="View" />
 				</buttons:HeadMenuBtn.Resources>
@@ -43,7 +43,7 @@
 				</buttons:HeadMenuBtn.Style>
 			</buttons:HeadMenuBtn>
 
-			<buttons:HeadMenuBtn Content="&gt; Windows Trolls">
+			<buttons:HeadMenuBtn Content="&gt; Windows Trolls" IsEnabled="{Binding ClientsAvailable}">
 				<buttons:HeadMenuBtn.Resources>
 					<windows:WindowsTrolls x:Key="View" />
 				</buttons:HeadMenuBtn.Resources>

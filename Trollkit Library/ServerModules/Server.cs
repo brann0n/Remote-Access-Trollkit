@@ -64,6 +64,8 @@ namespace Trollkit_Library.ServerModules
 			}
 		}
 
+		public bool ClientsAvailable { get { return Clients.Count != 0; } }
+
 		//delegates
 		public delegate void ConnectionEventHandler(Client c);
 		public delegate void ConnectionBlockedEventHandler(IPEndPoint endPoint);

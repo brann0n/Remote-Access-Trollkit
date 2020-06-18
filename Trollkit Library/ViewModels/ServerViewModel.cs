@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Net;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
@@ -46,6 +47,11 @@ namespace Trollkit_Library.ViewModels
 		{
 			get
 			{
+				if(Clients.Count == 0)
+				{
+					return true; //to disable the buttons that require atleast one client selected
+				}
+
 				return Server.AllClientsSelected;
 			}
 			set
@@ -54,6 +60,8 @@ namespace Trollkit_Library.ViewModels
 				NotifyPropertyChanged("AllClientsSelected");
 			}
 		}
+
+		public bool ClientsAvailable { get { return Server.ClientsAvailable; } }
 
 		public ServerViewModel()
 		{
@@ -102,7 +110,14 @@ namespace Trollkit_Library.ViewModels
 		private void Server_ClientDisconnected(Client c)
 		{
 			BConsole.WriteLine($"Client {c.GetName()} has disconnected!", ConsoleColor.Yellow);
+			if (Server.SelectedClient == c)
+			{
+				Server.SelectedClient = Server.Clients.FirstOrDefault();
+			}
 			NotifyPropertyChanged("Clients");
+			NotifyPropertyChanged("AllClientsSelected");
+			NotifyPropertyChanged("ClientsAvailable");
+			NotifyPropertyChanged("SelectedClient");
 		}
 
 		private void Server_ClientConnected(Client c)
@@ -113,6 +128,9 @@ namespace Trollkit_Library.ViewModels
 				Server.SelectedClient = c;
 			}
 			NotifyPropertyChanged("Clients");
+			NotifyPropertyChanged("AllClientsSelected");
+			NotifyPropertyChanged("ClientsAvailable");
+			NotifyPropertyChanged("SelectedClient");
 		}
 
 		private void Server_OnPropertyChanged(string Property)
