@@ -19,7 +19,7 @@ namespace Trollkit_Library
 		{
 			lock (_MessageLock)
 			{
-				string timeFormat = $"[{DateTime.Now.ToString("HH:MM:ss")}] ";
+				string timeFormat = $"[{DateTime.Now.ToString("HH:mm:ss")}] ";
 				Console.ForegroundColor = ConsoleColor.Green;
 				Console.Write(timeFormat);
 				Console.ForegroundColor = color;
