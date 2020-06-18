@@ -56,6 +56,12 @@ Command | "{hidden;show},command" | runs a cmd command depending if it shows or 
 LockWindows | (none) | Locks your pc (the same as pressing win+L)
 AltTab | (none) | Sends a randomized alt+tab command to the client.
 
+
+#### WindowsHandler (client)
+Command | Value | Description
+------- | ----- | -----------
+ExecuteCMD | "command and args" | executes the given command and sends back the response
+
 #### SystemInfoHandler (client & server)
 Command | Target | Type | Value | Description
 ------- | ------ | ---- | ----- | -----------

