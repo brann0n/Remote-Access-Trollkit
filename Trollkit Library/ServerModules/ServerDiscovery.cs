@@ -19,6 +19,9 @@ namespace Trollkit_Library.ServerModules
 			ExpectedReturnMessage = expectedReturnMessage;
 		}
 
+		/// <summary>
+		/// Function that starts the infit client discovery
+		/// </summary>
 		public void Discover()
 		{
 			byte[] responseData = Encoding.ASCII.GetBytes(ExpectedReturnMessage);
@@ -32,7 +35,7 @@ namespace Trollkit_Library.ServerModules
 				server.Client.EnableBroadcast = true;
 				byte[] clientRequestData = server.Receive(ref clientEp);
 				string clientRequest = Encoding.ASCII.GetString(clientRequestData);
-				if(clientRequest == BroadcastMessage)
+				if (clientRequest == BroadcastMessage)
 				{
 					BConsole.WriteLine($"Received '{clientRequest}' from {clientEp.Address}, sending response: '{ExpectedReturnMessage}'", ConsoleColor.Magenta);
 
@@ -45,7 +48,5 @@ namespace Trollkit_Library.ServerModules
 				}
 			}
 		}
-
-
 	}
 }

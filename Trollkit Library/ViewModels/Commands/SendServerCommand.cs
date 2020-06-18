@@ -3,6 +3,9 @@ using System.Windows.Input;
 
 namespace Trollkit_Library.ViewModels.Commands
 {
+	/// <summary>
+	/// Class that allows for delgated execution of ICommand functions in ViewModels
+	/// </summary>
 	public class SendServerCommand : ICommand
 	{
 		public event EventHandler CanExecuteChanged
@@ -20,12 +23,10 @@ namespace Trollkit_Library.ViewModels.Commands
 		private readonly Action<object> _action;
 		private readonly Func<object, bool> _canExecute;
 
-		public SendServerCommand(Action action)
-			: this((o) => action())
+		public SendServerCommand(Action action) : this((o) => action())
 		{ }
 
-		public SendServerCommand(Action<object> action)
-			: this(action, (o) => true)
+		public SendServerCommand(Action<object> action) : this(action, (o) => true)
 		{ }
 
         public SendServerCommand(Action<object> action, Func<object, bool> canExecute)

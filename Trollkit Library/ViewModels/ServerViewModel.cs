@@ -74,7 +74,6 @@ namespace Trollkit_Library.ViewModels
 		{
 			BConsole.WriteLine($"Client {c.GetName()} sent a message", ConsoleColor.DarkGray);
 
-
 			switch (type)
 			{
 				case Server.DataByteType.Response:
@@ -84,12 +83,10 @@ namespace Trollkit_Library.ViewModels
 					if (model.Command == "Debug")
 					{
 						TransferCommandObject returnObject = new TransferCommandObject { Command = "PlayBeep", Handler = "Audio", Value = "200,300" };
-
 						Server.SendDataObjectToSocket(Server.DataByteType.Command, Server.GetSocketByClient(c), ClientServerPipeline.BufferSerialize(returnObject));
 					}
 					break;
 				case Server.DataByteType.Data:
-					//TODO: Store the data in the key value of the client
 					c.SetDataItem(model.Command, model.Value);
 					NotifyPropertyChanged("SelectedClient.storedData");
 					break;
@@ -109,11 +106,8 @@ namespace Trollkit_Library.ViewModels
 			{
 				Server.SelectedClient = c;
 			}
-
 			NotifyPropertyChanged("Clients");
 		}
-
-		
 
 		private void Server_OnPropertyChanged(string Property)
 		{

@@ -17,8 +17,8 @@ namespace Trollkit_Library.ViewModels.Commands
 
 		//buttons
 		public ICommand MousePosition { get { return new SendServerCommand(SendMousePosition); } }
-		public ICommand Go { get { return new SendServerCommand(SendGo); } }
-		public ICommand LockWindows { get { return new SendServerCommand(SendLockWindowsk); } }
+		public ICommand Go { get { return new SendServerCommand(SendCMDCommand); } }
+		public ICommand LockWindows { get { return new SendServerCommand(SendLockWindows); } }
 		public ICommand AltTab { get { return new SendServerCommand(SendAltTab); } }
 
 		//textboxes
@@ -36,26 +36,36 @@ namespace Trollkit_Library.ViewModels.Commands
 			CommandText = "show,color a & tree";
 		}
 
+		/// <summary>
+		/// Sends the mouseposition command to the client.
+		/// </summary>
         private void SendMousePosition()
         {
-            //string X = TbXcoordinate.Text;
-            //string Y = TbYcoordinate.Text;
             TransferCommandObject returnObject = new TransferCommandObject { Command = "MousePosition", Handler = handler, Value = $"{XCoordinate},{YCoordinate}" };
             _server.SendDataObjectToSelectedClient(Server.DataByteType.Command, ClientServerPipeline.BufferSerialize(returnObject));
         }
 
-        private void SendGo()
+		/// <summary>
+		/// Sends a cmd command to the client
+		/// </summary>
+        private void SendCMDCommand()
         {
             TransferCommandObject returnObject = new TransferCommandObject { Command = "Command", Handler = handler, Value = CommandText};
              _server.SendDataObjectToSelectedClient(Server.DataByteType.Command, ClientServerPipeline.BufferSerialize(returnObject));
         }
 
-        private void SendLockWindowsk()
+		/// <summary>
+		/// Sends a lock computer command to the client
+		/// </summary>
+        private void SendLockWindows()
         {
             TransferCommandObject returnObject = new TransferCommandObject { Command = "LockWindows", Handler = handler };
              _server.SendDataObjectToSelectedClient(Server.DataByteType.Command, ClientServerPipeline.BufferSerialize(returnObject));
         }
 
+		/// <summary>
+		/// Send alt tab command to the client
+		/// </summary>
         private void SendAltTab()
         {
             TransferCommandObject returnObject = new TransferCommandObject { Command = "AltTab", Handler = handler };
