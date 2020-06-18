@@ -121,7 +121,7 @@
 		<Setter Property="FontSize" Value="17"/>
 		<Setter Property="Padding" Value="2,0,2,2"/>
 		<Setter Property="Content" Value="HOOFDMENU"/>
-		<Setter Property="Margin" Value="-25,110,25,0"/>
+		<Setter Property="Margin" Value="-25,80,25,0"/>
 		<Setter Property="Width" Value="120"/>
 		<Setter Property="HorizontalAlignment" Value="Left" />
 	</Style>
