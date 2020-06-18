@@ -40,6 +40,13 @@ namespace Trollkit_Library.ClientModules
 
 		public ICommand RemoveVirus { get { return new SendServerCommand(RemoveVirusFromClient); } }
 
+		public string CMDBuffer { get; set; }
+
+		public void AddToCMDBuffer(string data)
+		{
+			CMDBuffer += data + "\r\n";
+			NotifyPropertyChanged("CMDBuffer");
+		}
 
 		private void RemoveVirusFromClient()
 		{
@@ -67,6 +74,7 @@ namespace Trollkit_Library.ClientModules
 			NotifyPropertyChanged("ClientName");
 			this.Data = new byte[SharedProperties.DataSize];
 			storedData = new Dictionary<string, string>();
+			CMDBuffer = "";
 		}
 
 		public void SetDataItem(string key, string value)
