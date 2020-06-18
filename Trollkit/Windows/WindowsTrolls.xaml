@@ -6,30 +6,21 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
     xmlns:local="clr-namespace:Trollkit"
-    mc:Ignorable="d" 
-    Height="600" Width="732">
+    mc:Ignorable="d">
     
 	<Canvas>
-        <Rectangle 
-            Style="{StaticResource windowsTrollBackground}"
-            Canvas.Left="12"/>
+        <Rectangle Style="{StaticResource windowsTrollBackground}" />
 
-        <DockPanel
-            Width="580">
-
+        <DockPanel Style="{StaticResource windowsTrollsStylingWrapper}">
             <Label 
                 Style="{StaticResource VerticalGlitchText}" 
                 Content="足りる" 
-                DockPanel.Dock="Left"
-                />
-
+                DockPanel.Dock="Left"/>
             <Polygon 
                 Style="{StaticResource whiteLineTriangle}" 
                 DockPanel.Dock="Right"/>
-
             <Grid>
-                <Ellipse 
-                    Style="{StaticResource OutrunCircle}"/>
+                <Ellipse Style="{StaticResource OutrunCircle}"/>
             </Grid>
         </DockPanel>
         
@@ -38,10 +29,8 @@
             Canvas.Top="240" 
             Canvas.Left="140"
             Style="{StaticResource windowsTrollWrapper}">
-            
-            <WrapPanel 
-                Style="{StaticResource windowsTrollElementsWrapper}">
-                
+
+            <WrapPanel Style="{StaticResource windowsTrollElementsWrapper}">
                 <Label 
                     Content="Mouseposition" 
                     Style="{StaticResource windowsTrollLabel}"/>
@@ -57,9 +46,7 @@
                     Command="{Binding Windows.MousePosition}"/>
             </WrapPanel>
 
-            <WrapPanel 
-                Style="{StaticResource windowsTrollElementsWrapper}">
-                
+            <WrapPanel Style="{StaticResource windowsTrollElementsWrapper}">
                 <Label 
                     Content="CMD Command" 
                     Style="{StaticResource windowsTrollLabel}"/>
@@ -72,10 +59,7 @@
                     Command="{Binding Windows.Go}"/>
             </WrapPanel>
 
-
-            <WrapPanel 
-                Style="{StaticResource windowsTrollElementsWrapper}">
-                
+            <WrapPanel Style="{StaticResource windowsTrollElementsWrapper}">
                 <Button 
                     Style="{StaticResource OutrunButton}" 
                     Content="ALT-TAB" 
