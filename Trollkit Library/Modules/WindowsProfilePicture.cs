@@ -10,28 +10,39 @@ namespace Trollkit_Library.Modules
 
 		public static string Get448ImageString()
 		{
-			RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\AccountPicture", true);
-
-			if(key != null)
+			try
 			{
-				string imageId = key.GetValue(@"SourceId").ToString();
-				string pfLocation = $@"C:\Users\{Environment.UserName}\AppData\Roaming\Microsoft\Windows\AccountPictures\" + imageId + ".accountpicture-ms";
+				RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\AccountPicture", true);
 
-				return Convert.ToBase64String(GetImage448Bytes(pfLocation));
-			}
-			else
-			{
-				string defaultImage = @"C:\ProgramData\Microsoft\User Account Pictures\user.bmp";
-				if (File.Exists(defaultImage))
-				{ 
-					byte[] bytes = File.ReadAllBytes(defaultImage);
-					return Convert.ToBase64String(bytes);
+				if (key != null)
+				{
+					string UserName = Directory.GetParent(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)).FullName;
+					UserName = Directory.GetParent(UserName).Name;
+
+					string imageId = key.GetValue(@"SourceId").ToString();
+					string pfLocation = $@"C:\Users\{UserName}\AppData\Roaming\Microsoft\Windows\AccountPictures\" + imageId + ".accountpicture-ms";
+
+					return Convert.ToBase64String(GetImage448Bytes(pfLocation));
 				}
 				else
 				{
-					return null;
+					string defaultImage = @"C:\ProgramData\Microsoft\User Account Pictures\user.bmp";
+					if (File.Exists(defaultImage))
+					{
+						byte[] bytes = File.ReadAllBytes(defaultImage);
+						return Convert.ToBase64String(bytes);
+					}
+					else
+					{
+						return null;
+					}
 				}
-			}		
+			}
+			catch (Exception e)
+			{
+				BConsole.WriteLine("ProfilePicture Error: " + e.Message, ConsoleColor.Red);
+				return "";
+			}
 		}
 
 		public static void SaveImagesAsBitmap(string filePath)

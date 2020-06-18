@@ -11,8 +11,7 @@
         <Rectangle Style="{StaticResource AudioBlue}"/>
         <Label Style="{StaticResource HeaderText}" Content="xD"/>
         <TextBlock Style="{StaticResource AudioTextBlock}" Text="Your PC wants to preform an audo troll, please select an option."/>
-
-        <StackPanel Height="106" Canvas.Left="53" Canvas.Top="254" Width="175" RenderTransformOrigin="0.5,0.5">
+        <StackPanel Style="{StaticResource ButtonPanel}" Canvas.Left="53" Canvas.Top="254">
             <Button Style="{StaticResource AudioFileButton}" Canvas.Left="52" Canvas.Top="240" Command="{Binding Audio.Beep}">
                 <TextBlock Text="> Beep"/>
             </Button>
@@ -22,16 +21,8 @@
             <Button Style="{StaticResource AudioFileButton}" Canvas.Left="57" Canvas.Top="326" Command="{Binding Audio.WesselMove}" >
                 <TextBlock Text="&gt; Wessel Move"/>
             </Button>
-            <StackPanel.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-3.037"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </StackPanel.RenderTransform>
         </StackPanel>
-        <StackPanel Height="139" Canvas.Left="228" Canvas.Top="243" Width="175" RenderTransformOrigin="0.5,0.5">
+        <StackPanel Style="{StaticResource ButtonPanel}" Canvas.Left="228" Canvas.Top="243" >
             <Button Style="{StaticResource AudioFileButton}" Canvas.Left="57" Canvas.Top="326" Command="{Binding Audio.Windows}" >
                 <TextBlock Text="&gt; Windows pop-up"/>
             </Button>
@@ -41,106 +32,28 @@
             <Button Style="{StaticResource AudioFileButton}" Canvas.Left="57" Canvas.Top="326" Command="{Binding Audio.Macintosh}" >
                 <TextBlock Text="&gt; Machintosh 420"/>
             </Button>
-            <Button Style="{StaticResource AudioFileButton}" Canvas.Left="237" Canvas.Top="339" Command="{Binding Audio.StopSound}" Width="164" Height="34" RenderTransformOrigin="0.5,0.5" >
+            <Button Style="{StaticResource AudioFileButton}" Canvas.Left="237" Canvas.Top="339" Command="{Binding Audio.StopSound}">
                 <TextBlock Text="&gt; Stop Sound"/>
             </Button>
-            <StackPanel.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-3.037"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </StackPanel.RenderTransform>
         </StackPanel>
 
-        <Image Source="..\Resources\Images\Sirenhead.png" Canvas.Top="47" Width="315" Height="517" Canvas.Left="367" >
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-0.391"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
-        <Button Style="{StaticResource ControlButton}" Canvas.Left="476" Canvas.Top="36" Width="62" Height="62" RenderTransformOrigin="0.565,0.471" Command="{Binding Audio.Mute}" Foreground="{x:Null}" BorderBrush="{x:Null}">
-            <Button.Background>
-                <ImageBrush ImageSource="..\Resources\Images\volume-mute.png" />
-            </Button.Background>
-            <Button.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform ScaleY="-1"/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="220.024"/>
-                    <TranslateTransform X="-8.255" Y="1.199"/>
-                </TransformGroup>
-            </Button.RenderTransform>
+        <Image Source="..\Resources\Images\Sirenhead.png" Canvas.Top="47" Width="315" Height="517" Canvas.Left="367" />
+        <Button Style="{StaticResource VolumeMute}" Canvas.Left="473" Canvas.Top="36" Command="{Binding Audio.Mute}"/>
+        <Button Style="{StaticResource VolumeDown}" Canvas.Left="465" Canvas.Top="104"  Command="{Binding Audio.VolumeDown}"/>
+        <Button Style="{StaticResource VolumeUp}" Canvas.Left="528" Canvas.Top="63"  Command="{Binding Audio.VolumeUp}">
         </Button>
-        <Button Style="{StaticResource ControlButton}" Canvas.Left="465" Canvas.Top="104" Width="62" Height="62" RenderTransformOrigin="0.5,0.5" Command="{Binding Audio.VolumeDown}" BorderBrush="{x:Null}" Foreground="{x:Null}">
-            <Button.Background>
-                <ImageBrush ImageSource="..\Resources\Images\volume-down.png" />
-            </Button.Background>
-            <Button.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="525"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Button.RenderTransform>
-        </Button>
-        <Button Style="{StaticResource ControlButton}" Canvas.Left="525" Canvas.Top="58" Width="79" Height="77" RenderTransformOrigin="0.5,0.5" Command="{Binding Audio.VolumeUp}" BorderBrush="{x:Null}" Foreground="{x:Null}">
-            <Button.Background>
-                <ImageBrush ImageSource="..\Resources\Images\volume-up.png" />
-            </Button.Background>
-            <Button.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="345.208"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Button.RenderTransform>
-        </Button>
-        <Button Style="{StaticResource ControlButton}" Canvas.Left="448" Canvas.Top="215" Width="24" Height="25" RenderTransformOrigin="0.5,0.5" Command="{Binding Audio.Previous}">
+        <Button Style="{StaticResource ControlButton}" Canvas.Left="448" Canvas.Top="215" Command="{Binding Audio.Previous}">
             <Button.Background>
                 <ImageBrush ImageSource="..\Resources\Images\Prev.png" />
             </Button.Background>
-            <Button.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-3.608"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Button.RenderTransform>
         </Button>
-        <ToggleButton Name="PlayPauseButton" Canvas.Left="516" Canvas.Top="206" Width="25" Height="25" RenderTransformOrigin="0.5,0.5" Style="{StaticResource PlayPause}" Command="{Binding Audio.PlayPause}">
-            <ToggleButton.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-3.051"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </ToggleButton.RenderTransform>
-            <Image Style="{StaticResource image}" Margin="0,0,0.333,0.333"/>
+        <ToggleButton Style="{StaticResource PlayPause}" Name="PlayPauseButton" Canvas.Left="516" Canvas.Top="206" Command="{Binding Audio.PlayPause}">
+            <Image Style="{StaticResource image}" />
         </ToggleButton>
-
-        <Button Style="{StaticResource ControlButton}" Canvas.Left="583" Canvas.Top="201" Width="24" Height="26" RenderTransformOrigin="0.5,0.5" Command="{Binding Audio.Next}">
+        <Button Style="{StaticResource ControlButton}" Canvas.Left="583" Canvas.Top="201" Command="{Binding Audio.Next}">
             <Button.Background>
                 <ImageBrush ImageSource="..\Resources\Images\Next.png" />
             </Button.Background>
-            <Button.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-3.608"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Button.RenderTransform>
         </Button>
-
     </Canvas>
 </UserControl>

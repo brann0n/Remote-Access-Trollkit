@@ -33,7 +33,7 @@ namespace Trollkit_Library.ViewModels.Commands
 
 			XCoordinate = "0";
 			YCoordinate = "0";
-			CommandText = "show,c: & color a & tree";
+			CommandText = "show,color a & tree";
 		}
 
         private void SendMousePosition()

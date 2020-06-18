@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Interop;
+using Trollkit_Library;
 using Trollkit_Library.Models;
 
 namespace Trollkit_Client.Modules.CommandHandlers
@@ -30,27 +31,20 @@ namespace Trollkit_Client.Modules.CommandHandlers
 		{
 			switch (obj.Command)
 			{
-				case "PlayBeep":
-					PlayBeep(obj.Value);
-					return true;
-				case "Jeff":
-					PlayJeff();
-					return true;
+				case "PlayBeep":		
+					return PlayBeep(obj.Value); ;
+				case "Jeff":					
+					return PlayJeff();
 				case "WesselMove":
-					PlayWesselMove();
-					return true;
+					return PlayWesselMove();
 				case "Windows":
-					PlaywindowsSound();
-					return true;
+					return PlaywindowsSound();
 				case "Horn":
-					PlayHorn();
-					return true;
+					return PlayHorn();
 				case "Macintosh":
-					PlayMacintosh420();
-					return true;
+					return PlayMacintosh420();
 				case "Stop":
-					StopSound();
-					return true;
+					return StopSound();
 				case "VolumeUp":
 					keybd_event(VOLUME_UP, 0, 0, IntPtr.Zero);
 					return true;
@@ -73,54 +67,129 @@ namespace Trollkit_Client.Modules.CommandHandlers
 			return false;
 		}
 
-		private void PlayBeep(string playBeep)
+		private bool PlayBeep(string playBeep)
 		{
-			string[] values = playBeep.Split(',');
-
-			if (values.Length == 2)
+			try
 			{
-				Console.Beep(int.Parse(values[0]), int.Parse(values[1]));
+				string[] values = playBeep.Split(',');
+
+				if (values.Length == 2)
+				{
+					Console.Beep(int.Parse(values[0]), int.Parse(values[1]));
+				}
+				else
+				{
+					Console.Beep(500, 500);
+				}
+
+				return true;
 			}
-			else
+			catch (Exception e)
 			{
-				Console.Beep(500, 500);
+				BConsole.WriteLine("Audio Error: " + e.Message, ConsoleColor.Red);
+				return false;
+			}
+
+		}
+
+		private bool PlayJeff()
+		{
+			try
+			{
+				soundplayer = new SoundPlayer(Properties.Resources.MyNameIsJeff);
+				soundplayer.Play();
+				return true;
+			}
+			catch (Exception e)
+			{
+
+				BConsole.WriteLine("Audio Error: " + e.Message, ConsoleColor.Red);
+				return false;
 			}
 		}
 
-		private void PlayJeff()
+		private bool PlayWesselMove()
 		{
-			soundplayer = new SoundPlayer(Properties.Resources.MyNameIsJeff);
-			soundplayer.Play();
+			try
+			{
+				soundplayer = new SoundPlayer(Properties.Resources.EchtEenWesselSample);
+				soundplayer.Play();
+				return true;
+			}
+			catch (Exception e)
+			{
+
+				BConsole.WriteLine("Audio Error: " + e.Message, ConsoleColor.Red);
+				return false;
+			}
 		}
 
-		private void PlayWesselMove()
+		private bool PlaywindowsSound()
 		{
-			soundplayer = new SoundPlayer(Properties.Resources.EchtEenWesselSample);
-			soundplayer.Play();
+			try
+			{
+				soundplayer = new SoundPlayer(Properties.Resources.windows_10);
+				soundplayer.Play();
+				return true;
+			}
+			catch (Exception e)
+			{
+
+				BConsole.WriteLine("Audio Error: " + e.Message, ConsoleColor.Red);
+				return false;
+			}
 		}
 
-		private void PlaywindowsSound()
+		private bool PlayHorn()
 		{
-			soundplayer = new SoundPlayer(Properties.Resources.windows_10);
-			soundplayer.Play();
+			try
+			{
+				soundplayer = new SoundPlayer(Properties.Resources.Horn);
+				soundplayer.Play();
+				return true;
+			}
+			catch (Exception e)
+			{
+				BConsole.WriteLine("Audio Error: " + e.Message, ConsoleColor.Red);
+				return false;
+			}
 		}
 
-		private void PlayHorn()
+		private bool PlayMacintosh420()
 		{
-			soundplayer = new SoundPlayer(Properties.Resources.Horn);
-			soundplayer.Play();
+			try
+			{
+				soundplayer = new SoundPlayer(Properties.Resources.MACINTOSH_PLUS);
+				soundplayer.Play();
+				return true;
+			}
+			catch (Exception e)
+			{
+				BConsole.WriteLine("Audio Error: " + e.Message, ConsoleColor.Red);
+				return false;
+			}
 		}
 
-		private void PlayMacintosh420()
+		private bool StopSound()
 		{
-			soundplayer = new SoundPlayer(Properties.Resources.MACINTOSH_PLUS);
-			soundplayer.Play();
-		}
+			try
+			{
+				if (soundplayer != null)
+				{
+					soundplayer.Stop();
+				}
+				else
+				{
+					BConsole.WriteLine("No music was playing, cannot stop player", ConsoleColor.DarkRed);
+				}
 
-		private void StopSound()
-		{
-			Console.WriteLine("test");
-			soundplayer.Stop();
+				return true;
+			}
+			catch (Exception e)
+			{
+				BConsole.WriteLine("Audio Error: " + e.Message, ConsoleColor.Red);
+				return false;
+			}
 		}
 
 	}

