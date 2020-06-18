@@ -34,6 +34,90 @@
         <Setter Property="Command" Value="{Binding Client.Website}"/>
         <Setter Property="Padding" Value="4,0,4,0"/>
     </Style>
+
+    <Style x:Key="madeByLabel" TargetType="{x:Type Label}">
+        <Setter Property="FontSize" Value="8"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Foreground" Value="#888888"/>
+    </Style>
+
+    <Style x:Key="oldSchoolWindowsMenu" TargetType="{x:Type StackPanel}">
+        <Setter Property="Orientation" Value="Horizontal"/>
+        <Setter Property="Background" Value="#e6eaed"/>
+    </Style>
+
+    <Style x:Key="oldSchoolWindowsHeader" TargetType="{x:Type TextBlock}">
+        <Setter Property="Width" Value="auto"/>
+
+        <Setter Property="Background">
+            <Setter.Value>
+                <DrawingBrush TileMode="Tile" Viewport="0,0,16,16" ViewportUnits="Absolute">
+                    <DrawingBrush.Drawing>
+                        <DrawingGroup>
+                            <GeometryDrawing Geometry="M0,0 L2,0 2,2, 0,2Z" Brush="#9e0d84"/>
+                            <GeometryDrawing Geometry="M0,1 L2,1 2,2, 1,2 1,0 0,0Z" Brush="#ba119c"/>
+                        </DrawingGroup>
+                    </DrawingBrush.Drawing>
+                </DrawingBrush>
+            </Setter.Value>
+        </Setter>
+        
+        <Setter Property="TextAlignment" Value="Center"/>
+        <Setter Property="Padding" Value="4"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Foreground" Value="White"/>
+    </Style>
+
+
+
+    <Style x:Key="clientActionButton" TargetType="{x:Type Button}">
+        <Setter Property="Padding" Value="10,0,10,0"/>
+    </Style>
+
+    <Style x:Key="clientDataLabel" TargetType="{x:Type Label}">
+        <Setter Property="FontWeight" Value="Bold"/>
+    </Style>
+
+    <Style x:Key="clientDataOverview" TargetType="{x:Type StackPanel}">
+        <Setter Property="Height" Value="auto"/>
+        <Setter Property="Width" Value="auto"/>
+        <Setter Property="Orientation" Value="Horizontal"/>
+        <Setter Property="Margin" Value="0,0,0,5"/>
+    </Style>
+
+    <Style x:Key="clientOverviewUnderline" TargetType="{x:Type Border}">
+        <Setter Property="Margin" Value="1,5,1,0"/>
+        <Setter Property="BorderBrush" Value="#444444"/>
+        <Setter Property="BorderThickness" Value="0 0 0 1"/>
+        <Setter Property="VerticalAlignment" Value="Top"/>
+
+        <Setter Property="Margin" Value="20,0,20,0"/>
+    </Style>
+
+
+    <Style x:Key="clientsScrollview" TargetType="{x:Type ScrollViewer}">
+        <Setter Property="Width" Value="540"/>
+        <Setter Property="Height" Value="275"/>
+        <Setter Property="HorizontalScrollBarVisibility" Value="Visible"/>
+        <Setter Property="VerticalScrollBarVisibility" Value="Visible"/>
+        
+        <Setter Property="Background">
+            <Setter.Value>
+                <SolidColorBrush Color="#e3c5f0" Opacity="0.9"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="clientsOverview" TargetType="{x:Type ItemsControl}">
+        <Setter Property="ItemsPanel">
+            <Setter.Value>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Vertical"/>
+                </ItemsPanelTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
     
-    
+
 </ResourceDictionary>
