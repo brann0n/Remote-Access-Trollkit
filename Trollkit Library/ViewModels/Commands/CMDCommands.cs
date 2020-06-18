@@ -25,7 +25,7 @@ namespace Trollkit_Library.ViewModels.Commands
 			_server = server;
 			this.handler = handler;
 
-			CommandText = "show,color a & tree";
+			CommandText = "ipconfig";
 		}
 
 		public void SendCMDToClient()
