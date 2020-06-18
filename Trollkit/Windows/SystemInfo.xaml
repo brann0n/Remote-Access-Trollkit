@@ -11,26 +11,23 @@
         <resources:ProfilePictureImageConverter x:Key="ImageConverter"/>
     </UserControl.Resources>
     <Canvas Margin="10,0,10,10">
-        <Rectangle Style="{StaticResource MainRectangle}">
-        </Rectangle>
+        <Rectangle Style="{StaticResource MainRectangle}"/>
         <Image Style="{StaticResource ProfilePicture}" Source="{Binding SelectedClient.storedData[ProfilePicture], Converter={StaticResource ImageConverter}}"/>
         <Image Style="{StaticResource ProfilePicturePC}"/>
-
-        <StackPanel Height="335" Canvas.Left="21" Canvas.Top="26" Width="445">
-            <Label Content="> Client info" Canvas.Left="21" Canvas.Top="27" Foreground="#FF52FF00" Height="38" FontSize="20" FontWeight="Bold"/>
-            <Label Content="{Binding Path=SelectedClient.storedData[ComputerName]}" Canvas.Left="21" Canvas.Top="64" Foreground="#FF52FF00" Height="32" FontSize="18" FontFamily="Segoe UI Semilight"/>
-            <StackPanel Height="129" Canvas.Left="61" Canvas.Top="96" Margin="50,0,13,0">
+        <StackPanel Style="{StaticResource MianStackPanel}">
+            <Label Style="{StaticResource HeaderLabel}"/>
+            <Label Style="{StaticResource ComputerNameLabel}" Content="{Binding Path=SelectedClient.storedData[ComputerName]}"/>
+            <StackPanel Style="{StaticResource SysteminfoStackPanel}">
                 <Label Style="{StaticResource SystemInfoLabel}" Content="{Binding Path=SelectedClient.storedData[CPU]}"/>
                 <Label Style="{StaticResource SystemInfoLabel}" Content="{Binding Path=SelectedClient.storedData[GPU]}"/>
                 <Label Style="{StaticResource SystemInfoLabel}" Content="{Binding Path=SelectedClient.storedData[WindowsVersion]}"/>
                 <Label Style="{StaticResource SystemInfoLabel}" Content="{Binding Path=SelectedClient.storedData[RAM]}"/>
             </StackPanel>
-            <Label Content="&gt; Network" Foreground="#FF52FF00" Height="33" FontSize="18" FontFamily="Segoe UI Semilight"/>
-            <StackPanel Height="67" Canvas.Left="61" Canvas.Top="229" Margin="50,0,13,0">
-                <Label Content="{Binding Path=SelectedClient.IpAddress}" Canvas.Left="61" Canvas.Top="219" Foreground="#FF52FF00" Height="32" FontSize="16" FontFamily="Segoe UI Semilight" Margin="0,0,10,0"/>
-                <Label Content="255.255.255.0" Canvas.Left="61" Canvas.Top="251" Foreground="#FF52FF00" Height="32" FontSize="16" FontFamily="Segoe UI Semilight" HorizontalAlignment="Left" Width="409"/>
+            <Label Style="{StaticResource NetworkLabel}"/>
+            <StackPanel Style="{StaticResource NetworkStackPanel}">
+                <Label Style="{StaticResource SystemInfoLabel}" Content="{Binding Path=SelectedClient.IpAddress}"/>
+                <Label Style="{StaticResource SystemInfoLabel}" Content="255.255.255.0"/>
             </StackPanel>
         </StackPanel>
-
     </Canvas>
 </UserControl>
