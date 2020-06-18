@@ -61,6 +61,7 @@ AltTab | (none) | Sends a randomized alt+tab command to the client.
 ommand | Target | Type | Value | Description
 ------- | ------ | ---- | ----- | -----------
 ExecuteCMD | client | Command | "command and args" | executes the given command and sends back the response
+StopCMD | client | Command | (none) | Stops the cmd process on the client
 CMDResponse | server | Response | "response text" | returns whatever was outputted by the remote CMD
 
 #### SystemInfoHandler (client & server)
