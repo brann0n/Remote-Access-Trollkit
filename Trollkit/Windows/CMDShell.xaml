@@ -47,7 +47,11 @@
                                 </TextBlock.InputBindings>
                             </TextBlock>
 
-                            <TextBox BorderBrush="#483254" BorderThickness="0,0,0,1" Margin="8" Padding="0,4,0,4" Background="Transparent" MinWidth="20" Text="{Binding Path=CMD.CommandText}" libmodules:FocusExtension.IsFocused="{Binding Path=CMD.IsFocusedElement}"  Foreground="#eac2ff" Focusable="True"/>
+							<TextBox BorderBrush="#483254" BorderThickness="0,0,0,1" Margin="8" Padding="0,4,0,4" Background="Transparent" MinWidth="20" Text="{Binding Path=CMD.CommandText}" libmodules:FocusExtension.IsFocused="{Binding Path=CMD.IsFocusedElement}"  Foreground="#eac2ff" Focusable="True">
+								<TextBox.InputBindings>
+									<KeyBinding Command="{Binding Path=CMD.SendCMD}" Key="Return" />
+								</TextBox.InputBindings>
+							</TextBox>
                             
                         </StackPanel>
                     </ScrollViewer>
