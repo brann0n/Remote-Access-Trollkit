@@ -12,6 +12,7 @@
                 <ResourceDictionary Source="ResourceDictionaries\ClientsDictionary.xaml"/>
                 <ResourceDictionary Source="ResourceDictionaries\AudioTrollsDictionary.xaml"/>
                 <ResourceDictionary Source="ResourceDictionaries\System_InfoDictionary.xaml"/>
+				<ResourceDictionary Source="ResourceDictionaries\CMDShellDictionary.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

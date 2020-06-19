@@ -12,42 +12,18 @@
 	<UserControl.Resources>
 		<resources:ProfilePictureImageConverter x:Key="ImageConverter"/>
 	</UserControl.Resources>
-	<Canvas Margin="10,0,10,56">
-		<Border BorderBrush="#000000" 
-            BorderThickness="2" 
-            Background="#ebecf4" 
-            Padding="2">
-			<StackPanel Width="600" 
-                Orientation="Vertical">
-				<DockPanel Width="auto">
-					<DockPanel.Background>
-						<LinearGradientBrush StartPoint="0,1" 
-                            EndPoint="1,1">
-							<GradientStop Color="#33e0e3" 
-                                Offset="0.0" />
-							<GradientStop Color="#FC6DFF" 
-                                Offset="0.5" />
-							<GradientStop Color="#fdd76f" 
-                                Offset="1" />
-						</LinearGradientBrush>
-					</DockPanel.Background>
-					<StackPanel DockPanel.Dock="Left" 
-                        Orientation="Horizontal">
-						<Image Source="..\Resources\Images\cmd_icon.png" 
-                            Width="16" 
-                            Height="13" 
-                            Margin="10,0,0,0" 
-                            VerticalAlignment="Center"/>
+	<Canvas Style="{StaticResource MainCanvas}">
+		<Border Style="{StaticResource MainBorder}">
+			<StackPanel Style="{StaticResource CMDWindowStackPanel}">
+				<DockPanel Style="{StaticResource CMDDockPanel}">
+					<StackPanel Style="{StaticResource CMDTitleBarLeftStackPanel}">
+						<Image Style="{StaticResource CMDIcon}"/>
 						<Label Content="COMMAND PROMPT" 
                             Width="auto" 
                             FontSize="14" 
                             VerticalAlignment="Center"/>
 					</StackPanel>
-					<StackPanel Margin="4,4,10,4" 
-                        Orientation="Horizontal" 
-                        DockPanel.Dock="Right" 
-                        Width="auto" 
-                        HorizontalAlignment="Right">
+					<StackPanel Style="{StaticResource CMDTitleBarRightStackPanel}">
 						<Button Height="20" 
                             Width="20" 
                             BorderThickness="0,0,2,2" 
