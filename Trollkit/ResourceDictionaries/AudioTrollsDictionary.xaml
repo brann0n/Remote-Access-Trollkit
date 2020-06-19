@@ -2,14 +2,27 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:buttons="clr-namespace:Trollkit.Buttons">
 	<Style x:Key="AudioFileButton" TargetType="{x:Type Button}">
-        <Setter Property="BorderThickness" Value="0"/>
-        <Setter Property="FontWeight" Value="SemiBold"/>
-        <Setter Property="FontSize" Value="18"/>
-        <Setter Property="Foreground" Value="White"/>
-        <Setter Property="Height" Value="33"/>
-        <Setter Property="Width" Value="165"/>
-        <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
-      
+        <Setter 
+            Property="BorderThickness" 
+            Value="0"/>
+        <Setter 
+            Property="FontWeight" 
+            Value="SemiBold"/>
+        <Setter 
+            Property="FontSize" 
+            Value="18"/>
+        <Setter 
+            Property="Foreground" 
+            Value="White"/>
+        <Setter 
+            Property="Height" 
+            Value="33"/>
+        <Setter 
+            Property="Width" 
+            Value="165"/>
+        <Setter 
+            Property="RenderTransformOrigin" 
+            Value="0.5,0.5"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
@@ -17,12 +30,20 @@
                         <Border.Background>
                             <SolidColorBrush />
                         </Border.Background>
-                        <ContentPresenter x:Name="ButtonContentPresenter" VerticalAlignment="Center"/>
+                        <ContentPresenter 
+                            x:Name="ButtonContentPresenter" 
+                            VerticalAlignment="Center"/>
                     </Border>
                     <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True" >
-                            <Setter Property="FontWeight" Value="Bold" />
-                            <Setter Property="Cursor" Value="Hand" />
+                        <Trigger 
+                            Property="IsMouseOver" 
+                            Value="True" >
+                            <Setter 
+                                Property="FontWeight" 
+                                Value="Bold" />
+                            <Setter 
+                                Property="Cursor" 
+                                Value="Hand" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -30,28 +51,44 @@
         </Setter>
     </Style>
 
-    <Style x:Key="Button" TargetType="{x:Type Button}">
-        <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+    <Style 
+        x:Key="Button" 
+        TargetType="{x:Type Button}">
+        <Setter 
+            Property="RenderTransformOrigin" 
+            Value="0.5,0.5"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <Border Name="border" 
-                            CornerRadius="3" 
-                            Background="{TemplateBinding Background}">
+                    <Border 
+                        Name="border" 
+                        CornerRadius="3" 
+                        Background="{TemplateBinding Background}">
                         <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                     </Border>
                     <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Cursor" Value="Hand" />
+                        <Trigger 
+                            Property="IsMouseOver" 
+                            Value="True">
+                            <Setter 
+                                Property="Cursor" 
+                                Value="Hand" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
-    <Style x:Key="ControlButton" TargetType="{x:Type Button}" BasedOn="{StaticResource Button}">
-        <Setter Property="Height" Value="25"/>
-        <Setter Property="Width" Value="25"/>
+    <Style 
+        x:Key="ControlButton" 
+        TargetType="{x:Type Button}" 
+        BasedOn="{StaticResource Button}">
+        <Setter 
+            Property="Height" 
+            Value="25"/>
+        <Setter 
+            Property="Width" 
+            Value="25"/>
         <Setter Property="RenderTransform">
             <Setter.Value>
                 <TransformGroup>
@@ -61,16 +98,30 @@
         </Setter>
     </Style>
 
-    <Style x:Key="VolumeButton" TargetType="{x:Type Button}" BasedOn="{StaticResource Button}">
-        <Setter Property="Height" Value="62"/>
-        <Setter Property="Width" Value="62"/>
+    <Style 
+        x:Key="VolumeButton" 
+        TargetType="{x:Type Button}" 
+        BasedOn="{StaticResource Button}">
+        <Setter
+            Property="Height" 
+            Value="62"/>
+        <Setter 
+            Property="Width" 
+            Value="62"/>
     </Style>
 
-    
-    <Style x:Key="ButtonPanel" TargetType="{x:Type StackPanel}">
-        <Setter Property="Height" Value="139"/>
-        <Setter Property="Width" Value="175"/>
-        <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+    <Style 
+        x:Key="ButtonPanel" 
+        TargetType="{x:Type StackPanel}">
+        <Setter 
+            Property="Height" 
+            Value="139"/>
+        <Setter 
+            Property="Width" 
+            Value="175"/>
+        <Setter 
+            Property="RenderTransformOrigin" 
+            Value="0.5,0.5"/>
         <Setter Property="RenderTransform">
             <Setter.Value>
                 <TransformGroup>
@@ -78,6 +129,16 @@
                 </TransformGroup>
             </Setter.Value>
         </Setter>
+    </Style>
+
+    <Style x:Key="LeftPanel" TargetType="{x:Type StackPanel}" BasedOn="{StaticResource ButtonPanel}">
+        <Setter Property="Canvas.Top" Value="254"/>
+        <Setter Property="Canvas.Left" Value="53"/>
+    </Style>
+
+    <Style x:Key="RightPanel" TargetType="{x:Type StackPanel}" BasedOn="{StaticResource ButtonPanel}">
+        <Setter Property="Canvas.Top" Value="243"/>
+        <Setter Property="Canvas.Left" Value="228"/>
     </Style>
 
     <Style x:Key="VolumeDown" TargetType="{x:Type Button}" BasedOn="{StaticResource VolumeButton}">
