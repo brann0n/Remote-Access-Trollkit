@@ -1,78 +1,132 @@
-﻿<UserControl
-	xmlns:windows="clr-namespace:Trollkit.Windows"
-	x:Class="Trollkit.Windows.CMDShell"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+﻿<UserControl xmlns:windows="clr-namespace:Trollkit.Windows" 
+    x:Class="Trollkit.Windows.CMDShell" 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-	xmlns:resources="clr-namespace:Trollkit.Resources"
-	xmlns:libmodules="clr-namespace:Trollkit_Library.Modules;assembly=Trollkit_Library"
-    mc:Ignorable="d" Height="456" Width="634">
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:resources="clr-namespace:Trollkit.Resources" 
+    xmlns:libmodules="clr-namespace:Trollkit_Library.Modules;assembly=Trollkit_Library" 
+    mc:Ignorable="d" 
+    Height="456" 
+    Width="634">
     <UserControl.Resources>
         <resources:ProfilePictureImageConverter x:Key="ImageConverter"/>
     </UserControl.Resources>
     <Canvas Margin="10,0,10,56">
-        
+
         <!--<Rectangle Fill="Black" Width="614" Height="372"/>-->
 
-        <Border BorderBrush="#000000" BorderThickness="2" Background="#ebecf4" Padding="2">
-            <StackPanel Width="600" Orientation="Vertical">
+        <Border BorderBrush="#000000" 
+            BorderThickness="2" 
+            Background="#ebecf4" 
+            Padding="2">
+            <StackPanel Width="600" 
+                Orientation="Vertical">
                 <DockPanel Width="auto">
                     <DockPanel.Background>
-                        <LinearGradientBrush StartPoint="0,1" EndPoint="1,1">
-                            <GradientStop Color="#33e0e3" Offset="0.0" />
-                            <GradientStop Color="#FC6DFF" Offset="0.5" />
-                            <GradientStop Color="#fdd76f" Offset="1" />
+                        <LinearGradientBrush StartPoint="0,1" 
+                            EndPoint="1,1">
+                            <GradientStop Color="#33e0e3" 
+                                Offset="0.0" />
+                            <GradientStop Color="#FC6DFF" 
+                                Offset="0.5" />
+                            <GradientStop Color="#fdd76f" 
+                                Offset="1" />
                         </LinearGradientBrush>
                     </DockPanel.Background>
 
-                    <StackPanel DockPanel.Dock="Left" Orientation="Horizontal">
-                        <Image Source="..\Resources\Images\cmd_icon.png" Width="16" Height="13" Margin="10,0,0,0" VerticalAlignment="Center"/>
-                        <Label Content="COMMAND PROMPT" Width="auto" FontSize="14" VerticalAlignment="Center"/>
+                    <StackPanel DockPanel.Dock="Left" 
+                        Orientation="Horizontal">
+                        <Image Source="..\Resources\Images\cmd_icon.png" 
+                            Width="16" 
+                            Height="13" 
+                            Margin="10,0,0,0" 
+                            VerticalAlignment="Center"/>
+                        <Label Content="COMMAND PROMPT" 
+                            Width="auto" 
+                            FontSize="14" 
+                            VerticalAlignment="Center"/>
                     </StackPanel>
 
-                    <StackPanel Margin="4,4,10,4" Orientation="Horizontal" DockPanel.Dock="Right" Width="auto" HorizontalAlignment="Right">
-                        <Button Height="20" Width="20"  BorderThickness="0,0,2,2" BorderBrush="Black" Content="-" FontSize="12" Foreground="Black" FontWeight="Bold"></Button>
-                        <Button Height="20" Width="20" BorderThickness="0,0,2,2" BorderBrush="Black" Content="[]" FontSize="12" Foreground="Black" FontWeight="Bold"></Button>
-                        <Button Height="20" Width="20"  BorderThickness="0,0,2,2" BorderBrush="Black" Content="X" FontSize="12" Foreground="Black" FontWeight="Bold"></Button>
+                    <StackPanel Margin="4,4,10,4" 
+                        Orientation="Horizontal" 
+                        DockPanel.Dock="Right" 
+                        Width="auto" 
+                        HorizontalAlignment="Right">
+                        <Button Height="20" 
+                            Width="20" 
+                            BorderThickness="0,0,2,2" 
+                            BorderBrush="Black" 
+                            Content="-" 
+                            FontSize="12" 
+                            Foreground="Black" 
+                            FontWeight="Bold"></Button>
+                        <Button Height="20" 
+                            Width="20" 
+                            BorderThickness="0,0,2,2" 
+                            BorderBrush="Black" 
+                            Content="[]" 
+                            FontSize="12" 
+                            Foreground="Black" 
+                            FontWeight="Bold"></Button>
+                        <Button Height="20" 
+                            Width="20" 
+                            BorderThickness="0,0,2,2" 
+                            BorderBrush="Black" 
+                            Content="X" 
+                            FontSize="12" 
+                            Foreground="Black" 
+                            FontWeight="Bold"></Button>
                     </StackPanel>
                 </DockPanel>
 
-				<Border BorderBrush="#bfc4c0" BorderThickness="4,4,4,8">
-					<StackPanel>
-						<ScrollViewer Height="350" Width="auto" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Auto" libmodules:ScrollHelper.AutoScroll="True">
-							<ScrollViewer.InputBindings>
-								<MouseBinding Command="{Binding CMD.Focus}" MouseAction="LeftClick" />
-							</ScrollViewer.InputBindings>
-							<StackPanel Orientation="Vertical" Background="#000000" >
-								<TextBlock  Padding="8" Foreground="#eac2ff" Width="auto" Text="{Binding SelectedClient.CMDBuffer}" FontFamily="Consolas">
-									<TextBlock.InputBindings>
-										<MouseBinding Command="{Binding CMD.Focus}" MouseAction="LeftClick" />
-									</TextBlock.InputBindings>
-								</TextBlock>
+                <Border BorderBrush="#bfc4c0" 
+                    BorderThickness="4,4,4,8">
+                    <StackPanel>
+                        <ScrollViewer Height="350" 
+                            Width="auto" 
+                            VerticalScrollBarVisibility="Visible" 
+                            HorizontalScrollBarVisibility="Auto" 
+                            libmodules:ScrollHelper.AutoScroll="True">
+                            <ScrollViewer.InputBindings>
+                                <MouseBinding Command="{Binding CMD.Focus}" 
+                                    MouseAction="LeftClick" />
+                            </ScrollViewer.InputBindings>
+                            <StackPanel Orientation="Vertical" 
+                                Background="#000000">
+                                <TextBlock Padding="8" 
+                                    Foreground="#eac2ff" 
+                                    Width="auto" 
+                                    Text="{Binding SelectedClient.CMDBuffer}" 
+                                    FontFamily="Consolas">
+                                    <TextBlock.InputBindings>
+                                        <MouseBinding Command="{Binding CMD.Focus}" 
+                                            MouseAction="LeftClick" />
+                                    </TextBlock.InputBindings>
+                                </TextBlock>
 
                             </StackPanel>
-                            
-						</ScrollViewer>
-						<TextBox 
-							BorderBrush="#483254" 
-							BorderThickness="0,0,0,1" 
-							Margin="0,0,17,0" 
-							Padding="0,4,0,4" 
-							Background="#000000" 
-							MinWidth="20" 
-							Text="{Binding CMD.CommandText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
-							libmodules:FocusExtension.IsFocused="{Binding CMD.IsFocusedElement}" 
-							Foreground="#eac2ff" 
-							Focusable="True"
-							CaretBrush="Blue">
-							<TextBox.InputBindings>
-								<KeyBinding Command="{Binding CMD.SendCMD}" Key="Return" />
-							</TextBox.InputBindings>
-						</TextBox>
-					</StackPanel>
-				</Border>
-			</StackPanel>
+
+                        </ScrollViewer>
+                        <TextBox BorderBrush="#483254" 
+                            BorderThickness="0,0,0,1" 
+                            Margin="0,0,17,0" 
+                            Padding="0,4,0,4" 
+                            Background="#000000" 
+                            MinWidth="20" 
+                            Text="{Binding CMD.CommandText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                            libmodules:FocusExtension.IsFocused="{Binding CMD.IsFocusedElement}" 
+                            Foreground="#eac2ff" 
+                            Focusable="True" 
+                            CaretBrush="Blue">
+                            <TextBox.InputBindings>
+                                <KeyBinding Command="{Binding CMD.SendCMD}" 
+                                    Key="Return" />
+                            </TextBox.InputBindings>
+                        </TextBox>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
         </Border>
     </Canvas>
 </UserControl>
