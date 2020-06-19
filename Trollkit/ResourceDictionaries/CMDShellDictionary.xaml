@@ -16,6 +16,13 @@
 		<Setter Property="Padding" 
             Value="2"/>
 	</Style>
+	<Style x:Key="InsideBorder" 
+        TargetType="{x:Type Border}">
+		<Setter Property="BorderBrush" 
+            Value="#bfc4c0"/>
+		<Setter Property="BorderThickness" 
+            Value="4,4,4,8"/>
+	</Style>
 	<Style x:Key="CMDWindowStackPanel" 
         TargetType="{x:Type StackPanel}">
 		<Setter Property="Width" 
@@ -73,5 +80,33 @@
 				Value="10,0,0,0" />
 		<Setter Property="VerticalAlignment"
 				Value="Center" />
+	</Style>
+	<Style x:Key="CMDPromptLabel"
+		   TargetType="{x:Type Label}">
+		<Setter Property="Content"
+				Value="COMMAND PROMPT" />
+		<Setter Property="Width"
+				Value="Auto" />
+		<Setter Property="FontSize"
+				Value="14" />
+		<Setter Property="VerticalAlignment"
+				Value="Center" />
+	</Style>
+	<Style x:Key="CMDWindowControlButton"
+		   TargetType="{x:Type Button}">
+		<Setter Property="Width"
+				Value="20" />
+		<Setter Property="Height"
+				Value="20" />
+		<Setter Property="BorderThickness"
+				Value="0,0,2,2" />
+		<Setter Property="BorderBrush"
+				Value="Black" />
+		<Setter Property="FontSize"
+				Value="12" />
+		<Setter Property="Foreground"
+				Value="Black" />
+		<Setter Property="FontWeight"
+				Value="Bold" />
 	</Style>
 </ResourceDictionary>

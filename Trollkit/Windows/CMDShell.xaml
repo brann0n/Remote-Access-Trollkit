@@ -18,40 +18,18 @@
 				<DockPanel Style="{StaticResource CMDDockPanel}">
 					<StackPanel Style="{StaticResource CMDTitleBarLeftStackPanel}">
 						<Image Style="{StaticResource CMDIcon}"/>
-						<Label Content="COMMAND PROMPT" 
-                            Width="auto" 
-                            FontSize="14" 
-                            VerticalAlignment="Center"/>
+						<Label Style="{StaticResource CMDPromptLabel}"/>
 					</StackPanel>
 					<StackPanel Style="{StaticResource CMDTitleBarRightStackPanel}">
-						<Button Height="20" 
-                            Width="20" 
-                            BorderThickness="0,0,2,2" 
-                            BorderBrush="Black" 
-                            Content="-" 
-                            FontSize="12" 
-                            Foreground="Black" 
-                            FontWeight="Bold"></Button>
-						<Button Height="20" 
-                            Width="20" 
-                            BorderThickness="0,0,2,2" 
-                            BorderBrush="Black" 
-                            Content="[]" 
-                            FontSize="12" 
-                            Foreground="Black" 
-                            FontWeight="Bold"></Button>
-						<Button Height="20" 
-                            Width="20" 
-                            BorderThickness="0,0,2,2" 
-                            BorderBrush="Black" 
-                            Content="X" 
-                            FontSize="12" 
-                            Foreground="Black" 
-                            FontWeight="Bold"></Button>
+						<Button Style="{StaticResource CMDWindowControlButton}"
+								Content="-" />
+						<Button Style="{StaticResource CMDWindowControlButton}"
+								Content="[]" />
+						<Button Style="{StaticResource CMDWindowControlButton}"
+								Content="X" />
 					</StackPanel>
 				</DockPanel>
-				<Border BorderBrush="#bfc4c0" 
-                    BorderThickness="4,4,4,8">
+				<Border Style="{StaticResource InsideBorder}">
 					<StackPanel>
 						<ScrollViewer Height="350" 
                             Width="auto" 
