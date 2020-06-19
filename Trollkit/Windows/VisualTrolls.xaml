@@ -4,34 +4,34 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             mc:Ignorable="d" Height="389.313" Width="633.969">
+             mc:Ignorable="d" Height="459.313" Width="633.969">
     <Canvas Margin="10,0,29,10">
-		<Ellipse 
+        <Ellipse 
             Style="{StaticResource Sun}" 
-            Canvas.Left="98" 
+            Canvas.Left="9" 
             Canvas.Top="10"/>
-		<Image 
+        <Image 
             Style="{StaticResource Flowers}" 
             Source="..\Resources\Images\Flowers.png" 
             Canvas.Top="-51" 
-            Canvas.Left="-16"/>
-        
+            Canvas.Left="-98"/>
+
         <StackPanel 
             Style="{StaticResource VisualTrollsWrapper}" 
-            Canvas.Left="220" 
-            Canvas.Top="120">
-            
-            <StackPanel Style="{StaticResource VisualTrollsElementsWrapper}">    
+            Canvas.Left="127" 
+            Canvas.Top="110">
+
+            <StackPanel Style="{StaticResource VisualTrollsElementsWrapper}">
                 <Button 
                     Style="{StaticResource SubmitButton}" 
                     Content="DISPLAY IMAGE" 
                     Command="{Binding Visual.DisplayImage}" />
             </StackPanel>
-            
+
             <StackPanel Style="{StaticResource VisualTrollsElementsWrapper}">
                 <TextBox 
-                    Style="{StaticResource LargeTextBox}" 
-                    Text="{Binding Visual.BroadcastMessageText}" />
+                    Style="{StaticResource TextBox}" 
+                    Text="{Binding Visual.BroadcastMessageText}"/>
                 <Button 
                     Style="{StaticResource SubmitButton}" 
                     Content="DISPLAY TEXT" 
@@ -44,7 +44,7 @@
                     Content="DISABLE SCREEN" 
                     Command="{Binding Visual.TurnOffScreen}"/>
             </StackPanel>
-                
+
             <StackPanel Style="{StaticResource VisualTrollsElementsWrapper}">
                 <TextBox 
                     Style="{StaticResource TextBox}" 
@@ -60,6 +60,13 @@
                     Style="{StaticResource SubmitButton}" 
                     Content="CHOOSE BACKGROUND IMAGE" 
                     Command="{Binding Visual.PickBackgroundImage}"/>
+            </StackPanel>
+            <StackPanel Style="{StaticResource VisualTrollsElementsWrapper}">
+                <ComboBox Style="{StaticResource Dropdown}"/>
+                <Button 
+                    Style="{StaticResource SubmitButton}" 
+                    Content="MAKE SCREENSHOT" 
+                    Command="{Binding Screenshot.MakeScreenshot}"/>
             </StackPanel>
         </StackPanel>
     </Canvas>

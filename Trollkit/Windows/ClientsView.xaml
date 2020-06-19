@@ -80,37 +80,11 @@
             </ScrollViewer>
         </StackPanel>
 
-
-        <Viewport3D Style="{StaticResource Cube}" 
+        <Viewport3D 
+            Style="{StaticResource CubeWrapper}" 
             Canvas.Left="475" 
             Canvas.Top="250">
-            <ModelVisual3D>
-                <ModelVisual3D.Content>
-                    <Model3DGroup>
-                        <AmbientLight Color="Magenta" />
-                        <DirectionalLight Color="Yellow" 
-                            Direction="1,-2,-3" />
-
-                        <GeometryModel3D>
-                            <GeometryModel3D.Geometry>
-                                <MeshGeometry3D Positions="
-                                    -1,-1,-1   1,-1,-1   1,-1, 1  -1,-1, 1  -1,-1, 1   1,-1, 1   1, 1, 1  -1, 1, 1
-                                    1,-1, 1   1,-1,-1   1, 1,-1   1, 1, 1   1, 1, 1   1, 1,-1  -1, 1,-1  -1, 1, 1
-                                    -1,-1, 1  -1, 1, 1  -1, 1,-1  -1,-1,-1  -1,-1,-1  -1, 1,-1   1, 1,-1   1,-1,-1" 
-                                    TriangleIndices="
-                                    0  1  2     2  3  0     4  5  6     6  7  4
-                                    8  9 10    10 11  8    12 13 14    14 15 12
-                                    16 17 18    18 19 16    20 21 22    22 23 20" />
-                            </GeometryModel3D.Geometry>
-
-                            <GeometryModel3D.Material>
-                                <DiffuseMaterial Brush="LightGray" />
-                            </GeometryModel3D.Material>
-                        </GeometryModel3D>
-                    </Model3DGroup>
-                </ModelVisual3D.Content>
-            </ModelVisual3D>
+            <ModelVisual3D Content="{StaticResource Cube}"/>
         </Viewport3D>
-
     </Canvas>
 </UserControl>
