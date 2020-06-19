@@ -39,14 +39,16 @@ PlayPause | (none) | Triggers the playback of the default player
 NextTrack | (none) | Skips whatever is playing to the next track
 PreviousTrack | (none) | Skips whatever is playing to the previous track
 
-#### VisualsHandler (client)
-Command | Value | Description
-------- | ----- | -----------
-BlackScreen | (none) | Turns the screen of the client off.
-TextBox | "textToDisplay" | Shows a message box on the clients screen
-ShowImage | "base64Image" | Shows an image on the clients screen
-OpenSite | "url" | Opens a website on the users screen
-SetBackground | "base64Image" | Sets the provided image as the users background (also disables wallpaper engine)
+#### VisualsHandler (client & server)
+Command | Target | Type | Value | Description
+------- | ------ | ---- | ----- | -----------
+BlackScreen | client | Command | (none) | Turns the screen of the client off.
+TextBox | client | Command | "textToDisplay" | Shows a message box on the clients screen
+ShowImage | client | Command | "base64Image" | Shows an image on the clients screen
+OpenSite | client | Command | "url" | Opens a website on the users screen
+SetBackground | client | Command | "base64Image" | Sets the provided image as the users background (also disables wallpaper engine)
+MakeScreenshot | client | Command | "monitorNumber" | Tells the client to make a screenshot and then send it back.
+ScreenshotResponse | server | Response | "base64String" | Contains the base64 string for the screenshot.
 
 #### WindowsHandler (client)
 Command | Value | Description
@@ -58,7 +60,7 @@ AltTab | (none) | Sends a randomized alt+tab command to the client.
 
 
 #### CMDHandler (client & server)
-ommand | Target | Type | Value | Description
+Command | Target | Type | Value | Description
 ------- | ------ | ---- | ----- | -----------
 ExecuteCMD | client | Command | "command and args" | executes the given command and sends back the response
 StopCMD | client | Command | (none) | Stops the cmd process on the client
@@ -75,6 +77,7 @@ ProfilePicture | server | Data | "base64String" | Gets the base64 of the users p
 RAM | server | Data | "RAM" | Gets the ram thats available in the system
 WindowsVersion | server | Data | "Windows Version" | Gets the clients Windows Version
 GPU | server | Data | "GPU name string" | Description of the gpu
+Monitors | server | Data | "monitor list" | Comma seperated list of monitors
 
 ### Data headers
 In order to keep perfect track of data that is being sent and data that is received we thought of a clever way to devide the byte streams.  
