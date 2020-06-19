@@ -50,7 +50,9 @@
 										<MouseBinding Command="{Binding CMD.Focus}" MouseAction="LeftClick" />
 									</TextBlock.InputBindings>
 								</TextBlock>
-							</StackPanel>
+
+                            </StackPanel>
+                            
 						</ScrollViewer>
 						<TextBox 
 							BorderBrush="#483254" 

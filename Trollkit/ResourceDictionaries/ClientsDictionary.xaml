@@ -118,6 +118,49 @@
         </Setter>
     </Style>
 
+
+    <Style x:Key="Cube" TargetType="{x:Type Viewport3D}">
+        <Setter Property="Camera">
+            <Setter.Value>
+                <PerspectiveCamera 
+                    Position = "2, 2, 2"
+                    LookDirection = "-2, -2, -2"
+                    UpDirection = "0, 1, 0"
+                    FieldOfView = "100">
+                </PerspectiveCamera>
+            </Setter.Value>
+        </Setter>
+
+        <Setter Property="Height" Value="200"/>
+        <Setter Property="Width" Value="200"/>
+    </Style>
+
     
+    <!-- 
+            <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ToggleButton">
+                    <Border BorderBrush="{TemplateBinding BorderBrush}" 
+                                Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Center"                  
+                                              VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    -->
+
+    <Style x:Key="SelectAllClientsButton" TargetType="{x:Type ToggleButton}">
+        
+        <Style.Triggers>
+            <Trigger Property="IsChecked" Value="True">
+                <Setter Property="Content" Value="Select a Single Clients"/>
+            </Trigger>
+            <Trigger Property="IsChecked" Value="False">
+                <Setter Property="Content" Value="Select ALL Clients"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
 
 </ResourceDictionary>

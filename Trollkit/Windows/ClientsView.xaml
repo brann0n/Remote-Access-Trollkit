@@ -59,42 +59,80 @@
                 Canvas.Top="5" 
                 Style="{StaticResource clientsScrollview}">
 
-                <ItemsControl 
-                    Style="{StaticResource clientsOverview}"
-                    ItemsSource="{Binding Path=Clients}">
+                <StackPanel
+                    Orientation="Vertical">
+                    <ItemsControl 
+                        Style="{StaticResource clientsOverview}"
+                        ItemsSource="{Binding Path=Clients}">
 
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <Border
-                                Style="{StaticResource clientOverviewUnderline}">
-                                <StackPanel 
-                                    Style="{StaticResource clientDataOverview}">
-                                    <Label 
-                                        Content="{Binding Path=storedData[ComputerName]}"
-                                        Style="{StaticResource clientDataLabel}"
-                                        FontWeight="Bold"/>
-                                    <Button 
-                                        Command="{Binding Select}" 
-                                        Style="{StaticResource clientActionButton}"
-                                        Content="Select"/>
-                                    <Button 
-                                        Command="{Binding Kick}"
-                                        Style="{StaticResource clientActionButton}"
-                                        Content="Kick" />
-                                    <Button 
-                                        Command="{Binding RemoveVirus}" 
-                                        Style="{StaticResource clientActionButton}"
-                                        Content="Remove Virus" />
-                                    <Label 
-                                        Content="{Binding Path=ClientName}" 
-                                        Style="{StaticResource clientDataLabel}"/>
-                                </StackPanel>
-                            </Border>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Border
+                                    Style="{StaticResource clientOverviewUnderline}">
+                                    <StackPanel 
+                                        Style="{StaticResource clientDataOverview}">
+                                        <Label 
+                                            Content="{Binding Path=storedData[ComputerName]}"
+                                            Style="{StaticResource clientDataLabel}"
+                                            FontWeight="Bold"/>
+                                        <Button 
+                                            Command="{Binding Select}" 
+                                            Style="{StaticResource clientActionButton}"
+                                            Content="Select"/>
+                                        <Button 
+                                            Command="{Binding Kick}"
+                                            Style="{StaticResource clientActionButton}"
+                                            Content="Kick" />
+                                        <Button 
+                                            Command="{Binding RemoveVirus}" 
+                                            Style="{StaticResource clientActionButton}"
+                                            Content="Remove Virus" />
+                                        <Label 
+                                            Content="{Binding Path=ClientName}" 
+                                            Style="{StaticResource clientDataLabel}"/>
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
 
+                    <ToggleButton Style="{StaticResource SelectAllClientsButton}"/>
+                </StackPanel>
             </ScrollViewer>
         </StackPanel>
+
+
+        <Viewport3D 
+            Style="{StaticResource Cube}"
+            Canvas.Left="475"
+            Canvas.Top="250">
+            <ModelVisual3D>
+                <ModelVisual3D.Content>
+                    <Model3DGroup>
+                        <AmbientLight Color="Magenta" />
+                        <DirectionalLight Color="Yellow" Direction="1,-2,-3" />
+
+                        <GeometryModel3D>
+                            <GeometryModel3D.Geometry>
+                                <MeshGeometry3D
+                                Positions="
+                                    -1,-1,-1   1,-1,-1   1,-1, 1  -1,-1, 1  -1,-1, 1   1,-1, 1   1, 1, 1  -1, 1, 1
+                                    1,-1, 1   1,-1,-1   1, 1,-1   1, 1, 1   1, 1, 1   1, 1,-1  -1, 1,-1  -1, 1, 1
+                                    -1,-1, 1  -1, 1, 1  -1, 1,-1  -1,-1,-1  -1,-1,-1  -1, 1,-1   1, 1,-1   1,-1,-1"
+                                TriangleIndices="
+                                    0  1  2     2  3  0     4  5  6     6  7  4
+                                    8  9 10    10 11  8    12 13 14    14 15 12
+                                    16 17 18    18 19 16    20 21 22    22 23 20" />
+                            </GeometryModel3D.Geometry>
+
+                            <GeometryModel3D.Material>
+                                <DiffuseMaterial Brush="LightGray" />
+                            </GeometryModel3D.Material>
+                        </GeometryModel3D>
+                    </Model3DGroup>
+                </ModelVisual3D.Content>
+            </ModelVisual3D>
+        </Viewport3D>
+
     </Canvas>
 </UserControl>
