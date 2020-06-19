@@ -4,7 +4,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    	     xmlns:resources="clr-namespace:Trollkit.Resources"
              mc:Ignorable="d" Height="459.313" Width="633.969">
+    <UserControl.Resources>
+        <resources:ProfilePictureImageConverter x:Key="ImageConverter"/>
+    </UserControl.Resources>
     <Canvas Margin="10,0,29,10">
         <Ellipse 
             Style="{StaticResource Sun}" 
@@ -67,6 +71,9 @@
                     Style="{StaticResource SubmitButton}" 
                     Content="MAKE SCREENSHOT" 
                     Command="{Binding Screenshot.MakeScreenshot}"/>
+            </StackPanel>
+            <StackPanel Style="{StaticResource VisualTrollsElementsWrapper}">
+                <Image Style="{StaticResource Screenshot}" Source="{Binding SelectedClient.ScreenshotString, Converter={StaticResource ImageConverter}}" />
             </StackPanel>
         </StackPanel>
     </Canvas>

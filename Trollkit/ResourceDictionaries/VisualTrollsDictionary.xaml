@@ -73,4 +73,12 @@
         <Setter Property="FontWeight" Value="300"/>
         <Setter Property="Background" Value="Yellow"/>
     </Style>
+
+    <Style x:Key="Screenshot" TargetType="{x:Type Image}">
+        <Setter Property="Width" Value="226"/>
+        <Setter Property="Height" Value="124"/>
+        <Setter Property="Canvas.Left" Value="127"/>
+        <Setter Property="Canvas.Top" Value="325"/>
+    </Style>
+
 </ResourceDictionary>
