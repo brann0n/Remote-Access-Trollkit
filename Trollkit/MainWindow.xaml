@@ -10,7 +10,7 @@
 		xmlns:resources="clr-namespace:Trollkit.Resources"
 		mc:Ignorable="d"
         MouseDown="Drag" 
-        Title="MainWindow" Height="740" Width="1014" WindowStyle="None" Background="Transparent" AllowsTransparency="True">
+        Title="Trollkit" Height="740" Width="1014" WindowStyle="None" Background="Transparent" AllowsTransparency="True">
 	<Window.DataContext>
 		<viewmodels:ServerViewModel/>
 	</Window.DataContext>
