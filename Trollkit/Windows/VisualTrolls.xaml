@@ -8,6 +8,7 @@
              mc:Ignorable="d" Height="459.313" Width="633.969">
     <UserControl.Resources>
         <resources:ProfilePictureImageConverter x:Key="ImageConverter"/>
+		<resources:BooleanToVisibilityConverter x:Key="BoolToVis" />
     </UserControl.Resources>
     <Canvas Margin="10,0,29,10">
         <Ellipse 
@@ -65,12 +66,12 @@
                     Content="CHOOSE BACKGROUND IMAGE" 
                     Command="{Binding Visual.PickBackgroundImage}"/>
             </StackPanel>
-            <StackPanel Style="{StaticResource VisualTrollsElementsWrapper}">
+			<StackPanel Style="{StaticResource VisualTrollsElementsWrapper}" Visibility="{Binding AllClientsSelected, Converter={StaticResource BoolToVis}}">
                 <ComboBox Style="{StaticResource Dropdown}"/>
                 <Button 
                     Style="{StaticResource SubmitButton}" 
                     Content="MAKE SCREENSHOT" 
-                    Command="{Binding Screenshot.MakeScreenshot}"/>
+                    Command="{Binding Visual.MakeScreenshot}"/>
             </StackPanel>
             <StackPanel Style="{StaticResource VisualTrollsElementsWrapper}">
                 <Image Style="{StaticResource Screenshot}" Source="{Binding SelectedClient.ScreenshotString, Converter={StaticResource ImageConverter}}">
