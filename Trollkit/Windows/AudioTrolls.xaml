@@ -9,42 +9,73 @@
     <Canvas>
         <Rectangle Style="{StaticResource AudioWhite}"/>
         <Rectangle Style="{StaticResource AudioBlue}"/>
-        <Label Style="{StaticResource HeaderText}" Content="xD"/>
-        <TextBlock Style="{StaticResource AudioTextBlock}" Text="Your PC wants to preform an audo troll, please select an option."/>
-        <StackPanel Style="{StaticResource ButtonPanel}" Canvas.Left="53" Canvas.Top="254">
-            <Button Style="{StaticResource AudioFileButton}" Command="{Binding Audio.Beep}">
+        <Label 
+            Style="{StaticResource HeaderText}" 
+            Content="xD"/>
+        <TextBlock 
+            Style="{StaticResource AudioTextBlock}" 
+            Text="Your PC wants to preform an audo troll, please select an option."/>
+        <StackPanel Style="{StaticResource LeftPanel}">
+            <Button 
+                Style="{StaticResource AudioFileButton}" 
+                Command="{Binding Audio.Beep}">
                 <TextBlock Text="> Beep"/>
             </Button>
-            <Button Style="{StaticResource AudioFileButton}" Command="{Binding Audio.MyNameIsJeff}">
+            <Button 
+                Style="{StaticResource AudioFileButton}" 
+                Command="{Binding Audio.MyNameIsJeff}">
                 <TextBlock Text="> My name is Jeff"/>
             </Button>
-            <Button Style="{StaticResource AudioFileButton}" Command="{Binding Audio.WesselMove}" >
+            <Button 
+                Style="{StaticResource AudioFileButton}" 
+                Command="{Binding Audio.WesselMove}" >
                 <TextBlock Text="&gt; Wessel Move"/>
             </Button>
         </StackPanel>
-        <StackPanel Style="{StaticResource ButtonPanel}" Canvas.Left="228" Canvas.Top="243" >
-            <Button Style="{StaticResource AudioFileButton}" Command="{Binding Audio.Windows}" >
+        <StackPanel Style="{StaticResource RightPanel}">
+            <Button 
+                Style="{StaticResource AudioFileButton}" 
+                Command="{Binding Audio.Windows}" >
                 <TextBlock Text="&gt; Windows pop-up"/>
             </Button>
-            <Button Style="{StaticResource AudioFileButton}" Command="{Binding Audio.Horn}" >
+            <Button 
+                Style="{StaticResource AudioFileButton}" 
+                Command="{Binding Audio.Horn}">
                 <TextBlock Text="&gt; Horn"/>
             </Button>
-            <Button Style="{StaticResource AudioFileButton}" Command="{Binding Audio.Macintosh}" >
+            <Button 
+                Style="{StaticResource AudioFileButton}" 
+                Command="{Binding Audio.Macintosh}" >
                 <TextBlock Text="&gt; Machintosh 420"/>
             </Button>
-            <Button Style="{StaticResource AudioFileButton}" Command="{Binding Audio.StopSound}">
+            <Button 
+                Style="{StaticResource AudioFileButton}" 
+                Command="{Binding Audio.StopSound}">
                 <TextBlock Text="&gt; Stop Sound"/>
             </Button>
         </StackPanel>
 
         <Image Style="{StaticResource Sirenhead}"/>
-        <Button Style="{StaticResource VolumeMute}" Command="{Binding Audio.Mute}"/>
-        <Button Style="{StaticResource VolumeDown}" Command="{Binding Audio.VolumeDown}"/>
-        <Button Style="{StaticResource VolumeUp}" Command="{Binding Audio.VolumeUp}"/>
-        <Button Style="{StaticResource PrevButton}" Command="{Binding Audio.Previous}"/>
-        <ToggleButton Style="{StaticResource PlayPause}" Name="PlayPauseButton" Command="{Binding Audio.PlayPause}">
+        <Button 
+            Style="{StaticResource VolumeMute}" 
+            Command="{Binding Audio.Mute}"/>
+        <Button 
+            Style="{StaticResource VolumeDown}" 
+            Command="{Binding Audio.VolumeDown}"/>
+        <Button 
+            Style="{StaticResource VolumeUp}" 
+            Command="{Binding Audio.VolumeUp}"/>
+        <Button 
+            Style="{StaticResource PrevButton}" 
+            Command="{Binding Audio.Previous}"/>
+        <ToggleButton 
+            Style="{StaticResource PlayPause}" 
+            Name="PlayPauseButton" 
+            Command="{Binding Audio.PlayPause}">
             <Image Style="{StaticResource image}" />
         </ToggleButton>
-        <Button Style="{StaticResource NextButton}" Command="{Binding Audio.Next}"/>
+        <Button 
+            Style="{StaticResource NextButton}"
+            Command="{Binding Audio.Next}"/>
     </Canvas>
 </UserControl>
