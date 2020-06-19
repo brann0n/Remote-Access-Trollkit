@@ -31,7 +31,7 @@ namespace Trollkit_Library.Modules
 			{
 				g.CopyFromScreen(dm.dmPositionX, dm.dmPositionY, 0, 0, bmp.Size);
 
-				byte[] imageArray = bmp.ToByteArray(ImageFormat.Bmp);
+				byte[] imageArray = bmp.ToByteArray(ImageFormat.Png);
 				return Convert.ToBase64String(imageArray);
 			}
 		}

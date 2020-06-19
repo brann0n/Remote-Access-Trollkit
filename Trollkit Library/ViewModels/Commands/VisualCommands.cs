@@ -120,7 +120,8 @@ namespace Trollkit_Library.ViewModels.Commands
 			{
 				byte[] bytes = Convert.FromBase64String(_server.SelectedClient.ScreenshotString);
 
-				var tempFileName = Path.GetTempFileName();
+				var tempFileName = Path.GetTempFileName(); //TODO create folder TrollKit in Pictures and store the image there
+				tempFileName = tempFileName.Replace(".tmp", ".png");
 				File.WriteAllBytes(tempFileName, bytes);
 
 				string path = Environment.GetFolderPath(

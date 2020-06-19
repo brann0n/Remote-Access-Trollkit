@@ -93,6 +93,6 @@
 			</ContentControl.Content>
 		</ContentControl>
 
-		<Label Style="{StaticResource Client}" Content="{Binding Path=SelectedClient.storedData[ComputerName]}" Canvas.Left="66" Canvas.Top="68"/>
+		<Label Style="{StaticResource Client}" Content="{Binding CurrentClientName}" Canvas.Left="66" Canvas.Top="68"/>
 	</Canvas>
 </Window>

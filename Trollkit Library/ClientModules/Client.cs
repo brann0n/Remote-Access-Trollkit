@@ -87,6 +87,7 @@ namespace Trollkit_Library.ClientModules
 		{
 			storedData[key] = value;
 			NotifyPropertyChanged("storedData");
+			NotifyPropertyChanged("CurrentClientName");
 		}
 
 		public string GetDataItem(string key)
@@ -171,7 +172,7 @@ namespace Trollkit_Library.ClientModules
 		{
 			string ip = string.Format("{0}:{1}", endPoint.Address.ToString(), endPoint.Port);
 
-			string res = string.Format("Client #{0} (From: {1}, Connection time: {2})", id, ip, connectedAt);
+			string res = string.Format("Client #{0} (From: {1})", id, ip);
 
 			return res;
 		}

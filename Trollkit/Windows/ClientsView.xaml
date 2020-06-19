@@ -67,7 +67,7 @@
                                         <Button Command="{Binding RemoveVirus}" 
                                             Style="{StaticResource clientActionButton}" 
                                             Content="Remove Virus" />
-                                        <Label Content="{Binding Path=ClientName}" 
+										<Label Content="{Binding Path=IpAddress}" 
                                             Style="{StaticResource clientDataLabel}"/>
                                     </StackPanel>
                                 </Border>

@@ -40,8 +40,40 @@ namespace Trollkit_Library.ViewModels
 			{
 				Server.SelectedClient = value;
 				NotifyPropertyChanged("SelectedClient");
+				NotifyPropertyChanged("CurrentClientName");
 			}
 		}
+
+		public string CurrentClientName
+		{
+			get
+			{
+				if(Clients.Count == 0)
+				{
+					return "No Client selected";
+				}
+				else
+				{
+					if (AllClientsSelected)
+					{
+						return "All Clients selected";
+					}
+					else
+					{
+						//check if ComputerName exists
+						if (SelectedClient.storedData.ContainsKey("ComputerName"))
+						{
+							return SelectedClient.storedData["ComputerName"];
+						}
+						else
+						{
+							return SelectedClient.ToString();
+						}					
+					}
+				}
+			}
+		}
+
 
 		public bool AllClientsSelected
 		{
@@ -58,6 +90,7 @@ namespace Trollkit_Library.ViewModels
 			{
 				Server.AllClientsSelected = value;
 				NotifyPropertyChanged("AllClientsSelected");
+				NotifyPropertyChanged("CurrentClientName");
 			}
 		}
 
@@ -122,6 +155,7 @@ namespace Trollkit_Library.ViewModels
 			NotifyPropertyChanged("AllClientsSelected");
 			NotifyPropertyChanged("ClientsAvailable");
 			NotifyPropertyChanged("SelectedClient");
+			NotifyPropertyChanged("CurrentClientName");
 		}
 
 		private void Server_ClientConnected(Client c)
@@ -135,6 +169,7 @@ namespace Trollkit_Library.ViewModels
 			NotifyPropertyChanged("AllClientsSelected");
 			NotifyPropertyChanged("ClientsAvailable");
 			NotifyPropertyChanged("SelectedClient");
+			NotifyPropertyChanged("CurrentClientName");
 		}
 
 		private void Server_OnPropertyChanged(string Property)

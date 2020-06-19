@@ -74,9 +74,13 @@
                     Command="{Binding Visual.MakeScreenshot}"/>
             </StackPanel>
             <StackPanel Style="{StaticResource VisualTrollsElementsWrapper}">
-                <Image Style="{StaticResource Screenshot}" 
+				<Image Style="{StaticResource Screenshot}" 
 					   Source="{Binding SelectedClient.ScreenshotString, Converter={StaticResource ImageConverter}}"
-					   Visibility="{Binding AllClientsSelected, Converter={StaticResource BoolToVis}}"/>
+					   Visibility="{Binding AllClientsSelected, Converter={StaticResource BoolToVis}}">
+					<Image.InputBindings>
+						<MouseBinding Command="{Binding Visual.MaximizeScreenshot}" MouseAction="LeftClick" />
+					</Image.InputBindings>
+				</Image>
             </StackPanel>
         </StackPanel>
     </Canvas>
