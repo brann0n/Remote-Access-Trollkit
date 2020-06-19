@@ -23,7 +23,6 @@ namespace Trollkit_Library.Modules
 		public static string MakeScreenshot()
 		{
 			Screen screen = Screen.PrimaryScreen;
-
 			DEVMODE dm = new DEVMODE();
 			dm.dmSize = (short)Marshal.SizeOf(typeof(DEVMODE));
 			EnumDisplaySettings(screen.DeviceName, ENUM_CURRENT_SETTINGS, ref dm);
