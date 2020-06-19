@@ -1,71 +1,58 @@
-﻿<UserControl
-	xmlns:windows="clr-namespace:Trollkit.Windows"
-	x:Class="Trollkit.Windows.WindowsTrolls"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+﻿<UserControl xmlns:windows="clr-namespace:Trollkit.Windows" 
+    x:Class="Trollkit.Windows.WindowsTrolls" 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-    xmlns:local="clr-namespace:Trollkit"
+    xmlns:local="clr-namespace:Trollkit" 
     mc:Ignorable="d">
-    
-	<Canvas>
+
+    <Canvas>
         <Rectangle Style="{StaticResource windowsTrollBackground}" />
 
         <DockPanel Style="{StaticResource windowsTrollsStylingWrapper}">
-            <Label 
-                Style="{StaticResource VerticalGlitchText}" 
+            <Label Style="{StaticResource VerticalGlitchText}" 
                 Content="足りる" 
                 DockPanel.Dock="Left"/>
-            <Polygon 
-                Style="{StaticResource whiteLineTriangle}" 
+            <Polygon Style="{StaticResource whiteLineTriangle}" 
                 DockPanel.Dock="Right"/>
             <Grid>
                 <Ellipse Style="{StaticResource OutrunCircle}"/>
             </Grid>
         </DockPanel>
-        
-        
-        <WrapPanel      
-            Canvas.Top="240" 
-            Canvas.Left="140"
+
+
+        <WrapPanel Canvas.Top="240" 
+            Canvas.Left="140" 
             Style="{StaticResource windowsTrollWrapper}">
 
             <WrapPanel Style="{StaticResource windowsTrollElementsWrapper}">
-                <Label 
-                    Content="Mouseposition" 
+                <Label Content="Mouseposition" 
                     Style="{StaticResource windowsTrollLabel}"/>
-                <TextBox 
-                    Style="{StaticResource tinyTextBox}"
+                <TextBox Style="{StaticResource tinyTextBox}" 
                     Text="{Binding Windows.XCoordinate}"/>
-                <TextBox 
-                    Style="{StaticResource tinyTextBox}"
+                <TextBox Style="{StaticResource tinyTextBox}" 
                     Text="{Binding Windows.YCoordinate}"/>
-                <Button 
-                    Style="{StaticResource OutrunButton}" 
+                <Button Style="{StaticResource OutrunButton}" 
                     Content="START" 
                     Command="{Binding Windows.MousePosition}"/>
             </WrapPanel>
 
             <WrapPanel Style="{StaticResource windowsTrollElementsWrapper}">
-                <Label 
-                    Content="CMD Command" 
+                <Label Content="CMD Command" 
                     Style="{StaticResource windowsTrollLabel}"/>
-				<TextBox 
-                    Style="{StaticResource largeTextBox}"
+                <TextBox Style="{StaticResource largeTextBox}" 
                     Text="{Binding Windows.CommandText}"/>
-                <Button 
-                    Style="{StaticResource OutrunButton}" 
+                <Button Style="{StaticResource OutrunButton}" 
                     Content="GO" 
                     Command="{Binding Windows.Go}"/>
             </WrapPanel>
 
             <WrapPanel Style="{StaticResource windowsTrollElementsWrapper}">
-                <Button 
-                    Style="{StaticResource OutrunButton}" 
+                <Button Style="{StaticResource OutrunButton}" 
                     Content="ALT-TAB" 
                     Command="{Binding Windows.AltTab}"/>
-                <Button 
-                    Style="{StaticResource OutrunBigButton}" 
+                <Button Style="{StaticResource OutrunBigButton}" 
                     Content="WINDOWS VERGRENDELEN" 
                     Command="{Binding Windows.LockWindows}"/>
             </WrapPanel>
