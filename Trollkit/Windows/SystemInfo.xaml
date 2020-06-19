@@ -1,32 +1,41 @@
-﻿<UserControl
-	xmlns:windows="clr-namespace:Trollkit.Windows"
-	x:Class="Trollkit.Windows.SystemInfo"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+﻿<UserControl xmlns:windows="clr-namespace:Trollkit.Windows" 
+    x:Class="Trollkit.Windows.SystemInfo" 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-	xmlns:resources="clr-namespace:Trollkit.Resources"
-    mc:Ignorable="d" Height="456" Width="634">
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:resources="clr-namespace:Trollkit.Resources" 
+    mc:Ignorable="d" 
+    Height="456" 
+    Width="634">
     <UserControl.Resources>
         <resources:ProfilePictureImageConverter x:Key="ImageConverter"/>
     </UserControl.Resources>
     <Canvas Margin="10,0,10,10">
         <Rectangle Style="{StaticResource MainRectangle}"/>
-        <Image Style="{StaticResource ProfilePicture}" Source="{Binding SelectedClient.storedData[ProfilePicture], Converter={StaticResource ImageConverter}}"/>
+        <Image Style="{StaticResource ProfilePicture}" 
+            Source="{Binding SelectedClient.storedData[ProfilePicture], Converter={StaticResource ImageConverter}}"/>
         <Image Style="{StaticResource ProfilePicturePC}"/>
         <StackPanel Style="{StaticResource MianStackPanel}">
             <Label Style="{StaticResource HeaderLabel}"/>
-            <Label Style="{StaticResource ComputerNameLabel}" Content="{Binding Path=SelectedClient.storedData[ComputerName]}"/>
+            <Label Style="{StaticResource ComputerNameLabel}" 
+                Content="{Binding Path=SelectedClient.storedData[ComputerName]}"/>
             <StackPanel Style="{StaticResource SysteminfoStackPanel}">
-                <Label Style="{StaticResource SystemInfoLabel}" Content="{Binding Path=SelectedClient.storedData[CPU]}"/>
-                <Label Style="{StaticResource SystemInfoLabel}" Content="{Binding Path=SelectedClient.storedData[GPU]}"/>
-                <Label Style="{StaticResource SystemInfoLabel}" Content="{Binding Path=SelectedClient.storedData[WindowsVersion]}"/>
-                <Label Style="{StaticResource SystemInfoLabel}" Content="{Binding Path=SelectedClient.storedData[RAM]}"/>
+                <Label Style="{StaticResource SystemInfoLabel}" 
+                    Content="{Binding Path=SelectedClient.storedData[CPU]}"/>
+                <Label Style="{StaticResource SystemInfoLabel}" 
+                    Content="{Binding Path=SelectedClient.storedData[GPU]}"/>
+                <Label Style="{StaticResource SystemInfoLabel}" 
+                    Content="{Binding Path=SelectedClient.storedData[WindowsVersion]}"/>
+                <Label Style="{StaticResource SystemInfoLabel}" 
+                    Content="{Binding Path=SelectedClient.storedData[RAM]}"/>
             </StackPanel>
             <Label Style="{StaticResource NetworkLabel}"/>
             <StackPanel Style="{StaticResource NetworkStackPanel}">
-                <Label Style="{StaticResource SystemInfoLabel}" Content="{Binding Path=SelectedClient.IpAddress}"/>
-                <Label Style="{StaticResource SystemInfoLabel}" Content="255.255.255.0"/>
+                <Label Style="{StaticResource SystemInfoLabel}" 
+                    Content="{Binding Path=SelectedClient.IpAddress}"/>
+                <Label Style="{StaticResource SystemInfoLabel}" 
+                    Content="255.255.255.0"/>
             </StackPanel>
         </StackPanel>
     </Canvas>
