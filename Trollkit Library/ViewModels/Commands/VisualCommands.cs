@@ -1,5 +1,6 @@
 ﻿using Microsoft.Win32;
 using System;
+using System.Diagnostics;
 using System.IO;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -22,6 +23,7 @@ namespace Trollkit_Library.ViewModels.Commands
 		public ICommand OpenSite { get { return new SendServerCommand(SendOpenSite); } }
 		public ICommand PickBackgroundImage { get { return new SendServerCommand(SendBackgroundImage); } }
 		public ICommand MakeScreenshot { get { return new SendServerCommand(SendMakeScreenshot); } }
+		public ICommand MaximizeScreenshot { get { return new SendServerCommand(SendMaximizeScreenshot); } }
 
 
 		//textboxes
@@ -110,6 +112,45 @@ namespace Trollkit_Library.ViewModels.Commands
 		{
 			TransferCommandObject returnObject = new TransferCommandObject { Command = "MakeScreenshot", Handler = handler, Value = "0" };
 			_server.SendDataObjectToSelectedClient(Server.DataByteType.Command, ClientServerPipeline.BufferSerialize(returnObject));
+		}
+
+		private void SendMaximizeScreenshot()
+		{
+			try
+			{
+				byte[] bytes = Convert.FromBase64String(_server.SelectedClient.ScreenshotString);
+
+				var tempFileName = Path.GetTempFileName();
+				File.WriteAllBytes(tempFileName, bytes);
+
+				string path = Environment.GetFolderPath(
+					Environment.SpecialFolder.ProgramFiles);
+
+				var psi = new ProcessStartInfo(
+					"rundll32.exe",
+					String.Format(
+						"\"{0}{1}\", ImageView_Fullscreen {2}",
+						Environment.Is64BitOperatingSystem ?
+							path.Replace(" (x86)", "") :
+							path
+							,
+						@"\Windows Photo Viewer\PhotoViewer.dll",
+						tempFileName)
+					);
+
+				psi.UseShellExecute = false;
+
+				var viewer = Process.Start(psi);
+				viewer.EnableRaisingEvents = true;
+				viewer.Exited += (o, args) =>
+				{
+					File.Delete(tempFileName);
+				};
+			}
+			catch (Exception e)
+			{
+				BConsole.WriteLine("Visuals Error: " + e.Message, ConsoleColor.Red);
+			}
 		}
 	}
 }
