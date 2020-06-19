@@ -81,6 +81,8 @@
     </Style>
 
     <Style x:Key="VolumeDown" TargetType="{x:Type Button}" BasedOn="{StaticResource VolumeButton}">
+        <Setter Property="Canvas.Top" Value="104"/>
+        <Setter Property="Canvas.Left" Value="465"/>
         <Setter Property="Background">
             <Setter.Value>
                 <ImageBrush ImageSource="..\Resources\Images\volume-down.png"/>
@@ -96,6 +98,9 @@
     </Style>
 
     <Style x:Key="VolumeUp" TargetType="{x:Type Button}" BasedOn="{StaticResource VolumeButton}">
+        <Setter Property="Canvas.Top" Value="63"/>
+        <Setter Property="Canvas.Left" Value="528"/>
+        <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
         <Setter Property="Background">
             <Setter.Value>
                 <ImageBrush ImageSource= "..\Resources\Images\volume-up.png"/>
@@ -104,13 +109,19 @@
         <Setter Property="RenderTransform">
             <Setter.Value>
                 <TransformGroup>
-                    <RotateTransform Angle="345.208"/>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-18.491"/>
+                    <TranslateTransform/>
                 </TransformGroup>
             </Setter.Value>
         </Setter>
     </Style>
 
     <Style x:Key="VolumeMute" TargetType="{x:Type Button}" BasedOn="{StaticResource VolumeButton}">
+        <Setter Property="Canvas.Top" Value="44"/>
+        <Setter Property="Canvas.Left" Value="467"/>
+        <Setter Property="RenderTransformOrigin" Value="0.602,0.653"/>
         <Setter Property="Background">
             <Setter.Value>
                 <ImageBrush ImageSource="..\Resources\Images\volume-mute.png"/>
@@ -119,8 +130,10 @@
         <Setter Property="RenderTransform">
             <Setter.Value>
                 <TransformGroup>
-                    <ScaleTransform ScaleY="-1"/>
-                    <RotateTransform Angle="220.024"/>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="14.083"/>
+                    <TranslateTransform X="-15.302" Y="-2.462"/>
                 </TransformGroup>
             </Setter.Value>
         </Setter>
@@ -179,6 +192,8 @@
     <Style x:Key="PlayPause" TargetType="{x:Type ToggleButton}" >
         <Setter Property="Height" Value="25"/>
         <Setter Property="Width" Value="25"/>
+        <Setter Property="Canvas.Top" Value="206"/>
+        <Setter Property="Canvas.Left" Value="516"/>
         <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderThickness" Value="0"/>
@@ -199,6 +214,26 @@
                     <RotateTransform Angle="-3.608"/>
                     <TranslateTransform/>
                 </TransformGroup>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="PrevButton" TargetType="{x:Type Button}" BasedOn="{StaticResource ControlButton}">
+        <Setter Property="Canvas.Top" Value="215"/>
+        <Setter Property="Canvas.Left" Value="448"/>
+        <Setter Property="Background">
+            <Setter.Value>
+                <ImageBrush ImageSource="..\Resources\Images\Prev.png"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="NextButton" TargetType="{x:Type Button}" BasedOn="{StaticResource ControlButton}">
+        <Setter Property="Canvas.Top" Value="201"/>
+        <Setter Property="Canvas.Left" Value="583"/>
+        <Setter Property="Background">
+            <Setter.Value>
+                <ImageBrush ImageSource="..\Resources\Images\Next.png"/>
             </Setter.Value>
         </Setter>
     </Style>
@@ -234,5 +269,13 @@
                 </TransformGroup>
             </Setter.Value>
         </Setter>
+    </Style>
+
+    <Style x:Key="Sirenhead" TargetType="Image">
+        <Setter Property="Canvas.Top" Value="47"/>
+        <Setter Property="Canvas.Left" Value="367"/>
+        <Setter Property="Height" Value="517"/>
+        <Setter Property="Width" Value="315"/>
+        <Setter Property="Source" Value="..\Resources\Images\Sirenhead.png"/>
     </Style>
 </ResourceDictionary>
