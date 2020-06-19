@@ -75,7 +75,7 @@
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>
 
-                    <ToggleButton Style="{StaticResource SelectAllClientsButton}"/>
+					<ToggleButton Style="{StaticResource SelectAllClientsButton}" IsChecked="{Binding AllClientsSelected}"/>
                 </StackPanel>
             </ScrollViewer>
         </StackPanel>
