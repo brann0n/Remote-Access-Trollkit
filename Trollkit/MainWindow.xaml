@@ -1,16 +1,21 @@
-﻿<Window x:Class="Trollkit.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Trollkit"
-		xmlns:buttons="clr-namespace:Trollkit.Buttons"
-		xmlns:windows="clr-namespace:Trollkit.Windows"
-		xmlns:viewmodels="clr-namespace:Trollkit_Library.ViewModels;assembly=Trollkit_Library"
-		xmlns:resources="clr-namespace:Trollkit.Resources"
-		mc:Ignorable="d"
-        MouseDown="Drag" 
-        Title="Trollkit" Height="740" Width="1014" WindowStyle="None" Background="Transparent" AllowsTransparency="True">
+﻿<Window x:Class="Trollkit.MainWindow" 
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+	xmlns:local="clr-namespace:Trollkit" 
+	xmlns:buttons="clr-namespace:Trollkit.Buttons" 
+	xmlns:windows="clr-namespace:Trollkit.Windows" 
+	xmlns:viewmodels="clr-namespace:Trollkit_Library.ViewModels;assembly=Trollkit_Library" 
+	xmlns:resources="clr-namespace:Trollkit.Resources" 
+	mc:Ignorable="d" 
+	MouseDown="Drag" 
+	Title="Trollkit" 
+	Height="740" 
+	Width="1014" 
+	WindowStyle="None" 
+	Background="Transparent" 
+	AllowsTransparency="True">
 	<Window.DataContext>
 		<viewmodels:ServerViewModel/>
 	</Window.DataContext>
@@ -18,14 +23,23 @@
 		<resources:InverseBooleanConverter x:Key="BooleanConverter"/>
 	</Window.Resources>
 	<Canvas Margin="0,0,-96,-153">
-		<Rectangle Style="{StaticResource TrollsBackground}" Height="350" Width="607" Canvas.Left="52" Canvas.Top="52" />
-
-		<Image Style="{StaticResource ImageReflectHorizontal}" Source="Resources\Images\Beeld-Apollo-Hoofd-Nieuw.png" Canvas.Top="276" Width="212" Height="242" Canvas.Left="-13"/>
-
-
-
-		<StackPanel Canvas.Top="120" Canvas.Left="30" FocusManager.IsFocusScope="True" Height="282">
-			<buttons:HeadMenuBtn Content="&gt; Visual Trolls" IsEnabled="{Binding ClientsAvailable}">
+		<Rectangle Style="{StaticResource TrollsBackground}" 
+			Height="350" 
+			Width="607" 
+			Canvas.Left="52" 
+			Canvas.Top="52" />
+		<Image Style="{StaticResource ImageReflectHorizontal}" 
+			Source="Resources\Images\Beeld-Apollo-Hoofd-Nieuw.png" 
+			Canvas.Top="276" 
+			Width="212" 
+			Height="242" 
+			Canvas.Left="-13"/>
+		<StackPanel Canvas.Top="120" 
+			Canvas.Left="30" 
+			FocusManager.IsFocusScope="True" 
+			Height="282">
+			<buttons:HeadMenuBtn Content="&gt; Visual Trolls" 
+				IsEnabled="{Binding ClientsAvailable}">
 				<buttons:HeadMenuBtn.Resources>
 					<windows:VisualTrolls x:Key="View" />
 				</buttons:HeadMenuBtn.Resources>
@@ -33,8 +47,8 @@
 					<StaticResource ResourceKey="MenuButton"/>
 				</buttons:HeadMenuBtn.Style>
 			</buttons:HeadMenuBtn>
-
-			<buttons:HeadMenuBtn Content="&gt; Audio Trolls" IsEnabled="{Binding ClientsAvailable}">
+			<buttons:HeadMenuBtn Content="&gt; Audio Trolls" 
+				IsEnabled="{Binding ClientsAvailable}">
 				<buttons:HeadMenuBtn.Resources>
 					<windows:AudioTrolls x:Key="View" />
 				</buttons:HeadMenuBtn.Resources>
@@ -42,8 +56,8 @@
 					<StaticResource ResourceKey="MenuButton"/>
 				</buttons:HeadMenuBtn.Style>
 			</buttons:HeadMenuBtn>
-
-			<buttons:HeadMenuBtn Content="&gt; Windows Trolls" IsEnabled="{Binding ClientsAvailable}">
+			<buttons:HeadMenuBtn Content="&gt; Windows Trolls" 
+				IsEnabled="{Binding ClientsAvailable}">
 				<buttons:HeadMenuBtn.Resources>
 					<windows:WindowsTrolls x:Key="View" />
 				</buttons:HeadMenuBtn.Resources>
@@ -51,18 +65,17 @@
 					<StaticResource ResourceKey="MenuButton"/>
 				</buttons:HeadMenuBtn.Style>
 			</buttons:HeadMenuBtn>
-
-
-			<buttons:HeadMenuBtn Content="&gt; CMD Shell" IsEnabled="{Binding AllClientsSelected, Converter={StaticResource BooleanConverter}}">
-                <buttons:HeadMenuBtn.Resources>
-                    <windows:CMDShell x:Key="View" />
-                </buttons:HeadMenuBtn.Resources>
-                <buttons:HeadMenuBtn.Style>
-                    <StaticResource ResourceKey="MenuButton"/>
-                </buttons:HeadMenuBtn.Style>
-            </buttons:HeadMenuBtn>
-
-			<buttons:HeadMenuBtn Content="&gt; System Info" IsEnabled="{Binding AllClientsSelected, Converter={StaticResource BooleanConverter}}">
+			<buttons:HeadMenuBtn Content="&gt; CMD Shell" 
+				IsEnabled="{Binding AllClientsSelected, Converter={StaticResource BooleanConverter}}">
+				<buttons:HeadMenuBtn.Resources>
+					<windows:CMDShell x:Key="View" />
+				</buttons:HeadMenuBtn.Resources>
+				<buttons:HeadMenuBtn.Style>
+					<StaticResource ResourceKey="MenuButton"/>
+				</buttons:HeadMenuBtn.Style>
+			</buttons:HeadMenuBtn>
+			<buttons:HeadMenuBtn Content="&gt; System Info" 
+				IsEnabled="{Binding AllClientsSelected, Converter={StaticResource BooleanConverter}}">
 				<buttons:HeadMenuBtn.Resources>
 					<windows:SystemInfo x:Key="View" />
 				</buttons:HeadMenuBtn.Resources>
@@ -79,20 +92,28 @@
 				</buttons:HeadMenuBtn.Style>
 			</buttons:HeadMenuBtn>
 		</StackPanel>
-
-		<DataGridCell Style="{DynamicResource NavMenu}" Canvas.Left="600" Canvas.Top="10">
+		<DataGridCell Style="{DynamicResource NavMenu}" 
+			Canvas.Left="600" 
+			Canvas.Top="10">
 			<StackPanel Style="{DynamicResource NavMenuContent}">
-				<buttons:MinimizeBtn Style="{StaticResource NavButton}" Content="-" />
-				<buttons:CloseBtn Style="{StaticResource NavButton}" Content="X" />
+				<buttons:MinimizeBtn Style="{StaticResource NavButton}" 
+					Content="-" />
+				<buttons:CloseBtn Style="{StaticResource NavButton}" 
+					Content="X" />
 			</StackPanel>
 		</DataGridCell>
-
-		<ContentControl x:Name="trollView" Canvas.Left="195" Canvas.Top="105" Height="560" Width="774">
+		<ContentControl x:Name="trollView" 
+			Canvas.Left="195" 
+			Canvas.Top="105" 
+			Height="560" 
+			Width="774">
 			<ContentControl.Content>
 				<windows:ClientsView/>
 			</ContentControl.Content>
 		</ContentControl>
-
-		<Label Style="{StaticResource Client}" Content="{Binding CurrentClientName}" Canvas.Left="66" Canvas.Top="68"/>
+		<Label Style="{StaticResource Client}" 
+			Content="{Binding CurrentClientName}" 
+			Canvas.Left="66" 
+			Canvas.Top="68"/>
 	</Canvas>
 </Window>

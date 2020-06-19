@@ -1,138 +1,126 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<Style x:Key="SubmitButton" 
+		TargetType="{x:Type Button}">
+		<Setter Property="FontFamily" 
+			Value="IBM Plex Sans"/>
+		<Setter Property="FontSize" 
+			Value="14"/>
+		<Setter Property="FontWeight" 
+			Value="Bold"/>
+		<Setter Property="Height" 
+			Value="28"/>
+		<Setter Property="Canvas.Left" 
+			Value="211"/>
+		<Setter Property="BorderThickness" 
+			Value="0 "/>
+		<Setter Property="Button.Effect">
+			<Setter.Value>
+				<DropShadowEffect Color="gray" 
+					Direction="320" 
+					ShadowDepth="3" 
+					BlurRadius="2" 
+					Opacity="0.5" />
+			</Setter.Value>
+		</Setter>
+		<Setter Property="VerticalAlignment" 
+			Value="Bottom"/>
+		<Setter Property="HorizontalAlignment" 
+			Value="Left"/>
 
-    <Style x:Key="SubmitButton" 
-        TargetType="{x:Type Button}">
-        <Setter Property="FontFamily" 
-            Value="IBM Plex Sans"/>
-        <Setter Property="FontSize" 
-            Value="14"/>
-        <Setter Property="FontWeight" 
-            Value="Bold"/>
-        <Setter Property="Height" 
-            Value="28"/>
-        <Setter Property="Canvas.Left" 
-            Value="211"/>
-        <Setter Property="BorderThickness" 
-            Value="0 "/>
-        <Setter Property="Button.Effect">
-            <Setter.Value>
-                <DropShadowEffect Color="gray" 
-                    Direction="320" 
-                    ShadowDepth="3" 
-                    BlurRadius="2" 
-                    Opacity="0.5" />
-            </Setter.Value>
-        </Setter>
-
-        <Setter Property="VerticalAlignment" 
-            Value="Bottom"/>
-        <Setter Property="HorizontalAlignment" 
-            Value="Left"/>
-
-        <Setter Property="Padding" 
-            Value="10,0,10,0"/>
-    </Style>
-
-    <Style x:Key="TextBox" 
-        TargetType="{x:Type TextBox}">
-        <Setter Property="FontFamily" 
-            Value="IBM Plex Sans"/>
-        <Setter Property="FontSize" 
-            Value="12"/>
-        <Setter Property="FontWeight" 
-            Value="300"/>
-        <Setter Property="Canvas.Left" 
-            Value="211"/>
-        <Setter Property="BorderThickness" 
-            Value= " 0"/>
-        <Setter Property="Margin" 
-            Value= "0,0,6,0"/>
-        <Setter Property="Height" 
-            Value= "28"/>
-        <Setter Property="Width" 
-            Value= "200"/>
-
-        <Setter Property="VerticalAlignment" 
-            Value="Bottom"/>
-    </Style>
-
-    <Style x:Key="VisualTrollsElementsWrapper" 
-        TargetType="{x:Type StackPanel}">
-        <Setter Property="Margin" 
-            Value="0,0,0,7"/>
-        <Setter Property="HorizontalAlignment" 
-            Value="Left"/>
-        <Setter Property="Orientation" 
-            Value="Horizontal"/>
-    </Style>
-
-    <Style x:Key="VisualTrollsWrapper" 
-        TargetType="{x:Type StackPanel}">
-        <Setter Property="HorizontalAlignment" 
-            Value="Left"/>
-    </Style>
-
-    <Style x:Key="Sun" 
-        TargetType="{x:Type Ellipse}">
-        <Setter Property="Width" 
-            Value="430"/>
-        <Setter Property="Height" 
-            Value="430"/>
-
-        <Setter Property="Fill">
-            <Setter.Value>
-                <LinearGradientBrush StartPoint="1,0" 
-                    EndPoint="1,1">
-                    <GradientStop Color="#e90ae7" 
-                        Offset="0.0" />
-                    <GradientStop Color="#fbc102" 
-                        Offset="1" />
-                </LinearGradientBrush>
-            </Setter.Value>
-        </Setter>
-    </Style>
-
-    <Style x:Key="Flowers" 
-        TargetType="{x:Type Image}">
-        <Setter Property="Width" 
-            Value="387"/>
-        <Setter Property="Height" 
-            Value="362"/>
-    </Style>
-
-    <Style x:Key="Dropdown" 
-        TargetType="{x:Type ComboBox}">
-        <Setter Property="Canvas.Left" 
-            Value="127"/>
-        <Setter Property="Canvas.Top" 
-            Value="290"/>
-        <Setter Property="Width" 
-            Value="200"/>
-        <Setter Property="BorderThickness" 
-            Value= " 0"/>
-        <Setter Property="Margin" 
-            Value= "0,0,6,0"/>
-        <Setter Property="FontFamily" 
-            Value="IBM Plex Sans"/>
-        <Setter Property="FontSize" 
-            Value="12"/>
-        <Setter Property="FontWeight" 
-            Value="300"/>
-        <Setter Property="Background" 
-            Value="Yellow"/>
-    </Style>
-
-    <Style x:Key="Screenshot" 
-        TargetType="{x:Type Image}">
-        <Setter Property="Width" 
-            Value="226"/>
-        <Setter Property="Height" 
-            Value="124"/>
-        <Setter Property="Canvas.Left" 
-            Value="127"/>
-        <Setter Property="Canvas.Top" 
-            Value="325"/>
-    </Style>
-
+		<Setter Property="Padding" 
+			Value="10,0,10,0"/>
+	</Style>
+	<Style x:Key="TextBox" 
+		TargetType="{x:Type TextBox}">
+		<Setter Property="FontFamily" 
+			Value="IBM Plex Sans"/>
+		<Setter Property="FontSize" 
+			Value="12"/>
+		<Setter Property="FontWeight" 
+			Value="300"/>
+		<Setter Property="Canvas.Left" 
+			Value="211"/>
+		<Setter Property="BorderThickness" 
+			Value= " 0"/>
+		<Setter Property="Margin" 
+			Value= "0,0,6,0"/>
+		<Setter Property="Height" 
+			Value= "28"/>
+		<Setter Property="Width" 
+			Value= "200"/>
+		<Setter Property="VerticalAlignment" 
+			Value="Bottom"/>
+	</Style>
+	<Style x:Key="VisualTrollsElementsWrapper" 
+		TargetType="{x:Type StackPanel}">
+		<Setter Property="Margin" 
+			Value="0,0,0,7"/>
+		<Setter Property="HorizontalAlignment" 
+			Value="Left"/>
+		<Setter Property="Orientation" 
+			Value="Horizontal"/>
+	</Style>
+	<Style x:Key="VisualTrollsWrapper" 
+		TargetType="{x:Type StackPanel}">
+		<Setter Property="HorizontalAlignment" 
+			Value="Left"/>
+	</Style>
+	<Style x:Key="Sun" 
+		TargetType="{x:Type Ellipse}">
+		<Setter Property="Width" 
+			Value="430"/>
+		<Setter Property="Height" 
+			Value="430"/>
+		<Setter Property="Fill">
+			<Setter.Value>
+				<LinearGradientBrush StartPoint="1,0" 
+					EndPoint="1,1">
+					<GradientStop Color="#e90ae7" 
+						Offset="0.0" />
+					<GradientStop Color="#fbc102" 
+						Offset="1" />
+				</LinearGradientBrush>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style x:Key="Flowers" 
+		TargetType="{x:Type Image}">
+		<Setter Property="Width" 
+			Value="387"/>
+		<Setter Property="Height" 
+			Value="362"/>
+	</Style>
+	<Style x:Key="Dropdown" 
+		TargetType="{x:Type ComboBox}">
+		<Setter Property="Canvas.Left" 
+			Value="127"/>
+		<Setter Property="Canvas.Top" 
+			Value="290"/>
+		<Setter Property="Width" 
+			Value="200"/>
+		<Setter Property="BorderThickness" 
+			Value= " 0"/>
+		<Setter Property="Margin" 
+			Value= "0,0,6,0"/>
+		<Setter Property="FontFamily" 
+			Value="IBM Plex Sans"/>
+		<Setter Property="FontSize" 
+			Value="12"/>
+		<Setter Property="FontWeight" 
+			Value="300"/>
+		<Setter Property="Background" 
+			Value="Yellow"/>
+	</Style>
+	<Style x:Key="Screenshot" 
+		TargetType="{x:Type Image}">
+		<Setter Property="Width" 
+			Value="226"/>
+		<Setter Property="Height" 
+			Value="124"/>
+		<Setter Property="Canvas.Left" 
+			Value="127"/>
+		<Setter Property="Canvas.Top" 
+			Value="325"/>
+	</Style>
 </ResourceDictionary>

@@ -1,87 +1,73 @@
-﻿<UserControl
-	x:Class="Trollkit.Windows.VisualTrolls"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    	     xmlns:resources="clr-namespace:Trollkit.Resources"
-             mc:Ignorable="d" Height="459.313" Width="633.969">
-    <UserControl.Resources>
-        <resources:ProfilePictureImageConverter x:Key="ImageConverter"/>
+﻿<UserControl x:Class="Trollkit.Windows.VisualTrolls" 
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+	xmlns:resources="clr-namespace:Trollkit.Resources" 
+	mc:Ignorable="d" 
+	Height="459.313" 
+	Width="633.969">
+	<UserControl.Resources>
+		<resources:ProfilePictureImageConverter x:Key="ImageConverter"/>
 		<resources:BooleanToVisibilityConverter x:Key="BoolToVis" />
-    </UserControl.Resources>
-    <Canvas Margin="10,0,29,10">
-        <Ellipse 
-            Style="{StaticResource Sun}" 
-            Canvas.Left="9" 
-            Canvas.Top="10"/>
-        <Image 
-            Style="{StaticResource Flowers}" 
-            Source="..\Resources\Images\Flowers.png" 
-            Canvas.Top="-51" 
-            Canvas.Left="-98"/>
-
-        <StackPanel 
-            Style="{StaticResource VisualTrollsWrapper}" 
-            Canvas.Left="127" 
-            Canvas.Top="110">
-
-            <StackPanel Style="{StaticResource VisualTrollsElementsWrapper}">
-                <Button 
-                    Style="{StaticResource SubmitButton}" 
-                    Content="DISPLAY IMAGE" 
-                    Command="{Binding Visual.DisplayImage}" />
-            </StackPanel>
-
-            <StackPanel Style="{StaticResource VisualTrollsElementsWrapper}">
-                <TextBox 
-                    Style="{StaticResource TextBox}" 
-                    Text="{Binding Visual.BroadcastMessageText}"/>
-                <Button 
-                    Style="{StaticResource SubmitButton}" 
-                    Content="DISPLAY TEXT" 
-                    Command="{Binding Visual.DisplayText}"/>
-            </StackPanel>
-
-            <StackPanel Style="{StaticResource VisualTrollsElementsWrapper}">
-                <Button 
-                    Style="{StaticResource SubmitButton}" 
-                    Content="DISABLE SCREEN" 
-                    Command="{Binding Visual.TurnOffScreen}"/>
-            </StackPanel>
-
-            <StackPanel Style="{StaticResource VisualTrollsElementsWrapper}">
-                <TextBox 
-                    Style="{StaticResource TextBox}" 
-                    Text="{Binding Visual.OpenUrlText}"/>
-                <Button 
-                    Style="{StaticResource SubmitButton}" 
-                    Content="OPEN SITE" 
-                    Command="{Binding Visual.OpenSite}"/>
-            </StackPanel>
-
-            <StackPanel Style="{StaticResource VisualTrollsElementsWrapper}">
-                <Button 
-                    Style="{StaticResource SubmitButton}" 
-                    Content="CHOOSE BACKGROUND IMAGE" 
-                    Command="{Binding Visual.PickBackgroundImage}"/>
-            </StackPanel>
-			<StackPanel Style="{StaticResource VisualTrollsElementsWrapper}" Visibility="{Binding AllClientsSelected, Converter={StaticResource BoolToVis}}">
-                <ComboBox Style="{StaticResource Dropdown}"/>
-                <Button 
-                    Style="{StaticResource SubmitButton}" 
-                    Content="MAKE SCREENSHOT"
-                    Command="{Binding Visual.MakeScreenshot}"/>
-            </StackPanel>
-            <StackPanel Style="{StaticResource VisualTrollsElementsWrapper}">
+	</UserControl.Resources>
+	<Canvas Margin="10,0,29,10">
+		<Ellipse Style="{StaticResource Sun}" 
+			Canvas.Left="9" 
+			Canvas.Top="10"/>
+		<Image Style="{StaticResource Flowers}" 
+			Source="..\Resources\Images\Flowers.png" 
+			Canvas.Top="-51" 
+			Canvas.Left="-98"/>
+		<StackPanel Style="{StaticResource VisualTrollsWrapper}" 
+			Canvas.Left="127" 
+			Canvas.Top="110">
+			<StackPanel Style="{StaticResource VisualTrollsElementsWrapper}">
+				<Button Style="{StaticResource SubmitButton}" 
+					Content="DISPLAY IMAGE" 
+					Command="{Binding Visual.DisplayImage}" />
+			</StackPanel>
+			<StackPanel Style="{StaticResource VisualTrollsElementsWrapper}">
+				<TextBox Style="{StaticResource TextBox}" 
+					Text="{Binding Visual.BroadcastMessageText}"/>
+				<Button Style="{StaticResource SubmitButton}" 
+					Content="DISPLAY TEXT" 
+					Command="{Binding Visual.DisplayText}"/>
+			</StackPanel>
+			<StackPanel Style="{StaticResource VisualTrollsElementsWrapper}">
+				<Button Style="{StaticResource SubmitButton}" 
+					Content="DISABLE SCREEN" 
+					Command="{Binding Visual.TurnOffScreen}"/>
+			</StackPanel>
+			<StackPanel Style="{StaticResource VisualTrollsElementsWrapper}">
+				<TextBox Style="{StaticResource TextBox}" 
+					Text="{Binding Visual.OpenUrlText}"/>
+				<Button Style="{StaticResource SubmitButton}" 
+					Content="OPEN SITE" 
+					Command="{Binding Visual.OpenSite}"/>
+			</StackPanel>
+			<StackPanel Style="{StaticResource VisualTrollsElementsWrapper}">
+				<Button Style="{StaticResource SubmitButton}" 
+					Content="CHOOSE BACKGROUND IMAGE" 
+					Command="{Binding Visual.PickBackgroundImage}"/>
+			</StackPanel>
+			<StackPanel Style="{StaticResource VisualTrollsElementsWrapper}" 
+				Visibility="{Binding AllClientsSelected, Converter={StaticResource BoolToVis}}">
+				<ComboBox Style="{StaticResource Dropdown}"/>
+				<Button Style="{StaticResource SubmitButton}" 
+					Content="MAKE SCREENSHOT" 
+					Command="{Binding Visual.MakeScreenshot}"/>
+			</StackPanel>
+			<StackPanel Style="{StaticResource VisualTrollsElementsWrapper}">
 				<Image Style="{StaticResource Screenshot}" 
-					   Source="{Binding SelectedClient.ScreenshotString, Converter={StaticResource ImageConverter}}"
-					   Visibility="{Binding AllClientsSelected, Converter={StaticResource BoolToVis}}">
+					Source="{Binding SelectedClient.ScreenshotString, Converter={StaticResource ImageConverter}}" 
+					Visibility="{Binding AllClientsSelected, Converter={StaticResource BoolToVis}}">
 					<Image.InputBindings>
-						<MouseBinding Command="{Binding Visual.MaximizeScreenshot}" MouseAction="LeftClick" />
+						<MouseBinding Command="{Binding Visual.MaximizeScreenshot}" 
+							MouseAction="LeftClick" />
 					</Image.InputBindings>
 				</Image>
-            </StackPanel>
-        </StackPanel>
-    </Canvas>
+			</StackPanel>
+		</StackPanel>
+	</Canvas>
 </UserControl>

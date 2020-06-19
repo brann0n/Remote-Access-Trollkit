@@ -1,67 +1,66 @@
 ﻿<UserControl xmlns:windows="clr-namespace:Trollkit.Windows" 
-    x:Class="Trollkit.Windows.AudioTrolls" 
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-    mc:Ignorable="d" 
-    Height="580.5" 
-    Width="834.5">
-    <Canvas>
-        <Rectangle Style="{StaticResource AudioWhite}"/>
-        <Rectangle Style="{StaticResource AudioBlue}"/>
-        <Label Style="{StaticResource HeaderText}" 
-            Content="xD"/>
-        <TextBlock Style="{StaticResource AudioTextBlock}" 
-            Text="Your PC wants to preform an audo troll, please select an option."/>
-        <StackPanel Style="{StaticResource LeftPanel}">
-            <Button Style="{StaticResource AudioFileButton}" 
-                Command="{Binding Audio.Beep}">
-                <TextBlock Text="> Beep"/>
-            </Button>
-            <Button Style="{StaticResource AudioFileButton}" 
-                Command="{Binding Audio.MyNameIsJeff}">
-                <TextBlock Text="> My name is Jeff"/>
-            </Button>
-            <Button Style="{StaticResource AudioFileButton}" 
-                Command="{Binding Audio.WesselMove}">
-                <TextBlock Text="&gt; Wessel Move"/>
-            </Button>
-        </StackPanel>
-        <StackPanel Style="{StaticResource RightPanel}">
-            <Button Style="{StaticResource AudioFileButton}" 
-                Command="{Binding Audio.Windows}">
-                <TextBlock Text="&gt; Windows pop-up"/>
-            </Button>
-            <Button Style="{StaticResource AudioFileButton}" 
-                Command="{Binding Audio.Horn}">
-                <TextBlock Text="&gt; Horn"/>
-            </Button>
-            <Button Style="{StaticResource AudioFileButton}" 
-                Command="{Binding Audio.Macintosh}">
-                <TextBlock Text="&gt; Machintosh 420"/>
-            </Button>
-            <Button Style="{StaticResource AudioFileButton}" 
-                Command="{Binding Audio.StopSound}">
-                <TextBlock Text="&gt; Stop Sound"/>
-            </Button>
-        </StackPanel>
-
-        <Image Style="{StaticResource Sirenhead}"/>
-        <Button Style="{StaticResource VolumeMute}" 
-            Command="{Binding Audio.Mute}"/>
-        <Button Style="{StaticResource VolumeDown}" 
-            Command="{Binding Audio.VolumeDown}"/>
-        <Button Style="{StaticResource VolumeUp}" 
-            Command="{Binding Audio.VolumeUp}"/>
-        <Button Style="{StaticResource PrevButton}" 
-            Command="{Binding Audio.Previous}"/>
-        <ToggleButton Style="{StaticResource PlayPause}" 
-            Name="PlayPauseButton" 
-            Command="{Binding Audio.PlayPause}">
-            <Image Style="{StaticResource image}" />
-        </ToggleButton>
-        <Button Style="{StaticResource NextButton}" 
-            Command="{Binding Audio.Next}"/>
-    </Canvas>
+	x:Class="Trollkit.Windows.AudioTrolls" 
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+	mc:Ignorable="d" 
+	Height="580.5" 
+	Width="834.5">
+	<Canvas>
+		<Rectangle Style="{StaticResource AudioWhite}"/>
+		<Rectangle Style="{StaticResource AudioBlue}"/>
+		<Label Style="{StaticResource HeaderText}" 
+			Content="xD"/>
+		<TextBlock Style="{StaticResource AudioTextBlock}" 
+			Text="Your PC wants to preform an audo troll, please select an option."/>
+		<StackPanel Style="{StaticResource LeftPanel}">
+			<Button Style="{StaticResource AudioFileButton}" 
+				Command="{Binding Audio.Beep}">
+				<TextBlock Text="> Beep"/>
+			</Button>
+			<Button Style="{StaticResource AudioFileButton}" 
+				Command="{Binding Audio.MyNameIsJeff}">
+				<TextBlock Text="> My name is Jeff"/>
+			</Button>
+			<Button Style="{StaticResource AudioFileButton}" 
+				Command="{Binding Audio.WesselMove}">
+				<TextBlock Text="&gt; Wessel Move"/>
+			</Button>
+		</StackPanel>
+		<StackPanel Style="{StaticResource RightPanel}">
+			<Button Style="{StaticResource AudioFileButton}" 
+				Command="{Binding Audio.Windows}">
+				<TextBlock Text="&gt; Windows pop-up"/>
+			</Button>
+			<Button Style="{StaticResource AudioFileButton}" 
+				Command="{Binding Audio.Horn}">
+				<TextBlock Text="&gt; Horn"/>
+			</Button>
+			<Button Style="{StaticResource AudioFileButton}" 
+				Command="{Binding Audio.Macintosh}">
+				<TextBlock Text="&gt; Machintosh 420"/>
+			</Button>
+			<Button Style="{StaticResource AudioFileButton}" 
+				Command="{Binding Audio.StopSound}">
+				<TextBlock Text="&gt; Stop Sound"/>
+			</Button>
+		</StackPanel>
+		<Image Style="{StaticResource Sirenhead}"/>
+		<Button Style="{StaticResource VolumeMute}" 
+			Command="{Binding Audio.Mute}"/>
+		<Button Style="{StaticResource VolumeDown}" 
+			Command="{Binding Audio.VolumeDown}"/>
+		<Button Style="{StaticResource VolumeUp}" 
+			Command="{Binding Audio.VolumeUp}"/>
+		<Button Style="{StaticResource PrevButton}" 
+			Command="{Binding Audio.Previous}"/>
+		<ToggleButton Style="{StaticResource PlayPause}" 
+			Name="PlayPauseButton" 
+			Command="{Binding Audio.PlayPause}">
+			<Image Style="{StaticResource image}" />
+		</ToggleButton>
+		<Button Style="{StaticResource NextButton}" 
+			Command="{Binding Audio.Next}"/>
+	</Canvas>
 </UserControl>

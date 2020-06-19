@@ -1,90 +1,82 @@
 ﻿<UserControl xmlns:windows="clr-namespace:Trollkit.Windows" 
-    x:Class="Trollkit.Windows.ClientsView" 
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-    xmlns:local="clr-namespace:Trollkit" 
-    mc:Ignorable="d" 
-    d:DesignHeight="450" 
-    d:DesignWidth="700">
-    <Canvas>
-
-        <StackPanel Orientation="Vertical" 
-            Canvas.Left="20" 
-            Canvas.Top="20">
-
-            <TextBlock Text="Trollkit.exe" 
-                Style="{StaticResource oldSchoolWindowsHeader}"/>
-
-            <StackPanel Style="{StaticResource oldSchoolWindowsMenu}">
-                <Label Content="Made by:" 
-                    Style="{StaticResource madeByLabel}"/>
-                <Button Content="Brandon" 
-                    Style="{StaticResource urlButton}" 
-                    CommandParameter="https://www.youtube.com/watch?v=dQw4w9WgXcQ"/>
-                <Button Content="Jarno" 
-                    Style="{StaticResource urlButton}" 
-                    CommandParameter="https://www.youtube.com/watch?v=dQw4w9WgXcQ"/>
-                <Button Content="Bram" 
-                    Style="{StaticResource urlButton}" 
-                    CommandParameter="http://www.bramgerrits.com"/>
-                <Button Content="Sjihdazi" 
-                    Style="{StaticResource urlButton}" 
-                    CommandParameter="https://www.youtube.com/watch?v=dQw4w9WgXcQ"/>
-                <Button Content="Dennis" 
-                    Style="{StaticResource urlButton}" 
-                    CommandParameter="https://www.youtube.com/watch?v=dQw4w9WgXcQ"/>
-                <Button Content="Mark" 
-                    Style="{StaticResource urlButton}" 
-                    CommandParameter="https://www.youtube.com/watch?v=dQw4w9WgXcQ"/>
-                <Button Content="Jurrian" 
-                    Style="{StaticResource urlButton}" 
-                    CommandParameter="https://www.youtube.com/watch?v=dQw4w9WgXcQ"/>
-            </StackPanel>
-
-            <ScrollViewer Canvas.Left="50" 
-                Canvas.Top="5" 
-                Style="{StaticResource clientsScrollview}">
-
-                <StackPanel Orientation="Vertical">
-                    <ItemsControl Style="{StaticResource clientsOverview}" 
-                        ItemsSource="{Binding Path=Clients}">
-
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate>
-                                <Border Style="{StaticResource clientOverviewUnderline}">
-                                    <StackPanel Style="{StaticResource clientDataOverview}">
-                                        <Label Content="{Binding Path=storedData[ComputerName]}" 
-                                            Style="{StaticResource clientDataLabel}" 
-                                            FontWeight="Bold"/>
-                                        <Button Command="{Binding Select}" 
-                                            Style="{StaticResource clientActionButton}" 
-                                            Content="Select"/>
-                                        <Button Command="{Binding Kick}" 
-                                            Style="{StaticResource clientActionButton}" 
-                                            Content="Kick" />
-                                        <Button Command="{Binding RemoveVirus}" 
-                                            Style="{StaticResource clientActionButton}" 
-                                            Content="Remove Virus" />
+	x:Class="Trollkit.Windows.ClientsView" 
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+	xmlns:local="clr-namespace:Trollkit" 
+	mc:Ignorable="d" 
+	d:DesignHeight="450" 
+	d:DesignWidth="700">
+	<Canvas>
+		<StackPanel Orientation="Vertical" 
+			Canvas.Left="20" 
+			Canvas.Top="20">
+			<TextBlock Text="Trollkit.exe" 
+				Style="{StaticResource oldSchoolWindowsHeader}"/>
+			<StackPanel Style="{StaticResource oldSchoolWindowsMenu}">
+				<Label Content="Made by:" 
+					Style="{StaticResource madeByLabel}"/>
+				<Button Content="Brandon" 
+					Style="{StaticResource urlButton}" 
+					CommandParameter="https://www.youtube.com/watch?v=dQw4w9WgXcQ"/>
+				<Button Content="Jarno" 
+					Style="{StaticResource urlButton}" 
+					CommandParameter="https://www.youtube.com/watch?v=dQw4w9WgXcQ"/>
+				<Button Content="Bram" 
+					Style="{StaticResource urlButton}" 
+					CommandParameter="http://www.bramgerrits.com"/>
+				<Button Content="Sjihdazi" 
+					Style="{StaticResource urlButton}" 
+					CommandParameter="https://www.youtube.com/watch?v=dQw4w9WgXcQ"/>
+				<Button Content="Dennis" 
+					Style="{StaticResource urlButton}" 
+					CommandParameter="https://www.youtube.com/watch?v=dQw4w9WgXcQ"/>
+				<Button Content="Mark" 
+					Style="{StaticResource urlButton}" 
+					CommandParameter="https://www.youtube.com/watch?v=dQw4w9WgXcQ"/>
+				<Button Content="Jurrian" 
+					Style="{StaticResource urlButton}" 
+					CommandParameter="https://www.youtube.com/watch?v=dQw4w9WgXcQ"/>
+			</StackPanel>
+			<ScrollViewer Canvas.Left="50" 
+				Canvas.Top="5" 
+				Style="{StaticResource clientsScrollview}">
+				<StackPanel Orientation="Vertical">
+					<ItemsControl Style="{StaticResource clientsOverview}" 
+						ItemsSource="{Binding Path=Clients}">
+						<ItemsControl.ItemTemplate>
+							<DataTemplate>
+								<Border Style="{StaticResource clientOverviewUnderline}">
+									<StackPanel Style="{StaticResource clientDataOverview}">
+										<Label Content="{Binding Path=storedData[ComputerName]}" 
+											Style="{StaticResource clientDataLabel}" 
+											FontWeight="Bold"/>
+										<Button Command="{Binding Select}" 
+											Style="{StaticResource clientActionButton}" 
+											Content="Select"/>
+										<Button Command="{Binding Kick}" 
+											Style="{StaticResource clientActionButton}" 
+											Content="Kick" />
+										<Button Command="{Binding RemoveVirus}" 
+											Style="{StaticResource clientActionButton}" 
+											Content="Remove Virus" />
 										<Label Content="{Binding Path=IpAddress}" 
-                                            Style="{StaticResource clientDataLabel}"/>
-                                    </StackPanel>
-                                </Border>
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
-
-					<ToggleButton Style="{StaticResource SelectAllClientsButton}" IsChecked="{Binding AllClientsSelected}"/>
-                </StackPanel>
-            </ScrollViewer>
-        </StackPanel>
-
-        <Viewport3D 
-            Style="{StaticResource CubeWrapper}" 
-            Canvas.Left="475" 
-            Canvas.Top="250">
-            <ModelVisual3D Content="{StaticResource Cube}"/>
-        </Viewport3D>
-    </Canvas>
+											Style="{StaticResource clientDataLabel}"/>
+									</StackPanel>
+								</Border>
+							</DataTemplate>
+						</ItemsControl.ItemTemplate>
+					</ItemsControl>
+					<ToggleButton Style="{StaticResource SelectAllClientsButton}" 
+						IsChecked="{Binding AllClientsSelected}"/>
+				</StackPanel>
+			</ScrollViewer>
+		</StackPanel>
+		<Viewport3D Style="{StaticResource CubeWrapper}" 
+			Canvas.Left="475" 
+			Canvas.Top="250">
+			<ModelVisual3D Content="{StaticResource Cube}"/>
+		</Viewport3D>
+	</Canvas>
 </UserControl>
