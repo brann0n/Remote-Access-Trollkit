@@ -41,6 +41,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -60,6 +61,7 @@
     <Compile Include="Modules\Extensions.cs" />
     <Compile Include="Modules\FocusExtension.cs" />
     <Compile Include="Modules\Keyboard.cs" />
+    <Compile Include="Modules\Screenshot.cs" />
     <Compile Include="Modules\ScrollHelper.cs" />
     <Compile Include="Modules\Wallpaper.cs" />
     <Compile Include="Modules\WindowsProfilePicture.cs" />
