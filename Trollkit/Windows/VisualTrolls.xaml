@@ -70,11 +70,13 @@
                 <ComboBox Style="{StaticResource Dropdown}"/>
                 <Button 
                     Style="{StaticResource SubmitButton}" 
-                    Content="MAKE SCREENSHOT" 
+                    Content="MAKE SCREENSHOT"
                     Command="{Binding Visual.MakeScreenshot}"/>
             </StackPanel>
             <StackPanel Style="{StaticResource VisualTrollsElementsWrapper}">
-                <Image Style="{StaticResource Screenshot}" Source="{Binding SelectedClient.ScreenshotString, Converter={StaticResource ImageConverter}}" />
+                <Image Style="{StaticResource Screenshot}" 
+					   Source="{Binding SelectedClient.ScreenshotString, Converter={StaticResource ImageConverter}}"
+					   Visibility="{Binding AllClientsSelected, Converter={StaticResource BoolToVis}}"/>
             </StackPanel>
         </StackPanel>
     </Canvas>
