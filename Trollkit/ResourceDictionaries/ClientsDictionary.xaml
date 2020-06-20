@@ -195,12 +195,12 @@
 			<Trigger Property="IsChecked" 
 				Value="True">
 				<Setter Property="Content" 
-					Value="Select a Single Clients" />
+					Value="Select a Single Client" />
 			</Trigger>
 			<Trigger Property="IsChecked" 
 				Value="False">
 				<Setter Property="Content" 
-					Value="Select ALL Clients" />
+					Value="Select All Clients" />
 			</Trigger>
 		</Style.Triggers>
 	</Style>

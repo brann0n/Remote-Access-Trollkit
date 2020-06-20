@@ -1,17 +1,16 @@
 ﻿<Application x:Class="Trollkit.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:Trollkit"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="ResourceDictionaries\Menu.xaml"/>
-                <ResourceDictionary Source="ResourceDictionaries\WindowsTrolls.xaml"/>
+                <ResourceDictionary Source="ResourceDictionaries\MainWindowDictionary.xaml"/>
+                <ResourceDictionary Source="ResourceDictionaries\WindowsTrollsDictionary.xaml"/>
                 <ResourceDictionary Source="ResourceDictionaries\VisualTrollsDictionary.xaml"/>
                 <ResourceDictionary Source="ResourceDictionaries\ClientsDictionary.xaml"/>
                 <ResourceDictionary Source="ResourceDictionaries\AudioTrollsDictionary.xaml"/>
-                <ResourceDictionary Source="ResourceDictionaries\System_InfoDictionary.xaml"/>
+                <ResourceDictionary Source="ResourceDictionaries\SystemInfoDictionary.xaml"/>
 				<ResourceDictionary Source="ResourceDictionaries\CMDShellDictionary.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>

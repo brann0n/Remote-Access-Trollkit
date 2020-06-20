@@ -13,7 +13,7 @@
 		<Label Style="{StaticResource HeaderText}" 
 			Content="xD"/>
 		<TextBlock Style="{StaticResource AudioTextBlock}" 
-			Text="Your PC wants to preform an audo troll, please select an option."/>
+			Text="Your PC wants to perform an audio troll, please select an option."/>
 		<StackPanel Style="{StaticResource LeftPanel}">
 			<Button Style="{StaticResource AudioFileButton}" 
 				Command="{Binding Audio.Beep}">
