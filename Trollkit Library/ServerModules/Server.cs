@@ -358,7 +358,11 @@ namespace Trollkit_Library.ServerModules
 		{
 			Socket s = GetSocketByClient(client);
 			if (s != null)
+			{
+				//send the kick command
 				CloseSocket(s);
+			}
+				
 
 			if (client != null)
 				ClientDisconnected(client);
@@ -371,6 +375,10 @@ namespace Trollkit_Library.ServerModules
 		/// <param name="clientSocket">The client socket.</param>
 		private void CloseSocket(Socket socket)
 		{
+			if (socket.Connected)
+			{			
+				socket.Disconnect(false);
+			}
 			socket.Close();
 			clients.Remove(socket);
 		}

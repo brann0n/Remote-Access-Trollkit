@@ -23,12 +23,17 @@ namespace Trollkit_Library.ClientModules
 			buffers = new List<DataBufferModel>();
 		}
 
-		public void ConnectAndReceive(string ip)
+		/// <summary>
+		/// Connects to the Remote host and receives data, returns if connection is lost
+		/// </summary>
+		/// <param name="ip"></param>
+		/// <returns>Returns if the client should attempt a reconnect</returns>
+		public bool ConnectAndReceive(string ip)
 		{
 			remoteSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-			remoteSocket.Connect(new IPEndPoint(IPAddress.Parse(ip), SharedProperties.MainPort));
-			BConsole.WriteLine($"Connected to Trollkit host at {ip}:{SharedProperties.MainPort}");
-			while (true)
+			remoteSocket.Connect(new IPEndPoint(IPAddress.Parse(ip), SharedProperties.MainPort));			
+			BConsole.WriteLine($"Connected to Trollkit host at {ip}:{SharedProperties.MainPort}", ConsoleColor.DarkGreen);
+			while (remoteSocket.IsConnected())
 			{
 				//receive data from server.
 				byte[] array = new byte[SharedProperties.DataSize];
@@ -36,10 +41,23 @@ namespace Trollkit_Library.ClientModules
 				{
 					remoteSocket.Receive(array);
 				}
-				catch
+				catch (SocketException e)
 				{
-					BConsole.WriteLine("Could no longer receive data, client disconnected???");
-					break;
+					if(e.SocketErrorCode == SocketError.ConnectionReset)
+					{
+						BConsole.WriteLine("Host connection closed unexpectedly...", ConsoleColor.Red);
+						return true;
+					}
+					else
+					{
+						BConsole.WriteLine("Application crashed, closing now");
+						return false;
+					}
+				}
+				catch (Exception e)
+				{
+					BConsole.WriteLine("Application crashed, closing now");
+					return false;
 				}
 				int length = BitConverter.ToInt32(new byte[] { array[SharedProperties.LengthByte1], array[SharedProperties.LengthByte2], 0, 0 }, 0);
 				int series = BitConverter.ToInt32(new byte[] { array[SharedProperties.SeriesByte1], array[SharedProperties.SeriesByte2], 0, 0 }, 0);
@@ -70,6 +88,8 @@ namespace Trollkit_Library.ClientModules
 
 				}
 			}
+
+			return false; //if code reaches here, the client was gracefully kicked
 		}
 	}
 }
