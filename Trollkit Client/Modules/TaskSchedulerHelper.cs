@@ -53,7 +53,7 @@ namespace Trollkit_Client.Modules
 				objScheduler.Connect();
 
 				ITaskFolder containingFolder = objScheduler.GetFolder("\\");
-				containingFolder.DeleteTask("Trollkit Client", 0);		
+				containingFolder.DeleteTask("Trollkit Client", 0);
 			}
 			catch (Exception ex)
 			{
@@ -69,25 +69,12 @@ namespace Trollkit_Client.Modules
 			try
 			{
 				objTaskDef = objScheduler.NewTask(0);
-				//Registration Info for task
-				//Name of the task Author
 				objTaskDef.RegistrationInfo.Author = "Trollkit";
-				//Description of the task 
 				objTaskDef.RegistrationInfo.Description = "Trollkit Client Start";
-				//Registration date of the task 
 				objTaskDef.RegistrationInfo.Date = DateTime.Today.ToString("yyyy-MM-ddTHH:mm:ss"); //Date format 
-
-				//Settings for task
-				//Thread Priority
 				objTaskDef.Settings.Priority = 7;
-				//Enabling the task
 				objTaskDef.Settings.Enabled = true;
-				//To hide/show the task
 				objTaskDef.Settings.Hidden = false;
-				//Execution Time Lmit for task
-				//objTaskDef.Settings.
-				//objTaskDef.Settings.ExecutionTimeLimit = "PT10M"; //10 minutes
-																  //Specifying no need of network connection
 				objTaskDef.Settings.RunOnlyIfNetworkAvailable = true;
 			}
 			catch (Exception ex)
@@ -96,15 +83,16 @@ namespace Trollkit_Client.Modules
 			}
 		}
 
+		/// <summary>
+		/// Sets the trigger info for the task
+		/// </summary>
 		private void SetTriggerInfo()
 		{
 			try
 			{
-				//Trigger information based on time - TASK_TRIGGER_TIME
 				objTrigger = (ILogonTrigger)objTaskDef.Triggers.Create(_TASK_TRIGGER_TYPE2.TASK_TRIGGER_LOGON);
-				//Trigger ID
 				objTrigger.UserId = WindowsIdentity.GetCurrent().Name;
-				objTrigger.Id = "Trollkit Trigger";	
+				objTrigger.Id = "Trollkit Trigger";
 			}
 			catch (Exception ex)
 			{
@@ -112,15 +100,16 @@ namespace Trollkit_Client.Modules
 			}
 		}
 
+		/// <summary>
+		/// Sets the action info of the task to run
+		/// </summary>
+		/// <param name="exePath"></param>
 		private void SetActionInfo(string exePath)
 		{
 			try
 			{
-				//Action information based on exe- TASK_ACTION_EXEC
 				objAction = (IExecAction)objTaskDef.Actions.Create(_TASK_ACTION_TYPE.TASK_ACTION_EXEC);
-				//Action ID
 				objAction.Id = "Trollkit boot action";
-				//Set the path of the exe file to execute, Here mspaint will be opened
 				objAction.Path = exePath;
 			}
 			catch (Exception ex)

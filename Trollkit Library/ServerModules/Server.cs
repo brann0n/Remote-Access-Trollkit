@@ -30,6 +30,9 @@ namespace Trollkit_Library.ServerModules
 		/// </summary>
 		private Dictionary<Socket, Client> clients;
 
+		/// <summary>
+		/// A list of all clients, taken from the private &lt;socket,client&gt; dictionary
+		/// </summary>
 		public List<Client> Clients
 		{
 			get
@@ -38,6 +41,9 @@ namespace Trollkit_Library.ServerModules
 			}
 		}
 
+		/// <summary>
+		/// The currently selected client.
+		/// </summary>
 		public Client SelectedClient
 		{
 			get
@@ -51,6 +57,9 @@ namespace Trollkit_Library.ServerModules
 			}
 		}
 
+		/// <summary>
+		/// Boolean that returns if the server wants to send its command to all clients instead of a single one.
+		/// </summary>
 		public bool AllClientsSelected
 		{
 			get
@@ -64,6 +73,9 @@ namespace Trollkit_Library.ServerModules
 			}
 		}
 
+		/// <summary>
+		/// Boolean that returns if there are clients.
+		/// </summary>
 		public bool ClientsAvailable { get { return Clients.Count != 0; } }
 
 		//delegates
@@ -150,7 +162,7 @@ namespace Trollkit_Library.ServerModules
 				ClientConnected(client);
 
 				//tell the client to start sending back its client info.
-				TransferCommandObject returnObject = new TransferCommandObject { Command = "GetClientInfo", Handler = "SystemInfo"};
+				TransferCommandObject returnObject = new TransferCommandObject { Command = "GetClientInfo", Handler = "SystemInfo" };
 				SendDataObjectToSocket(DataByteType.Command, newSocket, ClientServerPipeline.BufferSerialize(returnObject));
 
 				serverSocket.BeginAccept(new AsyncCallback(HandleIncomingConnection), serverSocket);
@@ -173,19 +185,19 @@ namespace Trollkit_Library.ServerModules
 				Client client = GetClientBySocket(clientSocket);
 				int bytesReceived = clientSocket.EndReceive(result);
 				DataByteType type = (DataByteType)client.Data[SharedProperties.TypeByte];
-				if(bytesReceived == 0)
+				if (bytesReceived == 0)
 				{
 					CloseSocket(clientSocket);
 					serverSocket.BeginAccept(new AsyncCallback(HandleIncomingConnection), serverSocket);
 				}
-				else if(Enum.IsDefined(typeof(DataByteType), (DataByteType)client.Data[SharedProperties.TypeByte]))
+				else if (Enum.IsDefined(typeof(DataByteType), (DataByteType)client.Data[SharedProperties.TypeByte]))
 				{
 					int length = BitConverter.ToInt32(new byte[] { client.Data[SharedProperties.LengthByte1], client.Data[SharedProperties.LengthByte2], 0, 0 }, 0);
 					int series = BitConverter.ToInt32(new byte[] { client.Data[SharedProperties.SeriesByte1], client.Data[SharedProperties.SeriesByte2], 0, 0 }, 0);
 					Guid guid = new Guid(client.Data.SubArray(SharedProperties.GuidStartByte, 16));
 
 					DataBufferModel buffer = Buffers.FirstOrDefault(n => n.DataId == guid);
-					if(buffer != null)
+					if (buffer != null)
 					{
 						buffer.BufferedData.Add(series, client.Data.SubArray(SharedProperties.HeaderByteSize, SharedProperties.DataLength));
 						buffer.LatestSeries = series;
@@ -200,9 +212,9 @@ namespace Trollkit_Library.ServerModules
 						Buffers.Add(buffer);
 					}
 					BConsole.WriteLine($"Received data with id: {guid.ToString()}");
-					
-					if(buffer.BufferedData.Count == buffer.SeriesLength)
-					{				
+
+					if (buffer.BufferedData.Count == buffer.SeriesLength)
+					{
 						if (HandleIncomingData(ClientServerPipeline.BufferDeserialize(buffer), client, type))
 						{
 							Buffers.Remove(buffer);
@@ -344,8 +356,8 @@ namespace Trollkit_Library.ServerModules
 			Socket s = GetSocketByClient(client);
 			if (s != null)
 				CloseSocket(s);
-			
-			if(client != null)
+
+			if (client != null)
 				ClientDisconnected(client);
 		}
 
@@ -366,7 +378,7 @@ namespace Trollkit_Library.ServerModules
 		/// <param name="message"></param>
 		public void SendDataObjectToAll(DataByteType type, DataBufferModel message)
 		{
-			foreach(Socket s in clients.Keys)
+			foreach (Socket s in clients.Keys)
 			{
 				try
 				{
@@ -385,6 +397,10 @@ namespace Trollkit_Library.ServerModules
 			return clients.Values.ToList();
 		}
 
+		/// <summary>
+		/// Function that calls the bound event for property changes.
+		/// </summary>
+		/// <param name="property"></param>
 		public void UpdateProperty(string property)
 		{
 			OnPropertyChanged(property);

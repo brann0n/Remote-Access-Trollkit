@@ -42,18 +42,29 @@ namespace Trollkit_Library.ClientModules
 		public string CMDBuffer { get; set; }
 		public string ScreenshotString { get; set; }
 
+		/// <summary>
+		/// Function that adds text to the cmd buffer string
+		/// </summary>
+		/// <param name="data"></param>
 		public void AddToCMDBuffer(string data)
 		{
 			CMDBuffer += data + "\r\n";
 			NotifyPropertyChanged("CMDBuffer");
 		}
 
+		/// <summary>
+		/// Function that sets the current screenshot base64 string.
+		/// </summary>
+		/// <param name="base64Image"></param>
 		public void SetScreenshot(string base64Image)
 		{
 			ScreenshotString = base64Image;
 			NotifyPropertyChanged("ScreenshotString");
 		}
 
+		/// <summary>
+		/// Function that sends a request to the client for removing the client application from the computer.
+		/// </summary>
 		private void RemoveVirusFromClient()
 		{
 			TransferCommandObject removeVirusTransferObject = new TransferCommandObject { Command = "DeleteTask", Handler = "Task" };
@@ -61,14 +72,21 @@ namespace Trollkit_Library.ClientModules
 			ServerViewModel.Server.SendDataObjectToSocket(DataByteType.Command, socket, ClientServerPipeline.BufferSerialize(removeVirusTransferObject));
 		}
 
+		/// <summary>
+		/// Function for the viewmodel to kick the current client
+		/// </summary>
 		public void KickClient()
         {
             ServerViewModel.Server.KickClient(this);
         }
 
+		/// <summary>
+		/// Function for the viewmodel to select the current client
+		/// </summary>
         public void SelectClient()
         {
             ServerViewModel.Server.SelectedClient = this;
+			ServerViewModel.Server.AllClientsSelected = false;
         }
 
         public Client(uint id, IPEndPoint pAddressEndpoint)
@@ -83,6 +101,11 @@ namespace Trollkit_Library.ClientModules
 			CMDBuffer = "";
 		}
 
+		/// <summary>
+		/// adds or updates a data item to the dictionary
+		/// </summary>
+		/// <param name="key"></param>
+		/// <param name="value"></param>
 		public void SetDataItem(string key, string value)
 		{
 			storedData[key] = value;
@@ -90,16 +113,29 @@ namespace Trollkit_Library.ClientModules
 			NotifyPropertyChanged("CurrentClientName");
 		}
 
+		/// <summary>
+		/// Gets a data item from the data list
+		/// </summary>
+		/// <param name="key"></param>
+		/// <returns></returns>
 		public string GetDataItem(string key)
 		{
 			return storedData[key];
 		}
 
+		/// <summary>
+		/// Gets the client name
+		/// </summary>
+		/// <returns></returns>
 		public string GetName()
 		{
 			return Name;
 		}
 
+		/// <summary>
+		/// Sets the client name.
+		/// </summary>
+		/// <param name="name"></param>
 		public void SetName(string name)
 		{
 			Name = name;

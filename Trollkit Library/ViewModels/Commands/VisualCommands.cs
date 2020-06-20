@@ -25,7 +25,6 @@ namespace Trollkit_Library.ViewModels.Commands
 		public ICommand MakeScreenshot { get { return new SendServerCommand(SendMakeScreenshot); } }
 		public ICommand MaximizeScreenshot { get { return new SendServerCommand(SendMaximizeScreenshot); } }
 
-
 		//textboxes
 		public string BroadcastMessageText { get; set; }
 		public string OpenUrlText { get; set; }
@@ -114,6 +113,9 @@ namespace Trollkit_Library.ViewModels.Commands
 			_server.SendDataObjectToSelectedClient(Server.DataByteType.Command, ClientServerPipeline.BufferSerialize(returnObject));
 		}
 
+		/// <summary>
+		/// Tells the host that it should open the screenshot in photoviewer
+		/// </summary>
 		private void SendMaximizeScreenshot()
 		{
 			try

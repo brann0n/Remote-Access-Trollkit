@@ -24,12 +24,14 @@ namespace Trollkit_Library.ViewModels
 		public VisualCommands Visual { get; private set; }
 		public WindowsCommands Windows { get; private set; }
         public ClientCommands Client { get; private set; }
-
 		public CMDCommands CMD { get; private set; }
 
 		//model properties
 		public List<Client> Clients { get { return Server.Clients; } }
 
+		/// <summary>
+		/// Returns the currently selected client
+		/// </summary>
 		public Client SelectedClient
 		{
 			get
@@ -44,13 +46,16 @@ namespace Trollkit_Library.ViewModels
 			}
 		}
 
+		/// <summary>
+		/// Returns the name of the current selected client, if all clients are selected it returns "All Clients Selected"
+		/// </summary>
 		public string CurrentClientName
 		{
 			get
 			{
 				if(Clients.Count == 0)
 				{
-					return "No Client selected";
+					return "No Client are connected";
 				}
 				else
 				{
@@ -74,7 +79,9 @@ namespace Trollkit_Library.ViewModels
 			}
 		}
 
-
+		/// <summary>
+		/// Boolean that tells you if the host wants to send its commands to all clients or simply to one.
+		/// </summary>
 		public bool AllClientsSelected
 		{
 			get
@@ -94,6 +101,9 @@ namespace Trollkit_Library.ViewModels
 			}
 		}
 
+		/// <summary>
+		/// Boolean that tells you if there are clients connected to the host
+		/// </summary>
 		public bool ClientsAvailable { get { return Server.ClientsAvailable; } }
 
 		public ServerViewModel()
@@ -114,6 +124,12 @@ namespace Trollkit_Library.ViewModels
 			Task.Run(() => new ServerDiscovery("gang?", "Dopple gang").Discover());
 		}	
 
+		/// <summary>
+		/// Called when a new message was received on any client socket.
+		/// </summary>
+		/// <param name="c"></param>
+		/// <param name="model"></param>
+		/// <param name="type"></param>
 		private void Server_MessageReceived(Client c, TransferCommandObject model, Server.DataByteType type)
 		{
 			BConsole.WriteLine($"Client {c.GetName()} sent a message", ConsoleColor.DarkGray);
@@ -144,6 +160,10 @@ namespace Trollkit_Library.ViewModels
 			}			
 		}
 
+		/// <summary>
+		/// Called when a client disconnects
+		/// </summary>
+		/// <param name="c"></param>
 		private void Server_ClientDisconnected(Client c)
 		{
 			BConsole.WriteLine($"Client {c.GetName()} has disconnected!", ConsoleColor.Yellow);
@@ -158,6 +178,10 @@ namespace Trollkit_Library.ViewModels
 			NotifyPropertyChanged("CurrentClientName");
 		}
 
+		/// <summary>
+		/// Called when a client connects
+		/// </summary>
+		/// <param name="c"></param>
 		private void Server_ClientConnected(Client c)
 		{
 			BConsole.WriteLine($"Client {c.GetName()} has connected!", ConsoleColor.Yellow);
@@ -172,6 +196,10 @@ namespace Trollkit_Library.ViewModels
 			NotifyPropertyChanged("CurrentClientName");
 		}
 
+		/// <summary>
+		/// Called when a property changes inside the server class, this function then passes it on to the ViewHandler
+		/// </summary>
+		/// <param name="Property"></param>
 		private void Server_OnPropertyChanged(string Property)
 		{
 			NotifyPropertyChanged(Property);
