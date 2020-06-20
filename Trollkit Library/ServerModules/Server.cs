@@ -54,6 +54,8 @@ namespace Trollkit_Library.ServerModules
 			{
 				selectedClient = value;
 				OnPropertyChanged("SelectedClient");
+				OnPropertyChanged("AllClientsSelected");
+				OnPropertyChanged("CurrentClientName");
 			}
 		}
 
@@ -70,6 +72,7 @@ namespace Trollkit_Library.ServerModules
 			{
 				allClientsSelected = value;
 				OnPropertyChanged("AllClientsSelected");
+				OnPropertyChanged("CurrentClientName");
 			}
 		}
 

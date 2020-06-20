@@ -41,6 +41,7 @@ namespace Trollkit_Library.ViewModels
 			set
 			{
 				Server.SelectedClient = value;
+				AllClientsSelected = false;
 				NotifyPropertyChanged("SelectedClient");
 				NotifyPropertyChanged("CurrentClientName");
 			}
@@ -55,13 +56,13 @@ namespace Trollkit_Library.ViewModels
 			{
 				if(Clients.Count == 0)
 				{
-					return "No Client are connected";
+					return "There are no clients connected";
 				}
 				else
 				{
 					if (AllClientsSelected)
 					{
-						return "All Clients selected";
+						return "All clients are selected";
 					}
 					else
 					{
@@ -156,6 +157,7 @@ namespace Trollkit_Library.ViewModels
 				case Server.DataByteType.Data:
 					c.SetDataItem(model.Command, model.Value);
 					NotifyPropertyChanged("SelectedClient.storedData");
+					NotifyPropertyChanged("CurrentClientName");
 					break;
 			}			
 		}
