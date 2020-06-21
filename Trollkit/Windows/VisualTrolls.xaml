@@ -53,7 +53,9 @@
 			</StackPanel>
 			<StackPanel Style="{StaticResource VisualTrollsElementsWrapper}" 
 				Visibility="{Binding AllClientsSelected, Converter={StaticResource BoolToVis}}">
-				<ComboBox Style="{StaticResource Dropdown}"/>
+				<ComboBox Style="{StaticResource Dropdown}" 
+						  ItemsSource="{Binding SelectedClient.ScreenList}"
+						  SelectedItem="{Binding SelectedClient.SelectedScreen}"/>
 				<Button Style="{StaticResource SubmitButton}" 
 					Content="MAKE SCREENSHOT" 
 					Command="{Binding Visual.MakeScreenshot}"/>
