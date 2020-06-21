@@ -31,6 +31,8 @@ namespace Trollkit_Library.ClientModules
 		/// </summary>
 		public event PropertyChangedEventHandler PropertyChanged;
 
+		private List<ScreenTypeModel> screenList;
+
 		public Dictionary<string, string> storedData { get; set; }
 
 		public string IpAddress { get { return endPoint.Address.ToString(); } }
@@ -41,6 +43,22 @@ namespace Trollkit_Library.ClientModules
 
 		public string CMDBuffer { get; set; }
 		public string ScreenshotString { get; set; }
+
+		public List<ScreenTypeModel> ScreenList { get { return screenList; } }
+		public ScreenTypeModel SelectedScreen { get; set; }
+
+        public Client(uint id, IPEndPoint pAddressEndpoint)
+		{
+			this.id = id;
+			this.connectedAt = DateTime.Now;
+			this.endPoint = pAddressEndpoint;
+			SetName($"Client #{id}");
+			NotifyPropertyChanged("ClientName");
+			this.Data = new byte[SharedProperties.DataSize];
+			storedData = new Dictionary<string, string>();
+			screenList = new List<ScreenTypeModel>();
+			CMDBuffer = "";
+		}
 
 		/// <summary>
 		/// Function that adds text to the cmd buffer string
@@ -76,29 +94,30 @@ namespace Trollkit_Library.ClientModules
 		/// Function for the viewmodel to kick the current client
 		/// </summary>
 		public void KickClient()
-        {
-            ServerViewModel.Server.KickClient(this);
-        }
+		{
+			ServerViewModel.Server.KickClient(this);
+		}
 
 		/// <summary>
 		/// Function for the viewmodel to select the current client
 		/// </summary>
-        public void SelectClient()
-        {
-            ServerViewModel.Server.SelectedClient = this;
-			ServerViewModel.Server.AllClientsSelected = false;
-        }
-
-        public Client(uint id, IPEndPoint pAddressEndpoint)
+		public void SelectClient()
 		{
-			this.id = id;
-			this.connectedAt = DateTime.Now;
-			this.endPoint = pAddressEndpoint;
-			SetName($"Client #{id}");
-			NotifyPropertyChanged("ClientName");
-			this.Data = new byte[SharedProperties.DataSize];
-			storedData = new Dictionary<string, string>();
-			CMDBuffer = "";
+			ServerViewModel.Server.SelectedClient = this;
+			ServerViewModel.Server.AllClientsSelected = false;
+		}
+
+		/// <summary>
+		/// Sets the screendata control
+		/// </summary>
+		/// <param name="data"></param>
+		public void SetScreenData(List<ScreenTypeModel> data)
+		{
+			screenList = data;
+			SelectedScreen = data.FirstOrDefault();
+
+			NotifyPropertyChanged("ScreenList");
+			NotifyPropertyChanged("SelectedScreen");
 		}
 
 		/// <summary>

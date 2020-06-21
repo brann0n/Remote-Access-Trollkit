@@ -56,6 +56,7 @@
     <Compile Include="ClientModules\ClientDiscovery.cs" />
     <Compile Include="ClientModules\ClientReceiver.cs" />
     <Compile Include="Models\DataBufferModel.cs" />
+    <Compile Include="Models\ScreenTypeModel.cs" />
     <Compile Include="Models\TransferCommandObject.cs" />
     <Compile Include="Modules\ClientServerPipeline.cs" />
     <Compile Include="Modules\Extensions.cs" />

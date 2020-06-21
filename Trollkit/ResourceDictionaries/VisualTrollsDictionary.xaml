@@ -111,6 +111,16 @@
 			Value="300"/>
 		<Setter Property="Background" 
 			Value="Yellow"/>
+		<Setter Property="ItemTemplate">
+			<Setter.Value>
+				<DataTemplate>
+					<StackPanel Orientation="Horizontal">
+						<TextBlock Text="{Binding ScreenId}" Padding="3" HorizontalAlignment="Center" TextAlignment="Center"/>
+						<TextBlock Text="{Binding ScreenName}" Margin="3" HorizontalAlignment="Center" TextAlignment="Center"/>
+					</StackPanel>
+				</DataTemplate>
+			</Setter.Value>
+		</Setter>
 	</Style>
 	<Style x:Key="Screenshot" 
 		TargetType="{x:Type Image}">

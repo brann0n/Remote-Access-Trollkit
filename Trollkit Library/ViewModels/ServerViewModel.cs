@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -145,6 +146,14 @@ namespace Trollkit_Library.ViewModels
 					else if (model.Command == "ScreenshotResponse")
 					{
 						c.SetScreenshot(model.Value);
+					}
+					else if(model.Command == "ScreenList")
+					{
+						List<ScreenTypeModel> screenList = JsonConvert.DeserializeObject<List<ScreenTypeModel>>(model.Value);
+						if(screenList != null)
+						{
+							c.SetScreenData(screenList);
+						}
 					}
 					break;
 				case Server.DataByteType.Command:
