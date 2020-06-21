@@ -122,9 +122,11 @@ namespace Trollkit_Library.ViewModels.Commands
 			{
 				byte[] bytes = Convert.FromBase64String(_server.SelectedClient.ScreenshotString);
 
-				var tempFileName = Path.GetTempFileName(); //TODO create folder TrollKit in Pictures and store the image there
-				tempFileName = tempFileName.Replace(".tmp", ".png");
-				File.WriteAllBytes(tempFileName, bytes);
+				string imagePath = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures) + "\\TrollKit";
+				Directory.CreateDirectory(imagePath);
+				string fileName = "Screenshot_" + DateTime.Now.ToString("dd.MM.yyyy_HH.mm.ss");
+				string filePath = imagePath + "\\" + fileName + ".png";
+				File.WriteAllBytes(filePath, bytes);
 
 				string path = Environment.GetFolderPath(
 					Environment.SpecialFolder.ProgramFiles);
@@ -138,17 +140,12 @@ namespace Trollkit_Library.ViewModels.Commands
 							path
 							,
 						@"\Windows Photo Viewer\PhotoViewer.dll",
-						tempFileName)
+						filePath)
 					);
 
 				psi.UseShellExecute = false;
 
 				var viewer = Process.Start(psi);
-				viewer.EnableRaisingEvents = true;
-				viewer.Exited += (o, args) =>
-				{
-					File.Delete(tempFileName);
-				};
 			}
 			catch (Exception e)
 			{
