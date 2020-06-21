@@ -164,6 +164,8 @@ namespace Trollkit_Library.ServerModules
 				//call the client connected event, this is then passed up into the ServerViewModel.
 				ClientConnected(client);
 
+				newSocket.BeginReceive(client.Data, 0, dataSize, SocketFlags.None, new AsyncCallback(ReceiveData), newSocket);
+
 				//tell the client to start sending back its client info.
 				TransferCommandObject returnObject = new TransferCommandObject { Command = "GetClientInfo", Handler = "SystemInfo" };
 				SendDataObjectToSocket(DataByteType.Command, newSocket, ClientServerPipeline.BufferSerialize(returnObject));
@@ -186,6 +188,11 @@ namespace Trollkit_Library.ServerModules
 			{
 				Socket clientSocket = (Socket)result.AsyncState;
 				Client client = GetClientBySocket(clientSocket);
+				if(client == null)
+				{
+					return;
+				}
+
 				int bytesReceived = clientSocket.EndReceive(result);
 				DataByteType type = (DataByteType)client.Data[SharedProperties.TypeByte];
 				if (bytesReceived == 0)
@@ -307,8 +314,7 @@ namespace Trollkit_Library.ServerModules
 			{
 				Socket clientSocket = (Socket)result.AsyncState;
 				Client client = GetClientBySocket(clientSocket);
-				clientSocket.EndSend(result);
-				clientSocket.BeginReceive(client.Data, 0, dataSize, SocketFlags.None, new AsyncCallback(ReceiveData), clientSocket);
+				clientSocket.EndSend(result);			
 			}
 			catch (Exception e)
 			{

