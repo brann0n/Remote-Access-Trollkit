@@ -241,7 +241,7 @@ namespace Trollkit_Library.ServerModules
 			}
 			catch (Exception e)
 			{
-				BConsole.WriteLine("Error occured: " + e.Message, ConsoleColor.Red);
+				BConsole.WriteLine("Recieve error occured: " + e.Message, ConsoleColor.Red);
 			}
 		}
 
@@ -318,7 +318,7 @@ namespace Trollkit_Library.ServerModules
 			}
 			catch (Exception e)
 			{
-				BConsole.WriteLine("Error occured: " + e.Message.Substring(0, 20));
+				BConsole.WriteLine("Send Error occured: " + e.Message, ConsoleColor.Red);
 			}
 		}
 
