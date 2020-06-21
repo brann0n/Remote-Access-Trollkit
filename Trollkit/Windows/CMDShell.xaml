@@ -46,14 +46,75 @@
 								</TextBlock>
 							</StackPanel>
 						</ScrollViewer>
-						<TextBox Style="{StaticResource CMDCommandTextbox}" 
-							Text="{Binding CMD.CommandText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
-							libmodules:FocusExtension.IsFocused="{Binding CMD.IsFocusedElement}">
-							<TextBox.InputBindings>
-								<KeyBinding Command="{Binding CMD.SendCMD}" 
-									Key="Return" />
-							</TextBox.InputBindings>
-						</TextBox>
+						<Grid>
+							<TextBox x:Name="textboxCMD" 
+								Style="{StaticResource CMDCommandTextbox}" 
+								Text="{Binding CMD.CommandText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+								libmodules:FocusExtension.IsFocused="{Binding CMD.IsFocusedElement}" 
+								TextChanged="TextboxCMD_TextChanged">
+								<TextBox.InputBindings>
+									<KeyBinding Command="{Binding CMD.SendCMD}" 
+										Key="Return" />
+								</TextBox.InputBindings>
+							</TextBox>
+							<Canvas>
+								<Rectangle x:Name="Caret">
+									<Rectangle.Style>
+										<Style TargetType="{x:Type Rectangle}">
+											<Setter Property="Height" 
+												Value="3" />
+											<Setter Property="Width" 
+												Value="7" />
+											<Setter Property="Margin" 
+												Value="0,15,0,0" />
+											<Setter Property="VerticalAlignment" 
+												Value="Bottom" />
+											<Setter Property="Fill" 
+												Value="White" />
+											<Style.Triggers>
+												<DataTrigger Binding="{Binding Path=CMD.IsFocusedElement}" 
+													Value="True">
+													<Setter Property="Visibility" 
+														Value="Visible" />
+												</DataTrigger>
+												<DataTrigger Binding="{Binding Path=CMD.IsFocusedElement}" 
+													Value="False">
+													<Setter Property="Visibility" 
+														Value="Collapsed" />
+												</DataTrigger>
+												<DataTrigger Binding="{Binding Path=CMD.IsFocusedElement}" 
+													Value="True">
+													<DataTrigger.EnterActions>
+														<BeginStoryboard x:Name="blinking">
+															<Storyboard RepeatBehavior="Forever">
+																<DoubleAnimation Storyboard.TargetProperty="Opacity" 
+																	From="0" 
+																	To="1" 
+																	BeginTime="0:0:0" 
+																	Duration="0:0:0.01" />
+																<DoubleAnimation Storyboard.TargetProperty="Opacity" 
+																	From="1" 
+																	To="0" 
+																	BeginTime="0:0:0.530" 
+																	Duration="0:0:0.01" />
+																<DoubleAnimation Storyboard.TargetProperty="Opacity" 
+																	From="0" 
+																	To="1" 
+																	BeginTime="0:0:1.060" 
+																	Duration="0:0:0.01" />
+															</Storyboard>
+														</BeginStoryboard>
+													</DataTrigger.EnterActions>
+													<DataTrigger.ExitActions>
+														<StopStoryboard BeginStoryboardName="blinking" />
+													</DataTrigger.ExitActions>
+												</DataTrigger>
+											</Style.Triggers>
+										</Style>
+									</Rectangle.Style>
+								</Rectangle>
+							</Canvas>
+						</Grid>
 					</StackPanel>
 				</Border>
 			</StackPanel>

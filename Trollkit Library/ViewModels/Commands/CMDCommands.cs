@@ -18,6 +18,22 @@ namespace Trollkit_Library.ViewModels.Commands
 		public ICommand SendCMD { get { return new SendServerCommand(SendCMDToClient); } }
 		public ICommand Close { get { return new SendServerCommand(CloseCMD); } }
 		public ICommand Focus { get { return new SendServerCommand(FocusOnTextBox); } }
+		public ICommand CaretLostFocus { get { return new SendServerCommand(LostFocus); } }
+		public ICommand CaretGotFocus { get { return new SendServerCommand(GotFocus); } }
+		private void LostFocus()
+		{
+
+		}
+
+		public void LostFocusTest(object sender, EventArgs e)
+		{
+
+		}
+
+		private void GotFocus()
+		{
+
+		}
 
 		private string _CommandText;
 		public string CommandText { get { return _CommandText; } set { _CommandText = value; _server.UpdateProperty("CMD"); } }
@@ -39,7 +55,6 @@ namespace Trollkit_Library.ViewModels.Commands
 			_server.SendDataObjectToSelectedClient(Server.DataByteType.Command, ClientServerPipeline.BufferSerialize(returnObject));
 			CommandText = "";
 		}
-
 
 		public void CloseCMD()
 		{

@@ -160,6 +160,19 @@
 		<Setter Property="Focusable"
 				Value="True" />
 		<Setter Property="CaretBrush"
-				Value="Blue" />
+				Value="Black" />
+		<Setter Property="SelectionBrush">
+			<Setter.Value>
+				<LinearGradientBrush StartPoint="0,1" 
+                            EndPoint="1,1">
+					<GradientStop Color="#33e0e3" 
+                                Offset="0.0" />
+					<GradientStop Color="#FC6DFF" 
+                                Offset="0.5" />
+					<GradientStop Color="#fdd76f" 
+                                Offset="1" />
+				</LinearGradientBrush>
+			</Setter.Value>
+		</Setter>
 	</Style>
 </ResourceDictionary>
