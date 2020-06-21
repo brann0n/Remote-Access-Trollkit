@@ -42,7 +42,7 @@ namespace Trollkit_Library.ClientModules
 		public ICommand RemoveVirus { get { return new SendServerCommand(RemoveVirusFromClient); } }
 
 		public string CMDBuffer { get; set; }
-		public string ScreenshotString { get; set; }
+		public ScreenshotModel Screenshot { get; set; }
 
 		public List<ScreenTypeModel> ScreenList { get { return screenList; } }
 		public ScreenTypeModel SelectedScreen { get; set; }
@@ -74,10 +74,10 @@ namespace Trollkit_Library.ClientModules
 		/// Function that sets the current screenshot base64 string.
 		/// </summary>
 		/// <param name="base64Image"></param>
-		public void SetScreenshot(string base64Image)
+		public void SetScreenshot(ScreenshotModel model)
 		{
-			ScreenshotString = base64Image;
-			NotifyPropertyChanged("ScreenshotString");
+			Screenshot = model;
+			NotifyPropertyChanged("Screenshot");
 		}
 
 		/// <summary>

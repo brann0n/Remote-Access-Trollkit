@@ -120,19 +120,20 @@ namespace Trollkit_Library.ViewModels.Commands
 		{
 			try
 			{
-				byte[] bytes = Convert.FromBase64String(_server.SelectedClient.ScreenshotString);
+				byte[] bytes = Convert.FromBase64String(_server.SelectedClient.Screenshot.ScreenshotData);
 
 				string imagePath = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures) + "\\TrollKit";
 				Directory.CreateDirectory(imagePath);
-				string fileName = "Screenshot_" + DateTime.Now.ToString("dd.MM.yyyy_HH.mm.ss");
+				string fileName = "Screenshot_" + _server.SelectedClient.Screenshot.Timestamp.ToString("dd.MM.yyyy_HH.mm.ss");
 				string filePath = imagePath + "\\" + fileName + ".png";
-				File.WriteAllBytes(filePath, bytes);
+				if (!File.Exists(filePath))
+				{
+					File.WriteAllBytes(filePath, bytes);
+				}
 
-				string path = Environment.GetFolderPath(
-					Environment.SpecialFolder.ProgramFiles);
+				string path = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles);
 
-				var psi = new ProcessStartInfo(
-					"rundll32.exe",
+				ProcessStartInfo psi = new ProcessStartInfo("rundll32.exe",
 					String.Format(
 						"\"{0}{1}\", ImageView_Fullscreen {2}",
 						Environment.Is64BitOperatingSystem ?
@@ -145,7 +146,7 @@ namespace Trollkit_Library.ViewModels.Commands
 
 				psi.UseShellExecute = false;
 
-				var viewer = Process.Start(psi);
+				Process.Start(psi);
 			}
 			catch (Exception e)
 			{

