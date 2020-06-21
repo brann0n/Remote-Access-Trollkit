@@ -36,6 +36,7 @@ namespace Trollkit_Client
 						}
 						BConsole.WriteLine("Connection closed. Program halted.", ConsoleColor.Red);
 						Thread.Sleep(4000);
+						Environment.Exit(0);
 						return;
 					});
 

@@ -345,7 +345,10 @@ namespace Trollkit_Library.ServerModules
 			}
 			catch
 			{
-				BConsole.WriteLine($"Socket for {client.GetName()} not found", ConsoleColor.Red);
+				if(client != null)
+				{
+					BConsole.WriteLine($"Socket for {client.GetName()} not found", ConsoleColor.Red);
+				}
 				return null;
 			}
 		}
