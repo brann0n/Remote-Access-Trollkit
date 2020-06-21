@@ -1,10 +1,24 @@
 # Remote-Access-Trollkit
-Development project voor het vak C# 2 van de 4e periode in jaar 2
+This is the git repo for the trollkit application developed for C# 2 at NHL Stenden.
 
-## What is the trollkit?
-This is a remote access tool with wich you can make another pc do "funny" actions.
-The trollkit consists of a host(the pc who issues the commands) and a client(the pc who executes the commands).
-The client can be installed as a .exe file on the target pc.
+## What we build
+This is a remote access tool with wich you can make another pc do "funny" actions.  
+The trollkit consists of a host (the pc that issues the commands) and a client(the pc that executes the commands).  
+
+## How to use
+After compiling the project in Visual Studio 2019 you will end up with 2 .exe's and one .dll in the projects \bin\Debug folders.
+You do not need to copy the dll anywhere, this is linked inside both executables at compile time.  
+For this to work your target machine and host machine need to be in the same LAN.
+#### Client installation
+Now to start using the application you need to get the client executable on a pc you want to troll, the way you do this is completely up to you. 
+Once you run the application you will notice that the executable disappears, this happens because the client copy's itself into a random directory in the %USERPROFILE% folder. The application has also placed itself in the TaskScheduler with a task that runs everytime at user login. When this happens the application is moved again to a different location.
+#### Server installation
+To get the host application running all you need to do is run the executable, the application takes care of the rest.  
+The clients on your LAN will find the host application through a broadcast message over the broadcast address of your router.  
+Once a handshake is established the client will send a connection request to port 6969 of the host.  
+And then the client will appear in the connected client list.
+
+See below for a detailed list of all the possible actions the trollkit can perform
 
 ## Fixed values
 
@@ -20,6 +34,8 @@ private void Receiver_OnDataReceived(TransferCommandObject Object)
 ```
 
 ### Pipeline handler Commands
+In order to send request between host and client we used a fixed set of commands and handlers.
+Each of the handlers listed below can send or receive data based on their given commands.
 
 #### TaskHandler (client)
 Command | Value | Description
@@ -48,7 +64,7 @@ ShowImage | client | Command | "base64Image" | Shows an image on the clients scr
 OpenSite | client | Command | "url" | Opens a website on the users screen
 SetBackground | client | Command | "base64Image" | Sets the provided image as the users background (also disables wallpaper engine)
 MakeScreenshot | client | Command | "monitorNumber" | Tells the client to make a screenshot and then send it back.
-ScreenshotResponse | server | Response | "base64String" | Contains the base64 string for the screenshot.
+ScreenshotResponse | server | Response | "json object" | Contains the base64 string for the screenshot.
 
 #### WindowsHandler (client)
 Command | Value | Description
@@ -77,13 +93,13 @@ ProfilePicture | server | Data | "base64String" | Gets the base64 of the users p
 RAM | server | Data | "RAM" | Gets the ram thats available in the system
 WindowsVersion | server | Data | "Windows Version" | Gets the clients Windows Version
 GPU | server | Data | "GPU name string" | Description of the gpu
-Monitors | server | Data | "monitor list" | Comma seperated list of monitors
+Monitors | server | Data | "json object" | json object containg monitor id and monitor name.
 
 ### Data headers
 In order to keep perfect track of data that is being sent and data that is received we thought of a clever way to devide the byte streams.  
 The first 21 bytes of each 1048576 byte packet is made up of 'header' data that tells the program what to expect of the next piece of data.
 
-guidelines for the received data are:
+The guidelines for received data are:
 
 first byte is for a type check:
 ```
