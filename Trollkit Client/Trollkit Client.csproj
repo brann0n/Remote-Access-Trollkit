@@ -77,7 +77,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagramClient.cd" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Trollkit_Client.Modules.CommandHandlers.AudioHandler" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIASAAAAAIAIAEAAAAAAAAQAAAgCAAACCAwAEAEg=</HashCode>
+      <FileName>Modules\CommandHandlers\AudioHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Trollkit_Client.Modules.CommandHandlers.CMDHandler" Collapsed="true">
+    <Position X="5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAACAAAAAAAEAgAAAAAAAAAAAAAgACQAEAAAAEAAAA=</HashCode>
+      <FileName>Modules\CommandHandlers\CMDHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Trollkit_Client.Modules.CommandHandlers.SystemInfoHandler" Collapsed="true">
+    <Position X="9.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAMAAAAAAAAAAAAAAAAAAAAAAACCAEAEACAAAAA=</HashCode>
+      <FileName>Modules\CommandHandlers\SystemInfoHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Trollkit_Client.Modules.CommandHandlers.TaskHandler" Collapsed="true">
+    <Position X="11.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAA=</HashCode>
+      <FileName>Modules\CommandHandlers\TaskHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Trollkit_Client.Modules.CommandHandlers.VisualsHandler" Collapsed="true">
+    <Position X="2.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAIAAAAAACAAAIIAAgBGAACAAAAAAAAAAAA=</HashCode>
+      <FileName>Modules\CommandHandlers\VisualsHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Trollkit_Client.Modules.CommandHandlers.WindowsHandler" Collapsed="true">
+    <Position X="7.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAIAAAAAAAAAAAAAACAACAAAQACAAA=</HashCode>
+      <FileName>Modules\CommandHandlers\WindowsHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Trollkit_Client.Modules.ICommandHandler" Collapsed="true">
+    <Position X="6" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAIAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAQBAAAA=</HashCode>
+      <FileName>Modules\ICommandHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Trollkit_Client.Modules.TaskSchedulerHelper" Collapsed="true">
+    <Position X="14.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>KAABAAACAAAAAAAAAAAAAAAAgBAAAABCBAAAAAAAAAA=</HashCode>
+      <FileName>Modules\TaskSchedulerHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Trollkit_Client.Modules.Virus" Collapsed="true">
+    <Position X="16" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAABgAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>Modules\Virus.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Trollkit_Client.Program" Collapsed="true">
+    <Position X="14.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAABQBAAABAABAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Trollkit_Client.Properties.Resources" Collapsed="true">
+    <Position X="16" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABFAIAIQACAAAAAAAAAIAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
