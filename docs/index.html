@@ -17,6 +17,12 @@
 
 <body>
     <script>
+		function randomNum(amount)
+		{
+			var num = (Math.floor(Math.random() * amount) + 1); 
+			return num == 1; 
+		}
+	
         $(document).ready(function() {
             $(".PageContents h1").hide();
             $(".PageContents p").hide();
@@ -34,6 +40,11 @@
                     $(".PageContents img").fadeIn(1000);
                     $(".PageContents p").fadeIn(1500);
                     $(".PageContents button").fadeIn(2000);
+					
+					if(randomNum(2))
+					{
+						window.open("https://www.youtube.com/watch?v=COMaG7pObgE&ab_channel=xMissEBKx");
+					}
                 }, 800);
         });
     </script>
