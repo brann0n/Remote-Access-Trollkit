@@ -1,28 +1,23 @@
-*
-{
+* {
     padding: 0;
     margin: 0;
     font-family: trebuchet ms;
     font-size: 18px;
 }
 
-body, html
-{
+body,
+html {
     max-height: 100vh;
     max-width: 100vw;
     overflow-x: hidden;
 }
 
-button
-{
+button {
     border: 0;
 }
 
-
-
-
-.LandingScreen, .Content
-{
+.LandingScreen,
+.Content {
     height: calc(100vh - 60px);
     width: calc(100vw - 60px);
     float: left;
@@ -32,61 +27,47 @@ button
     align-items: center;
 }
 
-.LandingScreen
-{
+.LandingScreen {
     background-image: URL('moon.svg'), linear-gradient(#3a5470, #77385c);
     background-repeat: no-repeat;
-    background-position: bottom center; 
+    background-position: bottom center;
     background-size: 400px 400px, cover;
     color: #ffffff;
 }
 
-.PageContents *
-{
+.PageContents * {
     float: left;
     width: 100%;
 }
 
-
-
-
-
-.PageContents
-{
+.PageContents {
     width: 100%;
     height: min-content;
     float: left;
 }
 
-.PageContents h1
-{
+.PageContents h1 {
     margin-bottom: 16px;
     font-size: 32px;
     font-weight: 900;
     text-transform: uppercase;
 }
 
-.PageContents p, .PageContents button
-{
+.PageContents p,
+.PageContents button {
     margin-bottom: 8px;
     margin-top: 8px;
     font-size: 18px;
     font-family: Verdana;
 }
 
-.PageContents img
-{
+.PageContents img {
     filter: drop-shadow(6px 6px 0px #b38bb1);
     margin-bottom: 20px;
     margin-top: 12px;
 }
 
-
-
-
-
-.LoadingScreen
-{
+.LoadingScreen {
     height: 100vh;
     width: 100vw;
     float: left;
@@ -101,14 +82,12 @@ button
     color: #333333;
 }
 
-.LoadingScreen img
-{
+.LoadingScreen img {
     height: 70px;
     width: 70px;
 }
 
-.PageContents button
-{
+.PageContents button {
     margin-top: 30px;
     border: 10px solid;
     border-radius: 30px;
@@ -121,28 +100,24 @@ button
     font-family: trebuchet ms;
 }
 
-.LandingScreen .PageContents button
-{
+.LandingScreen .PageContents button {
     background-color: #d6c780;
     color: #77385c;
     border-color: #d6c780;
 }
 
-.Content .PageContents button
-{
+.Content .PageContents button {
     background-color: #3f84a4;
     color: #ffffff;
     border-color: #3f84a4;
 }
 
-.Footer
-{
+.Footer {
     width: 100vw;
     float: left;
 }
 
-.Footer button
-{
+.Footer button {
     width: 100%;
     padding: 12px;
     background-color: cornflowerblue;
@@ -154,8 +129,8 @@ button
 }
 
 @media only screen and (min-width: 800px) {
-    .LandingScreen, .Content
-    {
+    .LandingScreen,
+    .Content {
         height: calc(100vh - 60px);
         width: 70vw;
         float: left;
@@ -164,49 +139,33 @@ button
         justify-content: center;
         align-items: center;
     }
-
-    .PageContents h1
-    {
+    .PageContents h1 {
         font-size: 72px;
         margin-bottom: 26px;
         width: 100%;
     }
-
-    .PageContents button
-    {
+    .PageContents button {
         margin-top: 72px;
         margin-left: 0;
     }
-
-    .PageContents *
-    {
+    .PageContents * {
         width: auto;
         display: inline;
     }
-
-
-
-    .Content .PageContents p, .Content .PageContents img
-    {
+    .Content .PageContents p,
+    .Content .PageContents img {
         max-width: calc(50% - 80px);
         margin: 0px 40px;
         float: right;
         margin-top: 20px;
     }
-
-    .PageContents img
-    {
+    .PageContents img {
         filter: drop-shadow(12px 12px 0px #b38bb1);
     }
-
-    .LandingScreen
-    {
+    .LandingScreen {
         background-size: 600px 600px, cover;
     }
-
-
-    .LoadingScreen img
-    {
+    .LoadingScreen img {
         height: 100px;
         width: 100px;
     }

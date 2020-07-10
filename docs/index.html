@@ -1,22 +1,92 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <title>Trollkit by INF2C</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="content/style.css">
+    <title>Trollkit</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Remote Access Trollkit" property="og:title">
+    <meta content="The trollkit is used to prank someone remotely" property="og:description">
+    <meta content="Trollkit " property="og:site_name">
+    <meta content='content/Trollkit_Icon.svg' property='og:image'>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="content/style.css" type="text/css">
+    <link rel="icon" href="favicon.ico">
 </head>
 
 <body>
-    <div class="wrapper">
-        <div class="name">Trollkit</div>
-        <div>
-            <p>Welkom op de website voor de trollkit, hier komt straks meer info over de trollkit te staan.</p>
-        </div>
-        <div>
+    <script>
+        $(document).ready(function() {
+            $(".PageContents h1").hide();
+            $(".PageContents p").hide();
+            $(".PageContents button").hide();
+            $(".PageContents img").hide();
 
+            setTimeout(
+                function() {
+                    $(".LoadingScreen").fadeOut(1000);
+                }, 100);
+
+            setTimeout(
+                function() {
+                    $(".PageContents h1").fadeIn(500);
+                    $(".PageContents img").fadeIn(1000);
+                    $(".PageContents p").fadeIn(1500);
+                    $(".PageContents button").fadeIn(2000);
+                }, 800);
+        });
+    </script>
+    <div class="LoadingScreen">
+        <img src='content/Trollkit_Icon.svg' alt='laden..'>
+    </div>
+    <div class="LandingScreen">
+        <div class="PageContents">
+            <h1> Remote Access Trollkit </h1>
+            <p>
+                This tool grants you access to another pc and lets you perform (harmless) actions.
+            </p>
+            <p>
+                With its vaporwave design and being powered by the Windows Presentation Foundation, this application is a piece of art.
+            </p>
+            <button class="ScrollButton" data-scrollElem=".Content">
+                Discover Trollkit
+            </button>
         </div>
     </div>
+    <div class="Content">
+        <div class="PageContents">
+            <h1>How was it designed?</h1>
+            <img src="content/trollkit.png">
+            <p>
+                For the design we used a software architectural pattern known as MVVM (Model-View-ViewModel). This technique seperates the GUI from the back-end logic. The viewmodel is responsible for exposing data from the back-end into the GUI.
+            </p>
+        </div>
+    </div>
+    <div class="Content">
+        <div class="PageContents">
+            <h1>Virus Behaviour</h1>
+            <p>
+                For the client application we implemented virus like behaviour. What this means is that upon first start of the application the executable is moved to a random location inside your user directory. After it is moved there a task is created in the Windows
+                TaskScheduler. This task will run at user login. Upon running of this task te executable is moved once again.
+            </p>
+            <img src="content/sourceCodeTrollkit.png">
+        </div>
+    </div>
+    <div class="Footer">
+        <button class="ScrollButton" data-scrollElem=".LandingScreen">
+                Terug naar boven
+            </button>
+    </div>
+    <script>
+        $(".ScrollButton").on("click", function() {
+            var elem = $(this).attr("data-scrollElem");
+
+            $([document.documentElement, document.body]).animate({
+                scrollTop: $(elem).offset().top
+            }, 500);
+        });
+    </script>
 </body>
 
 </html>

